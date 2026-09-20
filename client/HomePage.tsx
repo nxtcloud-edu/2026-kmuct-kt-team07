@@ -27,8 +27,7 @@ export default function HomePage({
   return (
     <section className="home" aria-labelledby="page-title">
       <h1 id="page-title" tabIndex={-1}>
-        부품은 딱, <br />
-        팀워크는 착!
+        딱 맞는 부품부터
       </h1>
       <p className="home-lead">
         제품 이름이나 사진만 알려 주세요.
