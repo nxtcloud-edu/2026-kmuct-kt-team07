@@ -15,6 +15,8 @@ export type RecordResult = {
   answers: Record<string, string>;
   feedback: unknown[];
   candidates: Product[];
+  /** The product the AI recognised in the photo. Not limited to the catalog. */
+  identified: IdentifiedProduct | null;
   photoHints?: {
     products: Product[];
     description: string;
@@ -23,8 +25,16 @@ export type RecordResult = {
     best: string | null;
     /** What the photo looks like in searchable words, e.g. "LG 에어로타워". */
     guess: string;
+    identified: IdentifiedProduct | null;
   };
   paths: PathsResult;
+};
+export type IdentifiedProduct = {
+  brand: string;
+  modelName: string;
+  productName: string;
+  confidence: "high" | "medium" | "low";
+  basis: "label_text" | "design_only" | "both";
 };
 export type PartCard = PathsResult["cards"][number];
 export type Photo = {

@@ -1,0 +1,62 @@
+{
+  "release": "release-journey-20260920-2",
+  "commit": "6821439",
+  "verifiedAt": "2026-09-20",
+  "publicUrl": "https://18.208.163.160",
+  "buildMode": "server",
+  "buildModeReason": "로컬 Docker 엔진이 맥 디스크 부족(228GB 중 13GB 여유, 94% 사용)으로 API 500을 반환해 사용할 수 없었다. deploy/redeploy.sh의 BUILD_ON=server 경로로 커밋된 HEAD를 서버에 전송해 빌드했다.",
+  "previousImage": "parts-finder:release-design-v3-amd64-20260920",
+  "checks": {
+    "health": {
+      "pass": true,
+      "response": { "ok": true, "photoAnalysisAvailable": true }
+    },
+    "bundleMatchesBuild": {
+      "pass": true,
+      "live": "/assets/index-BnWT4lyW.js",
+      "localBuild": "/assets/index-BnWT4lyW.js"
+    },
+    "httpsRedirect": { "pass": true, "status": 308 },
+    "tls": {
+      "pass": true,
+      "trustedChain": true,
+      "notAfter": "2026-09-26T21:17:55Z"
+    },
+    "catalogApi": {
+      "pass": true,
+      "requiresSession": true,
+      "unauthenticatedStatus": 401,
+      "counts": { "products": 470, "groups": 15, "parts": 134, "brands": 22 },
+      "categories": 25,
+      "productGroups": 16,
+      "productsWithPhoto": 414
+    },
+    "productImageServing": {
+      "pass": true,
+      "sample": "/product-images/nalgene-16.webp",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 4766
+    },
+    "container": {
+      "pass": true,
+      "image": "parts-finder:release-journey-20260920-2",
+      "status": "running",
+      "health": "healthy",
+      "restartPolicy": "unless-stopped",
+      "volume": "ddakpum-data",
+      "memoryLimitBytes": 805306368
+    },
+    "serverHeadroom": {
+      "diskUsedPercent": 22,
+      "diskAvailable": "24G",
+      "memoryTotalMb": 1913,
+      "memoryAvailableMb": 1201
+    }
+  },
+  "notMeasured": [
+    "전체 제품 인식 정확도. 사진 분석은 연결 동작만 확인했다.",
+    "실제 인증서 자동 갱신 주기의 실행. 설정과 만료일만 확인했다.",
+    "이번 릴리스에서 사진이 없는 제품 56개(470개 중)의 화면 표시."
+  ]
+}

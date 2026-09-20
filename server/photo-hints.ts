@@ -9,6 +9,8 @@ import { normalizeModel } from "../src/catalog.js";
 import { brandAliases, capacityKey } from "../shared/product-identity.js";
 import { kindsIn, productKind } from "../shared/product-kind.js";
 
+type Identified = NonNullable<Observation["identifiedProduct"]>;
+
 const empty = {
   products: [] as Product[],
   description: "",
@@ -16,6 +18,7 @@ const empty = {
   kinds: [] as string[],
   best: null as string | null,
   guess: "",
+  identified: null as Identified | null,
 };
 
 const catalogBrand = (text: string) =>
@@ -41,11 +44,17 @@ const seriesWords = (product: Product) =>
     .filter((w) => w.key.length >= 3 && !commonSeriesWords.has(w.key));
 
 /**
- * Photo-based recommendations. A model code read from a label is handled
- * elsewhere and is the only thing that identifies a product; everything here is
- * a recommendation the user confirms. The catalog is ordered by how many clues it
- * shares with the photo: part of a code, a brand read from the label, the product
- * type, and the observer's guesses from design alone (brand, series, shape).
+ * What the photo shows. Two separate things come back.
+ *
+ * `identified` is the observer's answer to "what is this?" — the real product,
+ * named from its own knowledge. It is the point of uploading a photo, and it is
+ * not restricted to the catalog, because the thing in someone's hand usually
+ * is not in it.
+ *
+ * `products` links that photo to registered products, and only text actually
+ * read off the label may do so: part of a model code, or a brand and capacity
+ * together. Design guesses and a shared product type used to pull products in
+ * as well, which is how a photo of any tumbler returned eight unrelated ones.
  * Compatibility still comes only from sourced evidence.
  */
 export function photoHints(
@@ -132,6 +141,18 @@ export function photoHints(
             .map((part) => part.partId),
         )
       : undefined;
+  const identified = observation.identifiedProduct ?? null;
+  // What the photo looks like, in words a person can search for. Useful even
+  // when nothing is recommended, so it is worked out before the early return.
+  const guess = [
+    visual?.suspectedBrands[0] ?? softBrand,
+    visual?.productFamilyHints[0] ?? kinds[0] ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  // Only what was read off the label may pull registered products in.
+  const fromLabel = fragments.length > 0 || Boolean(brand && capacity);
+  if (!fromLabel) return { ...empty, kinds, identified, guess };
   const ranked = products
     .flatMap((p) => {
       if (brand && p.brand !== brand) return [];
@@ -208,19 +229,15 @@ export function photoHints(
         b.score - a.score ||
         Number(Boolean(b.product.image)) - Number(Boolean(a.product.image)),
     );
-  // A doubtful logo or a capacity alone says too little to recommend anything.
-  const grounded =
-    Boolean(brand) ||
-    kinds.length > 0 ||
-    fragments.length > 0 ||
-    lookBrands.length > 0 ||
-    ranked.some((x) => x.family);
-  if (!ranked.length || !grounded) return empty;
-  // A clear brand or part of a code names a finite set worth showing in full.
-  // Anything weaker can cover a hundred models: show the best few instead.
-  const narrowed = Boolean(brand) || ranked[0]!.read;
-  const suggestions = narrowed ? ranked : spreadByBrand(ranked).slice(0, 8);
+  if (!ranked.length) return { ...empty, kinds, identified, guess };
+  // Even a brand read off the label covers every model that brand makes, so the
+  // list is always capped: a wall of near-identical variants is not an answer.
+  const suggestions = (ranked[0]!.read ? ranked : spreadByBrand(ranked)).slice(
+    0,
+    8,
+  );
   return {
+    identified,
     products: suggestions.map((x) => x.product),
     reasons: Object.fromEntries(
       suggestions.map((x) => [x.product.variantId, x.reasons]),
@@ -231,17 +248,14 @@ export function photoHints(
       ranked[0]!.score > (ranked[1]?.score ?? -1)
         ? ranked[0]!.product.variantId
         : null,
-    // What the photo looks like, in words a person can search for.
-    guess: [
-      visual?.suspectedBrands[0] ?? softBrand,
-      visual?.productFamilyHints[0] ?? kinds[0] ?? "",
+    guess,
+    description: `사진의 라벨에서 읽은 ${[
+      fragments[0]?.text && `“${fragments[0].text}”`,
+      brand,
+      capacity,
     ]
       .filter(Boolean)
-      .join(" "),
-    description:
-      kinds.length || fragments.length || lookBrands.length
-        ? "사진에서 보이는 제품 종류·글자·디자인으로 추정한 추천 후보예요. 모델이 확인된 것은 아니므로 사진·제품 정보를 비교해 선택해 주세요."
-        : `사진에서 읽힌 ${brand}${capacity ? ` · ${capacity}` : ""} 기준의 참고 후보입니다. 모델이 확인된 것은 아니므로 제품명과 형태를 직접 대조하세요.`,
+      .join(" · ")} 글자와 맞는 등록 제품이에요. 모델이 확인된 것은 아니므로 제품명을 직접 대조해 주세요.`,
   };
 }
 
@@ -255,10 +269,13 @@ function spreadByBrand<T extends { product: Product; score: number }>(
       ...(byBrand.get(item.product.brand) ?? []),
       item,
     ]);
-  const buckets = [...byBrand.values()];
+  // Strongest brand first, then one product each in turn. Sorting by score
+  // again at the end would undo the spreading, which is what used to happen.
+  const buckets = [...byBrand.values()].sort(
+    (a, b) => (b[0]?.score ?? 0) - (a[0]?.score ?? 0),
+  );
   const result: T[] = [];
   for (let i = 0; buckets.some((b) => i < b.length); i++)
     for (const bucket of buckets) if (bucket[i]) result.push(bucket[i]!);
-  // Keep the strongest clue first even after spreading.
-  return result.sort((a, b) => b.score - a.score);
+  return result;
 }

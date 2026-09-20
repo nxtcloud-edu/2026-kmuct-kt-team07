@@ -82,7 +82,10 @@ test("search suggestions put the typed model first and survive a missing part ty
   assert.equal(fallback[0]?.variantId, "samsung-ax34a5310wwd");
 });
 
-test("an unlabeled appliance photo yields only explicit estimates, never exact identity", () => {
+test("a photo with no label text no longer pulls look-alikes from the catalog", () => {
+  // Recognising "this is an air purifier" used to be enough to list eight of
+  // them. It named products the user had never photographed, so it now lists
+  // none: the answer to "what is this?" comes from `identified` instead.
   const observation = observe([
     { key: "product_type", value: "공기청정기", imageId: "full" },
     { key: "appearance", value: "원통형 몸체", imageId: "full" },
@@ -91,39 +94,30 @@ test("an unlabeled appliance photo yields only explicit estimates, never exact i
     category: "filter",
     catalog,
   });
-  assert.ok(hints.products.length > 0 && hints.products.length <= 8);
-  assert.ok(hints.products.every((p) => productKind(p).kind === "공기청정기"));
-  // A product type alone spans brands: the shortlist must not be one family.
-  assert.ok(new Set(hints.products.map((p) => p.brand)).size > 1);
-  assert.match(hints.description, /추정/);
-  assert.match(hints.description, /모델이 확인된 것은 아니/);
+  assert.deepEqual(hints.products, []);
+  assert.equal(hints.best, null);
+  assert.deepEqual(hints.kinds, ["공기청정기"]);
   assert.deepEqual(observation.extractedTexts, []);
-  assert.equal(
-    photoHints(
-      observe([{ key: "appearance", value: "흰색", imageId: "full" }]),
-      catalog.products,
-    ).products.length,
-    0,
+  // What the observer recognised travels with the photo, catalog or not.
+  const recognised = photoHints(
+    {
+      ...observation,
+      identifiedProduct: {
+        brand: "발뮤다",
+        modelName: "EJT-1100",
+        productName: "발뮤다 더 퓨어 공기청정기",
+        confidence: "medium",
+        basis: "design_only",
+      },
+    },
+    catalog.products,
+    { category: "filter", catalog },
   );
+  assert.deepEqual(recognised.products, []);
+  assert.equal(recognised.identified?.modelName, "EJT-1100");
 });
 
-test("a brand logo or a cropped code moves the likeliest product to the top", () => {
-  const branded = photoHints(
-    observe(
-      [{ key: "product_type", value: "공기청정기", imageId: "full" }],
-      [
-        {
-          text: "SAMSUNG",
-          imageId: "full",
-          role: "brand",
-          legibility: "clear",
-        },
-      ],
-    ),
-    catalog.products,
-  );
-  assert.ok(branded.products.length > 0);
-  assert.ok(branded.products.every((p) => p.brand === "삼성"));
+test("part of a model code still finds the registered product", () => {
   const cropped = photoHints(
     observe(
       [{ key: "product_type", value: "공기청정기", imageId: "label" }],
@@ -140,6 +134,7 @@ test("a brand logo or a cropped code moves the likeliest product to the top", ()
   );
   assert.equal(cropped.products[0]?.variantId, "samsung-ax34a5310wwd");
   assert.match(cropped.reasons["samsung-ax34a5310wwd"]!.join(" "), /AX34A53/);
+  assert.match(cropped.description, /라벨에서 읽은/);
   // Too short to mean anything: three characters match hundreds of codes.
   assert.equal(
     photoHints(
@@ -151,9 +146,48 @@ test("a brand logo or a cropped code moves the likeliest product to the top", ()
     ).products.length,
     0,
   );
+  // A brand read off the label covers every model that brand makes.
+  const brandOnly = photoHints(
+    observe(
+      [{ key: "product_type", value: "공기청정기", imageId: "full" }],
+      [
+        {
+          text: "SAMSUNG",
+          imageId: "full",
+          role: "brand",
+          legibility: "clear",
+        },
+      ],
+    ),
+    catalog.products,
+  );
+  assert.deepEqual(brandOnly.products, []);
+  // A brand and a capacity together do name a handful, and stay capped.
+  const sized = photoHints(
+    observe(
+      [{ key: "product_type", value: "물병", imageId: "label" }],
+      [
+        {
+          text: "Nalgene",
+          imageId: "label",
+          role: "brand",
+          legibility: "clear",
+        },
+        {
+          text: "32oz",
+          imageId: "label",
+          role: "capacity",
+          legibility: "clear",
+        },
+      ],
+    ),
+    catalog.products,
+  );
+  assert.ok(sized.products.length > 0 && sized.products.length <= 8);
+  assert.ok(sized.products.every((p) => p.brand === "Nalgene"));
 });
 
-test("a logo read with doubt orders the shortlist but never claims the brand", () => {
+test("a logo read with doubt never pulls products in on its own", () => {
   const hints = photoHints(
     observe(
       [{ key: "product_type", value: "공기청정기", imageId: "full" }],
@@ -162,13 +196,7 @@ test("a logo read with doubt orders the shortlist but never claims the brand", (
     catalog.products,
     { category: "filter", catalog },
   );
-  assert.ok(hints.products.length > 0 && hints.products.length <= 8);
-  assert.equal(hints.products[0]!.brand, "LG");
-  assert.match(
-    hints.reasons[hints.products[0]!.variantId]!.join(" "),
-    /로 보이는 로고/,
-  );
-  // The same doubtful logo with nothing else visible is not enough to suggest.
+  assert.deepEqual(hints.products, []);
   assert.equal(
     photoHints(
       observe(
@@ -237,8 +265,10 @@ test("a typed model code followed by a part word identifies the product and the 
   }
 });
 
-test("design alone recommends the look-alike series without identifying a model", () => {
-  // No text was read and no product type recorded: only the observer's guesses.
+test("design guesses describe the photo but never recommend a product", () => {
+  // The observer's guesses from design alone used to rank the catalog. A guess
+  // of "LG 에어로타워" then listed LG towers whether or not that is what the
+  // user photographed, which is the behaviour this test now forbids.
   const observation: Observation = {
     ...observe([]),
     visualHints: {
@@ -251,58 +281,44 @@ test("design alone recommends the look-alike series without identifying a model"
     category: "filter",
     catalog,
   });
-  assert.ok(hints.products.length > 0 && hints.products.length <= 8);
-  assert.ok(hints.products.every((p) => p.brand === "LG"));
-  assert.match(hints.products[0]!.series ?? "", /에어로타워/);
-  assert.match(
-    hints.reasons[hints.products[0]!.variantId]!.join(" "),
-    /계열과 비슷한 디자인/,
-  );
+  assert.deepEqual(hints.products, []);
+  assert.equal(hints.best, null);
+  // The words still help the user search for their own product.
   assert.equal(hints.guess, "LG 에어로타워");
-  assert.match(hints.description, /모델이 확인된 것은 아니/);
-  // Recommended, never confirmed: the exact-match path stays empty.
+  // A guess is not an identification: the exact-match path stays empty.
   assert.equal(
     matchCatalogModels(observation, catalog.products).candidates.length,
     0,
   );
-  // A brand the catalog does not carry still yields the product type shortlist.
-  const unknownBrand = photoHints(
-    {
-      ...observe([]),
-      visualHints: {
-        suspectedBrands: ["샤오미"],
-        productFamilyHints: ["공기청정기"],
-        appearance: ["흰색 원통형"],
-      },
-    },
-    catalog.products,
-  );
-  assert.ok(unknownBrand.products.length > 0);
-  assert.ok(new Set(unknownBrand.products.map((p) => p.brand)).size > 1);
-  assert.equal(unknownBrand.guess, "샤오미 공기청정기");
-  // Guesses never override what a label says: a clear brand still filters.
+  // A clear brand plus a capacity is read text, so it still narrows.
   const labelled = photoHints(
     {
       ...observe(
-        [{ key: "product_type", value: "공기청정기", imageId: "full" }],
+        [{ key: "product_type", value: "물병", imageId: "label" }],
         [
           {
-            text: "SAMSUNG",
-            imageId: "full",
+            text: "Nalgene",
+            imageId: "label",
             role: "brand",
+            legibility: "clear",
+          },
+          {
+            text: "32oz",
+            imageId: "label",
+            role: "capacity",
             legibility: "clear",
           },
         ],
       ),
       visualHints: {
-        suspectedBrands: ["LG"],
-        productFamilyHints: ["에어로타워"],
+        suspectedBrands: ["Hydro Flask"],
+        productFamilyHints: [],
         appearance: [],
       },
     },
     catalog.products,
   );
-  assert.ok(labelled.products.every((p) => p.brand === "삼성"));
+  assert.ok(labelled.products.every((p) => p.brand === "Nalgene"));
 });
 
 test("guesses are validated, tidied and optional in stored observations", () => {

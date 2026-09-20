@@ -149,26 +149,35 @@ export function createApp({
         : [];
     // "AX34A5310WWD 필터" names the model; the part word is not part of its code.
     const typedModel = normalizeModel(searchIntent(record.query).productQuery);
+    const observed =
+      record.analysis && "observation" in record.analysis
+        ? record.analysis.observation
+        : undefined;
+    // The observer named the product in the photo. When that model happens to be
+    // registered, it is the same product the user is holding, so treat it like a
+    // model read off the label rather than searching the catalog for lookalikes.
+    const identifiedModel = normalizeModel(
+      observed?.identifiedProduct?.modelName ?? "",
+    );
     const candidates = catalog.products.filter(
       (p) =>
         suggested.includes(p.variantId) ||
-        (typedModel &&
-          [p.modelName, ...p.aliases].some(
-            (a) => normalizeModel(a) === typedModel,
-          )),
+        ((typedModel || identifiedModel) &&
+          [p.modelName, ...p.aliases].some((a) => {
+            const name = normalizeModel(a);
+            return name === typedModel || name === identifiedModel;
+          })),
     );
     return {
       ...safe,
       candidates,
       photoHints: photoHints(
-        candidates.length === 0 &&
-          record.analysis &&
-          "observation" in record.analysis
-          ? record.analysis.observation
-          : undefined,
+        candidates.length === 0 ? observed : undefined,
         catalog.products,
         { group: record.group, category: record.category, catalog },
       ),
+      // What the photo shows, whether or not it is a registered product.
+      identified: observed?.identifiedProduct ?? null,
       paths: resolvePaths(
         catalog,
         record.selectedVariantId,

@@ -10,6 +10,8 @@
 # DEPLOY_KEY   private key path          (default .data/deploy/ddakpum-aws-key.pem)
 # PUBLIC_URL   address checked at the end (default https://<host part of DEPLOY_HOST>)
 # SKIP_CHECK=1 skips `npm run check` when it has just been run.
+# BUILD_ON=server builds the image on the host from the committed tree (HEAD)
+#              instead of locally; use it when the local Docker engine is down.
 set -euo pipefail
 
 TAG="${1:?사용법: deploy/redeploy.sh <release-tag> (같은 태그를 재사용하지 않습니다)}"
@@ -18,13 +20,26 @@ KEY="${DEPLOY_KEY:-.data/deploy/ddakpum-aws-key.pem}"
 PUBLIC_URL="${PUBLIC_URL:-https://${HOST#*@}}"
 IMAGE="parts-finder:${TAG}"
 REMOTE_DIR="/home/ec2-user/ddakpum"
-SSH=(ssh -i "$KEY" -o BatchMode=yes -o ConnectTimeout=15 "$HOST")
+SSH=(ssh -i "$KEY" -o BatchMode=yes -o ConnectTimeout=15 -o ServerAliveInterval=15 "$HOST")
 
 cd "$(dirname "$0")/.."
 [ -f "$KEY" ] || { echo "개인 키가 없습니다: $KEY" >&2; exit 1; }
 
+# The admin network alternates egress addresses and only one is allowed in the
+# security group, so a connection can time out and succeed on the next try.
+remote() {
+  local attempt
+  for attempt in 1 2 3 4 5 6; do
+    "${SSH[@]}" "$@" && return 0
+    [ $? -eq 255 ] || return 1
+    echo "  SSH 재시도 $attempt/6" >&2
+    sleep 5
+  done
+  return 255
+}
+
 echo "== 1/5 서버 접속 확인"
-if ! "${SSH[@]}" "test -f $REMOTE_DIR/.env.production && sudo docker inspect ddakpum-app >/dev/null"; then
+if ! remote "test -f $REMOTE_DIR/.env.production && sudo docker inspect ddakpum-app >/dev/null"; then
   cat >&2 <<'EOF'
 서버에 접속하지 못했거나 기존 배포를 찾지 못했습니다.
 SSH는 보안 그룹에서 관리자 공인 IP /32만 허용합니다. 네트워크가 바뀌었다면
@@ -32,7 +47,7 @@ docs/aws-deployment-status.md의 안내대로 22번 규칙의 /32만 현재 IP�
 EOF
   exit 1
 fi
-if "${SSH[@]}" "sudo docker image inspect $IMAGE >/dev/null 2>&1"; then
+if remote "sudo docker image inspect $IMAGE >/dev/null 2>&1"; then
   echo "서버에 이미 있는 태그입니다: $IMAGE. 새 태그를 사용하세요." >&2
   exit 1
 fi
@@ -40,29 +55,69 @@ fi
 echo "== 2/5 검증"
 [ "${SKIP_CHECK:-}" = "1" ] || npm run check
 
-echo "== 3/5 AMD64 이미지 빌드: $IMAGE"
-docker buildx build --platform linux/amd64 -t "$IMAGE" --load .
+# Waits for a detached server-side script to write RESULT=... into its log.
+await_result() {
+  local log="$1" tries="$2" result="" _
+  for _ in $(seq 1 "$tries"); do
+    sleep 5
+    result=$(remote "grep -o 'RESULT=[a-z_]*' $log 2>/dev/null | tail -1" || true)
+    [ -n "$result" ] && break
+  done
+  echo "$result"
+}
 
-echo "== 4/5 이미지 전송"
-docker save "$IMAGE" | gzip | "${SSH[@]}" "gunzip | sudo docker load"
+ARCHIVE="$(mktemp -t parts-finder-ship).tar.gz"
+trap 'rm -f "$ARCHIVE"' EXIT
+if [ "${BUILD_ON:-local}" = "server" ]; then
+  echo "== 3/5 소스 전송 (커밋된 HEAD: $(git rev-parse --short HEAD))"
+  git diff --quiet HEAD -- . ':!deploy/redeploy.sh' ||
+    echo "  주의: 커밋되지 않은 변경은 배포에 포함되지 않습니다." >&2
+  git archive --format=tar.gz -o "$ARCHIVE" HEAD
+  remote "cat > $REMOTE_DIR/src-$TAG.tar.gz" <"$ARCHIVE"
+  echo "== 4/5 서버에서 이미지 빌드: $IMAGE"
+  remote "cat > $REMOTE_DIR/build-$TAG.sh" <<REMOTE
+#!/usr/bin/env bash
+set -uo pipefail
+cd "$REMOTE_DIR"
+rm -rf "build-$TAG" && mkdir "build-$TAG" && tar -xzf "src-$TAG.tar.gz" -C "build-$TAG"
+if sudo docker build -t "$IMAGE" "build-$TAG"; then echo "RESULT=built"; else echo "RESULT=build_failed"; fi
+rm -rf "build-$TAG" "src-$TAG.tar.gz"
+REMOTE
+  remote "nohup bash $REMOTE_DIR/build-$TAG.sh > $REMOTE_DIR/build-$TAG.log 2>&1 < /dev/null &"
+  built=$(await_result "$REMOTE_DIR/build-$TAG.log" 180)
+  remote "tail -5 $REMOTE_DIR/build-$TAG.log" || true
+  [ "$built" = "RESULT=built" ] || { echo "서버 빌드에 실패했습니다: ${built:-결과 확인 불가}" >&2; exit 1; }
+else
+  echo "== 3/5 AMD64 이미지 빌드: $IMAGE"
+  docker buildx build --platform linux/amd64 -t "$IMAGE" --load .
+  echo "== 4/5 이미지 전송"
+  docker save "$IMAGE" | gzip >"$ARCHIVE"
+  remote "cat > $REMOTE_DIR/image-$TAG.tar.gz" <"$ARCHIVE"
+  remote "gunzip -c $REMOTE_DIR/image-$TAG.tar.gz | sudo docker load && rm -f $REMOTE_DIR/image-$TAG.tar.gz"
+fi
 
 echo "== 5/5 컨테이너 교체"
-"${SSH[@]}" "IMAGE=$IMAGE REMOTE_DIR=$REMOTE_DIR bash -s" <<'REMOTE'
-set -euo pipefail
-previous=$(sudo docker inspect -f '{{.Config.Image}}' ddakpum-app)
-echo "이전 이미지: $previous"
+# The swap runs detached on the server: a dropped SSH session must never leave
+# the app stopped halfway. Its log ends with RESULT=ok or RESULT=rolled_back.
+remote "cat > $REMOTE_DIR/swap-$TAG.sh" <<REMOTE
+#!/usr/bin/env bash
+set -uo pipefail
+IMAGE="$IMAGE"
+REMOTE_DIR="$REMOTE_DIR"
+previous=\$(sudo docker inspect -f '{{.Config.Image}}' ddakpum-app)
+echo "이전 이미지: \$previous"
 run() {
-  sudo docker run -d --name ddakpum-app \
-    --env-file "$REMOTE_DIR/.env.production" \
-    --memory 768m --stop-timeout 150 \
-    -p 127.0.0.1:3001:3001 \
-    -v ddakpum-data:/app/.data \
-    --restart unless-stopped \
-    --log-driver json-file --log-opt max-size=10m --log-opt max-file=3 \
-    "$1" >/dev/null
+  sudo docker run -d --name ddakpum-app \\
+    --env-file "\$REMOTE_DIR/.env.production" \\
+    --memory 768m --stop-timeout 150 \\
+    -p 127.0.0.1:3001:3001 \\
+    -v ddakpum-data:/app/.data \\
+    --restart unless-stopped \\
+    --log-driver json-file --log-opt max-size=10m --log-opt max-file=3 \\
+    "\$1" >/dev/null
 }
 healthy() {
-  for _ in $(seq 1 30); do
+  for _ in \$(seq 1 30); do
     if curl -fsS -m 3 http://127.0.0.1:3001/api/health >/dev/null 2>&1; then return 0; fi
     sleep 2
   done
@@ -70,18 +125,23 @@ healthy() {
 }
 sudo docker stop --time 150 ddakpum-app >/dev/null
 sudo docker rename ddakpum-app ddakpum-app-previous
-if run "$IMAGE" && healthy; then
+if run "\$IMAGE" && healthy; then
   sudo docker rm ddakpum-app-previous >/dev/null
-  echo "교체 완료: $IMAGE (되돌릴 이미지: $previous)"
+  echo "교체 완료: \$IMAGE (되돌릴 이미지: \$previous)"
+  echo "RESULT=ok"
 else
-  echo "새 컨테이너가 정상 응답하지 않아 이전 컨테이너로 되돌립니다." >&2
-  sudo docker logs --tail 30 ddakpum-app >&2 || true
+  echo "새 컨테이너가 정상 응답하지 않아 이전 컨테이너로 되돌립니다."
+  sudo docker logs --tail 30 ddakpum-app 2>&1 || true
   sudo docker rm -f ddakpum-app >/dev/null 2>&1 || true
   sudo docker rename ddakpum-app-previous ddakpum-app
   sudo docker start ddakpum-app >/dev/null
-  exit 1
+  echo "RESULT=rolled_back"
 fi
 REMOTE
+remote "nohup bash $REMOTE_DIR/swap-$TAG.sh > $REMOTE_DIR/swap-$TAG.log 2>&1 < /dev/null &"
+result=$(await_result "$REMOTE_DIR/swap-$TAG.log" 60)
+remote "cat $REMOTE_DIR/swap-$TAG.log" || true
+[ "$result" = "RESULT=ok" ] || { echo "교체에 실패했습니다: ${result:-결과 확인 불가}" >&2; exit 1; }
 
 echo "== 공개 주소 확인: $PUBLIC_URL"
 curl -fsS -m 20 "$PUBLIC_URL/api/health"

@@ -72,6 +72,24 @@ export const observationSchema = z.strictObject({
       appearance: z.array(z.string().max(60)).max(5),
     })
     .optional(),
+  /**
+   * The product the observer recognises in the photo, named from its own
+   * knowledge rather than from the catalog. This is what the user asked for:
+   * the thing in their photo, not a registered product that resembles it.
+   * It is an estimate the user confirms, never a verified identity, so it
+   * carries its own confidence and says what the estimate rests on.
+   * Older records lack the field, so validation tolerates its absence.
+   */
+  identifiedProduct: z
+    .strictObject({
+      brand: z.string().max(40),
+      modelName: z.string().max(60),
+      productName: z.string().max(80),
+      confidence: z.enum(["high", "medium", "low"]),
+      basis: z.enum(["label_text", "design_only", "both"]),
+    })
+    .nullable()
+    .optional(),
 });
 
 export type Observation = z.infer<typeof observationSchema>;
@@ -82,7 +100,10 @@ export const observationJsonSchema = z.toJSONSchema(observationSchema, {
 });
 delete observationJsonSchema.$schema;
 // The contract asks every new observation for its guesses, even when empty.
-(observationJsonSchema.required as string[]).push("visualHints");
+(observationJsonSchema.required as string[]).push(
+  "visualHints",
+  "identifiedProduct",
+);
 
 export function filterObservation(
   observation: Observation,
@@ -120,6 +141,11 @@ export function filterObservation(
             appearance: tidy(observation.visualHints.appearance),
           },
         }
+      : {}),
+    // An identification without a product name says nothing worth showing.
+    ...(observation.identifiedProduct?.productName.trim() ||
+    observation.identifiedProduct?.modelName.trim()
+      ? { identifiedProduct: observation.identifiedProduct }
       : {}),
   };
 }
