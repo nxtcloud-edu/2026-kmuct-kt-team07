@@ -31,7 +31,7 @@ export default function HomePage({
       </h1>
       <p className="home-lead">
         제품 이름이나 사진만 알려 주세요.
-        <br />딱 맞는 부품과 살 수 있는 곳을 찾아 드려요.
+        <br />살 수 있는 곳까지 찾아 드려요.
       </p>
       <SearchBox
         products={products}
