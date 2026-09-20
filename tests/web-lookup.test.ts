@@ -184,18 +184,67 @@ test("a shop in the results is a place to buy, not a page to read", async () => 
   assert.ok(part.purchases.length >= 7);
 });
 
-test("the part's words scattered through a title are a different product", async () => {
+test("a shop's slot goes to its listing that names the part best", async () => {
   const fake = (async (url: string | URL) =>
     String(url).includes("search.naver.com")
       ? reply(
           results(
-            // A caliper that ships with pads: every word of the part is here,
-            // but it is not what is being sold.
+            // A caliper that ships with pads. Every word of the part is here,
+            // scattered, and it is not what is being sold.
             [
               "https://www.coupang.com/vp/products/1",
               "디스크캘리퍼 시마노 BR MT200 유압 디스크 브레이크 캘리퍼스 B0S 수지 패드 자전거",
             ],
+            // The pads themselves, further down the results.
+            [
+              "https://www.coupang.com/vp/products/2",
+              "시마노 B01S 브레이크 패드 한 쌍",
+            ],
           ),
+        )
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb(
+    "시마노 BR-MT200",
+    "브레이크 패드",
+    async () => "",
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  const coupang = part.purchases.filter((b) => b.seller === "쿠팡");
+  assert.equal(coupang.length, 1);
+  assert.ok(coupang[0]!.url.includes("/vp/products/2"));
+});
+
+test("a translated word-salad title still counts as the part", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(
+          results([
+            "https://www.coupang.com/vp/products/1",
+            // A real listing, run through a translator: the words are all over
+            // the place and it is still a pad being sold.
+            "시마노 자전거 브레이크 유압 오른쪽 MTB 피스톤 패드 왼쪽 디스크 200 뒤 산악 앞",
+          ]),
+        )
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb(
+    "시마노 BR-MT200",
+    "브레이크 패드",
+    async () => "",
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  assert.ok(part.purchases.some((b) => b.url.includes("/vp/products/1")));
+});
+
+test("a listing with no sign of the part at all is not offered", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(
+          results([
+            "https://www.coupang.com/vp/products/1",
+            "시마노 알투스 유압식 디스크 브레이크 BR-MT200",
+          ]),
         )
       : new Response("", { status: 403 })) as unknown as typeof fetch;
   const part = await lookupPartOnWeb(

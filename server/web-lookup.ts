@@ -224,22 +224,30 @@ const partPhrases = (partLabel: string) =>
     .filter((phrase) => phrase.length >= 2 && !genericLabel.test(phrase));
 
 /**
- * Whether a marketplace listing is the part we were asked for, judged by its
- * own title. Searching "시마노 BR-MT200 브레이크 패드" returns the brake itself
- * as often as its pads, and offering a caliper under "쿠팡" as the place to buy
- * a pad is worse than offering nothing: the built search link below lands on
- * the right list anyway.
+ * How well a marketplace listing answers the part we were asked for, judged by
+ * its own title. 0 is not the part and is never offered.
  *
- * The part has to be named as a phrase. Its words scattered through a title
- * are a different thing being sold: "유압 디스크 브레이크 캘리퍼스 B0S 수지
- * 패드" is a caliper that ships with pads, not the pads. Spacing does not
- * count, because listings write 브레이크패드 as often as 브레이크 패드.
+ * 2 — the part is named as a phrase: 브레이크패드, 청소패드.
+ * 1 — only the thing itself is named: 패드. Marketplace titles are often run
+ *     through a translator and come out as word salad — "브레이크 유압 오른쪽
+ *     MTB 피스톤 패드 왼쪽 디스크" is a real listing for real pads — so a
+ *     scattered title is kept rather than dropped.
+ *
+ * The rank, not a pass mark, is what keeps the wrong thing out: a caliper that
+ * ships with pads scores 1, and the shop's slot goes to whichever of its
+ * listings scores highest.
  */
-const listingIsThePart = (title: string, partLabel: string) => {
+const listingRank = (title: string, partLabel: string) => {
   const phrases = partPhrases(partLabel);
-  if (!phrases.length) return true;
+  if (!phrases.length) return 1;
   const flat = flatten(title);
-  return phrases.some((phrase) => flat.includes(phrase));
+  if (phrases.some((phrase) => flat.includes(phrase))) return 2;
+  // Korean names a thing last: 브레이크 "패드", 교체 "지우개".
+  const heads = partLabel
+    .split(/[·/,]/u)
+    .map((alt) => flatten(alt.split(/\s+/u).at(-1) ?? ""))
+    .filter((head) => head.length >= 2 && !genericLabel.test(head));
+  return heads.some((head) => flat.includes(head)) ? 1 : 0;
 };
 
 /** Reads one page, capped: a search result may be any size at all. */
@@ -303,24 +311,34 @@ export async function lookupPartOnWeb(
   if (!found.length) return null;
   const shops: WebShop[] = [];
   const readable: WebSource[] = [];
+  const listings: { shop: WebShop; rank: number }[] = [];
   for (const result of found) {
     const seller = sellerOf(result.url);
     if (!seller || !knownSeller(result.url)) {
       readable.push(result);
       continue;
     }
-    // A listing for the wrong part is dropped rather than kept: leaving the
-    // seller out here lets its built search link take the slot instead.
-    if (!listingIsThePart(result.title, partLabel)) continue;
-    // One listing per shop. A second from the same shop crowds out another
-    // shop's price, which is the only reason several are offered at all.
-    if (shops.some((shop) => shop.seller === seller)) continue;
-    shops.push({
-      seller,
-      title: result.title.slice(0, 80),
-      url: result.url,
-      snippet: result.snippet ?? "",
+    // A listing that is not the part at all is dropped rather than kept:
+    // leaving the seller out lets its built search link take the slot instead.
+    const rank = listingRank(result.title, partLabel);
+    if (!rank) continue;
+    listings.push({
+      shop: {
+        seller,
+        title: result.title.slice(0, 80),
+        url: result.url,
+        snippet: result.snippet ?? "",
+      },
+      rank,
     });
+  }
+  // One listing per shop, and it is the shop's best one — a sort that keeps
+  // the search engine's order within a rank. A second listing from a shop
+  // already offered crowds out another shop's price, which is the only reason
+  // several are offered at all.
+  for (const { shop } of [...listings].sort((a, b) => b.rank - a.rank)) {
+    if (shops.some((offered) => offered.seller === shop.seller)) continue;
+    shops.push(shop);
   }
   // Every shop is offered, never one: the next one along may be half the price.
   // The built marketplace links are always there, so a lookup that reads
