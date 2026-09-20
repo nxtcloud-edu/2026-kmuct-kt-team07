@@ -107,3 +107,31 @@
     padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
 }
+
+/* Daily-life scope: prevent long model codes and group selectors overflowing on phones. */
+.category-picker select,
+.catalog-filters select {
+  min-height: 44px;
+  font-size: 16px;
+  max-width: 100%;
+}
+.category-picker .category-field select {
+  width: 100%;
+}
+.product-option strong,
+.product-description,
+.coverage-label,
+.market-label {
+  overflow-wrap: anywhere;
+}
+.catalog-filters {
+  flex-wrap: wrap;
+}
+.catalog-filters label {
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .catalog-filters {
+    grid-template-columns: 1fr;
+  }
+}

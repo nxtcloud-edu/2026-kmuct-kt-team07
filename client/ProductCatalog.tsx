@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { ArrowUpRight, Package, Search } from "lucide-react";
-import { categories, type Category } from "../shared/domain";
+import {
+  categories,
+  productGroups,
+  type ProductGroup,
+  type Category,
+} from "../shared/domain";
 import {
   filterProducts,
+  interleaveProductGroups,
   matchesProduct,
   type CatalogProduct,
 } from "../shared/catalog-search";
@@ -13,6 +19,7 @@ export default function ProductCatalog({
   candidateIds = [],
   candidateLabel = "입력 정보 일치",
   initialQuery = "",
+  initialGroup,
   busy,
   onSelect,
 }: {
@@ -21,11 +28,15 @@ export default function ProductCatalog({
   candidateIds?: string[];
   candidateLabel?: string;
   initialQuery?: string;
+  initialGroup?: ProductGroup;
   busy: boolean;
   onSelect: (id: string) => void;
 }) {
   const [query, setQuery] = useState(
     products.some((p) => matchesProduct(p, initialQuery)) ? initialQuery : "",
+  );
+  const [group, setGroup] = useState<ProductGroup | "">(
+    initialGroup === "household" ? "" : (initialGroup ?? ""),
   );
   const [brand, setBrand] = useState("");
   const [capacity, setCapacity] = useState("");
@@ -34,22 +45,28 @@ export default function ProductCatalog({
   const [orderableOnly, setOrderableOnly] = useState(false);
   const [suggestedOnly, setSuggestedOnly] = useState(candidateIds.length > 0);
   const [limit, setLimit] = useState(8);
-  const brands = [...new Set(products.map((p) => p.brand))];
+  const scoped = products.filter((p) => !group || p.group === group);
+  const brands = [...new Set(scoped.map((p) => p.brand))];
   const capacities = [
     ...new Set(
-      products
+      scoped
         .filter((p) => !brand || p.brand === brand)
         .map((p) => p.capacity)
         .filter((c): c is string => Boolean(c)),
     ),
   ].sort((a, b) => a.localeCompare(b, "ko", { numeric: true }));
+  const scopedCategory = category === "other" ? undefined : category;
+  const categoryLabel = scopedCategory ? categories[scopedCategory] + " " : "";
   const matched = filterProducts(products, query, {
+    group: group || undefined,
     brand,
     capacity,
-    category: partsOnly || domesticOnly || orderableOnly ? category : undefined,
+    category:
+      partsOnly || domesticOnly || orderableOnly ? scopedCategory : undefined,
     domesticOnly,
     orderableOnly,
   })
+    .filter((p) => !partsOnly || p.availableCategories.length > 0)
     .filter((p) => !suggestedOnly || candidateIds.includes(p.variantId))
     .sort(
       (a, b) =>
@@ -58,8 +75,13 @@ export default function ProductCatalog({
         Number(b.domesticCategories.length > 0) -
           Number(a.domesticCategories.length > 0),
     );
+  const ordered =
+    !group && !query.trim() && !suggestedOnly
+      ? interleaveProductGroups(matched)
+      : matched;
   function reset() {
     setQuery("");
+    setGroup("");
     setBrand("");
     setCapacity("");
     setDomesticOnly(false);
@@ -79,11 +101,30 @@ export default function ProductCatalog({
             setQuery(e.target.value);
             setLimit(8);
           }}
-          placeholder="브랜드·모델 코드·용량으로 검색"
+          placeholder="브랜드·모델 코드·규격으로 검색"
           maxLength={120}
         />
       </label>
       <div className="catalog-filters">
+        <label>
+          물건 종류
+          <select
+            value={group}
+            onChange={(e) => {
+              setGroup(e.target.value as ProductGroup | "");
+              setBrand("");
+              setCapacity("");
+              setLimit(8);
+            }}
+          >
+            <option value="">전체 생활용품</option>
+            {Object.entries(productGroups).map(([key, label]) => (
+              <option key={key} value={key}>
+                {label} ({products.filter((p) => p.group === key).length})
+              </option>
+            ))}
+          </select>
+        </label>
         <label>
           브랜드
           <select
@@ -100,21 +141,23 @@ export default function ProductCatalog({
             ))}
           </select>
         </label>
-        <label>
-          용량
-          <select
-            value={capacity}
-            onChange={(e) => {
-              setCapacity(e.target.value);
-              setLimit(8);
-            }}
-          >
-            <option value="">전체 용량</option>
-            {capacities.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
-        </label>
+        {capacities.length > 0 && (
+          <label>
+            용량
+            <select
+              value={capacity}
+              onChange={(e) => {
+                setCapacity(e.target.value);
+                setLimit(8);
+              }}
+            >
+              <option value="">전체 용량</option>
+              {capacities.map((c) => (
+                <option key={c}>{c}</option>
+              ))}
+            </select>
+          </label>
+        )}
       </div>
       <div className="catalog-toggles">
         {candidateIds.length > 0 && (
@@ -139,7 +182,7 @@ export default function ProductCatalog({
               setLimit(8);
             }}
           />
-          {categories[category]} 최근 주문 가능 확인 · 국내
+          {categoryLabel}최근 주문 가능 확인 · 국내
         </label>
         <label>
           <input
@@ -150,7 +193,7 @@ export default function ProductCatalog({
               setLimit(8);
             }}
           />
-          {categories[category]} 국내 구매 경로 있는 제품
+          {categoryLabel}국내 구매 경로 있는 제품
         </label>
         <label>
           <input
@@ -161,28 +204,31 @@ export default function ProductCatalog({
               setLimit(8);
             }}
           />
-          {categories[category]} 자료 있는 제품
+          {categoryLabel}부품 자료 있는 제품
         </label>
       </div>
       <p className="catalog-count" aria-live="polite">
-        {matched.length}개 제품 · 모델·용량이 맞는지 확인 후 선택하세요.
+        {matched.length}개 제품 · 모델·규격이 맞는지 확인 후 선택하세요.
       </p>
       <div className="product-options">
-        {matched.slice(0, limit).map((p) => (
+        {ordered.slice(0, limit).map((p) => (
           <div className="product-option" key={p.variantId}>
             <div className="product-symbol">
               <Package size={24} />
             </div>
             <div>
               <small>
-                {p.brand}
+                {productGroups[p.group]} · {p.brand}
                 {candidateIds.includes(p.variantId)
                   ? ` · ${candidateLabel}`
                   : ""}
               </small>
               <strong>{p.modelName}</strong>
               <span>
-                {p.capacity ?? "용량 확인 필요"}
+                {p.capacity ??
+                  (p.group === "drinkware"
+                    ? "용량 확인 필요"
+                    : "모델·규격 확인")}
                 {p.generation ? ` · ${p.generation}` : ""}
               </span>
               <p className="product-description">{p.description}</p>
@@ -194,7 +240,9 @@ export default function ProductCatalog({
               <span className="market-label">
                 {p.domesticCategories.length
                   ? `국내 구매 경로: ${p.domesticCategories.map((k) => categories[k]).join(" · ")}`
-                  : "해외 경로 · 국내 배송 미확인"}
+                  : p.availableCategories.length
+                    ? "해외 경로 · 국내 배송 미확인"
+                    : "부품 경로 미등록"}
               </span>
               {p.orderableCategories.length > 0 && (
                 <span className="orderable-label">
@@ -203,7 +251,7 @@ export default function ProductCatalog({
                 </span>
               )}
               <a href={p.source.url} target="_blank" rel="noopener noreferrer">
-                공식 자료와 비교
+                제품 근거 자료와 비교
                 <ArrowUpRight size={13} />
               </a>
             </div>

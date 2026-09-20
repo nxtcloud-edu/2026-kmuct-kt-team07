@@ -13,6 +13,8 @@ import { timingSafeEqual, createHash } from "node:crypto";
 import {
   categories,
   categorySchema,
+  productGroupSchema,
+  productGroups,
   answerSchema,
   feedbackSchema,
   checks,
@@ -120,12 +122,15 @@ export function createApp({
     res.json({
       updatedAt: catalog.updatedAt,
       categories,
+      productGroups,
       counts: {
         products: catalog.products.length,
+        groups: new Set(catalog.products.map((p) => p.group)).size,
         parts: catalog.parts.length,
         brands: new Set(catalog.products.map((p) => p.brand)).size,
       },
       products: filterProducts(catalogProducts(catalog), query, {
+        group: productGroupSchema.safeParse(req.query.group).data,
         brand: typeof req.query.brand === "string" ? req.query.brand : "",
         capacity:
           typeof req.query.capacity === "string" ? req.query.capacity : "",
@@ -166,6 +171,7 @@ export function createApp({
         record.category,
         record.query,
         record.answers,
+        record.group,
       ),
     };
   };
@@ -186,6 +192,7 @@ export function createApp({
   const bodySchema = z.strictObject({
     query: z.string().trim().max(120).default(""),
     category: categorySchema.default("lid"),
+    group: productGroupSchema.optional(),
     demo: z.boolean().optional(),
   });
   const upload = multer({
@@ -193,9 +200,9 @@ export function createApp({
     limits: {
       fileSize: 10 * 1024 * 1024,
       files: 4,
-      fields: 3,
+      fields: 4,
       fieldSize: 2048,
-      parts: 7,
+      parts: 8,
     },
   }).array("images", 4);
   let accepting = 0;
@@ -238,18 +245,21 @@ export function createApp({
         .optional()
         .parse(req.get("idempotency-key"));
       let query = "",
-        category: z.infer<typeof categorySchema> = "lid",
+        category: z.infer<typeof categorySchema> = "other",
+        group: z.infer<typeof productGroupSchema> | undefined,
         payload: ObservationRequest | undefined;
       if (req.is("multipart/form-data")) {
         const fields = z
           .strictObject({
             query: z.string().trim().max(120).default(""),
             category: categorySchema,
+            group: productGroupSchema.optional(),
             roles: z.string().max(200),
           })
           .parse(req.body);
         query = fields.query;
         category = fields.category;
+        group = fields.group;
         const files = req.files as Express.Multer.File[];
         let rawRoles: unknown;
         try {
@@ -286,6 +296,7 @@ export function createApp({
         const body = bodySchema.parse(req.body);
         query = body.query;
         category = body.category;
+        group = body.group;
         if (body.demo)
           payload = {
             allowedCategoryKeys: Object.keys(categories),
@@ -310,6 +321,7 @@ export function createApp({
           JSON.stringify({
             query,
             category,
+            group,
             images:
               payload?.images.map((i) => ({
                 role: i.role,
@@ -367,6 +379,7 @@ export function createApp({
         category,
         payload,
         idempotencyKey ? { key: idempotencyKey, hash: requestHash } : undefined,
+        group,
       );
       res.status(201).json(present(record));
       void tick();
@@ -418,6 +431,10 @@ export function createApp({
     }
     r.category = body.category;
     r.selectedVariantId = body.variantId;
+    if (body.variantId)
+      r.group = catalog.products.find(
+        (p) => p.variantId === body.variantId,
+      )!.group;
     store.save(r);
     res.json(present(r));
   });

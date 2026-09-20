@@ -3,7 +3,7 @@ import { mkdirSync, chmodSync } from "node:fs";
 import { dirname } from "node:path";
 import { randomBytes, randomUUID, createHash } from "node:crypto";
 import type { AnalysisResult, ObservationRequest } from "../src/analysis.js";
-import type { Category } from "../shared/domain.js";
+import type { Category, ProductGroup } from "../shared/domain.js";
 
 export interface StoredRequest {
   id: string;
@@ -12,6 +12,7 @@ export interface StoredRequest {
   state: "queued" | "processing" | "ready";
   query: string;
   category: Category;
+  group?: ProductGroup;
   selectedVariantId: string | null;
   analysis: AnalysisResult | null;
   answers: Record<string, string>;
@@ -101,12 +102,14 @@ export class Store {
     category: Category,
     payload?: ObservationRequest,
     identity?: { key: string; hash: string },
+    group?: ProductGroup,
   ) {
     const record: StoredRequest = {
       id: randomUUID(),
       owner,
       query,
       category,
+      group,
       createdAt: Date.now(),
       state: payload ? "queued" : "ready",
       selectedVariantId: null,

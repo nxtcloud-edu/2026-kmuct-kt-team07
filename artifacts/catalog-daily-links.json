@@ -1,0 +1,199 @@
+{
+  "checkedAt": "2026-09-20T04:30:52.141Z",
+  "scope": "HTTP reachability only, not stock or compatibility verification",
+  "results": [
+    {
+      "url": "https://www.dyson.co.kr/360-glass-hepa-carbon-air-purifier-filter",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-00522047/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://bike.shimano.com/en-NZ/products/service-and-upgrade-parts/pdp.P-BP-B05S-RX.html",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.dyson.co.kr/support/replacement-parts/vacuum-cleaners/v8",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-90522038/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/customer-service/spare-parts/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-70522044/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-30522041/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.tombow.com/en/products/mono_zero/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.mpuni.co.jp/products/ballpoint_pens/refill_jet.html?item_code=SXE3-507-05",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.philips.co.kr/c-p/HX9026_98/standard-sonic-toothbrush-heads",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://olfa.com/products/18mm-wd-al-wood-composite-auto-lock-utility-knife",
+      "status": 404,
+      "result": "needs_review"
+    },
+    {
+      "url": "https://olfa.com/products/18mm-nol-1-bb-rubber-grip-auto-lock-utility-knife",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://olfa.com/products/18mm-cl-packaging-materials-utility-knife",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://olfa.com/products/18mm-mxp-al-die-cast-aluminum-handle-auto-lock-knife",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://us.gardena.com/collections/quick-connect-system/products/gardena-01124",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.petsafe.com/p/drinkwell-carbon-replacement-filters-3-pack/PAC00-13067/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://help.singer.com/en-US/how-do-i-choose-the-right-singer-bobbin-389067",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.dyson.co.kr/remote-control-969154-02",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-shelf-white-90525273/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-shelf-white-50525270/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.bugaboo.com/us-en/parts/bugaboo-cameleon-3-front-wheels-MI000812.html",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://singer-featherweight.com/products/bobbins-roll-of-10",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.decathlon.co.uk/p/set-of-2-hiking-pole-caps/324372/c184m8580865",
+      "status": 403,
+      "result": "needs_review"
+    },
+    {
+      "url": "https://www.canyon.com/ko-kr/gear/bike-parts/spare-and-wear-parts/brake-pads/shimano-b05s-organic-brake-pads-for-deore-and-alivio/10009969.html",
+      "status": 301,
+      "result": "needs_review"
+    },
+    {
+      "url": "https://www.dyson.co.kr/flexi-crevice-tool",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.dyson.co.kr/971432-01",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://support.decathlon.co.uk/maintaining-and-repairing-an-mt500-pole",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.coupang.com/vp/products/9500278061",
+      "status": 403,
+      "result": "needs_review"
+    },
+    {
+      "url": "https://hottracks.kyobobook.co.kr/gift/detail/S000052491784",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?dispCatNo=1000002000300010003&goodsNo=A000000126899&trackingCd=Search_Result",
+      "status": 403,
+      "result": "needs_review"
+    },
+    {
+      "url": "https://m.gsshop.com/prd/prd.gs?bnclick=main-r70_rbst70_LowestCateBestItems&iid=QQHphmTGxtXkA&mseq=421819-87&prdid=1117667170&rank=87&sectSeq=1661457",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.abcbike.co.kr/goods/goods_view.php?goodsNo=2268",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.dyson.co.kr/mini-soft-dusting-brush",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.brita.kr/filters-cartridges/maxtra-pro-pure-performance-valuepack-3-cartridges",
+      "result": "network_error"
+    }
+  ],
+  "followUp": [
+    {
+      "url": "https://olfa.com/products/olfa-18mm-wd-al-wood-composite-auto-lock-utility-knife",
+      "status": 200
+    },
+    {
+      "url": "https://www.canyon.com/ko-kr/gear/bike-parts/brakes/brake-pads/shimano-b05s-organic-brake-pads-for-deore-and-alivio/10009969.html",
+      "status": 200
+    },
+    {
+      "url": "https://www.brita.kr/filters-cartridges/maxtra-pro-pure-performance-valuepack-3-cartridges",
+      "status": "network_error"
+    }
+  ]
+}

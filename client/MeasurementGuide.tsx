@@ -1,6 +1,23 @@
-import type { Category } from "../shared/domain";
+import { checks, type Category } from "../shared/domain";
 
 export default function MeasurementGuide({ category }: { category: Category }) {
+  if (!["lid", "gasket", "straw", "handle"].includes(category))
+    return (
+      <details className="measurement-guide">
+        <summary>어떤 정보가 필요한가요?</summary>
+        {checks[category].map((item) => (
+          <p key={item.key}>
+            <strong>{item.label}</strong>
+            <br />
+            {item.help}
+          </p>
+        ))}
+        <p>
+          제조사 설명서의 측정 위치와 단위를 따르세요. 사진만으로 치수나 적용
+          여부를 확정하지 않습니다.
+        </p>
+      </details>
+    );
   return (
     <details className="measurement-guide">
       <summary>어디를 확인하고 재나요?</summary>

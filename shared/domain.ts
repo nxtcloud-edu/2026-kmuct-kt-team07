@@ -1,9 +1,24 @@
 import { z } from "zod";
 
-import { categoryLabels, productGroups, type PartCategory } from "./taxonomy.js";
-export { productGroups, groupCategories, type ProductGroup } from "./taxonomy.js";
-export const categorySchema = z.enum(Object.keys(categoryLabels) as [PartCategory, ...PartCategory[]]);
-export const productGroupSchema = z.enum(Object.keys(productGroups) as [keyof typeof productGroups, ...(keyof typeof productGroups)[]]);
+import {
+  categoryLabels,
+  productGroups,
+  type PartCategory,
+} from "./taxonomy.js";
+export {
+  productGroups,
+  groupCategories,
+  type ProductGroup,
+} from "./taxonomy.js";
+export const categorySchema = z.enum(
+  Object.keys(categoryLabels) as [PartCategory, ...PartCategory[]],
+);
+export const productGroupSchema = z.enum(
+  Object.keys(productGroups) as [
+    keyof typeof productGroups,
+    ...(keyof typeof productGroups)[],
+  ],
+);
 export const categories = categoryLabels;
 export type Category = PartCategory;
 const text = z.string().min(1).max(500);
@@ -144,21 +159,232 @@ export const checks: Record<
   Category,
   { key: string; label: string; help: string }[]
 > = {
-  brake_pad: [{"key": "model", "label": "브레이크 캘리퍼 모델", "help": "자전거 이름 대신 브레이크 몸체의 BR- 코드와 기존 패드 표기를 확인하세요."}, {"key": "material", "label": "패드·로터 재질 조건", "help": "레진 전용 로터 여부와 제조사 허용 패드를 대조하세요. 제동 부품은 정비점 장착·제동 점검을 권장합니다."}],
-  inner_tube: [{"key": "etrto", "label": "타이어 ETRTO 규격", "help": "옆면의 폭-림 지름 표기(예: 37-622)를 그대로 입력하세요. 인치만 같아도 림 지름이 다를 수 있어요."}, {"key": "valve", "label": "밸브 종류·길이", "help": "프레스타·슈레더·던롭과 밸브 길이를 확인하세요."}],
-  filter: [{"key": "model", "label": "본체 전체 모델 코드", "help": "본체 라벨과 기존 필터 코드를 함께 확인하세요."}, {"key": "type", "label": "필터 구성·방향", "help": "필터 종류, 개수, 장착 방향을 공식 자료와 대조하세요."}],
-  remote: [{"key": "model", "label": "본체 모델 코드", "help": "외형이 같아도 신호와 기능이 다를 수 있어요. 본체 모델 코드와 리모컨 코드를 대조하세요."}, {"key": "functions", "label": "지원 기능", "help": "버튼 구성과 페어링 방법을 확인하세요."}],
-  brush: [{"key": "model", "label": "본체·헤드 모델", "help": "브러시와 본체 모델을 함께 확인하세요."}, {"key": "connection", "label": "연결부 구조", "help": "고정 버튼, 커넥터, 전동 여부를 비교하세요."}],
-  hose: [{"key": "connection", "label": "연결 규격", "help": "호스 지름, 나사 규격, 퀵커넥터 종류를 확인하세요."}, {"key": "conditions", "label": "용도·압력·온도", "help": "실내·실외 용도와 허용 압력·온도를 제품 설명서와 대조하세요."}],
-  shelf: [{"key": "frame", "label": "프레임 폭·깊이", "help": "선반 크기와 가구 외부 크기는 다릅니다. 프레임 규격을 확인하세요."}, {"key": "generation", "label": "세대·제조 시기", "help": "동일 제품명도 제작 시기에 따라 지지대와 구멍이 다를 수 있어요."}, {"key": "load", "label": "허용 하중·지지대", "help": "선반 지지대 포함 여부와 하중을 확인하세요."}],
-  hinge: [{"key": "mount", "label": "장착 구멍·방향", "help": "컵 지름·깊이, 구멍 간격, 덮임 방식과 문 방향을 확인하세요."}, {"key": "model", "label": "제품·부품 번호", "help": "가구 설명서의 부품 번호를 확인하세요."}],
-  fastener: [{"key": "model", "label": "설명서 부품 번호", "help": "가구·제품 설명서의 정확한 부품 번호를 확인하세요."}, {"key": "thread", "label": "나사 지름·피치·길이", "help": "머리 형태와 나사산, 길이를 대조하세요. 사진만으로 규격을 확정하지 않아요."}],
-  wheel: [{"key": "mount", "label": "축·고정 방식", "help": "스템 지름·길이 또는 플레이트 구멍 간격을 확인하세요."}, {"key": "load", "label": "바퀴 지름·하중", "help": "개별 바퀴의 허용 하중과 바닥 재질을 대조하세요."}],
-  refill: [{"key": "code", "label": "기존 리필 코드", "help": "펜 이름뿐 아니라 기존 리필의 SXR 등 전체 코드를 확인하세요."}, {"key": "size", "label": "길이·굵기·잉크", "help": "단색·다색 리필 형태와 촉 굵기, 잉크 색상을 대조하세요."}],
-  eraser: [{"key": "code", "label": "홀더·리필 코드", "help": "홀더 모델과 전용 리필 코드를 확인하세요."}, {"key": "shape", "label": "단면·길이", "help": "원형·사각형 단면과 리필 길이를 대조하세요."}],
-  blade: [{"key": "model", "label": "본체·날 코드", "help": "커터·공구의 모델명과 전용 날 코드를 확인하세요."}, {"key": "mount", "label": "날 폭·두께·고정 구조", "help": "폭만 같다고 호환되지 않아요. 잠금·구멍 구조와 제조사 교체 안내를 확인하세요."}],
-  toothbrush_head: [{"key": "model", "label": "칫솔 본체 계열", "help": "본체 계열과 클릭식·나사식 연결을 확인하세요."}, {"key": "type", "label": "칫솔모 연결 타입", "help": "전용 계열은 다른 칫솔모와 호환되지 않을 수 있어요."}],
-  shaver_head: [{"key": "model", "label": "면도기 모델·Type 번호", "help": "시리즈 이름만으로 고르지 말고 본체 Type 번호까지 확인하세요."}, {"key": "cassette", "label": "카세트 코드", "help": "기존 면도망·날의 교체 코드를 대조하세요."}],
+  bobbin: [
+    {
+      key: "model",
+      label: "재봉틀 모델·보빈 종류",
+      help: "같은 외경도 높이·곡면·재질이 다를 수 있습니다. 제조사 지정 보빈 종류를 확인하세요.",
+    },
+    {
+      key: "winder",
+      label: "보빈 케이스·실감기 축",
+      help: "재봉 가능 여부와 실감기 축에 맞는지는 별도입니다. 판매처의 예외 조건을 확인하세요.",
+    },
+  ],
+  foot: [
+    {
+      key: "model",
+      label: "본체 모델·끝단 규격",
+      help: "스틱·다리의 모델과 끝단 형상을 확인하세요. 원형 지름만으로 확정하지 않습니다.",
+    },
+    {
+      key: "surface",
+      label: "사용 지면·고정 상태",
+      help: "재질과 지면 조건, 제조사 장착 안내를 대조하세요.",
+    },
+  ],
+  other: [
+    {
+      key: "part",
+      label: "필요한 부품 이름·코드",
+      help: "예: 가방 버클, 캐리어 바퀴, 재봉틀 보빈. 제품 설명서의 부품 번호가 있으면 함께 적어 주세요.",
+    },
+    {
+      key: "mount",
+      label: "장착부·규격",
+      help: "고정 방식과 실제 측정한 규격을 확인하세요. 사진의 외형만으로 호환 여부를 확정하지 않아요.",
+    },
+    {
+      key: "conditions",
+      label: "사용 조건",
+      help: "재질, 하중, 온도와 제조사 교체 가능 여부를 확인하세요.",
+    },
+  ],
+  brake_pad: [
+    {
+      key: "model",
+      label: "브레이크 캘리퍼 모델",
+      help: "자전거 이름 대신 브레이크 몸체의 BR- 코드와 기존 패드 표기를 확인하세요.",
+    },
+    {
+      key: "material",
+      label: "패드·로터 재질 조건",
+      help: "레진 전용 로터 여부와 제조사 허용 패드를 대조하세요. 제동 부품은 정비점 장착·제동 점검을 권장합니다.",
+    },
+  ],
+  inner_tube: [
+    {
+      key: "etrto",
+      label: "타이어 ETRTO 규격",
+      help: "옆면의 폭-림 지름 표기(예: 37-622)를 그대로 입력하세요. 인치만 같아도 림 지름이 다를 수 있어요.",
+    },
+    {
+      key: "valve",
+      label: "밸브 종류·길이",
+      help: "프레스타·슈레더·던롭과 밸브 길이를 확인하세요.",
+    },
+  ],
+  filter: [
+    {
+      key: "model",
+      label: "본체 전체 모델 코드",
+      help: "본체 라벨과 기존 필터 코드를 함께 확인하세요.",
+    },
+    {
+      key: "type",
+      label: "필터 구성·방향",
+      help: "필터 종류, 개수, 장착 방향을 공식 자료와 대조하세요.",
+    },
+  ],
+  remote: [
+    {
+      key: "model",
+      label: "본체 모델 코드",
+      help: "외형이 같아도 신호와 기능이 다를 수 있어요. 본체 모델 코드와 리모컨 코드를 대조하세요.",
+    },
+    {
+      key: "functions",
+      label: "지원 기능",
+      help: "버튼 구성과 페어링 방법을 확인하세요.",
+    },
+  ],
+  brush: [
+    {
+      key: "model",
+      label: "본체·헤드 모델",
+      help: "브러시와 본체 모델을 함께 확인하세요.",
+    },
+    {
+      key: "connection",
+      label: "연결부 구조",
+      help: "고정 버튼, 커넥터, 전동 여부를 비교하세요.",
+    },
+  ],
+  hose: [
+    {
+      key: "connection",
+      label: "연결 규격",
+      help: "호스 지름, 나사 규격, 퀵커넥터 종류를 확인하세요.",
+    },
+    {
+      key: "conditions",
+      label: "용도·압력·온도",
+      help: "실내·실외 용도와 허용 압력·온도를 제품 설명서와 대조하세요.",
+    },
+  ],
+  shelf: [
+    {
+      key: "frame",
+      label: "프레임 폭·깊이",
+      help: "선반 크기와 가구 외부 크기는 다릅니다. 프레임 규격을 확인하세요.",
+    },
+    {
+      key: "generation",
+      label: "세대·제조 시기",
+      help: "동일 제품명도 제작 시기에 따라 지지대와 구멍이 다를 수 있어요.",
+    },
+    {
+      key: "load",
+      label: "허용 하중·지지대",
+      help: "선반 지지대 포함 여부와 하중을 확인하세요.",
+    },
+  ],
+  hinge: [
+    {
+      key: "mount",
+      label: "장착 구멍·방향",
+      help: "컵 지름·깊이, 구멍 간격, 덮임 방식과 문 방향을 확인하세요.",
+    },
+    {
+      key: "model",
+      label: "제품·부품 번호",
+      help: "가구 설명서의 부품 번호를 확인하세요.",
+    },
+  ],
+  fastener: [
+    {
+      key: "model",
+      label: "설명서 부품 번호",
+      help: "가구·제품 설명서의 정확한 부품 번호를 확인하세요.",
+    },
+    {
+      key: "thread",
+      label: "나사 지름·피치·길이",
+      help: "머리 형태와 나사산, 길이를 대조하세요. 사진만으로 규격을 확정하지 않아요.",
+    },
+  ],
+  wheel: [
+    {
+      key: "mount",
+      label: "축·고정 방식",
+      help: "스템 지름·길이 또는 플레이트 구멍 간격을 확인하세요.",
+    },
+    {
+      key: "load",
+      label: "바퀴 지름·하중",
+      help: "개별 바퀴의 허용 하중과 바닥 재질을 대조하세요.",
+    },
+  ],
+  refill: [
+    {
+      key: "code",
+      label: "기존 리필 코드",
+      help: "펜 이름뿐 아니라 기존 리필의 SXR 등 전체 코드를 확인하세요.",
+    },
+    {
+      key: "size",
+      label: "길이·굵기·잉크",
+      help: "단색·다색 리필 형태와 촉 굵기, 잉크 색상을 대조하세요.",
+    },
+  ],
+  eraser: [
+    {
+      key: "code",
+      label: "홀더·리필 코드",
+      help: "홀더 모델과 전용 리필 코드를 확인하세요.",
+    },
+    {
+      key: "shape",
+      label: "단면·길이",
+      help: "원형·사각형 단면과 리필 길이를 대조하세요.",
+    },
+  ],
+  blade: [
+    {
+      key: "model",
+      label: "본체·날 코드",
+      help: "커터·공구의 모델명과 전용 날 코드를 확인하세요.",
+    },
+    {
+      key: "mount",
+      label: "날 폭·두께·고정 구조",
+      help: "폭만 같다고 호환되지 않아요. 잠금·구멍 구조와 제조사 교체 안내를 확인하세요.",
+    },
+  ],
+  toothbrush_head: [
+    {
+      key: "model",
+      label: "칫솔 본체 계열",
+      help: "본체 계열과 클릭식·나사식 연결을 확인하세요.",
+    },
+    {
+      key: "type",
+      label: "칫솔모 연결 타입",
+      help: "전용 계열은 다른 칫솔모와 호환되지 않을 수 있어요.",
+    },
+  ],
+  shaver_head: [
+    {
+      key: "model",
+      label: "면도기 모델·Type 번호",
+      help: "시리즈 이름만으로 고르지 말고 본체 Type 번호까지 확인하세요.",
+    },
+    {
+      key: "cassette",
+      label: "카세트 코드",
+      help: "기존 면도망·날의 교체 코드를 대조하세요.",
+    },
+  ],
   lid: [
     {
       key: "connection",
@@ -190,7 +416,7 @@ export const checks: Record<
     {
       key: "material",
       label: "재질·사용 조건",
-      help: "식품 접촉 용도, 음료 온도, 세척 조건을 공급자에게 확인하세요.",
+      help: "접촉 물질, 사용 온도·압력, 세척 조건을 공급자에게 확인하세요.",
     },
   ],
   straw: [

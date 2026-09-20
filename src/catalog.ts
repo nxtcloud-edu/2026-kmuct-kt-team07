@@ -12,17 +12,32 @@ export interface CatalogVariant {
 }
 
 /** Clear contradictory label text requires another check, even with one code match. */
-export function hasIdentityConflict(observation: Observation, candidates: readonly CatalogVariant[]) {
+export function hasIdentityConflict(
+  observation: Observation,
+  candidates: readonly CatalogVariant[],
+) {
   if (!candidates.length) return false;
-  const clear = observation.extractedTexts.filter((t) => t.legibility === "clear");
-  const brands = clear.filter((t) => t.role === "brand").map((t) => normalizeModel(t.text));
-  const capacities = clear.filter((t) => t.role === "capacity")
-    .map((t) => capacityKey(t.text)).filter((v): v is string => v !== null);
+  const clear = observation.extractedTexts.filter(
+    (t) => t.legibility === "clear",
+  );
+  const brands = clear
+    .filter((t) => t.role === "brand")
+    .map((t) => normalizeModel(t.text));
+  const capacities = clear
+    .filter((t) => t.role === "capacity")
+    .map((t) => capacityKey(t.text))
+    .filter((v): v is string => v !== null);
   if (new Set(capacities).size > 1) return true;
-  return candidates.every((c) =>
-    (c.brand && brands.some((b) => ![c.brand!, ...(brandAliases[c.brand!] ?? [])]
-      .some((a) => normalizeModel(a) === b))) ||
-    (c.capacity && capacities.some((v) => capacityKey(c.capacity!) !== v)),
+  return candidates.every(
+    (c) =>
+      (c.brand &&
+        brands.some(
+          (b) =>
+            ![c.brand!, ...(brandAliases[c.brand!] ?? [])].some(
+              (a) => normalizeModel(a) === b,
+            ),
+        )) ||
+      (c.capacity && capacities.some((v) => capacityKey(c.capacity!) !== v)),
   );
 }
 
@@ -95,10 +110,10 @@ export function matchCatalogModels(
 export function buildVariantQuestion(candidates: readonly CatalogVariant[]) {
   return {
     kind: "select_variant" as const,
-    prompt: "제품의 용량·세대를 확인해 선택해 주세요.",
+    prompt: "제품의 전체 모델·규격·세대를 확인해 선택해 주세요.",
     options: candidates.map((candidate) => ({
       variantId: candidate.variantId,
-      label: `${candidate.modelName} / ${candidate.capacity ?? "용량 미등록"} / ${candidate.generation ?? "세대 미등록"} (${candidate.variantId})`,
+      label: `${candidate.modelName} / ${candidate.capacity ?? "규격 확인"} / ${candidate.generation ?? "세부 모델 확인"} (${candidate.variantId})`,
       capacity: candidate.capacity,
       generation: candidate.generation,
     })),

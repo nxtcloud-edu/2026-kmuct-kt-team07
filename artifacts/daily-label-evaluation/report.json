@@ -1,0 +1,236 @@
+{
+  "checkedAt": "2026-09-20T04:31:17.728Z",
+  "scope": "Three synthetic label contract checks; not real object photo accuracy or a benchmark",
+  "reports": [
+    {
+      "fixture": "purifier-label",
+      "synthetic": true,
+      "passed": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [],
+          "extractedTexts": [
+            {
+              "text": "SYNTHETIC TEST LABEL",
+              "imageId": "label",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "DYSON",
+              "imageId": "label",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "TP04",
+              "imageId": "label",
+              "role": "model",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [],
+          "qualityIssues": [],
+          "unknownFields": [
+            "category",
+            "capacity",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [
+          {
+            "originalText": "TP04",
+            "normalizedText": "TP04",
+            "imageId": "label",
+            "legibility": "clear",
+            "matchedVariantIds": [
+              "dyson-tp04"
+            ]
+          }
+        ],
+        "candidateVariantIds": [
+          "dyson-tp04"
+        ],
+        "attempts": 1,
+        "status": "observed"
+      },
+      "calls": [
+        {
+          "elapsedMs": 2644,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 3004,
+          "completionTokens": 109
+        }
+      ]
+    },
+    {
+      "fixture": "brake-label",
+      "synthetic": true,
+      "passed": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [],
+          "extractedTexts": [
+            {
+              "text": "SYNTHETIC TEST LABEL",
+              "imageId": "label",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "SHIMANO",
+              "imageId": "label",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "BR-MT200",
+              "imageId": "label",
+              "role": "model",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [],
+          "qualityIssues": [],
+          "unknownFields": [
+            "category",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [
+          {
+            "originalText": "BR-MT200",
+            "normalizedText": "BRMT200",
+            "imageId": "label",
+            "legibility": "clear",
+            "matchedVariantIds": [
+              "shimano-br-mt200"
+            ]
+          }
+        ],
+        "candidateVariantIds": [
+          "shimano-br-mt200"
+        ],
+        "attempts": 1,
+        "status": "observed"
+      },
+      "calls": [
+        {
+          "elapsedMs": 4031,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 3004,
+          "completionTokens": 238
+        }
+      ]
+    },
+    {
+      "fixture": "ambiguous-bookcase-label",
+      "synthetic": true,
+      "passed": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [],
+          "extractedTexts": [
+            {
+              "text": "SYNTHETIC TEST LABEL",
+              "imageId": "label",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "IKEA",
+              "imageId": "label",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "BILLY",
+              "imageId": "label",
+              "role": "model",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [],
+          "qualityIssues": [],
+          "unknownFields": [
+            "category",
+            "capacity",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [
+          {
+            "originalText": "BILLY",
+            "normalizedText": "BILLY",
+            "imageId": "label",
+            "legibility": "clear",
+            "matchedVariantIds": [
+              "ikea-billy-00522047",
+              "ikea-billy-70522044",
+              "ikea-billy-30522041",
+              "ikea-billy-90522038"
+            ]
+          }
+        ],
+        "candidateVariantIds": [
+          "ikea-billy-00522047",
+          "ikea-billy-70522044",
+          "ikea-billy-30522041",
+          "ikea-billy-90522038"
+        ],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "ambiguous_model",
+        "question": {
+          "kind": "select_variant",
+          "prompt": "제품의 전체 모델·규격·세대를 확인해 선택해 주세요.",
+          "options": [
+            {
+              "variantId": "ikea-billy-00522047",
+              "label": "BILLY 빌리 화이트 80×28×202cm (005.220.47) / 규격 확인 / 세부 모델 확인 (ikea-billy-00522047)",
+              "capacity": null,
+              "generation": null
+            },
+            {
+              "variantId": "ikea-billy-70522044",
+              "label": "BILLY 빌리 화이트 80×28×106cm (705.220.44) / 규격 확인 / 세부 모델 확인 (ikea-billy-70522044)",
+              "capacity": null,
+              "generation": null
+            },
+            {
+              "variantId": "ikea-billy-30522041",
+              "label": "BILLY 빌리 화이트 40×28×202cm (305.220.41) / 규격 확인 / 세부 모델 확인 (ikea-billy-30522041)",
+              "capacity": null,
+              "generation": null
+            },
+            {
+              "variantId": "ikea-billy-90522038",
+              "label": "BILLY 빌리 화이트 40×28×106cm (905.220.38) / 규격 확인 / 세부 모델 확인 (ikea-billy-90522038)",
+              "capacity": null,
+              "generation": null
+            }
+          ],
+          "allowUnknown": true
+        },
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 2890,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 3004,
+          "completionTokens": 171
+        }
+      ]
+    }
+  ]
+}

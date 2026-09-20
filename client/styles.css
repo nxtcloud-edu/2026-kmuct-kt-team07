@@ -2139,3 +2139,40 @@ body:has(dialog[open]) {
     flex-basis: 100%;
   }
 }
+
+p,
+.drop-zone > span {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.optional-model {
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-3);
+}
+.optional-model summary {
+  min-height: 32px;
+  font-size: var(--text-sm);
+}
+.optional-model summary > span {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  margin-left: var(--space-1);
+}
+.optional-model .model-input-label {
+  margin-top: var(--space-2);
+}
+@media (max-width: 560px) {
+  .hero-description br {
+    display: none;
+  }
+  .hero-description {
+    max-width: 34ch;
+  }
+  .search-workspace {
+    gap: var(--space-5);
+  }
+  .drop-zone {
+    min-height: 156px;
+  }
+}

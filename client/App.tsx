@@ -25,6 +25,8 @@ import {
 } from "lucide-react";
 import {
   categories,
+  productGroups,
+  type ProductGroup,
   providerLabels,
   stockLabels,
   type Category,
@@ -44,6 +46,7 @@ type RecordResult = {
   state: "queued" | "processing" | "ready";
   query: string;
   category: Category;
+  group?: ProductGroup;
   selectedVariantId: string | null;
   analysis: AnalysisResult | null;
   answers: Record<string, string>;
@@ -103,8 +106,10 @@ export default function App() {
   const [tab, setTab] = useState<"photo" | "model">("photo"),
     [photos, setPhotos] = useState<Photo[]>([]),
     [query, setQuery] = useState(""),
-    [category, setCategory] = useState<Category>("lid");
+    [category, setCategory] = useState<Category>("other");
+  const [group, setGroup] = useState<ProductGroup>("household");
   const [catalogCounts, setCatalogCounts] = useState({
+    groups: 0,
     products: 0,
     parts: 0,
     brands: 0,
@@ -258,6 +263,7 @@ export default function App() {
     setResult(data);
     setAnswers(data.answers);
     setCategory(data.category);
+    setGroup(data.paths.product?.group ?? data.group ?? "household");
     setRoute("all");
     window.history.replaceState({}, "", `?request=${data.id}`);
     setTimeout(() => {
@@ -307,13 +313,19 @@ export default function App() {
   }
   async function submit(demo = false) {
     await act(async () => {
-      let body: unknown = { query, category, ...(demo ? { demo: true } : {}) };
+      let body: unknown = {
+        query,
+        category,
+        group,
+        ...(demo ? { demo: true } : {}),
+      };
       if (tab === "photo" && !demo) {
         if (!photos.length)
           throw new Error("제품 사진을 한 장 이상 추가해 주세요.");
         const data = new FormData();
         data.set("query", query);
         data.set("category", category);
+        data.set("group", group);
         data.set("roles", JSON.stringify(photos.map((p) => p.role)));
         photos.forEach((p) => data.append("images", p.file));
         body = data;
@@ -321,6 +333,7 @@ export default function App() {
       const fingerprint = JSON.stringify({
         query,
         category,
+        group,
         tab,
         demo,
         photos: photos.map((p) => [p.url, p.role]),
@@ -345,11 +358,26 @@ export default function App() {
     await act(async () => {
       const next = await api<RecordResult>(`/requests/${result.id}/select`, {
         variantId,
-        category: newCategory,
+        category:
+          variantId &&
+          variantId !== result.selectedVariantId &&
+          newCategory === "other"
+            ? (products.find((p) => p.variantId === variantId)
+                ?.availableCategories[0] ?? newCategory)
+            : newCategory,
       });
       setResult(next);
       setAnswers(next.answers);
       setRoute("all");
+      if (variantId !== result.selectedVariantId) {
+        setTimeout(() => {
+          resultsRef.current?.focus({ preventScroll: true });
+          resultsRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 80);
+      }
       void loadRecent();
     });
   }
@@ -480,7 +508,7 @@ export default function App() {
               <em>작은 부품 하나.</em>
             </h1>
             <p className="hero-description">
-              닳은 패킹부터 잃어버린 뚜껑까지.
+              닳은 브레이크 패드부터 선반·필터·리필까지.
               <br />
               사진이나 모델명으로 내 제품을 확인하고,
               <br className="desktop-break" /> 정품·대체품의 구매 경로를
@@ -498,7 +526,7 @@ export default function App() {
                 <span>02</span>
                 <div>
                   <strong>내 제품과 비교해 선택</strong>
-                  <p>모델과 용량을 한 번 더 확인해요.</p>
+                  <p>모델과 규격을 한 번 더 확인해요.</p>
                 </div>
               </li>
               <li>
@@ -519,12 +547,12 @@ export default function App() {
                 <span>교체 부품</span>
               </div>
               <div>
-                <strong>{catalogCounts.brands || "—"}</strong>
-                <span>등록 브랜드</span>
+                <strong>{catalogCounts.groups || "—"}</strong>
+                <span>생활 분야</span>
               </div>
             </div>
             <p className="supported-brands">
-              물병·텀블러부터 가전·가구·학용품까지
+              자전거·가전·가구부터 위생·원예·반려동물 용품까지
             </p>
             <p className="catalog-footnote">
               제조사·판매처의 공개 자료를 확인한 카탈로그입니다.
@@ -561,6 +589,8 @@ export default function App() {
                 <CategoryPicker
                   value={category}
                   onChange={setCategory}
+                  productGroup={group}
+                  onGroupChange={setGroup}
                   disabled={busy}
                 />
                 {tab === "photo" ? (
@@ -685,15 +715,20 @@ export default function App() {
                         </span>
                       ))}
                     </div>
-                    <label className="model-input-label">
-                      모델명을 알고 있나요? <span>선택</span>
-                      <input
-                        value={query}
-                        maxLength={120}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="예: 날진 와이드마우스 32oz"
-                      />
-                    </label>
+                    <details className="optional-model">
+                      <summary>
+                        모델명도 함께 입력하기 <span>선택</span>
+                      </summary>
+                      <label className="model-input-label">
+                        모델명을 알고 있나요? <span>선택</span>
+                        <input
+                          value={query}
+                          maxLength={120}
+                          onChange={(e) => setQuery(e.target.value)}
+                          placeholder="예: 다이슨 TP04 필터, 가방 버클"
+                        />
+                      </label>
+                    </details>
                   </>
                 ) : (
                   <div className="model-input-label main-search">
@@ -708,13 +743,32 @@ export default function App() {
                         if (e.key === "Enter" && !busy && ready && query.trim())
                           void submit();
                       }}
-                      placeholder="예: 써모스 JNL-505K"
+                      placeholder="예: BR-MT200, 다이슨 TP04, 빌리"
                     />
                     <span>라벨이나 구매 내역에 적힌 이름을 입력해 주세요.</span>
                     <div className="quick-queries">
-                      {["써모스 JNL", "킨토 워터보틀", "조지루시 SM-VB"].map(
+                      {["다이슨 TP04", "시마노 BR-MT200", "이케아 BILLY"].map(
                         (q) => (
-                          <button key={q} onClick={() => setQuery(q)}>
+                          <button
+                            key={q}
+                            onClick={() => {
+                              setQuery(q);
+                              setGroup(
+                                q.startsWith("다이슨")
+                                  ? "electronics"
+                                  : q.startsWith("시마노")
+                                    ? "bicycle"
+                                    : "furniture",
+                              );
+                              setCategory(
+                                q.startsWith("다이슨")
+                                  ? "filter"
+                                  : q.startsWith("시마노")
+                                    ? "brake_pad"
+                                    : "shelf",
+                              );
+                            }}
+                          >
                             {q}
                             <ArrowUpRight size={13} />
                           </button>
@@ -829,7 +883,7 @@ export default function App() {
             </div>
           </section>
         </div>
-        {error && (
+        {error && !modal && !feedbackPart && (
           <div className="alert error" role="alert">
             <CircleHelp size={19} />
             <span>{error}</span>
@@ -928,7 +982,7 @@ export default function App() {
                           ? "렌즈를 닦고 글자에 초점을 맞춰 다시 찍어 주세요."
                           : observation.qualityIssues.includes("label_cropped")
                             ? "모델 코드가 잘리지 않도록 라벨 전체를 담아 주세요."
-                            : "제품 바닥·옆면의 모델명과 용량을 확인해 주세요. 브랜드나 모양만으로 같은 제품이라고 확정하지 않습니다."}
+                            : "제품 라벨·각인의 모델명과 규격을 확인해 주세요. 브랜드나 모양만으로 같은 제품이라고 확정하지 않습니다."}
                     </p>
                     {observation.extractedTexts.some(
                       (t) => t.legibility === "uncertain",
@@ -1031,7 +1085,7 @@ export default function App() {
                           </span>
                         ))}
                         <p className="hint">
-                          사진만으로 모델·용량을 확정하지 않아요. 아래 제품
+                          사진만으로 모델·규격을 확정하지 않아요. 아래 제품
                           정보와 대조해 주세요.
                         </p>
                       </div>
@@ -1061,11 +1115,11 @@ export default function App() {
                           result.analysis.reason === "conflicting_identity"
                             ? "모델 글자와 브랜드·용량 정보가 서로 맞지 않아요. 같은 제품의 사진인지 확인하고 바닥 라벨을 다시 올려 주세요. 후보를 선택하기 전에 원문과 대조해 주세요."
                             : result.candidates.length > 1
-                              ? "용량·세대가 다른 후보가 있어요. 라벨과 구매 내역을 보고 선택해 주세요."
+                              ? "규격·세대가 다른 후보가 있어요. 라벨과 구매 내역을 보고 선택해 주세요."
                               : result.candidates.length === 0
                                 ? result.photoHints?.description ||
-                                  "입력 정보와 일치하는 모델을 찾지 못했어요. 아래는 전체 등록 제품입니다. 실제 제품과 일치할 때만 선택해 주세요."
-                                : "브랜드·용량·입구 형태를 공식 제품 페이지와 대조해 주세요."}
+                                  "정확히 일치하는 모델 코드는 확인되지 않았어요. 아래 검색 후보의 전체 모델·규격을 대조하고, 내 제품이 없으면 다른 방법을 확인하세요."
+                                : "브랜드·전체 모델 코드·장착부를 제품 근거 자료와 대조해 주세요."}
                         </p>
                       </div>
                     </div>
@@ -1073,6 +1127,7 @@ export default function App() {
                       key={result.id}
                       products={products}
                       category={result.category}
+                      initialGroup={result.group}
                       candidateIds={(result.candidates.length
                         ? result.candidates
                         : (result.photoHints?.products ?? [])
@@ -1110,14 +1165,18 @@ export default function App() {
                         {result.paths.product?.modelName}
                       </h3>
                       <p>
-                        {result.paths.product?.capacity} ·{" "}
-                        {result.paths.product?.region}
+                        {[
+                          result.paths.product?.capacity,
+                          result.paths.product?.region,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ")}
                       </p>
                       {result.paths.product?.source.accessNote && (
                         <p>{result.paths.product.source.accessNote}</p>
                       )}
                       <a {...external(result.paths.product!.source.url)}>
-                        공식 제품·적용 모델 자료
+                        제품·적용 모델 근거 자료
                         <ArrowUpRight size={14} />
                       </a>
                     </div>
@@ -1137,10 +1196,7 @@ export default function App() {
                       void select(result.selectedVariantId, key)
                     }
                     disabled={busy}
-                    productGroup={
-                      result.paths.product?.group ??
-                      (result.paths.product ? "drinkware" : undefined)
-                    }
+                    productGroup={result.paths.product?.group ?? result.group}
                   />
                   {result.selectedVariantId && (
                     <button className="text-button" onClick={download}>
@@ -1468,9 +1524,9 @@ export default function App() {
                           className="search-link contact-link"
                           {...external(result.paths.product.contact.url)}
                         >
-                          브랜드 문의 안내
+                          브랜드 자료·문의 안내
                           <ArrowUpRight size={14} />
-                          <span>문의처</span>
+                          <span>브랜드 안내</span>
                         </a>
                       )}
                       <details className="contact-draft">
@@ -1595,19 +1651,26 @@ export default function App() {
             <ProductCatalog
               products={products}
               category={category}
+              initialGroup={group}
               busy={busy}
               onSelect={(id) =>
                 void act(async () => {
                   const product = products.find((p) => p.variantId === id)!;
                   const created = await api<RecordResult>(
                     "/requests",
-                    { query: product.modelName, category },
+                    {
+                      query: product.modelName,
+                      category: product.availableCategories.includes(category)
+                        ? category
+                        : (product.availableCategories[0] ?? "other"),
+                      group: product.group,
+                    },
                     "POST",
                     crypto.randomUUID(),
                   );
                   const selected = await api<RecordResult>(
                     `/requests/${created.id}/select`,
-                    { variantId: id, category },
+                    { variantId: id, category: created.category },
                   );
                   setModal(null);
                   show(selected);
@@ -1650,7 +1713,7 @@ export default function App() {
               <p>
                 <strong>2. 내 제품 확인</strong>
                 <br />
-                제품의 용량과 입구 형태를 공식 페이지와 대조하세요. 사진이
+                제품의 전체 모델명과 장착부를 근거 페이지와 대조하세요. 사진이
                 비슷한 것만으로 같은 제품이라고 확정하지 않습니다.
               </p>
               <p>

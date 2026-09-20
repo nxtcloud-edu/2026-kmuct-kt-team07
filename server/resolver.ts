@@ -1,5 +1,7 @@
 import {
   categories,
+  productGroups,
+  type ProductGroup,
   checks,
   type Catalog,
   type Category,
@@ -37,6 +39,7 @@ export function resolvePaths(
   category: Category,
   query: string,
   answers: Record<string, string> = {},
+  group?: ProductGroup,
 ) {
   const product =
     catalog.products.find((p) => p.variantId === variantId) ?? null;
@@ -63,7 +66,7 @@ export function resolvePaths(
     : [];
   const phrase = product
     ? `${product.brand} ${product.modelName}`
-    : query.trim().slice(0, 120) || "물병 텀블러";
+    : query.trim().slice(0, 120) || (group ? productGroups[group] : "생활용품");
   const search = (label: string, term: string) => ({
     label,
     kind: "search_results" as const,
@@ -82,7 +85,7 @@ export function resolvePaths(
       search("국내 판매처 검색", `${phrase} ${categories[category]} 구매`),
       search(
         "범용 부품 검색",
-        `${categories[category]} 범용 ${Object.values(answers).filter(Boolean).join(" ")}`,
+        `${product?.group ? productGroups[product.group] : group ? productGroups[group] : phrase} ${categories[category]} 범용 ${Object.values(answers).filter(Boolean).join(" ")}`,
       ),
       search(
         "동일 모델 중고 부품 검색",
@@ -90,7 +93,7 @@ export function resolvePaths(
       ),
       search("수리·제조사 문의 검색", `${phrase} 수리 고객센터`),
     ],
-    contactDraft: `안녕하세요. ${phrase || "물병·텀블러"}의 ${categories[category]}을 구하고 있습니다.\n정품 부품 구매 또는 수리 접수가 가능한지, 대체 부품이 있다면 적용 모델과 확인해야 할 규격을 안내해 주세요.\n${checks[category].map((c) => `${c.label}: ${answers[c.key] || "미확인"}`).join("\n")}\n국내 구매·배송 가능 여부도 확인 부탁드립니다.`,
+    contactDraft: `안녕하세요. ${phrase}의 ${categories[category]}을 구하고 있습니다.\n정품 부품 구매 또는 수리 접수가 가능한지, 대체 부품이 있다면 적용 모델과 확인해야 할 규격을 안내해 주세요.\n${checks[category].map((c) => `${c.label}: ${answers[c.key] || "미확인"}`).join("\n")}\n국내 구매·배송 가능 여부도 확인 부탁드립니다.`,
   };
 }
 export type PathsResult = ReturnType<typeof resolvePaths>;

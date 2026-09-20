@@ -1,4 +1,4 @@
-import type { Category, Product } from "./domain.js";
+import type { Category, Product, ProductGroup } from "./domain.js";
 import { brandAliases, capacityKey } from "./product-identity.js";
 
 export type CatalogProduct = Product & {
@@ -24,10 +24,19 @@ export function matchesProduct(product: Product, query: string): boolean {
   ].map(normalize);
   const normalizedQuery = query.normalize("NFKC");
   // A volume is an exact constraint: 50ml must not match 350ml or 500ml.
-  const volumePattern = /(?<![\p{L}\d.])(\d+(?:\.\d+)?)\s*(밀리리터|리터|fl\s*oz|ml|oz|온스|l)(?![\p{L}\d])/giu;
+  const volumePattern =
+    /(?<![\p{L}\d.])(\d+(?:\.\d+)?)\s*(밀리리터|리터|fl\s*oz|ml|oz|온스|l)(?![\p{L}\d])/giu;
   const volumes = [...normalizedQuery.matchAll(volumePattern)];
-  if (volumes.some((v) => !product.capacity || capacityKey(v[0]) !== capacityKey(product.capacity))) return false;
-  return normalizedQuery.replace(volumePattern, " ")
+  if (
+    volumes.some(
+      (v) =>
+        !product.capacity ||
+        capacityKey(v[0]) !== capacityKey(product.capacity),
+    )
+  )
+    return false;
+  return normalizedQuery
+    .replace(volumePattern, " ")
     .trim()
     .split(/\s+/u)
     .filter(Boolean)
@@ -38,6 +47,7 @@ export function filterProducts(
   products: CatalogProduct[],
   query: string,
   filters: {
+    group?: ProductGroup;
     brand?: string;
     capacity?: string;
     category?: Category;
@@ -48,8 +58,13 @@ export function filterProducts(
   return products.filter(
     (p) =>
       matchesProduct(p, query) &&
+      (!filters.group || p.group === filters.group) &&
       (!filters.brand || p.brand === filters.brand) &&
-      (!filters.capacity || (p.capacity && capacityKey(p.capacity) === capacityKey(filters.capacity))) &&
+      (!filters.capacity ||
+        (p.capacity &&
+          (capacityKey(filters.capacity)
+            ? capacityKey(p.capacity) === capacityKey(filters.capacity)
+            : p.capacity === filters.capacity))) &&
       (!filters.category || p.availableCategories.includes(filters.category)) &&
       (!filters.orderableOnly ||
         (filters.category
@@ -60,4 +75,19 @@ export function filterProducts(
           ? p.domesticCategories.includes(filters.category)
           : p.domesticCategories.length > 0)),
   );
+}
+
+/** Keep the initial discovery page useful even when one group has many more models. */
+export function interleaveProductGroups(
+  products: CatalogProduct[],
+): CatalogProduct[] {
+  const groups = new Map<string, CatalogProduct[]>();
+  for (const p of products)
+    groups.set(p.group, [...(groups.get(p.group) ?? []), p]);
+  const result: CatalogProduct[] = [];
+  const buckets = [...groups.values()];
+  for (let index = 0; buckets.some((items) => index < items.length); index++) {
+    for (const items of buckets) if (items[index]) result.push(items[index]!);
+  }
+  return result;
 }

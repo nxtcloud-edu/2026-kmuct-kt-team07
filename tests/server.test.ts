@@ -568,3 +568,43 @@ test("photo brand-capacity hints remain separate from identification through the
     await f.close();
   }
 });
+
+test("daily-life request group survives HTTP flow and separates category-specific purchase paths", async () => {
+  const f = await fixture();
+  try {
+    const response = await f.request("/requests", {
+      query: "TP04",
+      group: "electronics",
+      category: "remote",
+    });
+    assert.equal(response.status, 201);
+    const created = await response.json();
+    assert.equal(created.group, "electronics");
+    assert.equal(created.candidates[0].variantId, "dyson-tp04");
+    const selected = await (
+      await f.request(`/requests/${created.id}/select`, {
+        variantId: "dyson-tp04",
+        category: "remote",
+      })
+    ).json();
+    assert.equal(selected.paths.cards[0].part.partId, "dyson-969154-02");
+    const listed = await (
+      await f.request("/catalog?group=furniture&category=shelf&domestic=true")
+    ).json();
+    assert.equal(listed.products.length, 4);
+    assert.ok(
+      listed.products.every((p: { group: string }) => p.group === "furniture"),
+    );
+    const unknown = await (
+      await f.request("/requests", {
+        query: "가방 버클",
+        group: "clothing",
+        category: "other",
+      })
+    ).json();
+    assert.equal(unknown.paths.cards.length, 0);
+    assert.ok(!unknown.paths.contactDraft.includes("물병"));
+  } finally {
+    await f.close();
+  }
+});
