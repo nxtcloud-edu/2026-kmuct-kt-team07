@@ -28,6 +28,11 @@
         "title": "Nalgene 고객 지원",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/nalgene-16.webp",
+        "sourceUrl": "https://nalgene.com/product/16oz-wide-mouth-bottle/",
+        "alt": "Nalgene 16oz Wide Mouth Bottle 제품 사진"
       }
     },
     {
@@ -56,6 +61,11 @@
         "title": "Nalgene 고객 지원",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/nalgene-32.webp",
+        "sourceUrl": "https://nalgene.com/product/32oz-wide-mouth-bottle/",
+        "alt": "Nalgene 32oz Wide Mouth Bottle 제품 사진"
       }
     },
     {
@@ -118,6 +128,11 @@
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed",
         "accessNote": "2026-09-20 자동 HTTP 접근 검사에서 403 응답. 브라우저에서 직접 확인하세요."
+      },
+      "image": {
+        "url": "/product-images/hydro-32.webp",
+        "sourceUrl": "https://www.hydroflask.com.au/products/32oz-946ml-wide-mouth-white",
+        "alt": "Hydro Flask 32 oz Wide Mouth Bottle 제품 사진"
       }
     },
     {
@@ -437,7 +452,13 @@
         "title": "써모스 공식 상품 페이지 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fhl-400k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=359",
+        "alt": "써모스 FHL-400K 제품 사진"
+      },
+      "series": "어른이 스트로 텀블러"
     },
     {
       "variantId": "thermos-fhl-550k",
@@ -468,7 +489,13 @@
         "title": "써모스 공식 상품 페이지 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fhl-550k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=356",
+        "alt": "써모스 FHL-550K 제품 사진"
+      },
+      "series": "어른이 스트로 텀블러"
     },
     {
       "variantId": "thermos-jos-400k",
@@ -716,6 +743,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-water-bottle-300.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20381",
+        "alt": "킨토 워터보틀 300ml 제품 사진"
       }
     },
     {
@@ -746,6 +778,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-water-bottle-500.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20391",
+        "alt": "킨토 워터보틀 500ml 제품 사진"
       }
     },
     {
@@ -776,6 +813,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-water-bottle-950.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20397",
+        "alt": "킨토 워터보틀 950ml 제품 사진"
       }
     },
     {
@@ -808,6 +850,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-active-tumbler-600.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20281",
+        "alt": "킨토 엑티브 텀블러 600ml 제품 사진"
       }
     },
     {
@@ -840,6 +887,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-active-tumbler-800.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20291",
+        "alt": "킨토 엑티브 텀블러 800ml 제품 사진"
       }
     },
     {
@@ -870,6 +922,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-water-tumbler-550.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20151",
+        "alt": "킨토 워터텀블러 550ml 제품 사진"
       }
     },
     {
@@ -900,6 +957,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-plug-togo-240.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20431",
+        "alt": "킨토 플러그 투고 텀블러 240ml 제품 사진"
       }
     },
     {
@@ -930,6 +992,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-plug-togo-360.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20441",
+        "alt": "킨토 플러그 투고 텀블러 360ml 제품 사진"
       }
     },
     {
@@ -960,6 +1027,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-play-300.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20371",
+        "alt": "킨토 플레이 텀블러 300ml 제품 사진"
       }
     },
     {
@@ -990,6 +1062,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-play-480.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20361",
+        "alt": "킨토 플레이 텀블러 480ml 제품 사진"
       }
     },
     {
@@ -1020,6 +1097,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-workout-480.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20311",
+        "alt": "킨토 워크아웃 보틀 480ml 제품 사진"
       }
     },
     {
@@ -1050,6 +1132,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-togo-bottle-360.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20061",
+        "alt": "킨토 투고 보틀 360ml 제품 사진"
       }
     },
     {
@@ -1080,6 +1167,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-togo-bottle-480.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20071",
+        "alt": "킨토 투고 보틀 480ml 제품 사진"
       }
     },
     {
@@ -1110,6 +1202,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-trail-tumbler-580.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20211",
+        "alt": "킨토 트레일 텀블러 580ml 제품 사진"
       }
     },
     {
@@ -1140,6 +1237,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-trail-tumbler-1080.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20221",
+        "alt": "킨토 트레일 텀블러 1080ml 제품 사진"
       }
     },
     {
@@ -1172,6 +1274,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-active-bottle-600.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20181",
+        "alt": "킨토 엑티브 보틀 600ml 제품 사진"
       }
     },
     {
@@ -1204,6 +1311,11 @@
         "title": "KINTO 한국 판매처 제품 문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/kinto-active-bottle-950.webp",
+        "sourceUrl": "https://kinto.kr/shop/item.php?it_id=20191",
+        "alt": "킨토 엑티브 보틀 950ml 제품 사진"
       }
     },
     {
@@ -1771,7 +1883,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-s250k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=172",
+        "alt": "써모스 JNL-S250K 제품 사진"
+      },
+      "series": "올뉴 데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-s350k",
@@ -1798,7 +1916,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-s350k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=172",
+        "alt": "써모스 JNL-S350K 제품 사진"
+      },
+      "series": "올뉴 데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-s500k",
@@ -1825,7 +1949,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-s500k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=172",
+        "alt": "써모스 JNL-S500K 제품 사진"
+      },
+      "series": "올뉴 데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-tkhc-355",
@@ -1852,7 +1982,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkhc-355.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%88%AC%EA%B3%A0-%EC%BB%B5%EC%95%A4%ED%85%80%EB%B8%94%EB%9F%AC-355ml/1234/",
+        "alt": "써모스 TKHC-355 제품 사진"
+      },
+      "series": "투고 컵앤텀블러"
     },
     {
       "variantId": "thermos-tkhc-355kc",
@@ -1879,7 +2015,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkhc-355kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%9D%B4%EB%82%98%ED%94%BC%EC%8A%A4%ED%80%98%EC%96%B4-%ED%88%AC%EA%B3%A0-%EC%BB%B5%EC%95%A4%ED%85%80%EB%B8%94%EB%9F%AC-355ml/1261/",
+        "alt": "써모스 TKHC-355KC 제품 사진"
+      },
+      "series": "투고 컵앤텀블러"
     },
     {
       "variantId": "thermos-tkhc-355ksb",
@@ -1933,7 +2075,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ts-180k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%A5%EC%8A%A4%ED%8F%AC%ED%84%B0%EB%B8%94-%EC%BB%B5%EC%95%A4%ED%85%80%EB%B8%94%EB%9F%AC-12l/1213/",
+        "alt": "써모스 TS-180K 제품 사진"
+      },
+      "series": "맥스포터블 컵앤텀블러"
     },
     {
       "variantId": "thermos-ts-1801k",
@@ -1960,7 +2108,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ts-1801k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%A5%EC%8A%A4%ED%8F%AC%ED%84%B0%EB%B8%94-%EC%BB%B5%EC%95%A4%ED%85%80%EB%B8%94%EB%9F%AC-940ml/1288/",
+        "alt": "써모스 TS-1801K 제품 사진"
+      },
+      "series": "맥스포터블 컵앤텀블러"
     },
     {
       "variantId": "thermos-ts-1801kc",
@@ -1987,7 +2141,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ts-1801kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%9D%B4%EB%82%98%ED%94%BC%EC%8A%A4%ED%80%98%EC%96%B4-%EB%A7%A5%EC%8A%A4%ED%8F%AC%ED%84%B0%EB%B8%94-%EC%BB%B5%EC%95%A4%ED%85%80%EB%B8%94%EB%9F%AC-940ml/1289/",
+        "alt": "써모스 TS-1801KC 제품 사진"
+      },
+      "series": "맥스포터블 컵앤텀블러"
     },
     {
       "variantId": "thermos-tkoa-150",
@@ -2014,7 +2174,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkoa-150.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%95%84%EC%9B%83%ED%8F%AC%EC%BC%93-%EB%AF%B8%EB%8B%88-%ED%85%80%EB%B8%94%EB%9F%AC-150ml/1194/",
+        "alt": "써모스 TKOA-150 제품 사진"
+      },
+      "series": "아웃포켓 미니 텀블러"
     },
     {
       "variantId": "thermos-tkoa-150kc",
@@ -2041,7 +2207,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkoa-150kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%9D%B4%EB%82%98%ED%94%BC%EC%8A%A4%ED%80%98%EC%96%B4-%EC%95%84%EC%9B%83%ED%8F%AC%EC%BC%93-%EB%AF%B8%EB%8B%88-%ED%85%80%EB%B8%94%EB%9F%AC-150ml/1290/",
+        "alt": "써모스 TKOA-150KC 제품 사진"
+      },
+      "series": "아웃포켓 미니 텀블러"
     },
     {
       "variantId": "thermos-tkhb-480k",
@@ -2068,7 +2240,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkhb-480k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%8A%B8%EC%9C%84%EC%8A%A4%ED%8A%B8-%EC%BB%B5%EC%95%A4%ED%85%80%EB%B8%94%EB%9F%AC-480ml/1190/",
+        "alt": "써모스 TKHB-480K 제품 사진"
+      },
+      "series": "트위스트 컵앤텀블러"
     },
     {
       "variantId": "thermos-jon-480ksb",
@@ -2122,7 +2300,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jon-350kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%9D%B4%EB%82%98%ED%94%BC%EC%8A%A4%ED%80%98%EC%96%B4-%EC%8B%AC%ED%94%8C-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8-%ED%85%80%EB%B8%94%EB%9F%AC-350ml/1291/",
+        "alt": "써모스 JON-350KC 제품 사진"
+      },
+      "series": "심플 스트레이트 텀블러"
     },
     {
       "variantId": "thermos-jon-480kc",
@@ -2149,7 +2333,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jon-480kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%9D%B4%EB%82%98%ED%94%BC%EC%8A%A4%ED%80%98%EC%96%B4-%EC%8B%AC%ED%94%8C-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8-%ED%85%80%EB%B8%94%EB%9F%AC-480ml/1292/",
+        "alt": "써모스 JON-480KC 제품 사진"
+      },
+      "series": "심플 스트레이트 텀블러"
     },
     {
       "variantId": "thermos-fjf-580k",
@@ -2176,7 +2366,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fjf-580k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%96%B4%EB%B0%98-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-580ml/1054/",
+        "alt": "써모스 FJF-580K 제품 사진"
+      },
+      "series": "어반 원터치 텀블러"
     },
     {
       "variantId": "thermos-jor-500k",
@@ -2203,7 +2399,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jor-500k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%80%B5%EC%98%A4%ED%94%88-%EC%9D%B4%EC%A7%80-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/1040/",
+        "alt": "써모스 JOR-500K 제품 사진"
+      },
+      "series": "퀵오픈 이지 텀블러"
     },
     {
       "variantId": "thermos-jor-250k",
@@ -2230,7 +2432,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jor-250k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%80%B5%EC%98%A4%ED%94%88-%EC%9D%B4%EC%A7%80-%ED%85%80%EB%B8%94%EB%9F%AC-250ml/1038/",
+        "alt": "써모스 JOR-250K 제품 사진"
+      },
+      "series": "퀵오픈 이지 텀블러"
     },
     {
       "variantId": "thermos-jor-350k",
@@ -2257,7 +2465,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jor-350k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%80%B5%EC%98%A4%ED%94%88-%EC%9D%B4%EC%A7%80-%ED%85%80%EB%B8%94%EB%9F%AC-350ml/1039/",
+        "alt": "써모스 JOR-350K 제품 사진"
+      },
+      "series": "퀵오픈 이지 텀블러"
     },
     {
       "variantId": "thermos-jok-350k",
@@ -2284,7 +2498,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jok-350k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%8C%8C%EC%9A%B0%EB%8D%94-%EB%B3%B4%ED%8B%80-350ml/899/",
+        "alt": "써모스 JOK-350K 제품 사진"
+      },
+      "series": "데일리 원터치 파우더 보틀"
     },
     {
       "variantId": "thermos-jok-500k",
@@ -2311,7 +2531,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jok-500k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%8C%8C%EC%9A%B0%EB%8D%94-%EB%B3%B4%ED%8B%80-500ml/900/",
+        "alt": "써모스 JOK-500K 제품 사진"
+      },
+      "series": "데일리 원터치 파우더 보틀"
     },
     {
       "variantId": "thermos-ttb-1000k",
@@ -2338,7 +2564,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ttb-1000k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%B3%B4%EC%98%A8%EB%B3%B4%EB%83%89-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%8F%AC%ED%8A%B8-1l/909/",
+        "alt": "써모스 TTB-1000K 제품 사진"
+      },
+      "series": "보온보냉 테이블 포트"
     },
     {
       "variantId": "thermos-ttb-1500k",
@@ -2365,7 +2597,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ttb-1500k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%B3%B4%EC%98%A8%EB%B3%B4%EB%83%89-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%8F%AC%ED%8A%B8-15l/910/",
+        "alt": "써모스 TTB-1500K 제품 사진"
+      },
+      "series": "보온보냉 테이블 포트"
     },
     {
       "variantId": "thermos-ttb-2000k",
@@ -2392,7 +2630,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ttb-2000k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%B3%B4%EC%98%A8%EB%B3%B4%EB%83%89-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%8F%AC%ED%8A%B8-2l/911/",
+        "alt": "써모스 TTB-2000K 제품 사진"
+      },
+      "series": "보온보냉 테이블 포트"
     },
     {
       "variantId": "thermos-joo-380k",
@@ -2419,7 +2663,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joo-380k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%ED%85%80%EB%B8%94%EB%9F%AC-380ml/1191/",
+        "alt": "써모스 JOO-380K 제품 사진"
+      },
+      "series": "캐리 루프 텀블러"
     },
     {
       "variantId": "thermos-joo-500k",
@@ -2446,7 +2696,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joo-500k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/878/",
+        "alt": "써모스 JOO-500K 제품 사진"
+      },
+      "series": "캐리 루프 텀블러"
     },
     {
       "variantId": "thermos-joo-500kc",
@@ -2473,7 +2729,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joo-500kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C-%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/902/",
+        "alt": "써모스 JOO-500KC 제품 사진"
+      },
+      "series": "캐리 루프 텀블러"
     },
     {
       "variantId": "thermos-fjh-500k",
@@ -2500,7 +2762,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fjh-500k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%A1%ED%8B%B0%EB%B9%84%ED%8B%B0-%EB%B3%B4%ED%8B%80-500ml/866/",
+        "alt": "써모스 FJH-500K 제품 사진"
+      },
+      "series": "마이 디자인 액티비티 보틀"
     },
     {
       "variantId": "thermos-fjh-350k",
@@ -2527,7 +2795,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fjh-350k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%95%A1%ED%8B%B0%EB%B9%84%ED%8B%B0-%EB%B3%B4%ED%8B%80-350ml/1031/",
+        "alt": "써모스 FJH-350K 제품 사진"
+      },
+      "series": "마이 디자인 액티비티 보틀"
     },
     {
       "variantId": "thermos-tkfh-150",
@@ -2554,7 +2828,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfh-150.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=141",
+        "alt": "써모스 TKFH-150 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 유아용 PPSU 이유식용기"
     },
     {
       "variantId": "thermos-tkfh-250",
@@ -2581,7 +2861,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfh-250.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=141",
+        "alt": "써모스 TKFH-250 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 유아용 PPSU 이유식용기"
     },
     {
       "variantId": "thermos-joi-350k",
@@ -2608,7 +2894,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joi-350k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=139",
+        "alt": "써모스 JOI-350K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 스트랩+원터치 타입"
     },
     {
       "variantId": "thermos-joi-351k",
@@ -2635,7 +2927,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joi-351k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%8A%A4%ED%8A%B8%EB%9E%A9%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C2-350ml/1268/",
+        "alt": "써모스 JOI-351K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 스트랩+원터치 타입 시즌2"
     },
     {
       "variantId": "thermos-joi-501k",
@@ -2662,7 +2960,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joi-501k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%8A%A4%ED%8A%B8%EB%9E%A9%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C2-500ml/1269/",
+        "alt": "써모스 JOI-501K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 스트랩+원터치 타입 시즌2"
     },
     {
       "variantId": "thermos-joj-120k",
@@ -2689,7 +2993,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joj-120k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=136",
+        "alt": "써모스 JOJ-120K 제품 사진"
+      },
+      "series": "미니미니 텀블러"
     },
     {
       "variantId": "thermos-joj-180k",
@@ -2716,7 +3026,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joj-180k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=136",
+        "alt": "써모스 JOJ-180K 제품 사진"
+      },
+      "series": "미니미니 텀블러"
     },
     {
       "variantId": "thermos-joj-121k",
@@ -2743,7 +3059,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joj-121k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%AF%B8%EB%8B%88%EB%AF%B8%EB%8B%88-%ED%85%80%EB%B8%94%EB%9F%AC-120ml/1285/",
+        "alt": "써모스 JOJ-121K 제품 사진"
+      },
+      "series": "미니미니 텀블러"
     },
     {
       "variantId": "thermos-joj-181k",
@@ -2770,7 +3092,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joj-181k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%AF%B8%EB%8B%88%EB%AF%B8%EB%8B%88-%ED%85%80%EB%B8%94%EB%9F%AC-180ml/1286/",
+        "alt": "써모스 JOJ-181K 제품 사진"
+      },
+      "series": "미니미니 텀블러"
     },
     {
       "variantId": "thermos-fjm-450k",
@@ -2797,7 +3125,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fjm-450k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8A%AC%EB%A6%BC-%EC%8A%A4%ED%8A%B8%EB%A1%9C-%ED%85%80%EB%B8%94%EB%9F%AC-450ml/806/",
+        "alt": "써모스 FJM-450K 제품 사진"
+      },
+      "series": "슬림 스트로 텀블러"
     },
     {
       "variantId": "thermos-ffv-3000k",
@@ -2824,7 +3158,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffv-3000k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%8A%B8%EB%9E%98%EB%B8%94-%ED%82%B9-%EB%8C%80%EC%9A%A9%EB%9F%89-%EC%95%84%EC%9D%B4%EC%8A%A4-%EC%9B%8C%ED%84%B0%EC%A0%80%EA%B7%B8-3l/793/",
+        "alt": "써모스 FFV-3000K 제품 사진"
+      },
+      "series": "트래블 킹 대용량 아이스 워터저그"
     },
     {
       "variantId": "thermos-tkff-280",
@@ -2851,7 +3191,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkff-280.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=81",
+        "alt": "써모스 TKFF-280 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 유아용 텀블러"
     },
     {
       "variantId": "thermos-tkfj-200kc",
@@ -2878,7 +3224,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfj-200kc.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=154",
+        "alt": "써모스 TKFJ-200KC 제품 사진"
+      },
+      "series": "2WAY 스텝업 베이비보틀"
     },
     {
       "variantId": "thermos-tkfj-280kc",
@@ -2905,7 +3257,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfj-280kc.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=154",
+        "alt": "써모스 TKFJ-280KC 제품 사진"
+      },
+      "series": "2WAY 스텝업 베이비보틀"
     },
     {
       "variantId": "thermos-tkfj-350kc",
@@ -2932,7 +3290,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfj-350kc.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=154",
+        "alt": "써모스 TKFJ-350KC 제품 사진"
+      },
+      "series": "2WAY 스텝업 베이비보틀"
     },
     {
       "variantId": "thermos-tkfj-200",
@@ -2959,7 +3323,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfj-200.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4-2way-%EC%8A%A4%ED%85%9D%EC%97%85-%EB%B2%A0%EC%9D%B4%EB%B9%84-%EB%B3%B4%ED%8B%80-200ml/1281/",
+        "alt": "써모스 TKFJ-200 제품 사진"
+      },
+      "series": "2WAY 스텝업 베이비 보틀"
     },
     {
       "variantId": "thermos-tkfj-280",
@@ -2986,7 +3356,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfj-280.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4-2way-%EC%8A%A4%ED%85%9D%EC%97%85-%EB%B2%A0%EC%9D%B4%EB%B9%84-%EB%B3%B4%ED%8B%80-280ml/1282/",
+        "alt": "써모스 TKFJ-280 제품 사진"
+      },
+      "series": "2WAY 스텝업 베이비 보틀"
     },
     {
       "variantId": "thermos-tkfj-350",
@@ -3013,7 +3389,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfj-350.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4-2way-%EC%8A%A4%ED%85%9D%EC%97%85-%EB%B2%A0%EC%9D%B4%EB%B9%84-%EB%B3%B4%ED%8B%80-350ml/1283/",
+        "alt": "써모스 TKFJ-350 제품 사진"
+      },
+      "series": "2WAY 스텝업 베이비 보틀"
     },
     {
       "variantId": "thermos-tkfd-200",
@@ -3040,7 +3422,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfd-200.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=79",
+        "alt": "써모스 TKFD-200 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 2WAY 베이비보틀"
     },
     {
       "variantId": "thermos-tkfe-280",
@@ -3067,7 +3455,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfe-280.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=80",
+        "alt": "써모스 TKFE-280 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 유아용 빨대컵"
     },
     {
       "variantId": "thermos-tkfe-350",
@@ -3094,7 +3488,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfe-350.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=80",
+        "alt": "써모스 TKFE-350 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 대용량 유아용 빨대컵"
     },
     {
       "variantId": "thermos-tkfg-280",
@@ -3121,7 +3521,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfg-280.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=140",
+        "alt": "써모스 TKFG-280 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 유아용 PPSU 빨대컵"
     },
     {
       "variantId": "thermos-tkfg-380",
@@ -3148,7 +3554,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfg-380.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=140",
+        "alt": "써모스 TKFG-380 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 대용량 유아용 PPSU 빨대컵"
     },
     {
       "variantId": "thermos-tkfk-280",
@@ -3175,7 +3587,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfk-280.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-ppsu-%EB%B9%A8%EB%8C%80%EC%BB%B5-280ml/1284/",
+        "alt": "써모스 TKFK-280 제품 사진"
+      },
+      "series": "프리미엄 PPSU 빨대컵"
     },
     {
       "variantId": "thermos-jog-500k",
@@ -3202,7 +3620,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jog-500k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%80%B5%EC%98%A4%ED%94%88-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/715/",
+        "alt": "써모스 JOG-500K 제품 사진"
+      },
+      "series": "퀵오픈 스트레이트 텀블러"
     },
     {
       "variantId": "thermos-jog-250k",
@@ -3229,7 +3653,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jog-250k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%80%B5%EC%98%A4%ED%94%88-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8-%ED%85%80%EB%B8%94%EB%9F%AC-250ml/714/",
+        "alt": "써모스 JOG-250K 제품 사진"
+      },
+      "series": "퀵오픈 스트레이트 텀블러"
     },
     {
       "variantId": "thermos-jog-350k",
@@ -3256,7 +3686,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jog-350k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%80%B5%EC%98%A4%ED%94%88-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8-%ED%85%80%EB%B8%94%EB%9F%AC-350ml/718/",
+        "alt": "써모스 JOG-350K 제품 사진"
+      },
+      "series": "퀵오픈 스트레이트 텀블러"
     },
     {
       "variantId": "thermos-jog-250kc",
@@ -3283,7 +3719,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jog-250kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C%ED%80%B5%EC%98%A4%ED%94%88-%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8-%ED%85%80%EB%B8%94%EB%9F%AC-250ml/740/",
+        "alt": "써모스 JOG-250KC 제품 사진"
+      },
+      "series": "퀵오픈 스트레이트 텀블러"
     },
     {
       "variantId": "thermos-jnt-550kc",
@@ -3310,7 +3752,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnt-550kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C%EC%8A%A4%ED%8A%B8%EB%9E%A9-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-550ml/741/",
+        "alt": "써모스 JNT-550KC 제품 사진"
+      },
+      "series": "스트랩 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnt-550k",
@@ -3337,7 +3785,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnt-550k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8A%A4%ED%8A%B8%EB%9E%A9-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-550ml/840/",
+        "alt": "써모스 JNT-550K 제품 사진"
+      },
+      "series": "스트랩 원터치 텀블러"
     },
     {
       "variantId": "thermos-ffw-1003k",
@@ -3364,7 +3818,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffw-1003k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8A%A4%ED%8A%B8%EB%A1%B1-%EC%BB%B5-%ED%83%80%EC%9E%85-%EB%B3%B4%EC%98%A8%EB%B3%91-1l/206/",
+        "alt": "써모스 FFW-1003K 제품 사진"
+      },
+      "series": "스트롱 컵 타입 보온병"
     },
     {
       "variantId": "thermos-ffw-1003ks",
@@ -3391,7 +3851,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffw-1003ks.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=94",
+        "alt": "써모스 FFW-1003KS 제품 사진"
+      },
+      "series": "스트롱 컵 타입 보온병"
     },
     {
       "variantId": "thermos-jnm-360k",
@@ -3418,7 +3884,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnm-360k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=382",
+        "alt": "써모스 JNM-360K 제품 사진"
+      },
+      "series": "손전등 텀블러"
     },
     {
       "variantId": "thermos-jnm-361k",
@@ -3445,7 +3917,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnm-361k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%86%90%EC%A0%84%EB%93%B1-%ED%85%80%EB%B8%94%EB%9F%AC-360ml/181/",
+        "alt": "써모스 JNM-361K 제품 사진"
+      },
+      "series": "손전등 텀블러"
     },
     {
       "variantId": "thermos-jnm-480k",
@@ -3472,7 +3950,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnm-480k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=376",
+        "alt": "써모스 JNM-480K 제품 사진"
+      },
+      "series": "손전등 텀블러"
     },
     {
       "variantId": "thermos-jnm-481k",
@@ -3499,7 +3983,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnm-481k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=31",
+        "alt": "써모스 JNM-481K 제품 사진"
+      },
+      "series": "손전등 텀블러"
     },
     {
       "variantId": "thermos-jnm-481kc",
@@ -3526,7 +4016,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnm-481kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C%EC%86%90%EC%A0%84%EB%93%B1-%ED%85%80%EB%B8%94%EB%9F%AC-480ml/743/",
+        "alt": "써모스 JNM-481KC 제품 사진"
+      },
+      "series": "손전등 텀블러"
     },
     {
       "variantId": "thermos-joe-360k",
@@ -3553,7 +4049,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joe-360k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=30",
+        "alt": "써모스 JOE-360K 제품 사진"
+      },
+      "series": "이지 텀블러"
     },
     {
       "variantId": "thermos-joe-480k",
@@ -3580,7 +4082,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-joe-480k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=30",
+        "alt": "써모스 JOE-480K 제품 사진"
+      },
+      "series": "이지 텀블러"
     },
     {
       "variantId": "thermos-jni-301",
@@ -3607,7 +4115,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-301.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=434",
+        "alt": "써모스 JNI-301 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-301k",
@@ -3634,7 +4148,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-301k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=437",
+        "alt": "써모스 JNI-301K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-302k",
@@ -3661,7 +4181,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-302k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=439",
+        "alt": "써모스 JNI-302K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-304k",
@@ -3688,7 +4214,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-304k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8A%AC%EB%A6%BC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-300ml/781/",
+        "alt": "써모스 JNI-304K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-401",
@@ -3715,7 +4247,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-401.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=412",
+        "alt": "써모스 JNI-401 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-401k",
@@ -3742,7 +4280,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-401k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=418",
+        "alt": "써모스 JNI-401K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-402k",
@@ -3769,7 +4313,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-402k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=420",
+        "alt": "써모스 JNI-402K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-404k",
@@ -3796,7 +4346,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-404k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8A%AC%EB%A6%BC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-400ml/782/",
+        "alt": "써모스 JNI-404K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-403k",
@@ -3823,7 +4379,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-403k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=424",
+        "alt": "써모스 JNI-403K 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-jni-403ko",
@@ -3850,7 +4412,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jni-403ko.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=423",
+        "alt": "써모스 JNI-403KO 제품 사진"
+      },
+      "series": "슬림 원터치 텀블러"
     },
     {
       "variantId": "thermos-tcmi-400ksb",
@@ -3904,6 +4472,11 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-250.webp",
+        "sourceUrl": "https://thermosshop.kr/product/jno-250/1027/",
+        "alt": "써모스 JNO-250 제품 사진"
       }
     },
     {
@@ -3931,7 +4504,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-351k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=34",
+        "alt": "써모스 JNO-351K 제품 사진"
+      },
+      "series": "퀵오픈 파스텔 텀블러"
     },
     {
       "variantId": "thermos-jno-350",
@@ -3958,7 +4537,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-350.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=343",
+        "alt": "써모스 JNO-350 제품 사진"
+      },
+      "series": "퀵오픈 텀블러"
     },
     {
       "variantId": "thermos-jno-350k",
@@ -3985,7 +4570,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-350k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=34",
+        "alt": "써모스 JNO-350K 제품 사진"
+      },
+      "series": "퀵오픈 텀블러"
     },
     {
       "variantId": "thermos-jno-500",
@@ -4012,6 +4603,11 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-500.webp",
+        "sourceUrl": "https://thermosshop.kr/product/jno-500/1028/",
+        "alt": "써모스 JNO-500 제품 사진"
       }
     },
     {
@@ -4039,7 +4635,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-500k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=34",
+        "alt": "써모스 JNO-500K 제품 사진"
+      },
+      "series": "퀵오픈 텀블러"
     },
     {
       "variantId": "thermos-jno-501k",
@@ -4066,7 +4668,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jno-501k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=34",
+        "alt": "써모스 JNO-501K 제품 사진"
+      },
+      "series": "퀵오픈 파스텔 텀블러"
     },
     {
       "variantId": "thermos-jns-350k",
@@ -4093,7 +4701,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jns-350k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=329",
+        "alt": "써모스 JNS-350K 제품 사진"
+      },
+      "series": "슬라이드 텀블러"
     },
     {
       "variantId": "thermos-jns-450k",
@@ -4120,7 +4734,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jns-450k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=326",
+        "alt": "써모스 JNS-450K 제품 사진"
+      },
+      "series": "슬라이드 텀블러"
     },
     {
       "variantId": "thermos-jmz-350k",
@@ -4174,7 +4794,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jmz-351k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=129",
+        "alt": "써모스 JMZ-351K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 스크류 타입"
     },
     {
       "variantId": "thermos-jde-420k",
@@ -4228,7 +4854,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jde-600k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=65",
+        "alt": "써모스 JDE-600K 제품 사진"
+      },
+      "series": "스탠다드 콜드컵"
     },
     {
       "variantId": "thermos-jde-600kc",
@@ -4255,7 +4887,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jde-600kc.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=210",
+        "alt": "써모스 JDE-600KC 제품 사진"
+      },
+      "series": "트로피칼 콜드컵"
     },
     {
       "variantId": "thermos-jde-601kl",
@@ -4282,7 +4920,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jde-601kl.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%8C%8C%EC%8A%A4%ED%85%94-%EC%86%8C%ED%94%84%ED%8A%B8-%EC%BD%9C%EB%93%9C%EC%BB%B5-600ml/604/",
+        "alt": "써모스 JDE-601KL 제품 사진"
+      },
+      "series": "파스텔 소프트 콜드컵"
     },
     {
       "variantId": "thermos-jde-601k",
@@ -4336,7 +4980,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-thv-1001k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=196",
+        "alt": "써모스 THV-1001K 제품 사진"
+      },
+      "series": "보온보냉 테이블 포트"
     },
     {
       "variantId": "thermos-thv-1501k",
@@ -4363,7 +5013,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-thv-1501k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=193",
+        "alt": "써모스 THV-1501K 제품 사진"
+      },
+      "series": "보온보냉 테이블 포트"
     },
     {
       "variantId": "thermos-thv-2001k",
@@ -4390,7 +5046,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-thv-2001k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=190",
+        "alt": "써모스 THV-2001K 제품 사진"
+      },
+      "series": "보온보냉 테이블 포트"
     },
     {
       "variantId": "thermos-tkfb-280s",
@@ -4417,7 +5079,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfb-280s.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=86",
+        "alt": "써모스 TKFB-280S 제품 사진"
+      },
+      "series": "푸고 프리미엄 유아용 빨대컵"
     },
     {
       "variantId": "thermos-tkfb-350s",
@@ -4444,7 +5112,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfb-350s.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=86",
+        "alt": "써모스 TKFB-350S 제품 사진"
+      },
+      "series": "푸고 프리미엄 대용량 유아용 빨대컵"
     },
     {
       "variantId": "thermos-tkfc-280s",
@@ -4471,7 +5145,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-tkfc-280s.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=117",
+        "alt": "써모스 TKFC-280S 제품 사진"
+      },
+      "series": "푸고 프리미엄 유아용 텀블러"
     },
     {
       "variantId": "thermos-jnr-350k",
@@ -4498,7 +5178,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnr-350k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=134",
+        "alt": "써모스 JNR-350K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 원터치 타입"
     },
     {
       "variantId": "thermos-jnr-351k",
@@ -4525,7 +5211,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnr-351k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=83",
+        "alt": "써모스 JNR-351K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 원터치 타입 시즌 2"
     },
     {
       "variantId": "thermos-jnr-500k",
@@ -4552,7 +5244,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnr-500k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=83",
+        "alt": "써모스 JNR-500K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 원터치 타입"
     },
     {
       "variantId": "thermos-jnr-400k",
@@ -4579,7 +5277,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnr-400k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=83",
+        "alt": "써모스 JNR-400K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 원터치 타입"
     },
     {
       "variantId": "thermos-jnr-251k",
@@ -4606,7 +5310,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnr-251k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=83",
+        "alt": "써모스 JNR-251K 제품 사진"
+      },
+      "series": "마이 디자인 보틀 원터치 타입 시즌 2"
     },
     {
       "variantId": "thermos-jnr-352ks",
@@ -4633,7 +5343,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnr-352ks.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-%EC%BB%A4%EC%8A%A4%ED%85%80%EB%B2%84%EC%A0%84-350ml/1166/",
+        "alt": "써모스 JNR-352KS 제품 사진"
+      },
+      "series": "마이 디자인 보틀 원터치 타입 시즌3 커스텀버전"
     },
     {
       "variantId": "thermos-ffi-400fk",
@@ -4660,7 +5376,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffi-400fk.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=114",
+        "alt": "써모스 FFI-400FK 제품 사진"
+      },
+      "series": "키즈용 빨대 보틀"
     },
     {
       "variantId": "thermos-jnx-500k",
@@ -4687,7 +5409,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnx-500k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=137",
+        "alt": "써모스 JNX-500K 제품 사진"
+      },
+      "series": "푸고 프리미엄 시리즈 조제분유용 텀블러"
     },
     {
       "variantId": "thermos-jnx-501k",
@@ -4714,7 +5442,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnx-501k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=82",
+        "alt": "써모스 JNX-501K 제품 사진"
+      },
+      "series": "푸고 프리미엄 뉴트럴 시리즈 조제분유용 텀블러"
     },
     {
       "variantId": "thermos-jnx-502kc",
@@ -4741,7 +5475,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnx-502kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C-%EC%A1%B0%EC%A0%9C%EB%B6%84%EC%9C%A0%EC%9A%A9-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/1167/",
+        "alt": "써모스 JNX-502KC 제품 사진"
+      },
+      "series": "조제분유용 텀블러"
     },
     {
       "variantId": "thermos-fdh-1405",
@@ -4768,7 +5508,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fdh-1405.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=40",
+        "alt": "써모스 FDH-1405 제품 사진"
+      },
+      "series": "대용량 와이드 보온병"
     },
     {
       "variantId": "thermos-fdh-1705",
@@ -4795,7 +5541,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fdh-1705.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=39",
+        "alt": "써모스 FDH-1705 제품 사진"
+      },
+      "series": "대용량 와이드 보온병"
     },
     {
       "variantId": "thermos-fdh-2005",
@@ -4822,7 +5574,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-fdh-2005.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=38",
+        "alt": "써모스 FDH-2005 제품 사진"
+      },
+      "series": "대용량 와이드 보온병"
     },
     {
       "variantId": "thermos-ffz-500fk",
@@ -4849,7 +5607,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffz-500fk.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=44",
+        "alt": "써모스 FFZ-500FK 제품 사진"
+      },
+      "series": "스포츠 보틀"
     },
     {
       "variantId": "thermos-ffz-801fk",
@@ -4876,7 +5640,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffz-801fk.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=42",
+        "alt": "써모스 FFZ-801FK 제품 사진"
+      },
+      "series": "스포츠 보틀"
     },
     {
       "variantId": "thermos-ffz-1000fk",
@@ -4903,7 +5673,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffz-1000fk.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=41",
+        "alt": "써모스 FFZ-1000FK 제품 사진"
+      },
+      "series": "스포츠 보틀"
     },
     {
       "variantId": "thermos-ffx-500",
@@ -4930,7 +5706,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffx-500.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=80",
+        "alt": "써모스 FFX-500 제품 사진"
+      },
+      "series": "등산용 보틀"
     },
     {
       "variantId": "thermos-ffx-900",
@@ -4957,7 +5739,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffx-900.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=71",
+        "alt": "써모스 FFX-900 제품 사진"
+      },
+      "series": "등산용 보틀"
     },
     {
       "variantId": "thermos-ffx-501k",
@@ -4984,7 +5772,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffx-501k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%93%B1%EC%82%B0%EC%9A%A9-%EB%B3%B4%ED%8B%80-%EC%8B%9C%EC%A6%8C2-500ml/689/",
+        "alt": "써모스 FFX-501K 제품 사진"
+      },
+      "series": "등산용 보틀 시즌2"
     },
     {
       "variantId": "thermos-ffx-751k",
@@ -5011,7 +5805,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffx-751k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%93%B1%EC%82%B0%EC%9A%A9-%EB%B3%B4%ED%8B%80-%EC%8B%9C%EC%A6%8C2-750ml/690/",
+        "alt": "써모스 FFX-751K 제품 사진"
+      },
+      "series": "등산용 보틀 시즌2"
     },
     {
       "variantId": "thermos-ffx-901k",
@@ -5038,7 +5838,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffx-901k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%93%B1%EC%82%B0%EC%9A%A9-%EB%B3%B4%ED%8B%80-%EC%8B%9C%EC%A6%8C2-900ml/691/",
+        "alt": "써모스 FFX-901K 제품 사진"
+      },
+      "series": "등산용 보틀 시즌2"
     },
     {
       "variantId": "thermos-ffm-351k",
@@ -5065,7 +5871,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffm-351k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%8A%B8%EB%9F%BC%ED%8E%AB-%EC%BB%B5-%ED%83%80%EC%9E%85-%EB%B3%B4%EC%98%A8%EB%B3%91-350ml/651/",
+        "alt": "써모스 FFM-351K 제품 사진"
+      },
+      "series": "트럼펫 컵 타입 보온병"
     },
     {
       "variantId": "thermos-ffm-501k",
@@ -5092,7 +5904,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffm-501k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%ED%8A%B8%EB%9F%BC%ED%8E%AB-%EC%BB%B5-%ED%83%80%EC%9E%85-%EB%B3%B4%EC%98%A8%EB%B3%91-500ml/652/",
+        "alt": "써모스 FFM-501K 제품 사진"
+      },
+      "series": "트럼펫 컵 타입 보온병"
     },
     {
       "variantId": "thermos-ffm-350",
@@ -5119,7 +5937,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffm-350.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=369",
+        "alt": "써모스 FFM-350 제품 사진"
+      },
+      "series": "컵 타입 보온병"
     },
     {
       "variantId": "thermos-ffm-500",
@@ -5146,7 +5970,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffm-500.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=362",
+        "alt": "써모스 FFM-500 제품 사진"
+      },
+      "series": "컵 타입 보온병"
     },
     {
       "variantId": "thermos-ffm-501kh",
@@ -5173,7 +6003,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-ffm-501kh.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=364",
+        "alt": "써모스 FFM-501KH 제품 사진"
+      },
+      "series": "컵 타입 보온병"
     },
     {
       "variantId": "thermos-jnl-354k",
@@ -5200,7 +6036,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-354k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=26",
+        "alt": "써모스 JNL-354K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-504k",
@@ -5227,7 +6069,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-504k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=26",
+        "alt": "써모스 JNL-504K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-604k",
@@ -5254,7 +6102,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-604k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=S&idx=26",
+        "alt": "써모스 JNL-604K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-754k",
@@ -5281,7 +6135,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-754k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-750ml/655/",
+        "alt": "써모스 JNL-754K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-752k",
@@ -5308,7 +6168,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-752k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=445",
+        "alt": "써모스 JNL-752K 제품 사진"
+      },
+      "series": "클래식 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-353k",
@@ -5335,7 +6201,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-353k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=539",
+        "alt": "써모스 JNL-353K 제품 사진"
+      },
+      "series": "클래식 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-403k",
@@ -5362,7 +6234,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-403k.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EA%B7%B8%EB%9E%98%ED%94%BD-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-400ml/170/",
+        "alt": "써모스 JNL-403K 제품 사진"
+      },
+      "series": "그래픽 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-502k",
@@ -5389,7 +6267,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-502k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=476",
+        "alt": "써모스 JNL-502K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-502gk",
@@ -5416,7 +6300,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-502gk.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=498",
+        "alt": "써모스 JNL-502GK 제품 사진"
+      },
+      "series": "그래픽 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-503kf",
@@ -5443,7 +6333,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-503kf.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=494",
+        "alt": "써모스 JNL-503KF 제품 사진"
+      },
+      "series": "그래픽 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-503k",
@@ -5470,7 +6366,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-503k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=493",
+        "alt": "써모스 JNL-503K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-603k",
@@ -5497,7 +6399,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-603k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=459",
+        "alt": "써모스 JNL-603K 제품 사진"
+      },
+      "series": "클래식 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-753k",
@@ -5524,7 +6432,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-753k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=448",
+        "alt": "써모스 JNL-753K 제품 사진"
+      },
+      "series": "클래식 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-350",
@@ -5551,7 +6465,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-350.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=516",
+        "alt": "써모스 JNL-350 제품 사진"
+      },
+      "series": "클래식 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-500",
@@ -5578,7 +6498,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-500.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=466",
+        "alt": "써모스 JNL-500 제품 사진"
+      },
+      "series": "클래식 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-352k",
@@ -5605,7 +6531,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-352k.webp",
+        "sourceUrl": "https://www.thermos.kr/product/product-view.php?kind=P&idx=528",
+        "alt": "써모스 JNL-352K 제품 사진"
+      },
+      "series": "데일리 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-404kc",
@@ -5632,7 +6564,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-404kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C-%EA%B7%B8%EB%9E%98%ED%94%BD-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-400ml/837/",
+        "alt": "써모스 JNL-404KC 제품 사진"
+      },
+      "series": "그래픽 원터치 텀블러"
     },
     {
       "variantId": "thermos-jnl-504kc",
@@ -5659,7 +6597,13 @@
         "title": "써모스 공식 부품 상품 · 제품문의",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/thermos-jnl-504kc.webp",
+        "sourceUrl": "https://thermosshop.kr/product/%EC%8D%A8%EB%AA%A8%EC%8A%A4x%EC%A0%9C%EB%A1%9C%ED%8D%BC%EC%A0%9C%EB%A1%9C-%EA%B7%B8%EB%9E%98%ED%94%BD-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/1095/",
+        "alt": "써모스 JNL-504KC 제품 사진"
+      },
+      "series": "그래픽 원터치 텀블러"
     },
     {
       "variantId": "shimano-br-c501",
@@ -6555,7 +7499,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-hp09.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-purifier-hot-cool-formaldehyde-white-nickel-gold",
+        "alt": "다이슨 HP09 공기청정기 제품 사진"
+      },
+      "series": "핫앤쿨 포름알데히드 공기청정기"
     },
     {
       "variantId": "dyson-tp09",
@@ -6583,7 +7533,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-tp09.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-purifier-cool-formaldehyde-white-nickel-gold",
+        "alt": "다이슨 TP09 공기청정기 제품 사진"
+      },
+      "series": "쿨 포름알데히드 공기청정기"
     },
     {
       "variantId": "dyson-hp07",
@@ -6639,7 +7595,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-tp07.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-purifier-cool-white-silver",
+        "alt": "다이슨 TP07 공기청정기 제품 사진"
+      },
+      "series": "쿨 공기청정기"
     },
     {
       "variantId": "dyson-hp04",
@@ -6667,7 +7629,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-hp04.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 HP04 공기청정기 제품 사진"
+      },
+      "series": "퓨어 핫앤쿨 공기청정기"
     },
     {
       "variantId": "dyson-tp04",
@@ -6695,7 +7663,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-tp04.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 TP04 공기청정기 제품 사진"
+      },
+      "series": "퓨어쿨 공기청정기"
     },
     {
       "variantId": "dyson-dp04",
@@ -6723,7 +7697,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-dp04.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 DP04 공기청정기 제품 사진"
+      },
+      "series": "퓨어쿨 공기청정기 데스크형"
     },
     {
       "variantId": "dyson-hp06",
@@ -6751,7 +7731,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-hp06.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 HP06 공기청정기 제품 사진"
+      },
+      "series": "퓨어 핫앤쿨 크립토믹™ 공기청정기"
     },
     {
       "variantId": "dyson-tp06",
@@ -6779,7 +7765,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-tp06.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 TP06 공기청정기 제품 사진"
+      },
+      "series": "퓨어쿨 크립토믹™ 공기청정기"
     },
     {
       "variantId": "dyson-ph04",
@@ -6807,7 +7799,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-ph04.webp",
+        "sourceUrl": "https://www.dyson.co.kr/purifier-humidify-cool-formaldehyde-white-gold",
+        "alt": "다이슨 PH04 공기청정기 제품 사진"
+      },
+      "series": "휴미디파이+쿨 포름알데히드 가습 공기청정기"
     },
     {
       "variantId": "dyson-ph02",
@@ -6835,7 +7833,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-ph02.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 PH02 공기청정기 제품 사진"
+      },
+      "series": "퓨어 휴미디파이+쿨 크립토믹 가습 공기청정기"
     },
     {
       "variantId": "dyson-ph01",
@@ -6863,7 +7867,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-ph01.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 PH01 공기청정기 제품 사진"
+      },
+      "series": "퓨어 휴미디파이+쿨 가습 공기청정기"
     },
     {
       "variantId": "dyson-tp7a",
@@ -6891,7 +7901,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-tp7a.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 TP7A 공기청정기 제품 사진"
+      },
+      "series": "쿨 공기청정기 오토 리액트"
     },
     {
       "variantId": "dyson-tp10",
@@ -6919,7 +7935,13 @@
         "title": "다이슨 965432-01 필터 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/dyson-tp10.webp",
+        "sourceUrl": "https://www.dyson.co.kr/support/replacement-parts/air-treatment",
+        "alt": "다이슨 TP10 공기청정기 제품 사진"
+      },
+      "series": "쿨 Gen1 공기청정기"
     },
     {
       "variantId": "dyson-v8",
@@ -6947,6 +7969,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v8.webp",
+        "sourceUrl": "https://www.dyson.co.kr/v8",
+        "alt": "다이슨 V8 청소기 제품 사진"
       }
     },
     {
@@ -6975,6 +8002,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v10.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-cyclone-v10",
+        "alt": "다이슨 V10 청소기 제품 사진"
       }
     },
     {
@@ -7003,6 +8035,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v11.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-v11-absolute",
+        "alt": "다이슨 V11 청소기 제품 사진"
       }
     },
     {
@@ -7031,6 +8068,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v12.webp",
+        "sourceUrl": "https://www.dyson.co.kr/v12-detect-slim-yellow-nickel",
+        "alt": "다이슨 V12 청소기 제품 사진"
       }
     },
     {
@@ -7059,6 +8101,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v12s.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-v12s-detect-slim-submarine-yellow-nickel",
+        "alt": "다이슨 V12s 청소기 제품 사진"
       }
     },
     {
@@ -7087,6 +8134,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v15.webp",
+        "sourceUrl": "https://www.dyson.co.kr/v15-detect-yellow-nickel",
+        "alt": "다이슨 V15 청소기 제품 사진"
       }
     },
     {
@@ -7115,6 +8167,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v15s.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-v15s-detect-submarine-yellow-nickel",
+        "alt": "다이슨 V15s 청소기 제품 사진"
       }
     },
     {
@@ -7143,6 +8200,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-digital-slim.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-digital-slim-nickel",
+        "alt": "다이슨 디지털 슬림 청소기 제품 사진"
       }
     },
     {
@@ -7171,6 +8233,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-digital-slim-submarine.webp",
+        "sourceUrl": "https://www.dyson.co.kr/dyson-digital-slim-submarine-2026",
+        "alt": "다이슨 디지털 슬림 서브마린 청소기 제품 사진"
       }
     },
     {
@@ -7199,6 +8266,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v8-cyclone.webp",
+        "sourceUrl": "https://www.dyson.co.kr/v8-cyclone-cordless-vacuum",
+        "alt": "다이슨 V8 싸이클론 청소기 제품 사진"
       }
     },
     {
@@ -7227,6 +8299,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v12-origin-fluffy.webp",
+        "sourceUrl": "https://www.dyson.co.kr/v12-origin-fluffy",
+        "alt": "다이슨 V12 오리진 플러피 청소기 제품 사진"
       }
     },
     {
@@ -7255,6 +8332,11 @@
         "title": "다이슨 청소기 교체 툴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/dyson-v15-origin-fluffy.webp",
+        "sourceUrl": "https://www.dyson.co.kr/v15-origin-fluffy",
+        "alt": "다이슨 V15 오리진 플러피 청소기 제품 사진"
       }
     },
     {
@@ -7511,6 +8593,11 @@
         "title": "Tombow MONO zero 원형·사각 리필 구분",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/tombow-eh-kur.webp",
+        "sourceUrl": "https://www.tombow.com/en/products/mono_zero/",
+        "alt": "톰보우 MONO zero EH-KUR 원형 제품 사진"
       }
     },
     {
@@ -7540,6 +8627,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-marella.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/marella",
+        "alt": "브리타 마렐라 정수 용기 제품 사진"
       }
     },
     {
@@ -7569,6 +8661,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-liquelli.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/liquelli",
+        "alt": "브리타 리켈리 정수 용기 제품 사진"
       }
     },
     {
@@ -7598,6 +8695,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-flow.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/flow",
+        "alt": "브리타 플로우 정수 용기 제품 사진"
       }
     },
     {
@@ -7627,6 +8729,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-style.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/style",
+        "alt": "브리타 스타일 XL 정수 용기 제품 사진"
       }
     },
     {
@@ -7656,6 +8763,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-style-essential.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/style-essential",
+        "alt": "브리타 스타일 에센셜 정수 용기 제품 사진"
       }
     },
     {
@@ -7685,6 +8797,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-glass-jug.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/glass-jug",
+        "alt": "브리타 글라스 저그 정수 용기 제품 사진"
       }
     },
     {
@@ -7714,6 +8831,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-style-eco.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/style-eco",
+        "alt": "브리타 스타일 XL 에코 정수 용기 제품 사진"
       }
     },
     {
@@ -7743,6 +8865,11 @@
         "title": "브리타 MAXTRA PRO 퓨어 퍼포먼스 공식 필터 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brita-aluna.webp",
+        "sourceUrl": "https://www.brita.kr/water-filter-system/aluna",
+        "alt": "브리타 알루나 정수 용기 제품 사진"
       }
     },
     {
@@ -7771,6 +8898,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6424-02.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6424_02",
+        "alt": "필립스 ProtectiveClean 4700 HX6424/02 제품 사진"
       }
     },
     {
@@ -7799,6 +8931,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6434-01.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6434_01",
+        "alt": "필립스 ProtectiveClean 4700 HX6434/01 제품 사진"
       }
     },
     {
@@ -7827,6 +8964,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6403-70.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6403_70",
+        "alt": "필립스 ProtectiveClean 5100 HX6403/70 제품 사진"
       }
     },
     {
@@ -7855,6 +8997,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6456-03.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6456_03",
+        "alt": "필립스 ProtectiveClean 4300 HX6456/03 제품 사진"
       }
     },
     {
@@ -7883,6 +9030,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6457-02.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6457_02",
+        "alt": "필립스 ProtectiveClean 4300 HX6457/02 제품 사진"
       }
     },
     {
@@ -7911,6 +9063,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6498-01.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6498_01",
+        "alt": "필립스 ProtectiveClean 5100 HX6498/01 제품 사진"
       }
     },
     {
@@ -7939,6 +9096,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6414-01.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6414_01",
+        "alt": "필립스 ProtectiveClean 4300 HX6414/01 제품 사진"
       }
     },
     {
@@ -7967,6 +9129,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6462-01.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6462_01",
+        "alt": "필립스 ProtectiveClean 5100 HX6462/01 제품 사진"
       }
     },
     {
@@ -7994,6 +9161,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6870-55.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6870_55",
+        "alt": "필립스 ProtectiveClean 6100 HX6870/55 제품 사진"
       }
     },
     {
@@ -8022,6 +9194,11 @@
         "title": "필립스 HX9026/98 칫솔모 공식 호환 제품 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/philips-hx6877-54.webp",
+        "sourceUrl": "https://www.philips.co.kr/c-p/HX6877_54",
+        "alt": "필립스 ProtectiveClean 6100 HX6877/54 제품 사진"
       }
     },
     {
@@ -8215,6 +9392,11 @@
         "title": "GARDENA 01124-80 와셔 세트 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/gardena-18201.webp",
+        "sourceUrl": "https://www.gardena.com/int/products/watering/hose-fittings/tap-connector-265-mm-g-34/967312101.html",
+        "alt": "가데나 18201 원예용 연결구 제품 사진"
       }
     },
     {
@@ -8243,6 +9425,11 @@
         "title": "GARDENA 01124-80 와셔 세트 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/gardena-18241.webp",
+        "sourceUrl": "https://www.gardena.com/int/products/watering/hose-fittings/premium-tap-connector-26.5-mm-g-34/967666401.html",
+        "alt": "가데나 18241 원예용 연결구 제품 사진"
       }
     },
     {
@@ -8298,6 +9485,11 @@
         "title": "PetSafe PAC00-13067 공식 급수기 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-outdoor-dog.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-outdoor-dog-fountain/ZWW00-17111/",
+        "alt": "펫세이프 Drinkwell Outdoor Dog 급수기 제품 사진"
       }
     },
     {
@@ -8352,6 +9544,11 @@
         "title": "PetSafe PAC00-13067 공식 급수기 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-multi-tier.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-multi-tier-fountain/PWW00-13708/",
+        "alt": "펫세이프 Drinkwell Multi-Tier 급수기 제품 사진"
       }
     },
     {
@@ -8406,6 +9603,11 @@
         "title": "PetSafe PAC00-13067 공식 급수기 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-platinum.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-platinum-fountain/PWW00-13703/",
+        "alt": "펫세이프 Drinkwell Platinum 급수기 제품 사진"
       }
     },
     {
@@ -8460,6 +9662,11 @@
         "title": "PetSafe PAC00-13067 공식 급수기 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-mini.webp",
+        "sourceUrl": "https://www.petsafe.com/gb/p/drinkwell-mini-fountain/MINI-UK-17/",
+        "alt": "펫세이프 Drinkwell Mini 급수기 제품 사진"
       }
     },
     {
@@ -8487,6 +9694,11 @@
         "title": "Bugaboo Cameleon 3 앞바퀴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/bugaboo-cameleon-3.webp",
+        "sourceUrl": "https://www.bugaboo.com/kr-ko/%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC/bugaboo-cameleon-3/%EB%B6%80%EA%B0%80%EB%B6%80-%EC%B9%B4%EB%A9%9C%EB%A0%88%EC%98%A8-3-PM00044.html",
+        "alt": "부가부 Cameleon 3 제품 사진"
       }
     },
     {
@@ -8514,6 +9726,11 @@
         "title": "Bugaboo Cameleon 3 앞바퀴 공식 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/bugaboo-cameleon-3-plus.webp",
+        "sourceUrl": "https://www.bugaboo.com/gb-en/pushchairs/bugaboo-cameleon-3-plus/bugaboo-cameleon-3-plus-seat-and-carrycot-pushchair-MI002139C3.html",
+        "alt": "부가부 Cameleon 3 plus 제품 사진"
       }
     },
     {
@@ -8627,6 +9844,11 @@
         "title": "Decathlon MT500 스틱 공식 관리·수리 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/decathlon-mt500-pole.webp",
+        "sourceUrl": "https://www.decathlon.com/products/hiking-pole-500",
+        "alt": "데카트론 Forclaz MT500 등산 스틱 제품 사진"
       }
     },
     {
@@ -8652,7 +9874,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax34a5310wwd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX34A5310WWD/",
+        "alt": "삼성 AX34A5310WWD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax34m3020wwd",
@@ -8677,7 +9905,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax34m3020wwd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX34M3020WWD/",
+        "alt": "삼성 AX34M3020WWD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax34n3020wwd",
@@ -8702,7 +9936,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax34n3020wwd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX34N3020WWD/",
+        "alt": "삼성 AX34N3020WWD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax34n3020wed",
@@ -8727,7 +9967,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax34n3020wed.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX34N3020WED/",
+        "alt": "삼성 AX34N3020WED 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax34r3020wwd",
@@ -8752,7 +9998,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax34r3020wwd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX34R3020WWD/",
+        "alt": "삼성 AX34R3020WWD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax34t3000wwd",
@@ -8777,7 +10029,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax34t3000wwd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX34T3000WWD/",
+        "alt": "삼성 AX34T3000WWD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40a5310wmd",
@@ -8802,7 +10060,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40a5310wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40A5310WMD/",
+        "alt": "삼성 AX40A5310WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40a5311wmd",
@@ -8827,7 +10091,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40a5311wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40A5311WMD/",
+        "alt": "삼성 AX40A5311WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40m3030wmd",
@@ -8852,7 +10122,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40m3030wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40M3030WMD/",
+        "alt": "삼성 AX40M3030WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40m3040wmd",
@@ -8877,7 +10153,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40m3040wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40M3040WMD/",
+        "alt": "삼성 AX40M3040WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40m3050dmd",
@@ -8902,7 +10184,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40m3050dmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40M3050DMD/",
+        "alt": "삼성 AX40M3050DMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40m6050wmd",
@@ -8927,7 +10215,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40m6050wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40M6050WMD/",
+        "alt": "삼성 AX40M6050WMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax40m6580dmd",
@@ -8952,7 +10246,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40m6580dmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40M6580DMD/",
+        "alt": "삼성 AX40M6580DMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax40m6581wmd",
@@ -8977,7 +10277,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40m6581wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40M6581WMD/",
+        "alt": "삼성 AX40M6581WMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax40n3030wmd",
@@ -9002,7 +10308,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40n3030wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40N3030WMD/",
+        "alt": "삼성 AX40N3030WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40n3080dmd",
@@ -9027,7 +10339,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40n3080dmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40N3080DMD/",
+        "alt": "삼성 AX40N3080DMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40n3081wmd",
@@ -9052,7 +10370,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40n3081wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40N3081WMD/",
+        "alt": "삼성 AX40N3081WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40r3030wmd",
@@ -9077,7 +10401,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40r3030wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40R3030WMD/",
+        "alt": "삼성 AX40R3030WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40r3080wmd",
@@ -9102,7 +10432,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40r3080wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40R3080WMD/",
+        "alt": "삼성 AX40R3080WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40r3081wmd",
@@ -9127,7 +10463,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40r3081wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40R3081WMD/",
+        "alt": "삼성 AX40R3081WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40t3300wmd",
@@ -9152,7 +10494,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40t3300wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40T3300WMD/",
+        "alt": "삼성 AX40T3300WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40t3301wmd",
@@ -9177,7 +10525,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40t3301wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40T3301WMD/",
+        "alt": "삼성 AX40T3301WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax40t3320wmd",
@@ -9202,7 +10556,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax40t3320wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX40T3320WMD/",
+        "alt": "삼성 AX40T3320WMD 제품 사진"
+      },
+      "series": "블루스카이 3000"
     },
     {
       "variantId": "samsung-ax46n6580dmd",
@@ -9227,7 +10587,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax46n6580dmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX46N6580DMD/",
+        "alt": "삼성 AX46N6580DMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax46n6580wmd",
@@ -9252,7 +10618,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax46n6580wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX46N6580WMD/",
+        "alt": "삼성 AX46N6580WMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax46n6080wmd",
@@ -9277,7 +10649,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax46n6080wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX46N6080WMD/",
+        "alt": "삼성 AX46N6080WMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax46r6080wmd",
@@ -9302,7 +10680,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax46r6080wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX46R6080WMD/",
+        "alt": "삼성 AX46R6080WMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "samsung-ax46r6580wmd",
@@ -9327,7 +10711,13 @@
         "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
-      }
+      },
+      "image": {
+        "url": "/product-images/samsung-ax46r6580wmd.webp",
+        "sourceUrl": "https://www.samsung.com/sec/support/model/AX46R6580WMD/",
+        "alt": "삼성 AX46R6580WMD 제품 사진"
+      },
+      "series": "블루스카이 6000"
     },
     {
       "variantId": "lg-as062prhar-akor",
@@ -9384,7 +10774,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062prhat-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062prhat",
+        "alt": "LG AS062PRHAT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062prhwr-akor",
@@ -9410,7 +10806,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062prhwr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062prhwr",
+        "alt": "LG AS062PRHWR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062prhwt-akor",
@@ -9436,7 +10838,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062prhwt-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062prhwt",
+        "alt": "LG AS062PRHWT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062prhyr-akor",
@@ -9462,7 +10870,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062prhyr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062prhyr",
+        "alt": "LG AS062PRHYR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062prhyt-akor",
@@ -9488,7 +10902,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062prhyt-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062prhyt",
+        "alt": "LG AS062PRHYT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062pwhar-akor",
@@ -9514,7 +10934,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pwhar-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pwhar",
+        "alt": "LG AS062PWHAR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062pwhat-akor",
@@ -9540,7 +10966,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pwhat-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pwhat",
+        "alt": "LG AS062PWHAT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062pwhrr-akor",
@@ -9566,7 +10998,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pwhrr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pwhrr",
+        "alt": "LG AS062PWHRR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062pwhrt-akor",
@@ -9592,7 +11030,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pwhrt-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pwhrt",
+        "alt": "LG AS062PWHRT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062pwhyr-akor",
@@ -9618,7 +11062,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pwhyr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pwhyr",
+        "alt": "LG AS062PWHYR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062pwhyt-akor",
@@ -9644,7 +11094,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pwhyt-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pwhyt",
+        "alt": "LG AS062PWHYT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062pyhar-akor",
@@ -9670,7 +11126,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pyhar-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pyhar",
+        "alt": "LG AS062PYHAR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062pyhat-akor",
@@ -9696,7 +11158,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pyhat-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pyhat",
+        "alt": "LG AS062PYHAT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062pyhrr-akor",
@@ -9722,7 +11190,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pyhrr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pyhrr",
+        "alt": "LG AS062PYHRR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062pyhrt-akor",
@@ -9748,7 +11222,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pyhrt-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pyhrt",
+        "alt": "LG AS062PYHRT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as062pyhwr-akor",
@@ -9774,7 +11254,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pyhwr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pyhwr",
+        "alt": "LG AS062PYHWR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as062pyhwt-akor",
@@ -9800,7 +11286,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as062pyhwt-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as062pyhwt",
+        "alt": "LG AS062PYHWT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as063pwgcr-akor",
@@ -9826,7 +11318,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as063pwgcr-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as063pwgcr",
+        "alt": "LG AS063PWGCR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as063pwgct-akor",
@@ -9852,7 +11350,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as063pwgct-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as063pwgct",
+        "alt": "LG AS063PWGCT.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(트랙형)"
     },
     {
       "variantId": "lg-as064pbbar-akor",
@@ -9878,7 +11382,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as064pbbar-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as064pbbar",
+        "alt": "LG AS064PBBAR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as064pcbar-akor",
@@ -9904,7 +11414,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as064pcbar-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as064pcbar",
+        "alt": "LG AS064PCBAR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as064pwbar-akor",
@@ -9930,7 +11446,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as064pwbar-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as064pwbar",
+        "alt": "LG AS064PWBAR.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로퍼니처(원형)"
     },
     {
       "variantId": "lg-as065cwha-akor",
@@ -9956,7 +11478,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as065cwha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as065cwha",
+        "alt": "LG AS065CWHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 AI 오브제컬렉션 에어로캣타워"
     },
     {
       "variantId": "lg-as065pwha-akor",
@@ -9982,7 +11510,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as065pwha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as065pwha",
+        "alt": "LG AS065PWHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 AI 오브제컬렉션 에어로퍼니처"
     },
     {
       "variantId": "lg-as065swha-akor",
@@ -10008,7 +11542,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as065swha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as065swha",
+        "alt": "LG AS065SWHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 AI 오브제컬렉션 에어로스피커"
     },
     {
       "variantId": "lg-as105gwjc-akor",
@@ -10034,7 +11574,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as105gwjc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as105gwjc",
+        "alt": "LG AS105GWJC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로 Hit"
     },
     {
       "variantId": "lg-as155gwdl-akor",
@@ -10060,7 +11606,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-as155gwdl-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/as155gwdl",
+        "alt": "LG AS155GWDL.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로부스터"
     },
     {
       "variantId": "lg-fs061pbha-akor",
@@ -10086,7 +11638,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pbha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pbha",
+        "alt": "LG FS061PBHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061pbsa-akor",
@@ -10112,7 +11670,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pbsa-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pbsa",
+        "alt": "LG FS061PBSA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pcha-akor",
@@ -10164,7 +11728,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pcsa-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pcsa-b",
+        "alt": "LG FS061PCSA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pggc-akor",
@@ -10190,7 +11760,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pggc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pggc",
+        "alt": "LG FS061PGGC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061pgha-akor",
@@ -10216,7 +11792,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pgha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pgha",
+        "alt": "LG FS061PGHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061pgha-akorr",
@@ -10242,7 +11824,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pgha-akorr.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pgha",
+        "alt": "LG FS061PGHA.AKORR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061pghac-akor",
@@ -10268,7 +11856,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pghac-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pghac-c",
+        "alt": "LG FS061PGHAC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061pgrc-akor",
@@ -10294,7 +11888,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pgrc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pgrc",
+        "alt": "LG FS061PGRC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pgsa-akor",
@@ -10320,7 +11920,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pgsa-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pgsa-b",
+        "alt": "LG FS061PGSA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pgsa-akorr",
@@ -10346,7 +11952,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pgsa-akorr.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pgsa-b",
+        "alt": "LG FS061PGSA.AKORR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061prha-akor",
@@ -10372,7 +11984,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061prha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061prha",
+        "alt": "LG FS061PRHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061prsa-akor",
@@ -10398,7 +12016,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061prsa-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061prsa",
+        "alt": "LG FS061PRSA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061psgc-akor",
@@ -10424,7 +12048,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061psgc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061psgc",
+        "alt": "LG FS061PSGC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061psha-akor",
@@ -10450,7 +12080,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061psha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061psha",
+        "alt": "LG FS061PSHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061psha-akorr",
@@ -10476,7 +12112,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061psha-akorr.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061psha",
+        "alt": "LG FS061PSHA.AKORR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061psrc-akor",
@@ -10502,7 +12144,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061psrc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061psrc",
+        "alt": "LG FS061PSRC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pssa-akor",
@@ -10528,7 +12176,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pssa-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pssa",
+        "alt": "LG FS061PSSA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pssa-akorr",
@@ -10554,7 +12208,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pssa-akorr.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pssa",
+        "alt": "LG FS061PSSA.AKORR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs061pssabm-akor",
@@ -10580,7 +12240,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pssabm-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pssabm",
+        "alt": "LG FS061PSSABM.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용) + 무빙휠 세트"
     },
     {
       "variantId": "lg-fs061pwha-akor",
@@ -10606,7 +12272,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pwha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pwha",
+        "alt": "LG FS061PWHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs061pwsa-akor",
@@ -10632,7 +12304,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs061pwsa-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs061pwsa",
+        "alt": "LG FS061PWSA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 에어로타워 오브제컬렉션 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs062pyga-akor",
@@ -10658,7 +12336,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs062pyga-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs062pyga-c",
+        "alt": "LG FS062PYGA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs062pyga-akorr",
@@ -10684,7 +12368,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs062pyga-akorr.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs062pyga-c",
+        "alt": "LG FS062PYGA.AKORR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs062pyra-akor",
@@ -10736,7 +12426,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs062pzga-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs062pzga-c",
+        "alt": "LG FS062PZGA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs062pzga-akorr",
@@ -10762,7 +12458,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs062pzga-akorr.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs062pzga-c",
+        "alt": "LG FS062PZGA.AKORR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs062pzra-akor",
@@ -10814,7 +12516,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063pbda-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063pbda",
+        "alt": "LG FS063PBDA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs063pgda-akor",
@@ -10840,7 +12548,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063pgda-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063pgda",
+        "alt": "LG FS063PGDA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs063pgdam-akor",
@@ -10866,7 +12580,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063pgdam-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063pgdam-akor",
+        "alt": "LG FS063PGDAM.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용) + 무빙휠 세트"
     },
     {
       "variantId": "lg-fs063pgja-akor",
@@ -10918,7 +12638,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063pscc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063pscc",
+        "alt": "LG FS063PSCC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs063psccm-akor",
@@ -10944,7 +12670,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063psccm-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063psccm",
+        "alt": "LG FS063PSCCM.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용) + 무빙휠 세트"
     },
     {
       "variantId": "lg-fs063psda-akor",
@@ -10970,7 +12702,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063psda-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063psda",
+        "alt": "LG FS063PSDA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs063psdam-akor",
@@ -10996,7 +12734,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063psdam-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063psdam-akor",
+        "alt": "LG FS063PSDAM.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용) + 무빙휠 세트"
     },
     {
       "variantId": "lg-fs063psgc-akor",
@@ -11022,7 +12766,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063psgc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063psgc",
+        "alt": "LG FS063PSGC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs063psha-akor",
@@ -11048,7 +12798,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063psha-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063psha",
+        "alt": "LG FS063PSHA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (일반)"
     },
     {
       "variantId": "lg-fs063pwda-akor",
@@ -11074,7 +12830,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063pwda-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063pwda",
+        "alt": "LG FS063PWDA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용)"
     },
     {
       "variantId": "lg-fs063pwdam-akor",
@@ -11100,7 +12862,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs063pwdam-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs063pwdam",
+        "alt": "LG FS063PWDAM.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 (온풍 겸용) + 무빙휠 세트"
     },
     {
       "variantId": "lg-fs064pgja-akor",
@@ -11126,7 +12894,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs064pgja-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs064pgja",
+        "alt": "LG FS064PGJA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 UV살균"
     },
     {
       "variantId": "lg-fs064psja-akor",
@@ -11152,7 +12926,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs064psja-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs064psja",
+        "alt": "LG FS064PSJA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 UV살균"
     },
     {
       "variantId": "lg-fs064pslc-akor",
@@ -11178,7 +12958,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs064pslc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs064pslc",
+        "alt": "LG FS064PSLC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워"
     },
     {
       "variantId": "lg-fs065psjc-akor",
@@ -11204,7 +12990,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs065psjc-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs065psjc",
+        "alt": "LG FS065PSJC.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 Hit (온풍 겸용)"
     },
     {
       "variantId": "lg-fs065pska-akor",
@@ -11230,7 +13022,13 @@
         "title": "LG전자 해당 소모품 문의",
         "checkedAt": "2026-09-20",
         "scope": "link_only"
-      }
+      },
+      "image": {
+        "url": "/product-images/lg-fs065pska-akor.webp",
+        "sourceUrl": "https://www.lge.co.kr/product/air-purifier/fs065pska",
+        "alt": "LG FS065PSKA.AKOR 제품 사진"
+      },
+      "series": "퓨리케어 오브제컬렉션 에어로타워 Hit (온풍 겸용)"
     },
     {
       "variantId": "ikea-besta-89432897",
@@ -11363,6 +13161,11 @@
         "title": "Vileda UltraMax 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-ultramax.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/ultraMax-complete-mop-and-bucket-set",
+        "alt": "바이레다 UltraMax 청소도구 제품 사진"
       }
     },
     {
@@ -11391,6 +13194,11 @@
         "title": "Vileda 1-2 Spray 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-spray-12.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/1-2-spray",
+        "alt": "바이레다 1-2 Spray 청소도구 제품 사진"
       }
     },
     {
@@ -11419,6 +13227,11 @@
         "title": "Vileda Turbo 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-turbo.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/turbo-spin-mop-bucket-set2",
+        "alt": "바이레다 Turbo 청소도구 제품 사진"
       }
     },
     {
@@ -11447,6 +13260,11 @@
         "title": "Vileda H2PrO Flat 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-h2pro-flat.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/h2pro-flat-mop",
+        "alt": "바이레다 H2PrO Flat 청소도구 제품 사진"
       }
     },
     {
@@ -11475,6 +13293,11 @@
         "title": "Vileda Spin and Clean 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-spin-clean.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/spin-and-clean",
+        "alt": "바이레다 Spin and Clean 청소도구 제품 사진"
       }
     },
     {
@@ -11503,6 +13326,11 @@
         "title": "Vileda ActiveMax 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-active-max.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/activemax",
+        "alt": "바이레다 ActiveMax 청소도구 제품 사진"
       }
     },
     {
@@ -11531,6 +13359,11 @@
         "title": "Vileda 1-2 SprayMax 공식 교체 패드 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/vileda-spraymax.webp",
+        "sourceUrl": "https://www.vileda.co.uk/products/1-2-spray-max",
+        "alt": "바이레다 1-2 SprayMax 청소도구 제품 사진"
       }
     },
     {
@@ -11560,6 +13393,11 @@
         "title": "IKEA KOMPLEMENT 50x35 화이트 적용 프레임",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-pax-50x35.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/pax-wardrobe-frame-white-50355121/",
+        "alt": "이케아 PAX 팍스 옷장 프레임 50x35cm 제품 사진"
       }
     },
     {
@@ -11589,6 +13427,11 @@
         "title": "IKEA KOMPLEMENT 50x58 화이트 적용 프레임",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-pax-50x58.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/pax-wardrobe-frame-white-20355127/",
+        "alt": "이케아 PAX 팍스 옷장 프레임 50x58cm 제품 사진"
       }
     },
     {
@@ -11618,6 +13461,11 @@
         "title": "IKEA KOMPLEMENT 75x35 화이트 적용 프레임",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-pax-75x35.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/pax-wardrobe-frame-white-00355133/",
+        "alt": "이케아 PAX 팍스 옷장 프레임 75x35cm 제품 사진"
       }
     },
     {
@@ -11647,6 +13495,11 @@
         "title": "IKEA KOMPLEMENT 75x58 화이트 적용 프레임",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-pax-75x58.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/pax-wardrobe-frame-white-70355139/",
+        "alt": "이케아 PAX 팍스 옷장 프레임 75x58cm 제품 사진"
       }
     },
     {
@@ -11676,6 +13529,11 @@
         "title": "IKEA KOMPLEMENT 100x35 화이트 적용 프레임",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-pax-100x35.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/pax-wardrobe-frame-white-00355109/",
+        "alt": "이케아 PAX 팍스 옷장 프레임 100x35cm 제품 사진"
       }
     },
     {
@@ -11705,6 +13563,11 @@
         "title": "IKEA KOMPLEMENT 100x58 화이트 적용 프레임",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-pax-100x58.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/pax-wardrobe-frame-white-70355115/",
+        "alt": "이케아 PAX 팍스 옷장 프레임 100x58cm 제품 사진"
       }
     },
     {
@@ -11734,6 +13597,11 @@
         "title": "IKEA 2026 주방 안내의 LILLVIKEN 싱글·더블 배수트랩",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-lillviken-80344447.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/lillviken-water-trap-strainer-1-bowl-80344447/",
+        "alt": "이케아 LILLVIKEN 싱글 배수트랩 80344447 제품 사진"
       }
     },
     {
@@ -11763,6 +13631,11 @@
         "title": "IKEA 2026 주방 안내의 LILLVIKEN 싱글·더블 배수트랩",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/ikea-lillviken-60344448.webp",
+        "sourceUrl": "https://www.ikea.com/kr/ko/p/lillviken-water-trap-strainer-2-bowls-60344448/",
+        "alt": "이케아 LILLVIKEN 더블 배수트랩 60344448 제품 사진"
       }
     },
     {
@@ -11876,6 +13749,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-h110.webp",
+        "sourceUrl": "https://www.brother-usa.com/p/label-makers/PTH110",
+        "alt": "브라더 PT-H110 라벨프린터 제품 사진"
       }
     },
     {
@@ -11905,6 +13783,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-d210.webp",
+        "sourceUrl": "https://www.brother-usa.com/p/label-makers/PTD210",
+        "alt": "브라더 PT-D210 라벨프린터 제품 사진"
       }
     },
     {
@@ -11934,6 +13817,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-p300bt.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-p300bt",
+        "alt": "브라더 PT-P300BT 라벨프린터 제품 사진"
       }
     },
     {
@@ -11963,6 +13851,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-h110bk.webp",
+        "sourceUrl": "https://www.brother.com.br/products/PTH110BK",
+        "alt": "브라더 PT-H110BK 라벨프린터 제품 사진"
       }
     },
     {
@@ -11992,6 +13885,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-e300vp.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-e300vp",
+        "alt": "브라더 PT-E300VP 라벨프린터 제품 사진"
       }
     },
     {
@@ -12021,6 +13919,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-e110.webp",
+        "sourceUrl": "https://www.brother-usa.com/p/mobile-label-printers/PTE110",
+        "alt": "브라더 PT-E110 라벨프린터 제품 사진"
       }
     },
     {
@@ -12050,6 +13953,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-e500vp.webp",
+        "sourceUrl": "https://www.brother.com.br/products/PTE500VP",
+        "alt": "브라더 PT-E500VP 라벨프린터 제품 사진"
       }
     },
     {
@@ -12079,6 +13987,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-e550wvp.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-e550wvp",
+        "alt": "브라더 PT-E550WVP 라벨프린터 제품 사진"
       }
     },
     {
@@ -12108,6 +14021,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-p700.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-p700",
+        "alt": "브라더 PT-P700 라벨프린터 제품 사진"
       }
     },
     {
@@ -12137,6 +14055,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-p750w.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-p750w",
+        "alt": "브라더 PT-P750W 라벨프린터 제품 사진"
       }
     },
     {
@@ -12166,6 +14089,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-p900w.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-p900w",
+        "alt": "브라더 PT-P900W 라벨프린터 제품 사진"
       }
     },
     {
@@ -12195,6 +14123,11 @@
         "title": "Brother 공식 TZe-231 적용 모델 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/brother-pt-p950nw.webp",
+        "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-p950nw",
+        "alt": "브라더 PT-P950NW 라벨프린터 제품 사진"
       }
     },
     {
@@ -12257,6 +14190,11 @@
         "title": "Bugaboo Bee 5 앞바퀴 500525 공식 적용 안내",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/bugaboo-bee-5.webp",
+        "sourceUrl": "https://www.bugaboo.com/kr-ko/%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC/%EB%B6%80%EA%B0%80%EB%B6%80-%EB%B9%84-5/%EB%B6%80%EA%B0%80%EB%B6%80-%EB%B9%84-5-%EC%8B%9C%ED%8A%B8-%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC-PM00013.html",
+        "alt": "부가부 Bee 5 스트롤러 제품 사진"
       }
     },
     {
@@ -12285,6 +14223,11 @@
         "title": "Bugaboo Fox 회전 앞바퀴 230562 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/bugaboo-fox.webp",
+        "sourceUrl": "https://www.bugaboo.com/kr-ko/%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC/%EB%B6%80%EA%B0%80%EB%B6%80-%ED%8F%AD%EC%8A%A4/%EB%B6%80%EA%B0%80%EB%B6%80-%ED%8F%AD%EC%8A%A4--PM00035.html",
+        "alt": "부가부 Fox 스트롤러 제품 사진"
       }
     },
     {
@@ -12313,6 +14256,11 @@
         "title": "Bugaboo Fox 회전 앞바퀴 230562 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/bugaboo-fox-2.webp",
+        "sourceUrl": "https://www.bugaboo.com/kr-ko/%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC/%EB%B6%80%EA%B0%80%EB%B6%80-%ED%8F%AD%EC%8A%A4-2/%EB%B6%80%EA%B0%80%EB%B6%80-%ED%8F%AD%EC%8A%A4-2-%EB%B0%B0%EC%8B%9C%EB%84%B7-%EB%B0%8F-%EC%8B%9C%ED%8A%B8-%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC-PM001603.html",
+        "alt": "부가부 Fox 2 스트롤러 제품 사진"
       }
     },
     {
@@ -12341,6 +14289,11 @@
         "title": "Bugaboo Fox 회전 앞바퀴 230562 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/bugaboo-fox-3.webp",
+        "sourceUrl": "https://www.bugaboo.com/kr-ko/%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC/%EB%B6%80%EA%B0%80%EB%B6%80-%ED%8F%AD%EC%8A%A4-3/%EB%B6%80%EA%B0%80%EB%B6%80-%ED%8F%AD%EC%8A%A4-3-%EB%94%94%EB%9F%AD%EC%8A%A4-%EC%8A%A4%ED%8A%B8%EB%A1%A4%EB%9F%AC-PM003865.html",
+        "alt": "부가부 Fox 3 스트롤러 제품 사진"
       }
     },
     {
@@ -12471,6 +14424,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-a-1.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/459.html",
+        "alt": "올파 A-1 9mm 커터 제품 사진"
       }
     },
     {
@@ -12499,6 +14457,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-xa-1.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/461.html",
+        "alt": "올파 XA-1 9mm 커터 제품 사진"
       }
     },
     {
@@ -12527,6 +14490,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-a-5.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/463.html",
+        "alt": "올파 A-5 9mm 커터 제품 사진"
       }
     },
     {
@@ -12555,6 +14523,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-svr-1.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/467.html",
+        "alt": "올파 SVR-1 9mm 커터 제품 사진"
       }
     },
     {
@@ -12583,6 +14556,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-svr-2.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/469.html",
+        "alt": "올파 SVR-2 9mm 커터 제품 사진"
       }
     },
     {
@@ -12611,6 +14589,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-a-2.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/474.html",
+        "alt": "올파 A-2 9mm 커터 제품 사진"
       }
     },
     {
@@ -12639,6 +14622,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-da-1.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/476.html",
+        "alt": "올파 DA-1 9mm 커터 제품 사진"
       }
     },
     {
@@ -12667,6 +14655,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-pa-2.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/478.html",
+        "alt": "올파 PA-2 9mm 커터 제품 사진"
       }
     },
     {
@@ -12695,6 +14688,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-na-1.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/481.html",
+        "alt": "올파 NA-1 9mm 커터 제품 사진"
       }
     },
     {
@@ -12722,6 +14720,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-300.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/483.html",
+        "alt": "올파 300 9mm 커터 제품 사진"
       }
     },
     {
@@ -12750,6 +14753,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-a-3.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/485.html",
+        "alt": "올파 A-3 9mm 커터 제품 사진"
       }
     },
     {
@@ -12778,6 +14786,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-180black.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/493.html",
+        "alt": "올파 180Black 9mm 커터 제품 사진"
       }
     },
     {
@@ -12806,6 +14819,11 @@
         "title": "OLFA ABB-10B 공식 적용 본체 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/olfa-es-1-green.webp",
+        "sourceUrl": "https://www.olfa.co.jp/en/products/497.html",
+        "alt": "올파 ES-1/green 9mm 커터 제품 사진"
       }
     },
     {
@@ -12834,6 +14852,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-1-2-gallon.webp",
+        "sourceUrl": "https://www.petsafe.com/gb/p/drinkwell-1-8-litre-pet-fountain/PWW17-16793/",
+        "alt": "펫세이프 Drinkwell 1/2 Gallon 급수기 제품 사진"
       }
     },
     {
@@ -12862,6 +14885,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-1-gallon.webp",
+        "sourceUrl": "https://www.petsafe.com/gb/p/petsafe-drinkwell-3-7-litre-pet-fountain/PWW17-16779/",
+        "alt": "펫세이프 Drinkwell 1 Gallon 급수기 제품 사진"
       }
     },
     {
@@ -12890,6 +14918,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-2-gallon.webp",
+        "sourceUrl": "https://www.petsafe.com/gb/p/7-5-litre-pet-fountain/PWW17-16561/",
+        "alt": "펫세이프 Drinkwell 2 Gallon 급수기 제품 사진"
       }
     },
     {
@@ -12918,6 +14951,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-butterfly.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-butterfly-pet-fountain/PWW00-16928/",
+        "alt": "펫세이프 Drinkwell Butterfly 급수기 제품 사진"
       }
     },
     {
@@ -12946,6 +14984,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-avalon.webp",
+        "sourceUrl": "https://www.petsafe.com/gb/p/drinkwell-ceramic-avalon-pet-fountain/AVALON-UK-17/",
+        "alt": "펫세이프 Drinkwell Avalon 급수기 제품 사진"
       }
     },
     {
@@ -12974,6 +15017,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-pagoda.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-pagoda-fountains/PWW00-13907/",
+        "alt": "펫세이프 Drinkwell Pagoda 급수기 제품 사진"
       }
     },
     {
@@ -13002,6 +15050,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-seascape.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-seascape-fountain/PWW00-16021/",
+        "alt": "펫세이프 Drinkwell Seascape 급수기 제품 사진"
       }
     },
     {
@@ -13058,6 +15111,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-seaside.webp",
+        "sourceUrl": "https://www.petsafe.com/p/seaside-stainless-pet-fountain/PWW00-17099/",
+        "alt": "펫세이프 Drinkwell Seaside 급수기 제품 사진"
       }
     },
     {
@@ -13086,6 +15144,11 @@
         "title": "PetSafe PAC00-13906 활성탄 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-creekside.webp",
+        "sourceUrl": "https://www.petsafe.com/p/creekside-ceramic-pet-fountain/PWW00-17097/",
+        "alt": "펫세이프 Drinkwell Creekside 급수기 제품 사진"
       }
     },
     {
@@ -13114,6 +15177,11 @@
         "title": "PetSafe PAC00-13711 폼 필터 적용 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/petsafe-stainless-multi-pet.webp",
+        "sourceUrl": "https://www.petsafe.com/p/drinkwell-360-fountain-stainless-steel/PWW00-13705/",
+        "alt": "펫세이프 Drinkwell Stainless Multi-Pet 급수기 제품 사진"
       }
     },
     {
@@ -13143,6 +15211,11 @@
         "title": "Decathlon MT100 Blue 공식 적용 액세서리 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/decathlon-mt100-blue.webp",
+        "sourceUrl": "https://www.decathlon.co.kr/p/%EB%93%B1%EC%82%B0-%EC%8A%A4%ED%8B%B1-1%EA%B0%9C-mt100-forclaz-8807204.html",
+        "alt": "데카트론 MT100 Blue 등산 스틱 8807204 제품 사진"
       }
     },
     {
@@ -13172,6 +15245,11 @@
         "title": "Decathlon MT100 Ergonomic 공식 적용 액세서리 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/decathlon-mt100-ergonomic.webp",
+        "sourceUrl": "https://www.decathlon.co.kr/p/%EB%93%B1%EC%82%B0-%EC%8A%A4%ED%8B%B1-1%EA%B0%9C-mt100-%EC%97%90%EB%A5%B4%EA%B3%A0-forclaz-8807205.html",
+        "alt": "데카트론 MT100 Ergonomic 등산 스틱 8807205 제품 사진"
       }
     },
     {
@@ -13201,6 +15279,11 @@
         "title": "Decathlon MT500 Anti-shock 공식 적용 액세서리 목록",
         "checkedAt": "2026-09-20",
         "scope": "content_reviewed"
+      },
+      "image": {
+        "url": "/product-images/decathlon-mt500-antishock.webp",
+        "sourceUrl": "https://www.decathlon.co.kr/p/%ED%95%98%EC%9D%B4%ED%82%B9-%EC%8A%A4%ED%8B%B1-1%EA%B0%9C-%EC%95%88%ED%8B%B0%EC%87%BC%ED%81%AC-mt500-simond-8580850.html",
+        "alt": "데카트론 MT500 Anti-shock 등산 스틱 8580850 제품 사진"
       }
     }
   ],

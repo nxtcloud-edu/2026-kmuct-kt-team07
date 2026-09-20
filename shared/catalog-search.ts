@@ -22,6 +22,7 @@ export function matchesProduct(product: Product, query: string): boolean {
     product.brand,
     ...(brandAliases[product.brand] ?? []),
     product.modelName,
+    product.series ?? "",
     product.description,
     product.capacity ?? "",
     product.generation ?? "",

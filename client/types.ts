@@ -21,6 +21,8 @@ export type RecordResult = {
     reasons: Record<string, string[]>;
     kinds: string[];
     best: string | null;
+    /** What the photo looks like in searchable words, e.g. "LG 에어로타워". */
+    guess: string;
   };
   paths: PathsResult;
 };

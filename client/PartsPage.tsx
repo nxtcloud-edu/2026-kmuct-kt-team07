@@ -51,7 +51,9 @@ export default function PartsPage({
         <div>
           <p className="kicker">
             {selected.brand}
-            {product ? ` · ${product.kind}` : ""}
+            {selected.series || product
+              ? ` · ${selected.series ?? product!.kind}`
+              : ""}
           </p>
           <h1 id="page-title" tabIndex={-1} className="model">
             {selected.modelName}

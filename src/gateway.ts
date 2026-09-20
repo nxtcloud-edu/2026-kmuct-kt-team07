@@ -81,7 +81,7 @@ export function buildGatewayInput(
         function: {
           name: "record_observation",
           description:
-            "사진에서 관찰한 사실만 기록한다. 판정·추천을 넣지 않는다.",
+            "사진에서 관찰한 사실을 기록한다. 외형으로 짐작한 브랜드·제품군은 visualHints에만 적는다. 호환 판정을 넣지 않는다.",
           parameters: observationJsonSchema,
         },
       },

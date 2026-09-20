@@ -120,7 +120,7 @@ export default function SearchBox({
                 <span className="suggestion-text">
                   <strong>{p.modelName}</strong>
                   <small>
-                    {p.brand} · {p.kind}
+                    {p.brand} · {p.series ?? p.kind}
                     {part &&
                       (p.availableCategories.includes(intent.category)
                         ? ` · ${part} 있음`

@@ -120,6 +120,7 @@ test("Converse links image IDs/roles to bytes and forces the tool", () => {
     "observedFeatures",
     "qualityIssues",
     "unknownFields",
+    "visualHints",
   ]);
 });
 

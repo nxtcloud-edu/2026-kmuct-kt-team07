@@ -21,6 +21,7 @@ import {
 } from "node:fs/promises";
 import sharp from "sharp";
 import { catalogSchema, httpsUrl } from "../shared/domain.js";
+import { seriesFromTitle } from "./product-series.js";
 
 const [command, ...args] = process.argv.slice(2);
 const staging = ".data/image-staging";
@@ -121,6 +122,12 @@ if (command === "add") {
         sourceUrl: entry.sourceUrl,
         alt: `${product.brand} ${product.modelName} 제품 사진`,
       };
+      const series = seriesFromTitle(
+        product.brand,
+        product.modelName,
+        entry.pageTitle,
+      );
+      if (series && !product.series) product.series = series;
       report.products = [
         ...report.products.filter((r) => r.variantId !== entry.variantId),
         entry,

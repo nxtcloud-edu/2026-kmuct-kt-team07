@@ -1,9 +1,14 @@
-import { CircleHelp, LoaderCircle } from "lucide-react";
+import { ArrowUpRight, CircleHelp, LoaderCircle } from "lucide-react";
 import { categories } from "../shared/domain";
 import { matchesProduct, type CatalogProduct } from "../shared/catalog-search";
 import { searchIntent } from "../shared/search-intent";
 import ProductCatalog from "./ProductCatalog";
-import { featureLabels, qualityLabels, withObjectParticle } from "./labels";
+import {
+  external,
+  featureLabels,
+  qualityLabels,
+  withObjectParticle,
+} from "./labels";
 import type { RecordResult } from "./types";
 
 /** Step 2. The likeliest products first; the user says which one is theirs. */
@@ -69,6 +74,15 @@ export default function ConfirmPage({
     !candidateIds.length &&
     !products.some((p) => matchesProduct(p, result.query));
   const issues = observation?.qualityIssues ?? [];
+  // Shown even when nothing in the catalog resembles the photo.
+  const guess =
+    hints?.guess ||
+    [
+      observation?.visualHints?.suspectedBrands[0],
+      observation?.visualHints?.productFamilyHints[0],
+    ]
+      .filter(Boolean)
+      .join(" ");
   return (
     <section className="page" aria-labelledby="page-title">
       <p className="kicker">
@@ -84,13 +98,24 @@ export default function ConfirmPage({
         <div className="estimate">
           <p>
             <strong>
-              {hints.kinds.length
-                ? `사진으로 추정한 제품 종류 · ${hints.kinds[0]}`
-                : "사진으로 추정한 후보예요"}
+              {hints.guess
+                ? `AI가 사진으로 추정한 제품 · ${hints.guess}`
+                : "사진 기반 추천이에요"}
             </strong>
-            모델명을 읽지 못해 사진 속 모습과 글자로 비슷한 제품을 위에
-            모았어요. 맞는 제품을 골라 주세요.
+            모델명을 읽지 못해 디자인과 형태가 비슷한 제품을 위에 모았어요.
+            확정된 결과가 아니니 내 제품과 비교해 골라 주세요.
           </p>
+          {hints.guess && (
+            <a
+              className="text-button"
+              {...external(
+                `https://www.google.com/search?q=${encodeURIComponent(hints.guess)}`,
+              )}
+            >
+              웹에서 “{hints.guess}” 찾아보기
+              <ArrowUpRight size={14} />
+            </a>
+          )}
         </div>
       )}
       {byPhoto && exact && (
@@ -103,10 +128,29 @@ export default function ConfirmPage({
         </p>
       )}
       {byPhoto && !candidateIds.length && !failed && (
-        <p className="page-lead">
-          사진만으로는 제품을 좁히지 못했어요. 아래에서 제품 이름으로 찾아
-          주세요.
-        </p>
+        <div className="estimate plain">
+          <p>
+            <strong>
+              {guess
+                ? `AI가 사진으로 추정한 제품 · ${guess}`
+                : "사진만으로는 제품을 좁히지 못했어요"}
+            </strong>
+            {guess
+              ? "등록된 제품 중에는 비슷한 후보가 없어요. 아래에서 제품 이름으로 찾거나 웹에서 확인해 보세요."
+              : "아래에서 제품 이름으로 찾아 주세요."}
+          </p>
+          {guess && (
+            <a
+              className="text-button"
+              {...external(
+                `https://www.google.com/search?q=${encodeURIComponent(guess)}`,
+              )}
+            >
+              웹에서 “{guess}” 찾아보기
+              <ArrowUpRight size={14} />
+            </a>
+          )}
+        </div>
       )}
       {failed && (
         <div className="alert warning">
@@ -134,7 +178,7 @@ export default function ConfirmPage({
         products={products}
         category={result.category}
         candidateIds={candidateIds}
-        candidateLabel={exact ? "모델명 일치" : "사진으로 추정"}
+        candidateLabel={exact ? "모델명 일치" : "사진 기반 추천"}
         bestId={exact ? null : (hints?.best ?? null)}
         reasons={exact ? {} : (hints?.reasons ?? {})}
         // The part already narrows the list; the box holds only the product words.
@@ -184,6 +228,19 @@ export default function ConfirmPage({
                 {featureLabels[f.key]} · {f.value}
               </p>
             ))}
+            {observation.visualHints &&
+              [
+                ...observation.visualHints.suspectedBrands,
+                ...observation.visualHints.productFamilyHints,
+              ].length > 0 && (
+                <p>
+                  디자인으로 본 추정 ·{" "}
+                  {[
+                    ...observation.visualHints.suspectedBrands,
+                    ...observation.visualHints.productFamilyHints,
+                  ].join(", ")}
+                </p>
+              )}
             {!observation.extractedTexts.length &&
               !observation.observedFeatures.length && (
                 <p>읽을 수 있는 글자나 특징이 충분하지 않았어요.</p>

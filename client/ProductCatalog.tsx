@@ -134,7 +134,7 @@ export default function ProductCatalog({
       </div>
       <p className="catalog-count" aria-live="polite">
         {suggested
-          ? `가능성이 높은 제품 ${matched.length}개`
+          ? `${candidateLabel} ${matched.length}개`
           : `제품 ${matched.length}개`}
       </p>
       <ul className="product-list">
@@ -159,7 +159,7 @@ export default function ProductCatalog({
                 <span className="product-row-meta">
                   {[
                     p.brand,
-                    p.kind,
+                    p.series ?? p.kind,
                     // Many model names already carry the capacity.
                     p.capacity && !p.modelName.includes(p.capacity)
                       ? p.capacity

@@ -46,6 +46,8 @@ export const productSchema = z.strictObject({
   group: productGroupSchema.default("drinkware"),
   brand: text,
   modelName: text,
+  /** The name the maker sells it under, as printed on its official product page. */
+  series: text.optional(),
   aliases: z.array(text),
   capacity: text.nullable(),
   generation: text.nullable(),

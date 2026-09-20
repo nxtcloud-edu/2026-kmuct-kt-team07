@@ -60,6 +60,18 @@ export const observationSchema = z.strictObject({
       "lid_connection",
     ]),
   ),
+  /**
+   * Guesses from design alone, kept apart from what was read or seen. They only
+   * order recommendations; they never identify a product. Older records and
+   * retries may lack the field, so validation tolerates its absence.
+   */
+  visualHints: z
+    .strictObject({
+      suspectedBrands: z.array(z.string().max(40)).max(3),
+      productFamilyHints: z.array(z.string().max(60)).max(3),
+      appearance: z.array(z.string().max(60)).max(5),
+    })
+    .optional(),
 });
 
 export type Observation = z.infer<typeof observationSchema>;
@@ -69,6 +81,8 @@ export const observationJsonSchema = z.toJSONSchema(observationSchema, {
   target: "draft-07",
 });
 delete observationJsonSchema.$schema;
+// The contract asks every new observation for its guesses, even when empty.
+(observationJsonSchema.required as string[]).push("visualHints");
 
 export function filterObservation(
   observation: Observation,
@@ -96,5 +110,20 @@ export function filterObservation(
     ),
     qualityIssues: [...new Set(observation.qualityIssues)],
     unknownFields: [...unknownFields],
+    ...(observation.visualHints
+      ? {
+          visualHints: {
+            suspectedBrands: tidy(observation.visualHints.suspectedBrands),
+            productFamilyHints: tidy(
+              observation.visualHints.productFamilyHints,
+            ),
+            appearance: tidy(observation.visualHints.appearance),
+          },
+        }
+      : {}),
   };
 }
+
+const tidy = (values: readonly string[]) => [
+  ...new Set(values.map((v) => v.trim()).filter(Boolean)),
+];

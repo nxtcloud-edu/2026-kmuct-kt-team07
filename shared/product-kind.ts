@@ -16,13 +16,7 @@ const has = (pattern: RegExp) => (_: Product, text: string) =>
 const rules: KindRule[] = [
   {
     kind: "공기청정기",
-    words: [
-      "공기청정기",
-      "공기 청정기",
-      "에어로타워",
-      "air purifier",
-      "purifier",
-    ],
+    words: ["공기청정기", "공기 청정기", "air purifier", "purifier"],
     match: (p, text) =>
       /공기\s*청정기/u.test(text) ||
       (p.brand === "삼성" && /^AX\d/u.test(p.modelName)) ||
@@ -146,6 +140,7 @@ export function productKind(product: Product) {
   if (known) return known;
   const text = [
     product.modelName,
+    product.series ?? "",
     ...product.aliases,
     product.description,
     product.source.title,

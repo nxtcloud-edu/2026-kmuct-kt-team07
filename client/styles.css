@@ -963,6 +963,14 @@ h1:focus {
   font-size: 14px;
   color: var(--ink-2);
 }
+.estimate .text-button {
+  min-height: 36px;
+  margin-top: var(--space-1);
+  color: var(--ink);
+}
+.estimate.plain {
+  background: var(--ground-2);
+}
 .estimate strong,
 .notice strong {
   display: block;
