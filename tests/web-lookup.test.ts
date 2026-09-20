@@ -165,3 +165,58 @@ test("nothing found at all is nothing, and an empty product never searches", asy
   );
   assert.equal(touched, false);
 });
+
+test("every shop found is offered, so prices can be compared", async () => {
+  const shops = [
+    "https://www.coupang.com/vp/products/1",
+    "https://www.gmarket.co.kr/n/search?keyword=x",
+    "https://search.danawa.com/dsearch.php?query=x",
+    "https://www.auction.co.kr/n/search?keyword=x",
+  ];
+  const fake = (async (url: string | URL) =>
+    String(url).includes("duckduckgo")
+      ? reply(
+          ddg(...shops, PAGE).replace(
+            "결과 5",
+            '결과 5</a><a class="result__snippet">39,000원 무료배송</a><a class="x"',
+          ),
+        )
+      : reply(`<p>교체 필터 ACFS-X12M ${"설명 ".repeat(100)}</p>`)) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb(
+    "쿠쿠 공기청정기",
+    "필터",
+    async () =>
+      '{"partName":"교체 필터","partNumber":"ACFS-X12M","compatibleModels":[],"note":"","sourceIndexes":[1],"purchases":[]}',
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  // Four marketplaces, not one, and each is named for the user.
+  assert.equal(part.purchases.length, 4);
+  assert.deepEqual(
+    part.purchases.map((b) => b.seller),
+    ["쿠팡", "G마켓", "다나와", "옥션"],
+  );
+  // Marketplaces block readers, so they are listed and never fetched; the one
+  // readable page is what the part details came from.
+  assert.deepEqual(
+    part.sources.map((s) => s.url),
+    [PAGE],
+  );
+  assert.equal(part.partNumber, "ACFS-X12M");
+});
+
+test("shops are still offered when no page can be read", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("duckduckgo")
+      ? reply(ddg("https://www.coupang.com/vp/products/1", "https://11st.co.kr/p/2"))
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb("제품", "필터", async () => "{}", {
+    fetchImpl: fake,
+  });
+  assert.ok(part);
+  assert.equal(part.partName, "");
+  assert.deepEqual(
+    part.purchases.map((b) => b.seller),
+    ["쿠팡", "11번가"],
+  );
+});

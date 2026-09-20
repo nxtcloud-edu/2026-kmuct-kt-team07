@@ -1728,3 +1728,50 @@ body:has(dialog[open]) {
   color: var(--muted);
   font-size: 0.86rem;
 }
+
+.web-shops {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.web-shops-title {
+  font-weight: 600;
+}
+.web-shops ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+.web-shops li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--ground);
+}
+.web-shops li a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+}
+.shop-seller {
+  flex: none;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--field);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.shop-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shop-snippet {
+  color: var(--muted);
+  font-size: 0.84rem;
+}

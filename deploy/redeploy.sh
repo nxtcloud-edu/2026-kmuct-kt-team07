@@ -27,12 +27,13 @@ cd "$(dirname "$0")/.."
 
 # The admin network alternates egress addresses and only one is allowed in the
 # security group, so a connection can time out and succeed on the next try.
+RETRIES="${DEPLOY_RETRIES:-20}"
 remote() {
   local attempt
-  for attempt in 1 2 3 4 5 6; do
+  for attempt in $(seq 1 "$RETRIES"); do
     "${SSH[@]}" "$@" && return 0
     [ $? -eq 255 ] || return 1
-    echo "  SSH 재시도 $attempt/6" >&2
+    echo "  SSH 재시도 $attempt/$RETRIES" >&2
     sleep 5
   done
   return 255

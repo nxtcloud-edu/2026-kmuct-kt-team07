@@ -217,14 +217,33 @@ export default function ConfirmPage({
                 주문 전에 출처에서 직접 확인해 주세요.
               </p>
               {web.purchases.length > 0 && (
-                <p>
-                  {web.purchases.map((b) => (
-                    <a key={b.url} className="text-button" {...external(b.url)}>
-                      {b.seller || "구매처"}
-                      <ArrowUpRight size={14} />
-                    </a>
-                  ))}
-                </p>
+                <div className="web-shops">
+                  <p className="web-shops-title">
+                    판매처 {web.purchases.length}곳 · 가격을 비교해 보세요
+                  </p>
+                  <ul>
+                    {web.purchases.map((b) => (
+                      <li key={b.url}>
+                        <a {...external(b.url)}>
+                          <span className="shop-seller">
+                            {b.seller || "판매처"}
+                          </span>
+                          {b.title && (
+                            <span className="shop-title">{b.title}</span>
+                          )}
+                          <ArrowUpRight size={14} />
+                        </a>
+                        {b.snippet && (
+                          <span className="shop-snippet">{b.snippet}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="web-caveat">
+                    가격·재고는 판매처에서 직접 확인해 주세요. 검색 결과를 그대로
+                    옮긴 것이라 이미 바뀌었을 수 있어요.
+                  </p>
+                </div>
               )}
               <p>
                 {web.sources.map((x) => (

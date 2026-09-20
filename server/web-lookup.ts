@@ -10,14 +10,22 @@ import { isIP } from "node:net";
  * say — with the source next to every claim, because nothing here is reviewed.
  */
 
-export type WebSource = { title: string; url: string };
+export type WebSource = { title: string; url: string; snippet?: string };
+/** One place selling the part. Several are returned so prices can be compared. */
+export type WebShop = {
+  seller: string;
+  title: string;
+  url: string;
+  /** The search snippet, which usually carries the price. Never our own guess. */
+  snippet: string;
+};
 export type WebPart = {
   partName: string;
   partNumber: string;
   compatibleModels: string[];
   note: string;
   sources: WebSource[];
-  purchases: { seller: string; url: string }[];
+  purchases: WebShop[];
 };
 
 const UA =
@@ -72,21 +80,43 @@ const strip = (html: string) =>
     .replace(/\s+/gu, " ")
     .trim();
 
+// One lookup asks three times. Fired together they are rate limited and come
+// back empty, so searches queue up and leave a gap between them.
+let searchTurn: Promise<unknown> = Promise.resolve();
+const GAP_MS = 700;
+// Not unref'd: the process must stay awake for a search that is only waiting.
+const wait = (ms: number) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+
 /** DuckDuckGo's HTML endpoint needs no key, which is all that is available. */
 export async function searchWeb(
   query: string,
   limit = 5,
   fetchImpl: typeof fetch = fetch,
 ): Promise<WebSource[]> {
-  const response = await fetchImpl(
-    `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`,
-    { headers: { "user-agent": UA }, signal: AbortSignal.timeout(12_000) },
-  ).catch(() => null);
-  if (!response?.ok) return [];
-  const html = await response.text();
+  const mine = searchTurn.then(() => wait(GAP_MS));
+  searchTurn = mine;
+  await mine;
+  const once = async () =>
+    fetchImpl(
+      `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`,
+      { headers: { "user-agent": UA }, signal: AbortSignal.timeout(12_000) },
+    ).catch(() => null);
+  let response = await once();
+  let html = response?.ok ? await response.text() : "";
+  // An empty page is what being throttled looks like: back off and ask again.
+  if (!html.includes("result__a")) {
+    await wait(1500);
+    response = await once();
+    html = response?.ok ? await response.text() : "";
+  }
+  if (!html) return [];
   const results: WebSource[] = [];
+  // Each result is a link followed, usually, by the snippet that holds a price.
   const pattern =
-    /class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/giu;
+    /class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>([\s\S]{0,1200}?)(?=class="result__a"|$)/giu;
   for (const match of html.matchAll(pattern)) {
     const href = decode(match[1]!);
     // Results are wrapped in a redirect that carries the real address.
@@ -98,10 +128,86 @@ export async function searchWeb(
     const title = strip(match[2]!);
     if (!target || !title) continue;
     if (results.some((r) => r.url === target)) continue;
-    results.push({ title, url: target });
+    const snippet = strip(
+      /class="result__snippet"[^>]*>([\s\S]*?)<\/a>/iu.exec(match[3] ?? "")?.[1] ??
+        "",
+    ).slice(0, 200);
+    results.push({ title, url: target, snippet });
     if (results.length >= limit) break;
   }
   return results;
+}
+
+/** Hosts whose pages block readers but whose listings are what people buy from. */
+const sellerNames: [RegExp, string][] = [
+  [/coupang\./iu, "쿠팡"],
+  [/gmarket\.|g9\./iu, "G마켓"],
+  [/11st\./iu, "11번가"],
+  [/auction\./iu, "옥션"],
+  [/(^|\.)ssg\./iu, "SSG"],
+  [/smartstore\.naver\.|shopping\.naver\./iu, "네이버쇼핑"],
+  [/danawa\./iu, "다나와"],
+  [/enuri\./iu, "에누리"],
+  [/hmall\.|hyundaihmall\./iu, "현대Hmall"],
+  [/himart\./iu, "하이마트"],
+  [/electromart\.|emart\./iu, "이마트"],
+  [/interpark\./iu, "인터파크"],
+  [/lotteon\./iu, "롯데온"],
+  [/tmon\./iu, "티몬"],
+  [/wemakeprice\./iu, "위메프"],
+  [/aliexpress\./iu, "알리익스프레스"],
+  [/amazon\./iu, "아마존"],
+  [/ebay\./iu, "이베이"],
+  [/iherb\./iu, "아이허브"],
+];
+/** True for the marketplaces above: their listings are shops, not sources. */
+const knownSeller = (url: string) => {
+  try {
+    const host = new URL(url).hostname;
+    return sellerNames.some(([pattern]) => pattern.test(host));
+  } catch {
+    return false;
+  }
+};
+const sellerOf = (url: string) => {
+  let host: string;
+  try {
+    host = new URL(url).hostname.replace(/^www\./iu, "");
+  } catch {
+    return "";
+  }
+  return sellerNames.find(([pattern]) => pattern.test(host))?.[1] ?? host;
+};
+
+/**
+ * Everywhere the part is sold. One link is not an answer when the next shop is
+ * half the price, so this returns every shopping result the search gives back,
+ * with the snippet that usually carries the price. These pages are listed, not
+ * fetched: marketplaces block readers, but their listings are the whole point.
+ */
+export async function findShops(
+  product: string,
+  part: string,
+  limit = 10,
+  fetchImpl: typeof fetch = fetch,
+): Promise<WebShop[]> {
+  const queries = [`${product} ${part} 구매`, `${product} ${part} 최저가`];
+  const shops: WebShop[] = [];
+  for (const query of queries) {
+    for (const found of await searchWeb(query, limit, fetchImpl)) {
+      if (shops.some((shop) => shop.url === found.url)) continue;
+      const seller = sellerOf(found.url);
+      if (!seller) continue;
+      shops.push({
+        seller,
+        title: found.title.slice(0, 80),
+        url: found.url,
+        snippet: found.snippet ?? "",
+      });
+      if (shops.length >= limit) return shops;
+    }
+  }
+  return shops;
 }
 
 /** Reads one page, capped: a search result may be any size at all. */
@@ -139,8 +245,14 @@ JSON만 출력합니다:
 {"partName":"","partNumber":"","compatibleModels":[],"note":"","sourceIndexes":[],"purchases":[{"seller":"","url":""}]}`;
 
 /**
- * The whole lookup: search, read the top pages, and let the observer pull the
- * part out of them. `ask` is the model call, injected so tests never reach out.
+ * The whole lookup, on a single search.
+ *
+ * A keyless search engine throttles hard, and this used to ask three times per
+ * lookup — for the part, for shops, for the best price — which is what being
+ * cut off looks like. One search answers all three: the readable pages become
+ * the part details, and the marketplace results, which block readers anyway,
+ * become the places to buy it. `ask` is the model call, injected so tests never
+ * reach out.
  */
 export async function lookupPartOnWeb(
   product: string,
@@ -151,32 +263,37 @@ export async function lookupPartOnWeb(
   const product_ = product.trim();
   if (!product_) return null;
   const fetchImpl = deps.fetchImpl ?? fetch;
-  // Marketplace listings rank highly for "구매" but block readers, so the plain
-  // query goes first; the buying words are only a fallback.
-  let found = await searchWeb(
-    `${product_} ${partLabel}`,
-    deps.pages ?? 4,
+  const found = await searchWeb(
+    `${product_} ${partLabel} 구매`.trim(),
+    12,
     fetchImpl,
   );
-  if (!found.length)
-    found = await searchWeb(
-      `${product_} ${partLabel} 부품번호 호환`,
-      deps.pages ?? 4,
-      fetchImpl,
-    );
   if (!found.length) return null;
-  const links = found.slice(0, 4);
-  // Nothing readable is still better than "없어요": hand over the pages found.
+  const shops: WebShop[] = [];
+  const readable: WebSource[] = [];
+  for (const result of found) {
+    const seller = sellerOf(result.url);
+    if (seller && knownSeller(result.url))
+      shops.push({
+        seller,
+        title: result.title.slice(0, 80),
+        url: result.url,
+        snippet: result.snippet ?? "",
+      });
+    else readable.push(result);
+  }
+  // Every shop is offered, never one: the next one along may be half the price.
+  const purchases = shops.slice(0, 12);
   const linksOnly: WebPart = {
     partName: "",
     partNumber: "",
     compatibleModels: [],
     note: "찾은 페이지의 본문을 읽지 못했어요. 아래 링크를 직접 확인해 주세요.",
-    sources: links,
-    purchases: [],
+    sources: readable.slice(0, 4),
+    purchases,
   };
   const pages = await Promise.all(
-    found.map(async (source) => ({
+    readable.slice(0, deps.pages ?? 4).map(async (source) => ({
       source,
       text: await fetchPageText(source.url, fetchImpl),
     })),
@@ -197,18 +314,19 @@ export async function lookupPartOnWeb(
     .trim()
     .replace(/^```(?:json)?/u, "")
     .replace(/```$/u, "");
+  const sourcesRead = usable.map((p) => p.source).slice(0, 4);
   let parsed: Record<string, unknown>;
   try {
     parsed = JSON.parse(json) as Record<string, unknown>;
   } catch {
-    return { ...linksOnly, sources: usable.map((p) => p.source).slice(0, 4) };
+    return { ...linksOnly, sources: sourcesRead };
   }
   const partName = String(parsed.partName ?? "").slice(0, 80);
   if (!partName)
     return {
       ...linksOnly,
       note: "읽은 페이지에서 부품 정보를 찾지 못했어요. 아래 링크를 확인해 주세요.",
-      sources: usable.map((p) => p.source).slice(0, 4),
+      sources: sourcesRead,
     };
   const indexes = Array.isArray(parsed.sourceIndexes)
     ? parsed.sourceIndexes
@@ -216,6 +334,21 @@ export async function lookupPartOnWeb(
         .filter((n) => Number.isInteger(n) && n >= 1 && n <= usable.length)
     : [];
   const urls = new Set(usable.map((p) => p.source.url));
+  // A page that sells the part directly belongs with the shops, not the sources.
+  const cited = (Array.isArray(parsed.purchases) ? parsed.purchases : [])
+    .map((x) => x as { seller?: unknown; url?: unknown })
+    .filter(
+      (x) =>
+        typeof x.url === "string" &&
+        urls.has(x.url) &&
+        !purchases.some((shop) => shop.url === x.url),
+    )
+    .map((x) => ({
+      seller: String(x.seller ?? "").slice(0, 40) || sellerOf(String(x.url)),
+      title: "",
+      url: String(x.url),
+      snippet: "",
+    }));
   return {
     partName,
     partNumber: String(parsed.partNumber ?? "").slice(0, 60),
@@ -228,16 +361,8 @@ export async function lookupPartOnWeb(
     note: String(parsed.note ?? "").slice(0, 300),
     sources: (indexes.length
       ? indexes.map((i) => usable[i - 1]!.source)
-      : usable.map((p) => p.source)
+      : sourcesRead
     ).slice(0, 4),
-    // A link the pages never carried is a link we made up: drop it.
-    purchases: (Array.isArray(parsed.purchases) ? parsed.purchases : [])
-      .map((p) => p as { seller?: unknown; url?: unknown })
-      .filter((p) => typeof p.url === "string" && urls.has(p.url))
-      .map((p) => ({
-        seller: String(p.seller ?? "").slice(0, 40),
-        url: String(p.url),
-      }))
-      .slice(0, 4),
+    purchases: [...cited, ...purchases].slice(0, 12),
   };
 }

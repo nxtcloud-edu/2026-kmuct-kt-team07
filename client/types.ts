@@ -43,7 +43,13 @@ export type WebPart = {
   compatibleModels: string[];
   note: string;
   sources: { title: string; url: string }[];
-  purchases: { seller: string; url: string }[];
+  /** Every shop found, so the user can compare prices rather than trust one. */
+  purchases: {
+    seller: string;
+    title: string;
+    url: string;
+    snippet: string;
+  }[];
 };
 export type WebLookup = { product: string; part: WebPart | null };
 export type PartCard = PathsResult["cards"][number];
