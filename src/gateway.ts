@@ -248,3 +248,39 @@ export function createGatewayObservationProvider(
     model: env.AI_MODEL ?? "",
   });
 }
+
+/**
+ * A plain text call to the same gateway, for work that has no tool contract —
+ * reading a part number out of fetched web pages. The observation path keeps
+ * its strict schema; this one only ever returns the model's text.
+ */
+export function createGatewayTextAsker(env: NodeJS.ProcessEnv = process.env) {
+  const config = configSchema.parse({
+    baseUrl: env.AI_API_BASE_URL ?? "",
+    apiKey: env.AI_API_KEY ?? "",
+    model: env.AI_MODEL ?? "",
+  });
+  return async (system: string, user: string): Promise<string> => {
+    const response = await fetch(`${config.baseUrl}/chat/completions`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${config.apiKey}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        model: config.model,
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+      }),
+      signal: AbortSignal.timeout(config.timeoutMs ?? 60_000),
+    });
+    if (!response.ok) throw new Error(`gateway ${response.status}`);
+    const body = (await response.json()) as {
+      choices?: { message?: { content?: unknown } }[];
+    };
+    const content = body.choices?.[0]?.message?.content;
+    return typeof content === "string" ? content : "";
+  };
+}

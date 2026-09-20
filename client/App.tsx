@@ -15,6 +15,7 @@ import Logo from "./Logo";
 import HomePage from "./HomePage";
 import PhotoPage from "./PhotoPage";
 import ConfirmPage from "./ConfirmPage";
+import type { WebLookup } from "./types";
 import PartsPage from "./PartsPage";
 import PartPage from "./PartPage";
 import HelpPage from "./HelpPage";
@@ -590,6 +591,9 @@ export default function App() {
             onSelect={(id) => void select(id)}
             onHelp={() => go("help")}
             onRetake={() => go("photo", { id: null })}
+            onWebLookup={() =>
+              api<WebLookup>(`/requests/${result.id}/web`, {})
+            }
           />
         )}
         {view === "parts" && result && selectedProduct && (

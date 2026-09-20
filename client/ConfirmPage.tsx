@@ -9,7 +9,8 @@ import {
   qualityLabels,
   withObjectParticle,
 } from "./labels";
-import type { RecordResult } from "./types";
+import type { RecordResult, WebLookup, WebPart } from "./types";
+import { useState } from "react";
 
 /** Step 2. The likeliest products first; the user says which one is theirs. */
 export default function ConfirmPage({
@@ -20,6 +21,7 @@ export default function ConfirmPage({
   onSelect,
   onHelp,
   onRetake,
+  onWebLookup,
 }: {
   result: RecordResult;
   products: CatalogProduct[];
@@ -28,7 +30,11 @@ export default function ConfirmPage({
   onSelect: (id: string) => void;
   onHelp: () => void;
   onRetake: () => void;
+  onWebLookup?: () => Promise<WebLookup>;
 }) {
+  const [web, setWeb] = useState<WebPart | null | "none">("none");
+  const [webBusy, setWebBusy] = useState(false);
+  const [webError, setWebError] = useState("");
   const observation =
     result.analysis && "observation" in result.analysis
       ? result.analysis.observation
@@ -168,10 +174,69 @@ export default function ConfirmPage({
         <div className="notice">
           <p>
             <strong>{identifiedName}은(는) 등록된 제품이 아니에요.</strong>
-            부품 호환 정보는 확인해 둔 제품에만 있어서, 이 제품은 아래 방법으로
-            찾아야 해요.
+            대신 웹에서 이 제품의 {part || "부품"} 정보를 찾아볼 수 있어요.
           </p>
-          <button className="outline-button" onClick={onHelp}>
+          {onWebLookup && web === "none" && (
+            <button
+              className="outline-button"
+              disabled={webBusy}
+              onClick={() => {
+                setWebBusy(true);
+                setWebError("");
+                onWebLookup()
+                  .then((r) => setWeb(r.part))
+                  .catch((e: Error) =>
+                    setWebError(e.message || "웹 조회에 실패했어요."),
+                  )
+                  .finally(() => setWebBusy(false));
+              }}
+            >
+              {webBusy ? "웹에서 찾는 중…" : "웹에서 부품 찾기"}
+            </button>
+          )}
+          {webError && <p className="alert warning">{webError}</p>}
+          {web !== "none" && web === null && (
+            <p>웹에서도 부품 정보를 찾지 못했어요.</p>
+          )}
+          {web !== "none" && web && (
+            <div className="web-part">
+              {web.partName ? (
+                <>
+                  <p>
+                    <strong>{web.partName}</strong>
+                    {web.partNumber && <code>{web.partNumber}</code>}
+                  </p>
+                  {web.compatibleModels.length > 0 && (
+                    <p>호환 표기 · {web.compatibleModels.join(", ")}</p>
+                  )}
+                </>
+              ) : null}
+              {web.note && <p>{web.note}</p>}
+              <p className="web-caveat">
+                웹 페이지에서 그대로 옮긴 내용이에요. 확인해 둔 정보가 아니니
+                주문 전에 출처에서 직접 확인해 주세요.
+              </p>
+              {web.purchases.length > 0 && (
+                <p>
+                  {web.purchases.map((b) => (
+                    <a key={b.url} className="text-button" {...external(b.url)}>
+                      {b.seller || "구매처"}
+                      <ArrowUpRight size={14} />
+                    </a>
+                  ))}
+                </p>
+              )}
+              <p>
+                {web.sources.map((x) => (
+                  <a key={x.url} className="text-button" {...external(x.url)}>
+                    출처 · {x.title.slice(0, 40)}
+                    <ArrowUpRight size={14} />
+                  </a>
+                ))}
+              </p>
+            </div>
+          )}
+          <button className="text-button" onClick={onHelp}>
             다른 방법으로 찾기
           </button>
         </div>

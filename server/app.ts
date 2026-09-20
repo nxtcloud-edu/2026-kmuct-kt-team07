@@ -26,15 +26,19 @@ import { normalizeModel } from "../src/catalog.js";
 import { Store, type StoredRequest } from "./store.js";
 import { normalizeImage } from "./images.js";
 import { photoHints } from "./photo-hints.js";
+import { lookupPartOnWeb, type WebPart } from "./web-lookup.js";
 import { resolvePaths } from "./resolver.js";
 import { catalogProducts } from "./catalog.js";
 import { filterProducts } from "../shared/catalog-search.js";
 
 type Analyzer = (request: ObservationRequest) => Promise<AnalysisResult>;
+/** A plain model call, used to read part details out of fetched web pages. */
+type TextAsker = (system: string, user: string) => Promise<string>;
 interface Options {
   store: Store;
   catalog: Catalog;
   analyze?: Analyzer;
+  askText?: TextAsker;
   origin: string;
   production?: boolean;
   dailyLimit?: number;
@@ -46,6 +50,7 @@ export function createApp({
   store,
   catalog,
   analyze,
+  askText,
   origin,
   production = false,
   dailyLimit = 100,
@@ -419,6 +424,50 @@ export function createApp({
         .status(404)
         .json({ error: "찾기 기록이 없거나 만료되었습니다." });
     res.json(present(r));
+  });
+  // The catalog carries 470 products; the thing in a photo usually is not one
+  // of them. When it is not, the part is looked up on the web instead of
+  // telling the user their product does not exist. Nothing here is reviewed
+  // evidence, so every answer travels with the pages it came from.
+  const webCache = new Map<string, WebPart | null>();
+  app.post("/api/requests/:id/web", async (req, res) => {
+    const r = owned(req, res);
+    if (!r) return res.status(404).json({ error: "기록을 찾을 수 없습니다." });
+    if (!askText)
+      return res.status(503).json({ error: "웹 조회가 설정되지 않았습니다." });
+    const view = present(r);
+    const identified = view.identified;
+    const product = identified
+      ? [identified.brand, identified.modelName || identified.productName]
+          .filter(Boolean)
+          .join(" ")
+      : r.query.trim();
+    if (!product)
+      return res
+        .status(400)
+        .json({ error: "먼저 사진이나 제품명으로 제품을 확인해 주세요." });
+    const partLabel = r.category === "other" ? "교체 부품" : categories[r.category];
+    const key = `${product}|${partLabel}`;
+    if (webCache.has(key))
+      return res.json({ product, part: webCache.get(key) ?? null });
+    if (
+      !store.quota(
+        [
+          { key: `web:${res.locals.owner}`, max: 20 },
+          { key: `web-ip:${req.ip}`, max: 40 },
+        ],
+        3600000,
+      )
+    )
+      return res
+        .status(429)
+        .json({ error: "웹 조회 한도에 도달했습니다. 잠시 후 다시 시도해 주세요." });
+    const part = await lookupPartOnWeb(product, partLabel, askText).catch(
+      () => null,
+    );
+    if (webCache.size > 200) webCache.clear();
+    webCache.set(key, part);
+    res.json({ product, part });
   });
   app.post("/api/requests/:id/select", (req, res) => {
     const r = owned(req, res);

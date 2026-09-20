@@ -36,6 +36,16 @@ export type IdentifiedProduct = {
   confidence: "high" | "medium" | "low";
   basis: "label_text" | "design_only" | "both";
 };
+/** A part found on the web for a product the catalog does not carry. */
+export type WebPart = {
+  partName: string;
+  partNumber: string;
+  compatibleModels: string[];
+  note: string;
+  sources: { title: string; url: string }[];
+  purchases: { seller: string; url: string }[];
+};
+export type WebLookup = { product: string; part: WebPart | null };
 export type PartCard = PathsResult["cards"][number];
 export type Photo = {
   file: File;

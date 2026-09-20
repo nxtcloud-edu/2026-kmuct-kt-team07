@@ -1,7 +1,10 @@
 import { createApp } from "./app.js";
 import { loadCatalog } from "./catalog.js";
 import { Store } from "./store.js";
-import { createGatewayObservationProvider } from "../src/gateway.js";
+import {
+  createGatewayObservationProvider,
+  createGatewayTextAsker,
+} from "../src/gateway.js";
 
 const production = process.env.NODE_ENV === "production";
 const port = Number(process.env.PORT ?? 3001);
@@ -39,6 +42,7 @@ const service = createApp({
   analyze: provider
     ? (request) => provider!.analyze(request, catalog.products)
     : undefined,
+  askText: provider ? createGatewayTextAsker() : undefined,
 });
 const server = service.app.listen(port, process.env.HOST ?? "127.0.0.1", () =>
   console.log(

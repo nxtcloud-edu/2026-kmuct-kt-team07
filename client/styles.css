@@ -1704,3 +1704,27 @@ body:has(dialog[open]) {
     animation-duration: 0.01ms !important;
   }
 }
+
+.web-part {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--ground-2);
+  display: grid;
+  gap: 0.4rem;
+}
+.web-part code {
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  background: var(--field);
+  font-size: 0.9em;
+}
+.web-part p {
+  margin: 0;
+}
+.web-caveat {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
