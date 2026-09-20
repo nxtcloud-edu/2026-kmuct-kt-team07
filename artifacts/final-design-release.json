@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-09-20T06:02:56.567450+00:00",
+  "finalDesign": true,
+  "externalDeployment": true,
+  "imageTag": "parts-finder:release-design-v3-amd64-20260920",
+  "platform": "linux/amd64",
+  "testsPassed": 78,
+  "browserChecks": {
+    "viewportWidthVerified": 390,
+    "homeOverflow": false,
+    "modelSearch": "PT-D200",
+    "selectedPart": "brother-tze-231",
+    "manufacturerEvidenceVisible": true,
+    "domesticPurchaseLinkVisible": true,
+    "accessRestrictionWarningVisible": true
+  },
+  "aws": {
+    "profile": "bedrock-hackathon",
+    "region": "us-east-1",
+    "authenticated": true,
+    "teamServerFound": true,
+    "serverCreated": true,
+    "dryRunResult": "DryRunOperation (would succeed)",
+    "denyingPolicy": null,
+    "request": {
+      "action": "ec2:RunInstances",
+      "instanceType": "t3.small",
+      "ami": "ami-0190258a3c1abc699",
+      "instanceProfile": "SafeInstanceProfile-kmuct-ht-07",
+      "name": "kmuct-ht-07-ddakpum",
+      "ownerTag": "kmuct-ht-07"
+    },
+    "nextStep": "Deployment complete; public HTTPS and live API verified.",
+    "instanceId": "i-03c9aea6e1bc82f0a"
+  },
+  "sha256": {
+    "client/App.tsx": "93771b18021f32e89b1f2056e2c49890dbdc5c926738a6a00850db3de7610e83",
+    "client/Logo.tsx": "c67bb9a9da81cc2e62400585167337f8b1ed561db37287a8a2e678635932295a",
+    "client/MeasurementGuide.tsx": "8a368ccc252ccbd6bf409b4891e9762bf52f74c3239ebe688ef2dbed9b3e04b3",
+    "client/ProductCatalog.tsx": "e9d452f2ae1660dfae1d0cc68f97bd84038b5422a6cba8a90e9a17bcdaecc7a8",
+    "client/styles.css": "316b0dd4a5fcc9b41766f5d4b2c3eeb06985e6bf1dd7d51f9f4aabc607d055b9",
+    "client/main.tsx": "bf4e7e2b6b8bbeac07a1978e6f4a28582dbe2fbd35bf4277280497a92ffb9bf8",
+    "index.html": "d03b89e90dc13c1616c07abda0df455f76826c86d9b05026f7d8715582eaa012",
+    "public/favicon.svg": "984d72bb40f4c2775c3e8ce317916a46d43b57131167f314fc9e8f0807787349",
+    "data/catalog.json": "70b4c8fd50be0e643454aa70fb1f7dce201e2c41f2c295f74d4390ae2912803c",
+    "package-lock.json": "69f46febdd1ed41913df1b01266265b822fd5946da8c81ececf6dbd47e755b91",
+    "server/main.ts": "c71c4a4ec12b6e52c841af66742005a5dcecf715f0a7e82a090a5019fac312ad"
+  },
+  "imageId": "sha256:03999228f20f1962991df39adb6919826aa9790a17e92f5962ef5bd00b65854e",
+  "productionPreflightPassed": true,
+  "containerRestartPassed": true,
+  "updatedAt": "2026-09-20T06:23:25.594441+00:00",
+  "amd64ImageProcessingPassed": true,
+  "publicUrl": "https://18.208.163.160"
+}

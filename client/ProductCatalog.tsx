@@ -1,3 +1,4 @@
+import ProductImage from "./ProductImage";
 import { useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
 import {
@@ -71,8 +72,12 @@ export default function ProductCatalog({
     .filter((p) => !suggestedOnly || candidateIds.includes(p.variantId))
     .sort(
       (a, b) =>
-        Number(candidateIds.includes(b.variantId)) -
-          Number(candidateIds.includes(a.variantId)) ||
+        (candidateIds.includes(a.variantId)
+          ? candidateIds.indexOf(a.variantId)
+          : 9999) -
+          (candidateIds.includes(b.variantId)
+            ? candidateIds.indexOf(b.variantId)
+            : 9999) ||
         Number(b.domesticCategories.length > 0) -
           Number(a.domesticCategories.length > 0),
     );
@@ -91,6 +96,14 @@ export default function ProductCatalog({
     setSuggestedOnly(false);
     setLimit(8);
   }
+  const activeFilters = [
+    group,
+    brand,
+    capacity,
+    domesticOnly,
+    partsOnly,
+    orderableOnly,
+  ].filter(Boolean).length;
   const tools = (
     <>
       <label className="search-field">
@@ -102,132 +115,133 @@ export default function ProductCatalog({
             setQuery(e.target.value);
             setLimit(8);
           }}
-          placeholder="브랜드·모델 코드·규격으로 검색"
+          placeholder="검색어를 입력해주세요"
           maxLength={120}
         />
       </label>
-      <div className="catalog-filters">
-        <label>
-          물건 종류
-          <select
-            value={group}
-            onChange={(e) => {
-              setGroup(e.target.value as ProductGroup | "");
-              setBrand("");
-              setCapacity("");
-              setLimit(8);
-            }}
-          >
-            <option value="">전체 생활용품</option>
-            {Object.entries(productGroups).map(([key, label]) => (
-              <option key={key} value={key}>
-                {label} ({products.filter((p) => p.group === key).length})
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          브랜드
-          <select
-            value={brand}
-            onChange={(e) => {
-              setBrand(e.target.value);
-              setCapacity("");
-              setLimit(8);
-            }}
-          >
-            <option value="">전체 브랜드</option>
-            {brands.map((b) => (
-              <option key={b}>{b}</option>
-            ))}
-          </select>
-        </label>
-        {capacities.length > 0 && (
+      <details className="catalog-refine">
+        <summary>
+          필터
+          {activeFilters > 0 && <span>{activeFilters}개 적용 중</span>}
+        </summary>
+        <div className="catalog-filters">
           <label>
-            용량
+            물건 종류
             <select
-              value={capacity}
+              value={group}
               onChange={(e) => {
-                setCapacity(e.target.value);
+                setGroup(e.target.value as ProductGroup | "");
+                setBrand("");
+                setCapacity("");
                 setLimit(8);
               }}
             >
-              <option value="">전체 용량</option>
-              {capacities.map((c) => (
-                <option key={c}>{c}</option>
+              <option value="">전체 생활용품</option>
+              {Object.entries(productGroups).map(([key, label]) => (
+                <option key={key} value={key}>
+                  {label} ({products.filter((p) => p.group === key).length})
+                </option>
               ))}
             </select>
           </label>
-        )}
-      </div>
-      <div className="catalog-toggles">
-        {candidateIds.length > 0 && (
+          <label>
+            브랜드
+            <select
+              value={brand}
+              onChange={(e) => {
+                setBrand(e.target.value);
+                setCapacity("");
+                setLimit(8);
+              }}
+            >
+              <option value="">전체 브랜드</option>
+              {brands.map((b) => (
+                <option key={b}>{b}</option>
+              ))}
+            </select>
+          </label>
+          {capacities.length > 0 && (
+            <label>
+              용량
+              <select
+                value={capacity}
+                onChange={(e) => {
+                  setCapacity(e.target.value);
+                  setLimit(8);
+                }}
+              >
+                <option value="">전체 용량</option>
+                {capacities.map((c) => (
+                  <option key={c}>{c}</option>
+                ))}
+              </select>
+            </label>
+          )}
+        </div>
+        <div className="catalog-toggles">
+          {candidateIds.length > 0 && (
+            <label>
+              <input
+                type="checkbox"
+                checked={suggestedOnly}
+                onChange={(e) => {
+                  setSuggestedOnly(e.target.checked);
+                  setLimit(8);
+                }}
+              />
+              사진·입력 후보만 보기
+            </label>
+          )}
           <label>
             <input
               type="checkbox"
-              checked={suggestedOnly}
+              checked={orderableOnly}
               onChange={(e) => {
-                setSuggestedOnly(e.target.checked);
+                setOrderableOnly(e.target.checked);
                 setLimit(8);
               }}
             />
-            사진·입력 후보만 보기
+            {categoryLabel}최근 주문 가능 확인 · 국내
           </label>
-        )}
-        <label>
-          <input
-            type="checkbox"
-            checked={orderableOnly}
-            onChange={(e) => {
-              setOrderableOnly(e.target.checked);
-              setLimit(8);
-            }}
-          />
-          {categoryLabel}최근 주문 가능 확인 · 국내
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={domesticOnly}
-            onChange={(e) => {
-              setDomesticOnly(e.target.checked);
-              setLimit(8);
-            }}
-          />
-          {categoryLabel}국내 구매 경로 있는 제품
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={partsOnly}
-            onChange={(e) => {
-              setPartsOnly(e.target.checked);
-              setLimit(8);
-            }}
-          />
-          {categoryLabel}부품 자료 있는 제품
-        </label>
-      </div>
+          <label>
+            <input
+              type="checkbox"
+              checked={domesticOnly}
+              onChange={(e) => {
+                setDomesticOnly(e.target.checked);
+                setLimit(8);
+              }}
+            />
+            {categoryLabel}국내 구매 경로 있는 제품
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={partsOnly}
+              onChange={(e) => {
+                setPartsOnly(e.target.checked);
+                setLimit(8);
+              }}
+            />
+            {categoryLabel}부품 자료 있는 제품
+          </label>
+        </div>
+      </details>
     </>
   );
   return (
     <div className="catalog-browser">
-      {candidateIds.length > 0 ? (
-        <details
-          className="catalog-tools"
-          open={toolsOpen}
-          onToggle={(e) => {
-            const open = e.currentTarget.open;
-            setToolsOpen(open);
-            // Opening the tools means the candidates were not enough.
-            if (open && !toolsOpen) setSuggestedOnly(false);
+      {tools}
+      {candidateIds.length > 0 && (
+        <button
+          className="text-button"
+          onClick={() => {
+            setSuggestedOnly(!suggestedOnly);
+            setLimit(8);
           }}
         >
-          <summary>후보에 없다면 전체 등록 제품에서 검색</summary>
-          {tools}
-        </details>
-      ) : (
-        tools
+          {suggestedOnly ? "전체 제품에서 다시 찾기" : "추천 후보만 보기"}
+        </button>
       )}
       <p className="catalog-count" aria-live="polite">
         {matched.length}개 제품 · 모델·규격이 맞는지 확인 후 선택하세요.
@@ -238,13 +252,20 @@ export default function ProductCatalog({
             className={`product-option${candidateIds.includes(p.variantId) ? " candidate" : ""}`}
             key={p.variantId}
           >
-            <div>
+            <ProductImage product={p} />
+            <div className="product-option-body">
               <strong>
                 {p.modelName}
                 <span className="product-spec">
                   {[
-                    p.capacity ??
-                      (p.group === "drinkware" ? "용량 확인 필요" : null),
+                    // Many model names already carry the capacity.
+                    p.capacity
+                      ? p.modelName.includes(p.capacity)
+                        ? null
+                        : p.capacity
+                      : p.group === "drinkware"
+                        ? "용량 확인 필요"
+                        : null,
                     p.generation,
                   ]
                     .filter(Boolean)
@@ -257,28 +278,16 @@ export default function ProductCatalog({
                 )}
                 {productGroups[p.group]} · {p.brand}
               </small>
-              <p className="product-description">{p.description}</p>
               <span className="coverage-label">
-                부품 자료:{" "}
                 {p.availableCategories.map((k) => categories[k]).join(" · ") ||
-                  "미등록"}
+                  "부품 확인 필요"}
               </span>
-              <span className="market-label">
-                {p.domesticCategories.length
-                  ? `국내 구매 경로: ${p.domesticCategories.map((k) => categories[k]).join(" · ")}`
-                  : p.availableCategories.length
-                    ? "해외 경로 · 국내 배송 미확인"
-                    : "부품 경로 미등록"}
-              </span>
-              {p.orderableCategories.length > 0 && (
-                <span className="orderable-label">
-                  주문 가능 표기 확인:{" "}
-                  {p.orderableCategories.map((k) => categories[k]).join(" · ")}
-                </span>
-              )}
               <a href={p.source.url} target="_blank" rel="noopener noreferrer">
-                제품 근거 자료와 비교
+                제품 정보 보기
                 <ArrowUpRight size={13} />
+                <span className="source-url">
+                  {new URL(p.source.url).hostname}
+                </span>
               </a>
             </div>
             <button

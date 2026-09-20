@@ -52,6 +52,13 @@ export const productSchema = z.strictObject({
   region: text,
   description: text,
   source: sourceSchema,
+  image: z
+    .strictObject({
+      url: z.string().regex(/^\/product-images\/[a-z0-9-]+\.webp$/),
+      sourceUrl: httpsUrl,
+      alt: text,
+    })
+    .optional(),
   contact: sourceSchema,
 });
 export const partSchema = z.strictObject({
@@ -172,6 +179,42 @@ export const checks: Record<
   Category,
   { key: string; label: string; help: string }[]
 > = {
+  mop_pad: [
+    {
+      key: "system",
+      label: "청소도구 제품군·세대",
+      help: "Turbo, UltraMax, SprayMax 등 본체 이름을 확인하세요. 같은 브랜드의 걸레도 서로 맞지 않을 수 있어요.",
+    },
+    {
+      key: "mount",
+      label: "헤드 모양·고정 방식",
+      help: "삼각형·원형·평판과 스냅·벨크로·끼움 방식을 대조하세요. 젖은 걸레 크기만으로 고르지 마세요.",
+    },
+  ],
+  sink_stopper: [
+    {
+      key: "system",
+      label: "배수트랩 제조사·제품 번호",
+      help: "싱크볼 이름만으로 고르지 말고 실제 설치된 배수트랩과 기존 마개를 확인하세요.",
+    },
+    {
+      key: "mount",
+      label: "마개·거름망 결합 구조",
+      help: "핀 길이, 밀봉 링, 잠금 구조를 대조하세요. 배수구 지름만 같아도 맞지 않을 수 있어요.",
+    },
+  ],
+  label_tape: [
+    {
+      key: "model",
+      label: "라벨프린터 전체 모델",
+      help: "PT 등의 전체 모델 코드와 사용 가능한 테이프 계열을 확인하세요.",
+    },
+    {
+      key: "tape",
+      label: "카세트 코드·너비·색상",
+      help: "TZe·DK·리본 테이프를 구분하고 최대 인쇄 폭과 카세트 코드를 대조하세요.",
+    },
+  ],
   bobbin: [
     {
       key: "model",
@@ -200,7 +243,7 @@ export const checks: Record<
     {
       key: "part",
       label: "필요한 부품 이름·코드",
-      help: "예: 가방 버클, 캐리어 바퀴, 재봉틀 보빈. 제품 설명서의 부품 번호가 있으면 함께 적어 주세요.",
+      help: "제품 설명서의 부품 이름이나 번호를 입력해주세요.",
     },
     {
       key: "mount",
@@ -229,7 +272,7 @@ export const checks: Record<
     {
       key: "etrto",
       label: "타이어 ETRTO 규격",
-      help: "옆면의 폭-림 지름 표기(예: 37-622)를 그대로 입력하세요. 인치만 같아도 림 지름이 다를 수 있어요.",
+      help: "옆면의 폭과 림 지름 표기를 그대로 입력하세요. 인치만 같아도 림 지름이 다를 수 있어요.",
     },
     {
       key: "valve",

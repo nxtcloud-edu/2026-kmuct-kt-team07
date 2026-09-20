@@ -1,0 +1,144 @@
+{
+  "checkedAt": "2026-09-20T05:18:04.219Z",
+  "scope": "HTTP access only, not stock or compatibility validation. Manual content reviews remain separate.",
+  "results": [
+    {
+      "url": "https://www.vileda.co.uk/products/ultramax-refill",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:57.378Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.vileda.co.uk/products/spin-and-clean-mop-refill",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:57.443Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.vileda.co.uk/products/turbo-2in1-refill",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:57.440Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.vileda.co.uk/products/h2pro-flat-mop-refill",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:57.442Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.vileda.co.uk/products/active-max-refill",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:59.419Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/komplement-shelf-white-10277960/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.012Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/komplement-shelf-white-20277993/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:59.978Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/komplement-shelf-white-50277996/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.015Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.vileda.co.uk/products/12spray-max-refill-bundle",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:17:59.851Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/komplement-shelf-white-70277962/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.385Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/komplement-shelf-white-80277990/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.416Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/komplement-shelf-white-50277958/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.441Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/lillviken-sink-stopper-90325429/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.519Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://hottracks.kyobobook.co.kr/gift/detail/S000052491781",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.816Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/lillviken-lid-30329034/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.767Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/lillviken-extra-connection-for-water-trap-20388585/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:00.801Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kr.element14.com/brother/tze-231/tape-black-on-white-12mm-x-8m/dp/603508",
+      "status": "blocked",
+      "checkedAt": "2026-09-20T05:18:00.907Z",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://www.singer.com/products/singer-class-15-bobbins-transparent",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:01.179Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.bugaboo.com/kr-ko/%EB%B6%80%ED%92%88/bugaboo-fox-swivel-wheels-230562.html",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:01.170Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.compuzone.co.kr/product/product_detail.htm?ProductNo=521983",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:01.868Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.bugaboo.com/kr-ko/%EB%B6%80%ED%92%88/bugaboo-bee5-front-wheels-replacement-set-500525.html",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:01.143Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.petsafe.com/p/drinkwell-foam-replacement-filters-2-pack/PAC00-13711/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:02.288Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.petsafe.com/p/drinkwell-avalon-pagoda-carbon-filters/PAC00-13906/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T05:18:02.005Z",
+      "httpStatus": 200
+    }
+  ]
+}

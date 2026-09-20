@@ -1,13 +1,51 @@
 import assert from "node:assert/strict";
 import { writeFile, readFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 if (!process.argv.includes("--run"))
   throw new Error("로컬 컨테이너 기동 후 --run으로 실행하세요.");
+const container = process.argv
+  .find((a) => a.startsWith("--container="))
+  ?.slice(12);
+if (!container || !/^[a-zA-Z0-9][a-zA-Z0-9_.-]*$/.test(container))
+  throw new Error("검증할 로컬 컨테이너 이름을 --container=로 지정하세요.");
+const exec = promisify(execFile);
+// Inspect only immutable identity fields; container environments may contain secrets.
+const identity = (
+  await exec("docker", ["inspect", "--format", "{{.Image}}", container])
+).stdout.trim();
+const platform = (
+  await exec("docker", [
+    "image",
+    "inspect",
+    "--format",
+    "{{.Os}}/{{.Architecture}}",
+    identity,
+  ])
+).stdout.trim();
 const base = "http://127.0.0.1:3014",
   origin = "https://parts-preflight.example";
 const expected = JSON.parse(await readFile("data/catalog.json", "utf8"))
   .products.length;
 const health = await fetch(base + "/api/health");
 assert.equal(health.status, 200);
+const page = await fetch(base + "/");
+assert.equal(page.status, 200);
+const html = await page.text();
+const assetPaths = [
+  ...new Set(
+    [...html.matchAll(/(?:src|href)=["'](\/(?!\/)[^"']+)["']/g)].map(
+      (m) => m[1]!,
+    ),
+  ),
+];
+assert.ok(assetPaths.some((p) => p.endsWith(".js")));
+for (const path of assetPaths) {
+  const asset = await fetch(base + path);
+  assert.equal(asset.status, 200, path);
+  assert.ok(!asset.headers.get("content-type")?.includes("text/html"), path);
+  await asset.body?.cancel();
+}
 const response = await fetch(base + "/api/session");
 const cookie = response.headers.get("set-cookie");
 assert.ok(cookie);
@@ -76,7 +114,8 @@ await writeFile(
   JSON.stringify(
     {
       checkedAt: new Date().toISOString(),
-      image: "parts-finder:preflight-20260920",
+      imageId: identity,
+      platform,
       externalDeployment: false,
       checks: {
         health: true,
@@ -88,6 +127,7 @@ await writeFile(
         sqliteCreateReadUpdate: true,
         catalogCount: expected,
         productToPurchasePath: true,
+        publicAssets: assetPaths,
         privatePaths: publicPaths,
       },
       limits: [

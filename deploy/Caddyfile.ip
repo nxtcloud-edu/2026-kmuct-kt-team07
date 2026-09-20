@@ -1,0 +1,19 @@
+# IP clients omit SNI; EC2 receives traffic on its private IP after NAT.
+{
+    default_sni {$PUBLIC_IP}
+}
+
+# PUBLIC_IP is the new EC2 instance's public IPv4 address.
+# Explicit public ACME issuer prevents Caddy's internal certificate default for IPs.
+https://{$PUBLIC_IP} {
+    tls {
+        issuer acme {
+            dir https://acme-v02.api.letsencrypt.org/directory
+            profile shortlived
+        }
+    }
+    request_body {
+        max_size 42MB
+    }
+    reverse_proxy 127.0.0.1:3001
+}

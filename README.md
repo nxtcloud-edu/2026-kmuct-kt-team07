@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Vite-8.3-646CFF?logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/Express-5.2-000000?logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/Node.js-22.17%2B-5FA04E?logo=nodedotjs&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/tests-72%20passed-22C55E" alt="Tests" />
+  <img src="https://img.shields.io/badge/tests-78%20passed-22C55E" alt="Tests" />
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 
 | 홈 · 사진 및 모델 검색 | 결과 · 근거와 해결 경로 |
 | --- | --- |
-| ![딱품 홈 화면](./artifacts/ui-redesign/home-1440.png) | ![딱품 결과 화면](./artifacts/ui-redesign/result-1440.png) |
+| ![딱품 홈 화면](./artifacts/ui-redesign-v3/home-1440.png) | ![딱품 결과 화면](./artifacts/ui-redesign-v3/result-1440.png) |
 
 ---
 
@@ -76,24 +76,20 @@
 
 ## 지원 분야와 카탈로그
 
-현재 [`data/catalog.json`](./data/catalog.json)에 다음 데이터를 수록하고 있습니다.
-
-- **제품 405개**
-- **부품 111개**
-- **판매 항목 111개**
-- **적용·제외 근거 487개**
+현재 [`data/catalog.json`](./data/catalog.json)에 **제품·적용 계열 470개, 부품 134개, 판매 항목 134개, 적용·제외 근거 573개**를 수록했습니다.
 
 | 분야 | 대표 제품 및 부품 |
-| --- | --- |
-| **자전거** | SHIMANO 캘리퍼 31종 · B05S-RX 패드 |
-| **가전** | Dyson 공기청정기·청소기 · 필터, 리모컨, 브러시, 호스 |
-| **가구** | IKEA BILLY 4규격 · 폭별 선반, 예비 부품 신청 |
-| **학용품** | UNI·Tombow · 단색 리필, 교체 지우개 |
-| **주방·위생** | BRITA·Philips · 필터, 칫솔모 |
-| **공구·원예** | OLFA·GARDENA · 교체 날, 패킹 |
-| **반려동물** | PetSafe Drinkwell · 전용 카본 필터 |
-| **육아·재봉·운동** | Bugaboo·SINGER·Forclaz · 바퀴, 보빈, 보호캡 |
-| **물병·텀블러** | 197개 모델 · 뚜껑, 패킹, 빨대 |
+|---|---|
+| 🚲 자전거 | SHIMANO 캘리퍼 31종 · B05S-RX 패드 |
+| 🏠 가전 | Dyson 공기청정기·청소기 · 필터, 리모컨, 브러시, 호스 |
+| 🪑 가구 | IKEA BILLY·BESTÅ·PAX · 폭·깊이별 선반, 경첩 |
+| ✏️ 학용품 | UNI·Tombow·Brother · 단색·다색 리필, 지우개, 라벨 테이프 |
+| 🍳 주방·위생 | BRITA·Philips · 필터, 칫솔모 |
+| 🛠️ 공구·원예 | OLFA·GARDENA · 교체 날, 패킹 |
+| 🐾 반려동물 | PetSafe Drinkwell · 전용 카본 필터 |
+| 👶 육아·재봉·운동 | Bugaboo·SINGER·Forclaz · 바퀴, 보빈, 보호캡 |
+| 🧹 청소·배수설비 | Vileda·IKEA · 교체 걸레, 배수구 마개, 연결부 |
+| 🥤 물병·텀블러 | 197개 모델 · 뚜껑, 패킹, 빨대 |
 
 등록되지 않은 물건은 **기타 부품** 흐름에서 필요한 부품, 장착부, 사용 조건을 기록한 뒤 검색 또는 제조사 문의로 이어갈 수 있습니다.
 
@@ -120,6 +116,8 @@ flowchart LR
 ---
 
 ## 시스템 구성
+
+발표에는 [실제 AWS 배포 아키텍처](docs/aws-architecture-presentation.svg)를, 구현 검토에는 [상세 시스템 아키텍처](docs/system-architecture.md)를 사용할 수 있습니다.
 
 ```mermaid
 flowchart TB

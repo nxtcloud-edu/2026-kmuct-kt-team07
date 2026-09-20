@@ -43,7 +43,7 @@ export default function MeasurementGuide({ category }: { category: Category }) {
             refY="2.5"
             orient="auto-start-reverse"
           >
-            <path d="M0 0L5 2.5L0 5z" fill="#84946e" />
+            <path d="M0 0L5 2.5L0 5z" fill="var(--guide-dim)" />
           </marker>
         </defs>
         {category === "gasket" ? (
@@ -52,21 +52,21 @@ export default function MeasurementGuide({ category }: { category: Category }) {
               cx="108"
               cy="87"
               r="51"
-              fill="#dce5cf"
-              stroke="#8c9e77"
+              fill="var(--guide-fill)"
+              stroke="var(--guide-stroke)"
               strokeWidth="2"
             />
             <circle
               cx="108"
               cy="87"
               r="31"
-              fill="#fafbf7"
-              stroke="#8c9e77"
+              fill="var(--ground)"
+              stroke="var(--guide-stroke)"
               strokeWidth="2"
             />
             <path
               d="M58 143H158M78 87H138"
-              stroke="#84946e"
+              stroke="var(--guide-dim)"
               markerStart={`url(#arrow-${category})`}
               markerEnd={`url(#arrow-${category})`}
             />
@@ -82,12 +82,12 @@ export default function MeasurementGuide({ category }: { category: Category }) {
               width="56"
               height="25"
               rx="10"
-              fill="#dce5cf"
-              stroke="#8c9e77"
+              fill="var(--guide-fill)"
+              stroke="var(--guide-stroke)"
             />
             <path
               d="M300 63v24"
-              stroke="#84946e"
+              stroke="var(--guide-dim)"
               markerStart={`url(#arrow-${category})`}
               markerEnd={`url(#arrow-${category})`}
             />
@@ -103,20 +103,26 @@ export default function MeasurementGuide({ category }: { category: Category }) {
               width="207"
               height="15"
               rx="6"
-              fill="#dce5cf"
-              stroke="#8c9e77"
+              fill="var(--guide-fill)"
+              stroke="var(--guide-stroke)"
             />
             <path
               d="M52 107H258"
-              stroke="#84946e"
+              stroke="var(--guide-dim)"
               markerStart={`url(#arrow-${category})`}
               markerEnd={`url(#arrow-${category})`}
             />
             <text x="156" y="133">
               양 끝 사이 길이
             </text>
-            <circle cx="295" cy="74" r="16" fill="#dce5cf" stroke="#8c9e77" />
-            <circle cx="295" cy="74" r="10" fill="#fafbf7" />
+            <circle
+              cx="295"
+              cy="74"
+              r="16"
+              fill="var(--guide-fill)"
+              stroke="var(--guide-stroke)"
+            />
+            <circle cx="295" cy="74" r="10" fill="var(--ground)" />
             <text x="291" y="113">
               단면 지름
             </text>
@@ -125,15 +131,15 @@ export default function MeasurementGuide({ category }: { category: Category }) {
           <>
             <path
               d="M78 93V70q0-25 26-25h114q26 0 26 25v23"
-              stroke="#8c9e77"
+              stroke="var(--guide-stroke)"
               strokeWidth="18"
               fill="none"
             />
-            <circle cx="78" cy="103" r="6" fill="#c6875d" />
-            <circle cx="244" cy="103" r="6" fill="#c6875d" />
+            <circle cx="78" cy="103" r="6" fill="var(--guide-accent)" />
+            <circle cx="244" cy="103" r="6" fill="var(--guide-accent)" />
             <path
               d="M78 129H244"
-              stroke="#84946e"
+              stroke="var(--guide-dim)"
               markerStart={`url(#arrow-${category})`}
               markerEnd={`url(#arrow-${category})`}
             />
@@ -148,8 +154,8 @@ export default function MeasurementGuide({ category }: { category: Category }) {
           <>
             <path
               d="M78 176V83q0-13 20-24V34h79v25q20 11 20 24v93"
-              fill="#dce5cf"
-              stroke="#8c9e77"
+              fill="var(--guide-fill)"
+              stroke="var(--guide-stroke)"
               strokeWidth="2"
             />
             <ellipse
@@ -157,21 +163,21 @@ export default function MeasurementGuide({ category }: { category: Category }) {
               cy="34"
               rx="39"
               ry="9"
-              fill="#fafbf7"
-              stroke="#8c9e77"
+              fill="var(--ground)"
+              stroke="var(--guide-stroke)"
             />
             <path
               d="M98 46q40 12 79 0m-79 9q40 12 79 0"
               fill="none"
-              stroke="#8c9e77"
+              stroke="var(--guide-stroke)"
             />
-            <path d="M186 47h49" stroke="#c6875d" />
+            <path d="M186 47h49" stroke="var(--guide-accent)" />
             <text x="276" y="47">
               나사산 형태
             </text>
             <path
               d="M99 17h78"
-              stroke="#84946e"
+              stroke="var(--guide-dim)"
               markerStart={`url(#arrow-${category})`}
               markerEnd={`url(#arrow-${category})`}
             />

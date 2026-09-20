@@ -1,3 +1,4 @@
+import { searchIntent } from "./search-intent.js";
 import type { Category, Product, ProductGroup } from "./domain.js";
 import { brandAliases, capacityKey } from "./product-identity.js";
 
@@ -18,11 +19,12 @@ export function matchesProduct(product: Product, query: string): boolean {
     product.brand,
     ...(brandAliases[product.brand] ?? []),
     product.modelName,
+    product.description,
     product.capacity ?? "",
     product.generation ?? "",
     ...product.aliases,
   ].map(normalize);
-  const normalizedQuery = query.normalize("NFKC");
+  const normalizedQuery = searchIntent(query).productQuery.normalize("NFKC");
   // A volume is an exact constraint: 50ml must not match 350ml or 500ml.
   const volumePattern =
     /(?<![\p{L}\d.])(\d+(?:\.\d+)?)\s*(밀리리터|리터|fl\s*oz|ml|oz|온스|l)(?![\p{L}\d])/giu;
@@ -55,6 +57,10 @@ export function filterProducts(
     orderableOnly?: boolean;
   } = {},
 ) {
+  const intent = searchIntent(query, filters.category);
+  const requestedCategory =
+    filters.category ??
+    (intent.category === "other" ? undefined : intent.category);
   return products.filter(
     (p) =>
       matchesProduct(p, query) &&
@@ -65,7 +71,8 @@ export function filterProducts(
           (capacityKey(filters.capacity)
             ? capacityKey(p.capacity) === capacityKey(filters.capacity)
             : p.capacity === filters.capacity))) &&
-      (!filters.category || p.availableCategories.includes(filters.category)) &&
+      (!requestedCategory ||
+        p.availableCategories.includes(requestedCategory)) &&
       (!filters.orderableOnly ||
         (filters.category
           ? p.orderableCategories.includes(filters.category)

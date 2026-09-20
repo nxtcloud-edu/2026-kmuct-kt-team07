@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-09-20T05:20:47.696Z",
+  "counts": {
+    "products": 470,
+    "groups": 15,
+    "parts": 134,
+    "brands": 22
+  },
+  "results": [
+    {
+      "group": "cleaning",
+      "category": "mop_pad",
+      "variantId": "vileda-ultramax",
+      "partId": "vileda-pad-ultramax-refill",
+      "status": "passed",
+      "offers": 1
+    },
+    {
+      "group": "plumbing",
+      "category": "sink_stopper",
+      "variantId": "ikea-lillviken-80344447",
+      "partId": "ikea-lillviken-part-90325429",
+      "status": "passed",
+      "offers": 1
+    },
+    {
+      "group": "stationery",
+      "category": "label_tape",
+      "variantId": "brother-pt-d200",
+      "partId": "brother-tze-231",
+      "status": "passed",
+      "offers": 1
+    },
+    {
+      "group": "furniture",
+      "category": "shelf",
+      "variantId": "ikea-pax-75x35",
+      "partId": "ikea-komplement-50277996",
+      "status": "passed",
+      "offers": 1
+    }
+  ],
+  "scope": "Local compiled server, model selection and purchase-path presence; no live AI calls, stock or physical fit validation. Own temporary records deleted."
+}

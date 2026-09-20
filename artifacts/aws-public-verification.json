@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-09-20T06:21:46.609Z",
+  "url": "https://18.208.163.160",
+  "checks": {
+    "health": {
+      "ok": true,
+      "photoAnalysisAvailable": true
+    },
+    "publicAssets": [
+      "/favicon.svg",
+      "/assets/index-CEx5wkG_.js",
+      "/assets/index-C54u_Fzp.css"
+    ],
+    "secureCookieAndHsts": true,
+    "catalogCounts": {
+      "products": 470,
+      "groups": 15,
+      "parts": 134,
+      "brands": 22
+    },
+    "modelToPurchasePath": true,
+    "csrfAndOwnership": true,
+    "photo": {
+      "state": "ready",
+      "analysis": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "lid",
+              "description": "파란 용기 옆에 놓인 회색 원형 마개와 연결 고리가 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [],
+          "observedFeatures": [
+            {
+              "key": "lid_connection",
+              "value": "용기 입구와 마개에 나사산이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "lid_type",
+              "value": "원형 마개가 용기에서 분리되어 놓여 있음",
+              "imageId": "image-1"
+            },
+            {
+              "key": "has_handle",
+              "value": "마개에 큰 고리 형태의 연결부가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "용기 입구가 열린 상태이며 마개가 옆에 놓여 있음",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [
+            "blurry",
+            "glare"
+          ],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      }
+    }
+  }
+}

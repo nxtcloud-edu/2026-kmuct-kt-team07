@@ -42,7 +42,7 @@ const service = createApp({
 });
 const server = service.app.listen(port, process.env.HOST ?? "127.0.0.1", () =>
   console.log(
-    `딱맞는부품: ${origin} · 사진 분석 ${provider ? "연결됨" : "미설정"}`,
+    `딱품: ${origin} · 사진 분석 ${provider ? "연결됨" : "미설정"}`,
   ),
 );
 server.requestTimeout = 30000;

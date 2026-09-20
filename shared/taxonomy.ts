@@ -3,6 +3,8 @@ export const productGroups = {
   electronics: "전자제품·청소가전",
   furniture: "가구·수납",
   stationery: "학용품·사무용품",
+  cleaning: "청소·세탁도구",
+  plumbing: "욕실·배수설비",
   kitchen: "주방·정수용품",
   personal_care: "욕실·개인 위생",
   tools: "공구·취미용품",
@@ -38,6 +40,9 @@ export const categoryLabels = {
   other: "기타 부품",
   toothbrush_head: "칫솔모",
   shaver_head: "면도망·면도날",
+  mop_pad: "교체 걸레·청소패드",
+  sink_stopper: "배수구 마개·거름망",
+  label_tape: "라벨프린터 테이프",
 } as const;
 export type PartCategory = keyof typeof categoryLabels;
 export const groupCategories: Record<ProductGroup, readonly PartCategory[]> = {
@@ -45,7 +50,9 @@ export const groupCategories: Record<ProductGroup, readonly PartCategory[]> = {
   bicycle: ["brake_pad", "inner_tube", "handle", "fastener"],
   electronics: ["filter", "remote", "brush", "hose"],
   furniture: ["shelf", "hinge", "fastener", "wheel", "handle"],
-  stationery: ["refill", "eraser", "blade"],
+  stationery: ["refill", "eraser", "blade", "label_tape"],
+  cleaning: ["mop_pad", "brush", "handle", "wheel", "hose"],
+  plumbing: ["sink_stopper", "hose", "gasket", "handle"],
   kitchen: ["filter", "gasket", "lid", "handle"],
   personal_care: ["toothbrush_head", "shaver_head", "filter", "hose"],
   tools: ["blade", "brush", "fastener", "handle"],

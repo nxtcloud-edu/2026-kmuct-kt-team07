@@ -2,6 +2,8 @@
 
 현재 작업은 로컬 구현·검증까지 진행했으며 외부 배포는 하지 않았다.
 
+디자인 확정 후의 설정 검사·버전 고정·컨테이너 교체·복원 순서는 [배포 실행 절차](release-runbook.md)를 따른다. `npm run release:check`는 설정 값을 노출하지 않는 로컬 배포 준비 검사다.
+
 ## 로컬 실행
 
 Node 22.17.1에서 검증했다. Node 22의 내장 SQLite는 실험적 경고를 출력한다.
@@ -31,7 +33,7 @@ npm start
 | DATABASE_PATH | 지속 저장 가능한 경로. 기본 `.data/parts.sqlite` |
 | AI_DAILY_REQUEST_LIMIT | 24시간 창의 분석 요청 한도. 기본 100, 각 요청 최대 2회 API 호출 |
 
-실제 `.env`를 Git·이미지·공유 파일에 포함하지 않는다. 예제만 `.env.example`로 제공한다. 모델 ID에 bedrock이 들어 있어도 앱은 제공 API만 호출하며 AWS 권한은 필요 없다.
+실제 `.env`를 Git·이미지·공유 파일에 포함하지 않는다. 개발 예제는 `.env.example`, 운영 예제는 `deploy/production.env.example`로 제공한다. 서버의 `.env.production`은 `APP_ENV_FILE=.env.production docker compose --env-file .env.production ...`으로 선택한다. 모델 ID에 bedrock이 들어 있어도 앱은 제공 API만 호출하며 AWS 권한은 필요 없다.
 
 ## 컨테이너와 HTTPS
 
@@ -81,9 +83,9 @@ parts.example.com {
 - HTTP API 통합 테스트, 사진 디코딩·소유권·CSRF·요청 제한·재시작 처리 검증 완료.
 - 실제 제공 API를 통한 공개 사진 분석 및 Chrome 데스크톱·360px/390px 모바일 화면 검증 완료.
 - 배포용 JavaScript 빌드와 Docker 이미지 빌드·로컬 기동 검증 완료. 운영 모드의 HTTP 상태, Secure 쿠키, SQLite 쓰기·읽기, 제품 선택, CSP와 Linux Sharp 이미지 처리까지 확인했다. 컨테이너는 일반 사용자로 실행되고 `.env`를 포함하지 않는다. 외부 HTTPS·DNS는 실제 배포 때 설정한다.
-- 카탈로그는 13개 분야·405개 제품·111개 부품·487개 근거로 확장했다. [현재 범위](daily-life-expansion.md). 미등록 제품은 분야와 부품 이름·규격을 유지해 검색·문의로 안내한다.
+- 카탈로그는 15개 분야·470개 제품·134개 부품·573개 근거로 확장했다. [현재 범위](daily-life-expansion.md). 미등록 제품은 분야와 부품 이름·규격을 유지해 검색·문의로 안내한다.
 - 웹 전체 자동 수집이나 실시간 검색 API는 연결하지 않았다. 실제 상품 링크는 검수 카탈로그에서 가져오며 외부 Google 검색 링크를 구분한다.
-- 국내/해외/배송 미확인을 구분하고, 신규 판매 항목의 재고는 `unknown`이다. 내용 검수일과 재고 확인 시각을 분리한다. 이번 405개 카탈로그와 최신 코드로 Docker 빌드·운영 모드의 로컬 기동을 재검증했다. [검증 기록](predeployment-validation.md).
+- 국내/해외/배송 미확인을 구분하고, 신규 판매 항목의 재고는 `unknown`이다. 내용 검수일과 재고 확인 시각을 분리한다. 이전 405개 카탈로그 시점의 코드로 Docker 빌드·운영 모드의 로컬 기동을 재검증했다. [검증 기록](predeployment-validation.md).
 - 실제 실물 장착·누수·내열 검증은 하지 않았다. 개인 장착 기록은 검증 없이 공개 카탈로그 근거로 승격하지 않는다.
 
 공개 배포 직전에는 실제 도메인·HTTPS 설정, 공급자 사용량 상한·보관 정책, 배포 환경에서의 이미지 처리 및 공급자 연결을 확인한다. 이번 작업은 계정·DNS·서버에 배포 변경을 만들지 않는다.

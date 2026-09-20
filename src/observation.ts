@@ -24,6 +24,8 @@ export const observationSchema = z.strictObject({
     .array(
       z.strictObject({
         key: z.enum([
+          "product_type",
+          "appearance",
           "lid_connection",
           "lid_type",
           "gasket_cross_section",

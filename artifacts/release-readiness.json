@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-20T05:22:35.417Z",
+  "passed": false,
+  "issues": [
+    "APP_ORIGIN: 실제 서비스의 HTTPS Origin 필요",
+    "AI_DAILY_REQUEST_LIMIT: 1~10000의 명시적인 정수 필요"
+  ],
+  "catalog": {
+    "sha256": "70b4c8fd50be0e643454aa70fb1f7dce201e2c41f2c295f74d4390ae2912803c",
+    "products": 470,
+    "parts": 134,
+    "offers": 134,
+    "evidence": 573
+  },
+  "externalDeployment": false,
+  "scope": "Local configuration and build checks only; no API request, DNS, TLS connection, payment, or deployment performed."
+}

@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-09-20T06:07:53.605Z",
+  "passed": true,
+  "imageId": "sha256:03999228f20f1962991df39adb6919826aa9790a17e92f5962ef5bd00b65854e",
+  "externalDeployment": false,
+  "checks": {
+    "containerRecreated": true,
+    "sqliteVolumePersisted": true,
+    "sessionPersisted": true,
+    "requestPersisted": true,
+    "idempotencyPersisted": true,
+    "ownershipStillEnforced": true
+  },
+  "limits": [
+    "Same image recreated with a disposable volume; not a cross-schema downgrade test.",
+    "No user database, private photo, API credentials, or paid API call used."
+  ]
+}

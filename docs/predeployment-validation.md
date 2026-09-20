@@ -36,7 +36,7 @@
 - API 요청과 응답 본문 읽기에 45초 제한을 적용했다. 실패한 등록 요청은 자동으로 재전송하지 않는다. 기존 입력과 중복 방지 키를 유지한다.
 - 결과 조회는 동시에 한 번만 실행하고 오류 시 간격을 늘린다. 복구되면 안내가 사라지고 결과를 계속 표시한다. 기록이 없거나 세션이 만료되면 무한 조회를 멈춘다.
 - 첫 연결 실패 시 입력을 지우지 않고 연결을 다시 확인할 수 있다.
-- 모바일 360px에서 삼성 모델 검색·제품 선택·필터 구매 경로를 확인했다. 가로 넘침 없이 옵션, 주문 확인 시각과 근거가 표시된다.
+- 모바일 360px에서 삼성 모델 검색·제품 선택·필터 구매 경로를 확인하고, 320px에서도 가로 넘침이 없음을 확인했다. 입력 글자는 16px, 입력 높이는 약 52px다. [화면 검수](../artifacts/predeployment-mobile-verification.json) 가로 넘침 없이 옵션, 주문 확인 시각과 근거가 표시된다.
 - 자동 브라우저 파일 선택은 Chrome 확장 프로그램의 파일 URL 권한으로 차단되었다. 서버 multipart 업로드는 실제 파일로 검증했다. 실물 휴대폰의 카메라·사진첩, 실제 이동통신망 테스트는 아직 수행하지 않았다.
 
 ## 운영 모드
@@ -53,7 +53,9 @@ node --import tsx scripts/check-purchases.ts
 # 검토 후 npm run catalog:import -- /tmp/catalog-purchase-check.json
 node --env-file-if-exists=.env --import tsx scripts/evaluate-real-photos.ts --live
 # 로컬 운영 모드 컨테이너 3014, APP_ORIGIN=https://parts-preflight.example 기동 후
-node --import tsx scripts/preflight-local.ts --run
+node --import tsx scripts/preflight-local.ts --run --container=실제검증컨테이너이름
 ```
 
 외부 배포 때 남는 환경 작업은 실제 도메인·HTTPS, 운영 API 사용량/보관 정책 설정, 배포 서버에서 제공 API 연결 확인이다. 직접 장착·제품 안전·실시간 재고를 검증한 결과는 아니다.
+
+추가 배포 준비 검증: 470개 제품 카탈로그와 디자인 진행 중의 사본으로 테스트 78개·빌드·운영 컨테이너·정적 자산·재시작 검증을 완료했다. 위 405개 시점의 사진·화면 검증과 구분하며, 최종 디자인의 검증을 대신하지 않는다. [최신 준비 기록](../artifacts/deployment-preparation.json).

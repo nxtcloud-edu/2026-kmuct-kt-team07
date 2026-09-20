@@ -1,0 +1,8 @@
+# Run Caddy on the same host as Docker; PUBLIC_HOST is the real hostname only.
+# Match APP_ORIGIN=https://PUBLIC_HOST. Do not use a URL or path here.
+{$PUBLIC_HOST} {
+    request_body {
+        max_size 42MB
+    }
+    reverse_proxy 127.0.0.1:3001
+}

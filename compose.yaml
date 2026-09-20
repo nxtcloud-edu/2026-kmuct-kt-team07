@@ -1,7 +1,9 @@
+name: parts-finder
 services:
   app:
     build: .
-    env_file: .env
+    image: ${APP_IMAGE:-parts-finder:local}
+    env_file: ${APP_ENV_FILE:-.env}
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
@@ -15,5 +17,10 @@ services:
     restart: unless-stopped
     stop_grace_period: 150s
     mem_limit: 768m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 volumes:
   parts-data:

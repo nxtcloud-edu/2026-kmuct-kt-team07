@@ -16,6 +16,7 @@
     "check": "npm run catalog:validate && npm test && npm run build",
     "start:production": "node --env-file-if-exists=.env dist-server/server/main.js",
     "catalog:import": "node --import tsx scripts/catalog.ts import",
+    "release:check": "node --env-file-if-exists=.env --import tsx scripts/release-check.ts",
     "format": "prettier --write client server shared scripts tests src *.json vite.config.ts index.html"
   },
   "engines": {
@@ -23,6 +24,8 @@
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "3.1136.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/ibm-plex-sans-kr": "5.3.0",
     "cookie-parser": "1.4.7",
     "express": "5.2.1",
     "helmet": "8.3.0",

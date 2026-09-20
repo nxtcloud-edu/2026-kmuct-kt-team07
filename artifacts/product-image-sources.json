@@ -1,0 +1,335 @@
+{
+  "checkedAt": "2026-09-20T06:37:42.202Z",
+  "products": [
+    {
+      "variantId": "thermos-jnl-255k",
+      "pageTitle": "뉴 데일리 원터치 텀블러 250ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-250ml/1066/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202408/9f6a410833d194b6c861d2048c1dc009.png",
+      "localUrl": "/product-images/thermos-jnl-255k.webp"
+    },
+    {
+      "variantId": "thermos-jnl-355k",
+      "pageTitle": "뉴 데일리 원터치 텀블러 350ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-350ml/1067/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202408/64f7e5170bf7761dc1120365fa911ed2.png",
+      "localUrl": "/product-images/thermos-jnl-355k.webp"
+    },
+    {
+      "variantId": "thermos-jnl-605k",
+      "pageTitle": "뉴 데일리 원터치 텀블러 600ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-600ml/1069/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202408/6b0fa86b688b055eae30302328ee0826.png",
+      "localUrl": "/product-images/thermos-jnl-605k.webp"
+    },
+    {
+      "variantId": "thermos-jnl-505k",
+      "pageTitle": "뉴 데일리 원터치 텀블러 500ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/1068/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202408/361351b7bec7140f678de67f634d5ccd.png",
+      "localUrl": "/product-images/thermos-jnl-505k.webp"
+    },
+    {
+      "variantId": "thermos-jnr-252k",
+      "pageTitle": "마이 디자인 보틀 원터치 타입 시즌3 250ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-250ml/1163/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202502/6c50c9dcd7cb211f6dd667f5c7767afb.png",
+      "localUrl": "/product-images/thermos-jnr-252k.webp"
+    },
+    {
+      "variantId": "thermos-jnr-352k",
+      "pageTitle": "마이 디자인 보틀 원터치 타입 시즌3 350ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-350ml/1164/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202608/2fdc66fd533770de1b0f4a3bf626dbd1.png",
+      "localUrl": "/product-images/thermos-jnr-352k.webp"
+    },
+    {
+      "variantId": "thermos-jnl-755k",
+      "pageTitle": "뉴 데일리 원터치 텀블러 750ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-750ml/1070/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202408/ecdc65c9d397ca0bcf5a33f03893e599.png",
+      "localUrl": "/product-images/thermos-jnl-755k.webp"
+    },
+    {
+      "variantId": "thermos-jos-400k",
+      "pageTitle": "캐리 루프 원터치 텀블러 400ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-400ml/1230/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202508/fd1a037fa74712c2dab0d36c39f00958.png",
+      "localUrl": "/product-images/thermos-jos-400k.webp"
+    },
+    {
+      "variantId": "thermos-jnr-502k",
+      "pageTitle": "마이 디자인 보틀 원터치 타입 시즌3 500ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-500ml/1165/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202502/04e43e2745432db6fbb750b07be3d1ba.png",
+      "localUrl": "/product-images/thermos-jnr-502k.webp"
+    },
+    {
+      "variantId": "thermos-jos-550k",
+      "pageTitle": "캐리 루프 원터치 텀블러 550ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-550ml/1231/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202508/579738f165361611ce4b761eba971f7e.png",
+      "localUrl": "/product-images/thermos-jos-550k.webp"
+    },
+    {
+      "variantId": "thermos-jos-750k",
+      "pageTitle": "캐리 루프 원터치 텀블러 750ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-750ml/1232/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202508/f9fe17339bd323ef932438a6ee88ea9c.png",
+      "localUrl": "/product-images/thermos-jos-750k.webp"
+    },
+    {
+      "variantId": "thermos-jow-600k",
+      "pageTitle": "캐리 핸들 텀블러 600ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%ED%95%B8%EB%93%A4-%ED%85%80%EB%B8%94%EB%9F%AC-600ml/1192/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202605/52dd3c8820c82ea26f397ab78d5aedb2.png",
+      "localUrl": "/product-images/thermos-jow-600k.webp"
+    },
+    {
+      "variantId": "thermos-jow-1000k",
+      "pageTitle": "캐리 핸들 텀블러 1L",
+      "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%ED%95%B8%EB%93%A4-%ED%85%80%EB%B8%94%EB%9F%AC-1l/1233/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202508/e424a5dbbaf34c01c78ea504f61ed557.png",
+      "localUrl": "/product-images/thermos-jow-1000k.webp"
+    },
+    {
+      "variantId": "thermos-jow-800k",
+      "pageTitle": "캐리 핸들 텀블러 800ml",
+      "sourceUrl": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%ED%95%B8%EB%93%A4-%ED%85%80%EB%B8%94%EB%9F%AC-800ml/1193/",
+      "originalImage": "https://thermosshop.kr/web/product/big/202605/ffbfbadbd237514859a389d5b8f656e7.png",
+      "localUrl": "/product-images/thermos-jow-800k.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vh48",
+      "pageTitle": "심리스리드 원터치 그라데이션 텀블러 SM-VH 480ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=77",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/aaa6f5beba3233647dc94f4d732d2327.png",
+      "localUrl": "/product-images/zojirushi-sm-vh48.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vh60",
+      "pageTitle": "심리스리드 원터치 그라데이션 텀블러 SM-VH 600ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=78",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/64fe75114476497e4a44176a5e462c14.png",
+      "localUrl": "/product-images/zojirushi-sm-vh60.webp"
+    },
+    {
+      "variantId": "zojirushi-su-ba48",
+      "pageTitle": "심리스리드 원터치 써모링 텀블러 SU-BA 480ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=86",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/e7f9ac986ffff4be59cffd5aa20d00bb.png",
+      "localUrl": "/product-images/zojirushi-su-ba48.webp"
+    },
+    {
+      "variantId": "zojirushi-su-ba36",
+      "pageTitle": "심리스리드 원터치 써모링 텀블러 SU-BA 360ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=85",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/0e75264f469957b78b4be852e056d802.png",
+      "localUrl": "/product-images/zojirushi-su-ba36.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vh95",
+      "pageTitle": "심리스리드 원터치 그라데이션 텀블러 SM-VH 950ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=80",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/46a55e1d38d9b72468d71a8fcb52d2fe.png",
+      "localUrl": "/product-images/zojirushi-sm-vh95.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vh72",
+      "pageTitle": "심리스리드 원터치 그라데이션 텀블러 SM-VH 720ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=79",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/f47ff9c6e5eb663d74ba0f5a609c25a0.png",
+      "localUrl": "/product-images/zojirushi-sm-vh72.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vs83",
+      "pageTitle": "심리스리드 원터치 대용량 텀블러 SM-VS 830ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=75",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/1bf97ef41314ef091e9fe50d7be9b264.png",
+      "localUrl": "/product-images/zojirushi-sm-vs83.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vs95",
+      "pageTitle": "심리스리드 원터치 대용량 텀블러 SM-VS 950ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=76",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/94bb00bca613bf987a2650e2741b1a08.png",
+      "localUrl": "/product-images/zojirushi-sm-vs95.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vb60",
+      "pageTitle": "심리스리드 원터치 대용량 텀블러 SM-VB 600ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=72",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/44ca65d420017881c34bc6407bfd8981.png",
+      "localUrl": "/product-images/zojirushi-sm-vb60.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vb72",
+      "pageTitle": "심리스리드 원터치 대용량 텀블러 SM-VB 720ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=73",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/264d2d4b3d24405dde4b488e14890aa9.png",
+      "localUrl": "/product-images/zojirushi-sm-vb72.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-vb95",
+      "pageTitle": "심리스리드 원터치 대용량 텀블러 SM-VB 950ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=74",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/0780c613548df41688f2a33f3b250174.png",
+      "localUrl": "/product-images/zojirushi-sm-vb95.webp"
+    },
+    {
+      "variantId": "zojirushi-sx-js30",
+      "pageTitle": "심리스리드 캐리 텀블러 SX-JS 300ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=89",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/29017a6ee24313199dbbbc212a8ce4b1.png",
+      "localUrl": "/product-images/zojirushi-sx-js30.webp"
+    },
+    {
+      "variantId": "zojirushi-sx-js40",
+      "pageTitle": "심리스리드 캐리 텀블러 SX-JS 400ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=90",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/143d8b21081ffddbc594aabf4b3a2edd.png",
+      "localUrl": "/product-images/zojirushi-sx-js40.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-rs50",
+      "pageTitle": "심리스리드 캐리 슬림 텀블러 SM-RS 500ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=87",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/76bbe2eb56f6c958774c7c87febd0b97.png",
+      "localUrl": "/product-images/zojirushi-sm-rs50.webp"
+    },
+    {
+      "variantId": "zojirushi-sm-rs65",
+      "pageTitle": "심리스리드 캐리 슬림 텀블러 SM-RS 650ml - 조지루시",
+      "sourceUrl": "https://zojirushi.co.kr/product/detail.html?product_no=88",
+      "originalImage": "https://zojirushi.co.kr/web/product/big/202606/2d076d42b5a68c229e22199b8285c81c.png",
+      "localUrl": "/product-images/zojirushi-sm-rs65.webp"
+    },
+    {
+      "variantId": "ikea-billy-00522047",
+      "pageTitle": "BILLY 빌리 책장, 화이트, 80x28x202 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-00522047/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590272_pe1038911_s5.jpg",
+      "localUrl": "/product-images/ikea-billy-00522047.webp"
+    },
+    {
+      "variantId": "ikea-billy-30522041",
+      "pageTitle": "BILLY 빌리 책장, 화이트, 40x28x202 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-30522041/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590291_pe1038930_s5.jpg",
+      "localUrl": "/product-images/ikea-billy-30522041.webp"
+    },
+    {
+      "variantId": "ikea-billy-70522044",
+      "pageTitle": "BILLY 빌리 책장, 화이트, 80x28x106 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-70522044/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590306_pe1038945_s5.jpg",
+      "localUrl": "/product-images/ikea-billy-70522044.webp"
+    },
+    {
+      "variantId": "ikea-billy-90522038",
+      "pageTitle": "BILLY 빌리 책장, 화이트, 40x28x106 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-90522038/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590288_pe1038927_s5.jpg",
+      "localUrl": "/product-images/ikea-billy-90522038.webp"
+    },
+    {
+      "variantId": "olfa-pl-1",
+      "pageTitle": "OLFA 18mm PL-1 Multi-Blade Auto-Load Utility Knife",
+      "sourceUrl": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+      "originalImage": "https://olfa.com/cdn/shop/products/9a5d94cf33e44745ba78132eb3321968.800.jpg?v=1627392851",
+      "localUrl": "/product-images/olfa-pl-1.webp"
+    },
+    {
+      "variantId": "nalgene-48",
+      "pageTitle": "48oz Wide Mouth Silo Bottle",
+      "sourceUrl": "https://nalgene.com/product/48oz-wide-mouth-silo-bottle/",
+      "originalImage": "https://nalgene.com/wp-content/uploads/2022/06/48oz-WM-Gray_Front-NEW.jpg",
+      "localUrl": "/product-images/nalgene-48.webp"
+    },
+    {
+      "variantId": "olfa-cl",
+      "pageTitle": "OLFA 18mm CL Depth Control Utility Knife",
+      "sourceUrl": "https://olfa.com/products/18mm-cl-packaging-materials-utility-knife",
+      "originalImage": "https://olfa.com/cdn/shop/products/d379e8ec01fb40d28b3fbc708289348e.800.jpg?v=1627393056",
+      "localUrl": "/product-images/olfa-cl.webp"
+    },
+    {
+      "variantId": "olfa-nol-1-bb",
+      "pageTitle": "OLFA 18mm NOL-1/BB Rubber-Grip Ratchet-Lock Utility Knife",
+      "sourceUrl": "https://olfa.com/products/18mm-nol-1-bb-rubber-grip-auto-lock-utility-knife",
+      "originalImage": "https://olfa.com/cdn/shop/products/242e3a29dbe8443a84625ca6bbaff67b.800.jpg?v=1629305558",
+      "localUrl": "/product-images/olfa-nol-1-bb.webp"
+    },
+    {
+      "variantId": "ikea-besta-89432897",
+      "pageTitle": "BESTÅ 베스토 수납콤비네이션+도어, 블랙브라운 비에르셰비켄/스투바르프/브라운 스테인 참나무 무늬목, 120x42x74 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/besta-storage-combination-with-doors-black-brown-bjoerkoeviken-stubbarp-brown-stained-oak-veneer-s89432897/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/besta-storage-combination-with-doors-black-brown-bjoerkoeviken-stubbarp-brown-stained-oak-veneer__1603619_pe1044309_s5.jpg",
+      "localUrl": "/product-images/ikea-besta-89432897.webp"
+    },
+    {
+      "variantId": "olfa-wd-al-brn",
+      "pageTitle": "18mm Wood Composite Auto-Lock Utility Knife | WD-AL",
+      "sourceUrl": "https://olfa.com/products/olfa-18mm-wd-al-wood-composite-auto-lock-utility-knife",
+      "originalImage": "https://olfa.com/cdn/shop/files/25a329ba57f14927a159082ac3fb58e6.800.jpg?v=1736202772",
+      "localUrl": "/product-images/olfa-wd-al-brn.webp"
+    },
+    {
+      "variantId": "ikea-besta-09598066",
+      "pageTitle": "BESTÅ 베스토 수납콤비네이션+도어, 화이트/푀르발타레 화이트, 120x42x75 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/besta-storage-combination-with-doors-white-foervaltare-white-s09598066/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/besta-storage-combination-with-doors-white-foervaltare-white__1602826_pe1043740_s5.jpg",
+      "localUrl": "/product-images/ikea-besta-09598066.webp"
+    },
+    {
+      "variantId": "ikea-besta-59597738",
+      "pageTitle": "BESTÅ 베스토 벽수납콤비네이션, 화이트/푀르발타레 화이트, 180x42x64 cm  - IKEA",
+      "sourceUrl": "https://www.ikea.com/kr/ko/p/besta-wall-mounted-cabinet-combination-white-foervaltare-white-s59597738/",
+      "originalImage": "https://www.ikea.com/kr/ko/images/products/besta-wall-mounted-cabinet-combination-white-foervaltare-white__1420482_pe977291_s5.jpg",
+      "localUrl": "/product-images/ikea-besta-59597738.webp"
+    },
+    {
+      "variantId": "singer-4423",
+      "pageTitle": "Heavy Duty 4423 Sewing Machine",
+      "sourceUrl": "https://www.singer.com/products/singer-4423-heavy-duty-sewing-machine",
+      "originalImage": "https://www.singer.com/cdn/shop/files/HD-30637_HD4423_FrontAngle_b1a7f526-610c-42ed-85f9-5203e83804a2.jpg?v=1756292424",
+      "localUrl": "/product-images/singer-4423.webp"
+    },
+    {
+      "variantId": "singer-4452",
+      "pageTitle": "Heavy Duty 4452 Sewing Machine",
+      "sourceUrl": "https://www.singer.com/products/singer-heavy-duty-4452-sewing-machine",
+      "originalImage": "https://www.singer.com/cdn/shop/files/HD-1_4452_Beauty__1166_no_HD_logo_f004630a-086a-4083-a1dd-683d1247a94c.jpg?v=1758814045",
+      "localUrl": "/product-images/singer-4452.webp"
+    },
+    {
+      "variantId": "brother-pt-d200",
+      "pageTitle": "PT-D200 라벨 프린터 | 브라더인터내셔널코리아㈜",
+      "sourceUrl": "https://www.brother-korea.com/ko-kr/labellers/all-labellers/pt-d200",
+      "originalImage": "https://www.brother-korea.com/-/media/ap2/common/icons/common/sns_brotherlogoicon.png?rev=39050eb313374e76ab113e7cf895ddd5",
+      "localUrl": "/product-images/brother-pt-d200.webp"
+    },
+    {
+      "variantId": "olfa-mxp-al",
+      "pageTitle": "OLFA 18mm MXP-AL Die-Cast Aluminum Handle Auto-Lock Knife",
+      "sourceUrl": "https://olfa.com/products/18mm-mxp-al-die-cast-aluminum-handle-auto-lock-knife",
+      "originalImage": "https://olfa.com/cdn/shop/products/0e1469b3550a45f78e5c1eedaf213504.800.jpg?v=1627393397",
+      "localUrl": "/product-images/olfa-mxp-al.webp"
+    },
+    {
+      "variantId": "singer-4552",
+      "pageTitle": "SINGER® Heavy Duty 4552 Sewing Machine - Next Evolution of the 4452",
+      "sourceUrl": "https://www.singer.com/products/singer-heavy-duty-4552-sewing-machine",
+      "originalImage": "https://www.singer.com/cdn/shop/files/Singer-HD4552-Charcoal-360-20262400px_00000.jpg?v=1787675766",
+      "localUrl": "/product-images/singer-4552.webp"
+    },
+    {
+      "variantId": "lg-as062prhar-akor",
+      "pageTitle": "LG 퓨리케어 오브제컬렉션 에어로퍼니처(원형) | AS062PRHAR | 공기청정기 | 에어컨/에어케어 | 제품/소모품 | LG전자",
+      "sourceUrl": "https://www.lge.co.kr/air-purifier/as062prhar",
+      "originalImage": "https://www.lge.co.kr/kr/images/air-purifier/md09740826/gallery/medium01.jpg",
+      "localUrl": "/product-images/lg-as062prhar-akor.webp"
+    }
+  ],
+  "policy": "Only reviewed full-product pages. No parts images, generic logos or guessed model photos."
+}

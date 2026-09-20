@@ -1,6 +1,7 @@
 {
-  "checkedAt": "2026-09-20T04:51:23.738Z",
-  "image": "parts-finder:preflight-20260920",
+  "checkedAt": "2026-09-20T06:07:56.723Z",
+  "imageId": "sha256:03999228f20f1962991df39adb6919826aa9790a17e92f5962ef5bd00b65854e",
+  "platform": "linux/amd64",
   "externalDeployment": false,
   "checks": {
     "health": true,
@@ -10,8 +11,13 @@
     "csrf": true,
     "ownership": true,
     "sqliteCreateReadUpdate": true,
-    "catalogCount": 405,
+    "catalogCount": 470,
     "productToPurchasePath": true,
+    "publicAssets": [
+      "/favicon.svg",
+      "/assets/index-CEx5wkG_.js",
+      "/assets/index-C54u_Fzp.css"
+    ],
     "privatePaths": [
       {
         "path": "/.env",
@@ -29,11 +35,7 @@
         "path": "/artifacts/real-photo-evaluation/report.json",
         "notExposed": true
       }
-    ],
-    "nonRootRuntime": true,
-    "noEnvFilePackaged": true,
-    "linuxSharpDecode": true,
-    "linuxNormalizedBytes": 274717
+    ]
   },
   "limits": [
     "Local HTTP transport used only to inspect production headers; public HTTPS/DNS not deployed.",

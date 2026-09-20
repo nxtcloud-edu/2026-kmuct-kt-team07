@@ -73,6 +73,13 @@ if (command === "import") {
       "www.petsafe.com",
       "www.samsungsvc.co.kr",
       "www.lge.co.kr",
+      "www.vileda.co.uk",
+      "www.singer.com",
+      "kr.element14.com",
+      "www.compuzone.co.kr",
+      "support.brother.com",
+      "www.brother.com.br",
+      "www.olfa.co.jp",
     ]);
     const sources = [
       ...catalog.products.flatMap((p) => [p.source, p.contact]),

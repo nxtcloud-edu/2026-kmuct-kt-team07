@@ -60,6 +60,8 @@ test("daily-life groups have attributed support and real detail-page offers, sep
     "electronics",
     "furniture",
     "stationery",
+    "cleaning",
+    "plumbing",
     "kitchen",
     "personal_care",
     "tools",

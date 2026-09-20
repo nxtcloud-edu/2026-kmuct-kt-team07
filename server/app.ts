@@ -1,3 +1,4 @@
+import { searchIntent } from "../shared/search-intent.js";
 import express, {
   type Request,
   type Response,
@@ -164,6 +165,7 @@ export function createApp({
           ? record.analysis.observation
           : undefined,
         catalog.products,
+        { group: record.group, category: record.category, catalog },
       ),
       paths: resolvePaths(
         catalog,
@@ -316,6 +318,7 @@ export function createApp({
             .status(400)
             .json({ error: "모델명을 입력하거나 사진을 추가해 주세요." });
       }
+      category = searchIntent(query, category).category;
       const requestHash = createHash("sha256")
         .update(
           JSON.stringify({

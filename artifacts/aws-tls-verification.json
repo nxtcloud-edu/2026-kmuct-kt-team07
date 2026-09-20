@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-20T06:22:32.544Z",
+  "authorized": true,
+  "issuer": {
+    "C": "US",
+    "O": "Let's Encrypt",
+    "CN": "YE2"
+  },
+  "validFrom": "Sep 20 05:17:56 2026 GMT",
+  "validTo": "Sep 26 21:17:55 2026 GMT",
+  "subjectAltName": "IP Address:18.208.163.160",
+  "protocol": "TLSv1.3"
+}

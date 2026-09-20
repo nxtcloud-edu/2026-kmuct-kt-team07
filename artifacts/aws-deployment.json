@@ -1,0 +1,140 @@
+{
+  "deployedAt": "2026-09-20T06:23:25.594441+00:00",
+  "url": "https://18.208.163.160",
+  "region": "us-east-1",
+  "instanceId": "i-03c9aea6e1bc82f0a",
+  "instanceType": "t3.small",
+  "ami": "ami-0190258a3c1abc699",
+  "diskGiB": 30,
+  "securityGroup": "sg-005f3f6e6fbccf078",
+  "imageTag": "parts-finder:release-design-v3-amd64-20260920",
+  "localManifestDigest": "sha256:03999228f20f1962991df39adb6919826aa9790a17e92f5962ef5bd00b65854e",
+  "runtimeConfigDigest": "sha256:92c9a423dc433f1f4f43a87b983ff4f2dc80d1254f302b064b440ceda0f5b0f8",
+  "exportedImageConfigMatchesRuntime": true,
+  "publicHttpsVerified": true,
+  "certificate": {
+    "checkedAt": "2026-09-20T06:22:32.544Z",
+    "authorized": true,
+    "issuer": {
+      "C": "US",
+      "O": "Let's Encrypt",
+      "CN": "YE2"
+    },
+    "validFrom": "Sep 20 05:17:56 2026 GMT",
+    "validTo": "Sep 26 21:17:55 2026 GMT",
+    "subjectAltName": "IP Address:18.208.163.160",
+    "protocol": "TLSv1.3"
+  },
+  "checks": {
+    "health": {
+      "ok": true,
+      "photoAnalysisAvailable": true
+    },
+    "publicAssets": [
+      "/favicon.svg",
+      "/assets/index-CEx5wkG_.js",
+      "/assets/index-C54u_Fzp.css"
+    ],
+    "secureCookieAndHsts": true,
+    "catalogCounts": {
+      "products": 470,
+      "groups": 15,
+      "parts": 134,
+      "brands": 22
+    },
+    "modelToPurchasePath": true,
+    "csrfAndOwnership": true,
+    "photo": {
+      "state": "ready",
+      "analysis": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "lid",
+              "description": "파란 용기 옆에 놓인 회색 원형 마개와 연결 고리가 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [],
+          "observedFeatures": [
+            {
+              "key": "lid_connection",
+              "value": "용기 입구와 마개에 나사산이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "lid_type",
+              "value": "원형 마개가 용기에서 분리되어 놓여 있음",
+              "imageId": "image-1"
+            },
+            {
+              "key": "has_handle",
+              "value": "마개에 큰 고리 형태의 연결부가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "용기 입구가 열린 상태이며 마개가 옆에 놓여 있음",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [
+            "blurry",
+            "glare"
+          ],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      }
+    }
+  },
+  "browser": {
+    "model": "PT-D200",
+    "part": "brother-tze-231",
+    "purchasePathVisible": true,
+    "manufacturerEvidenceVisible": true,
+    "consoleErrors": 0,
+    "mobileWidthsWithoutPageOverflow": [
+      390,
+      360
+    ]
+  },
+  "operations": {
+    "appHealthy": true,
+    "restartPolicy": "unless-stopped",
+    "appMemoryMiB": 768,
+    "dataVolume": "ddakpum-data",
+    "tlsVolume": "ddakpum-caddy-data",
+    "dockerBootEnabled": true,
+    "envFileMode": "600",
+    "appBind": "127.0.0.1:3001",
+    "publicPorts": [
+      80,
+      443
+    ],
+    "sshScope": "current admin IPv4 /32",
+    "automaticRenewalConfigured": true,
+    "renewalCycleObserved": false
+  },
+  "limits": [
+    "No permanent domain or Elastic IP; stop/start may change the address.",
+    "Photo with no model label correctly returned needs_information, not product identification.",
+    "Merchant stock/shipping are not guaranteed; blocked-link notices remain visible.",
+    "Single EC2 instance and local persistent volume; no high availability or external DB backup configured."
+  ]
+}

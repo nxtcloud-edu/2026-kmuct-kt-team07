@@ -1,0 +1,206 @@
+{
+  "checkedAt": "2026-09-20",
+  "before": {
+    "products": 405,
+    "parts": 111,
+    "offers": 111,
+    "evidence": 487
+  },
+  "after": {
+    "products": 470,
+    "parts": 134,
+    "offers": 134,
+    "evidence": 573
+  },
+  "addedProducts": [
+    "vileda-ultramax",
+    "vileda-spray-12",
+    "vileda-turbo",
+    "vileda-h2pro-flat",
+    "vileda-spin-clean",
+    "vileda-active-max",
+    "vileda-spraymax",
+    "ikea-pax-50x35",
+    "ikea-pax-50x58",
+    "ikea-pax-75x35",
+    "ikea-pax-75x58",
+    "ikea-pax-100x35",
+    "ikea-pax-100x58",
+    "ikea-lillviken-80344447",
+    "ikea-lillviken-60344448",
+    "uni-sxe2-300",
+    "uni-sxe3-400",
+    "uni-sxe4-500",
+    "brother-pt-h110",
+    "brother-pt-d210",
+    "brother-pt-p300bt",
+    "brother-pt-h110bk",
+    "brother-pt-e300vp",
+    "brother-pt-e110",
+    "brother-pt-e500vp",
+    "brother-pt-e550wvp",
+    "brother-pt-p700",
+    "brother-pt-p750w",
+    "brother-pt-p900w",
+    "brother-pt-p950nw",
+    "brother-pt-d200",
+    "bugaboo-bee-5",
+    "bugaboo-fox",
+    "bugaboo-fox-2",
+    "bugaboo-fox-3",
+    "singer-4423",
+    "singer-4452",
+    "singer-4552",
+    "olfa-a-1",
+    "olfa-xa-1",
+    "olfa-a-5",
+    "olfa-svr-1",
+    "olfa-svr-2",
+    "olfa-a-2",
+    "olfa-da-1",
+    "olfa-pa-2",
+    "olfa-na-1",
+    "olfa-300",
+    "olfa-a-3",
+    "olfa-180black",
+    "olfa-es-1-green",
+    "petsafe-1-2-gallon",
+    "petsafe-1-gallon",
+    "petsafe-2-gallon",
+    "petsafe-butterfly",
+    "petsafe-avalon",
+    "petsafe-pagoda",
+    "petsafe-seascape",
+    "petsafe-sedona",
+    "petsafe-seaside",
+    "petsafe-creekside",
+    "petsafe-stainless-multi-pet",
+    "decathlon-mt100-blue",
+    "decathlon-mt100-ergonomic",
+    "decathlon-mt500-antishock"
+  ],
+  "groups": {
+    "drinkware": {
+      "before": 197,
+      "after": 197
+    },
+    "bicycle": {
+      "before": 31,
+      "after": 31
+    },
+    "electronics": {
+      "before": 127,
+      "after": 127
+    },
+    "furniture": {
+      "before": 7,
+      "after": 13
+    },
+    "stationery": {
+      "before": 4,
+      "after": 20
+    },
+    "kitchen": {
+      "before": 8,
+      "after": 8
+    },
+    "personal_care": {
+      "before": 10,
+      "after": 10
+    },
+    "tools": {
+      "before": 5,
+      "after": 18
+    },
+    "outdoor": {
+      "before": 3,
+      "after": 3
+    },
+    "pets": {
+      "before": 7,
+      "after": 18
+    },
+    "baby": {
+      "before": 2,
+      "after": 6
+    },
+    "clothing": {
+      "before": 3,
+      "after": 6
+    },
+    "travel": {
+      "before": 1,
+      "after": 4
+    },
+    "cleaning": {
+      "before": 0,
+      "after": 7
+    },
+    "plumbing": {
+      "before": 0,
+      "after": 2
+    }
+  },
+  "addedPartIds": [
+    "vileda-pad-ultramax-refill",
+    "vileda-pad-turbo-2in1-refill",
+    "vileda-pad-h2pro-flat-mop-refill",
+    "vileda-pad-spin-and-clean-mop-refill",
+    "vileda-pad-active-max-refill",
+    "vileda-pad-12spray-max-refill-bundle",
+    "ikea-komplement-20277993",
+    "ikea-komplement-10277960",
+    "ikea-komplement-50277996",
+    "ikea-komplement-70277962",
+    "ikea-komplement-80277990",
+    "ikea-komplement-50277958",
+    "ikea-lillviken-part-90325429",
+    "ikea-lillviken-part-30329034",
+    "ikea-lillviken-part-20388585",
+    "uni-sxr-80-07",
+    "brother-tze-231",
+    "bugaboo-500525",
+    "bugaboo-230562",
+    "singer-class-15-transparent",
+    "olfa-abb-10b",
+    "petsafe-pac00-13906",
+    "petsafe-pac00-13711"
+  ],
+  "sources": [
+    "https://www.vileda.co.uk/products/ultramax-refill",
+    "https://www.vileda.co.uk/products/turbo-2in1-refill",
+    "https://www.vileda.co.uk/products/h2pro-flat-mop-refill",
+    "https://www.vileda.co.uk/products/spin-and-clean-mop-refill",
+    "https://www.vileda.co.uk/products/active-max-refill",
+    "https://www.vileda.co.uk/products/12spray-max-refill-bundle",
+    "https://www.ikea.com/kr/ko/p/komplement-shelf-white-20277993/",
+    "https://www.ikea.com/kr/ko/p/komplement-shelf-white-10277960/",
+    "https://www.ikea.com/kr/ko/p/komplement-shelf-white-50277996/",
+    "https://www.ikea.com/kr/ko/p/komplement-shelf-white-70277962/",
+    "https://www.ikea.com/kr/ko/p/komplement-shelf-white-80277990/",
+    "https://www.ikea.com/kr/ko/p/komplement-shelf-white-50277958/",
+    "https://www.ikea.com/kr/ko/p/lillviken-sink-stopper-90325429/",
+    "https://www.ikea.com/kr/ko/p/lillviken-lid-30329034/",
+    "https://www.ikea.com/kr/ko/p/lillviken-extra-connection-for-water-trap-20388585/",
+    "https://www.mpuni.co.jp/products/ballpoint_pens/refill_jet.html",
+    "https://www.brother.com.br/products/TZE231",
+    "https://support.brother.com/g/b/colist.aspx?c=kr&cao=tape&lang=ko&pfs=1&prod=d200eas",
+    "https://www.bugaboo.com/kr-ko/%EB%B6%80%ED%92%88/bugaboo-bee5-front-wheels-replacement-set-500525.html",
+    "https://www.bugaboo.com/kr-ko/%EB%B6%80%ED%92%88/bugaboo-fox-swivel-wheels-230562.html",
+    "https://www.singer.com/products/singer-4423-heavy-duty-sewing-machine",
+    "https://www.singer.com/products/singer-heavy-duty-4452-sewing-machine",
+    "https://www.singer.com/products/singer-heavy-duty-4552-sewing-machine",
+    "https://www.olfa.co.jp/en/blades/1635.html",
+    "https://www.petsafe.com/p/drinkwell-avalon-pagoda-carbon-filters/PAC00-13906/",
+    "https://www.petsafe.com/p/drinkwell-foam-replacement-filters-2-pack/PAC00-13711/",
+    "https://www.decathlon.co.uk/p/1-affordable-hiking-pole-mt100-blue/122861/c443m8807204",
+    "https://www.decathlon.co.uk/p/1-hiking-pole-mt100-ergonomic-green/172314/c362m8807205",
+    "https://www.decathlon.co.uk/p/shock-absorption-hiking-pole-mt500-shockproof/324328/c43c43c382m8580850"
+  ],
+  "notes": [
+    "All new stock states remain unknown.",
+    "IKEA PAX rows are dimension-based manufacturer application families, not invented complete-product SKUs.",
+    "OLFA retailer detail is link_only until accessible; official compatibility evidence is separate.",
+    "No additional drinkware or air purifier models were added."
+  ]
+}

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">딱품 AWS 배포 아키텍처</title>
+  <desc id="desc">실제 배포된 AWS us-east-1의 공개 VPC 서브넷, Internet Gateway, EC2 t3.small, Caddy 및 딱품 Docker 컨테이너, 암호화된 gp3 EBS와 외부 AI 게이트웨이 연결</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.17"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#232f3e"/>
+    </marker>
+    <style>
+      .title { font: 800 40px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #0b2942; }
+      .subtitle { font: 500 19px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #31546f; }
+      .cloud-title { font: 700 22px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #334155; }
+      .group-title { font: 700 19px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #7c3aed; }
+      .subnet-title { font: 700 18px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #3f6212; }
+      .node-title { font: 750 21px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #0f172a; }
+      .node-sub { font: 500 15px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #475569; }
+      .container-title { font: 750 19px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #0f172a; }
+      .container-sub { font: 550 14px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #475569; }
+      .edge { font: 700 14px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #334155; }
+      .detail { font: 650 13px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #475569; }
+      .note { font: 650 13px -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; fill: #64748b; }
+      .arrow { fill: none; stroke: #232f3e; stroke-width: 3; marker-end: url(#arrow); }
+      .arrow-bi { fill: none; stroke: #232f3e; stroke-width: 3; marker-start: url(#arrow); marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #ef4444; stroke-width: 2.5; stroke-dasharray: 9 7; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#f8fbfe"/>
+  <rect width="1600" height="106" fill="#bfe7fb"/>
+  <text x="72" y="58" class="title">딱품 AWS 배포 아키텍처</text>
+  <text x="72" y="87" class="subtitle">실제 운영 구성 · Amazon EC2 단일 인스턴스</text>
+
+  <!-- AWS Cloud -->
+  <rect x="188" y="138" width="1128" height="700" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+  <image href="assets/aws-icons/AWS-Cloud-logo_32.svg" x="210" y="158" width="42" height="42"/>
+  <text x="264" y="184" class="cloud-title">AWS Cloud · us-east-1</text>
+
+  <!-- VPC -->
+  <rect x="374" y="218" width="870" height="478" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+  <image href="assets/aws-icons/Virtual-private-cloud-VPC_32.svg" x="394" y="236" width="34" height="34"/>
+  <text x="440" y="260" class="group-title">Amazon VPC · vpc-026e429eb34e47fb8</text>
+
+  <!-- Public subnet -->
+  <rect x="480" y="290" width="696" height="350" fill="#f4f9e9" stroke="#b6d77b" stroke-width="2"/>
+  <text x="502" y="320" class="subnet-title">Public subnet · 172.31.80.0/20 · us-east-1c</text>
+
+  <!-- Internet Gateway -->
+  <image href="assets/aws-icons/Res_Amazon-VPC_Internet-Gateway_48.svg" x="296" y="385" width="76" height="76" filter="url(#shadow)"/>
+  <text x="334" y="480" text-anchor="middle" class="node-title">Internet Gateway</text>
+  <text x="334" y="505" text-anchor="middle" class="node-sub">igw-0d200831c9807b920</text>
+
+  <!-- Security group -->
+  <rect x="544" y="340" width="578" height="268" rx="8" class="dash"/>
+  <rect x="560" y="328" width="342" height="28" fill="#fff"/>
+  <text x="570" y="348" class="detail">Security Group · 80/443 공개 · 22 운영자 IP /32</text>
+
+  <!-- EC2 icon and contents -->
+  <image href="assets/aws-icons/Arch_Amazon-EC2_64.svg" x="586" y="385" width="116" height="116" filter="url(#shadow)"/>
+  <text x="644" y="526" text-anchor="middle" class="node-title">Amazon EC2</text>
+  <text x="644" y="551" text-anchor="middle" class="node-sub">t3.small · 172.31.92.167</text>
+  <text x="644" y="573" text-anchor="middle" class="node-sub">nxtcloud-ami-v1.0.2</text>
+
+  <!-- Docker host -->
+  <rect x="744" y="374" width="328" height="202" fill="#ffffff" stroke="#2496ed" stroke-width="2.5"/>
+  <rect x="744" y="374" width="328" height="38" fill="#eaf7ff"/>
+  <text x="760" y="400" class="container-title" fill="#0b6aa8">Docker on EC2</text>
+
+  <rect x="770" y="430" width="276" height="54" rx="7" fill="#f0f4f8" stroke="#64748b" stroke-width="1.8"/>
+  <text x="792" y="454" class="container-title">Caddy HTTPS Proxy</text>
+  <text x="792" y="474" class="container-sub">80/443 · TLS 1.3 · Let's Encrypt</text>
+
+  <path d="M908 484V502" class="arrow"/>
+
+  <rect x="770" y="505" width="276" height="54" rx="7" fill="#ecfdf3" stroke="#22a447" stroke-width="1.8"/>
+  <text x="792" y="529" class="container-title">딱품 App Container</text>
+  <text x="792" y="549" class="container-sub">React + Express + Sharp · 127.0.0.1:3001</text>
+
+  <!-- EBS -->
+  <image href="assets/aws-icons/Res_Amazon-Elastic-Block-Store_Volume-gp3_48.svg" x="714" y="716" width="86" height="86" filter="url(#shadow)"/>
+  <text x="818" y="744" class="node-title">Amazon EBS gp3</text>
+  <text x="818" y="769" class="node-sub">30 GiB · 암호화 · vol-0a65e95f47382570e</text>
+  <text x="818" y="792" class="node-sub">Docker volume: SQLite 요청 기록 + Caddy 인증서</text>
+  <path d="M908 576V668H758V716" class="arrow-bi"/>
+  <text x="846" y="655" class="edge">지속 저장</text>
+
+  <!-- User -->
+  <circle cx="88" cy="405" r="31" fill="none" stroke="#232f3e" stroke-width="4"/>
+  <path d="M38 495c0-45 22-69 50-69s50 24 50 69v18H38Z" fill="none" stroke="#232f3e" stroke-width="4"/>
+  <text x="88" y="550" text-anchor="middle" class="node-title">사용자</text>
+  <path d="M138 454H296" class="arrow"/>
+  <text x="216" y="437" text-anchor="middle" class="edge">HTTPS</text>
+  <text x="216" y="475" text-anchor="middle" class="detail">18.208.163.160</text>
+
+  <!-- Internet to Caddy -->
+  <path d="M372 423H448V457H770" class="arrow"/>
+  <text x="482" y="442" class="edge">공개 IPv4 · ports 80/443</text>
+
+  <!-- External AI Gateway -->
+  <rect x="1370" y="334" width="156" height="156" rx="9" fill="#00a88f" filter="url(#shadow)"/>
+  <path d="M1402 416c17-29 67-29 92 0-25 29-75 29-92 0Z" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="1448" cy="416" r="16" fill="none" stroke="#fff" stroke-width="6"/>
+  <path d="M1494 372v18M1485 381h18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <text x="1448" y="524" text-anchor="middle" class="node-title">외부 AI Gateway</text>
+  <text x="1448" y="549" text-anchor="middle" class="node-sub">멀티모달 사진 관찰 API</text>
+  <path d="M1046 532H1286V412H1370" class="arrow-bi"/>
+  <text x="1216" y="515" text-anchor="middle" class="edge">HTTPS · 구조화 관찰 결과</text>
+
+  <!-- facts -->
+  <text x="208" y="818" class="note">Instance Profile: SafeInstanceProfile-kmuct-ht-07</text>
+  <text x="1296" y="818" text-anchor="end" class="note">단일 EC2 · 고정 도메인/Elastic IP 없음 · 앱 포트 3001 비공개</text>
+</svg>

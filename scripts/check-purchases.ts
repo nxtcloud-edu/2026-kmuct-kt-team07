@@ -24,6 +24,10 @@ const allowed = new Set([
   "www.petsafe.com",
   "www.samsungsvc.co.kr",
   "www.lge.co.kr",
+  "www.vileda.co.uk",
+  "www.singer.com",
+  "kr.element14.com",
+  "www.compuzone.co.kr",
 ]);
 const urls = [...new Set(catalog.offers.map((o) => o.source.url))];
 for (const url of urls)
