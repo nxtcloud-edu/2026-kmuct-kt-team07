@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { ImageOff } from "lucide-react";
 import type { Product } from "../shared/domain";
+import { productKind } from "../shared/product-kind";
+
+/** The product photo, or a plain tile naming the product type when there is none. */
 export default function ProductImage({ product }: { product: Product }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className="product-thumbnail">
+    <span className="product-thumbnail">
       {product.image && !failed ? (
         <img
           src={product.image.url}
@@ -13,11 +15,10 @@ export default function ProductImage({ product }: { product: Product }) {
           onError={() => setFailed(true)}
         />
       ) : (
-        <span className="image-unavailable">
-          <ImageOff size={22} />
-          <small>사진 준비 중</small>
+        <span className="no-image" aria-hidden="true">
+          {productKind(product).kind}
         </span>
       )}
-    </div>
+    </span>
   );
 }

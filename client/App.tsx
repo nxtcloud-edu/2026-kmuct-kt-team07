@@ -1,171 +1,60 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
-  ArrowUpRight,
-  Camera,
   Check,
   CheckCircle2,
   CircleHelp,
   Download,
-  LoaderCircle,
   Trash2,
   X,
 } from "lucide-react";
-import {
-  categories,
-  productGroups,
-  type ProductGroup,
-  providerLabels,
-  stockLabels,
-  type Category,
-  type Product,
-} from "../shared/domain";
-import type { AnalysisResult } from "../src/analysis";
-import type { PathsResult } from "../server/resolver";
-import MeasurementGuide from "./MeasurementGuide";
-import CategoryPicker from "./CategoryPicker";
-import Logo from "./Logo";
-import ProductCatalog from "./ProductCatalog";
-import { searchIntent } from "../shared/search-intent";
-import ProductImage from "./ProductImage";
+import { categories, type Category } from "../shared/domain";
 import type { CatalogProduct } from "../shared/catalog-search";
+import { searchIntent } from "../shared/search-intent";
 import { ApiError, fetchJson, pollSerial } from "./network";
-import { offerLinkNote, offerLinkUsable } from "../shared/availability";
+import Logo from "./Logo";
+import HomePage from "./HomePage";
+import PhotoPage from "./PhotoPage";
+import ConfirmPage from "./ConfirmPage";
+import PartsPage from "./PartsPage";
+import PartPage from "./PartPage";
+import HelpPage from "./HelpPage";
+import ProductCatalog from "./ProductCatalog";
+import type { Page, Photo, Recent, RecordResult } from "./types";
 
-type RecordResult = {
-  revision: number;
-  id: string;
-  createdAt: number;
-  state: "queued" | "processing" | "ready";
-  query: string;
-  category: Category;
-  group?: ProductGroup;
-  selectedVariantId: string | null;
-  analysis: AnalysisResult | null;
-  answers: Record<string, string>;
-  feedback: unknown[];
-  candidates: Product[];
-  photoHints?: { products: Product[]; description: string };
-  paths: PathsResult;
-};
-type Photo = { file: File; url: string; role: "full" | "part" | "label" };
-type Recent = {
-  id: string;
-  createdAt: number;
-  state: string;
-  category: Category;
-  label: string;
-};
-const roleLabels = {
-  full: "제품 전체",
-  part: "부품·장착부",
-  label: "모델명 라벨",
-};
-const qualityLabels: Record<string, string> = {
-  blurry: "사진이 흐려요",
-  glare: "빛 반사가 있어요",
-  subject_too_small: "대상이 작게 보여요",
-  label_cropped: "라벨 일부가 잘렸어요",
-  label_missing: "모델명 라벨이 없어요",
-  personal_info_visible: "개인정보가 보여요",
-  other: "추가 확인이 필요해요",
-};
-const featureLabels: Record<string, string> = {
-  product_type: "제품 종류",
-  appearance: "외형",
-  lid_connection: "결합 방식",
-  lid_type: "뚜껑 형태",
-  gasket_cross_section: "패킹 단면",
-  has_straw: "빨대",
-  has_handle: "손잡이",
-  ruler_visible: "자",
-  other: "특징",
-};
-const reviewLabels: Record<string, string> = {
-  source_supported: "적용 대상에 명시됨",
-  check_required: "세부 조건 확인 필요",
-  unverified: "적용 근거 미확인",
-  conflict: "근거가 서로 달라요",
-  excluded: "적용 제외",
-};
-/** One-word verdicts for the fit table; the full wording always sits beside them. */
-const verdictWords: Record<string, string> = {
-  source_supported: "명시됨",
-  check_required: "조건 확인",
-  unverified: "미확인",
-  conflict: "근거 충돌",
-  excluded: "제외",
-};
-const originLabels: Record<string, string> = {
-  oem: "정품 부품",
-  aftermarket: "타사 대체품",
-  generic: "범용 부품",
-  unknown: "출처 미확인 부품",
-};
-/** Statuses in the order the fit summary reads them. */
-const reviewOrder = [
-  "source_supported",
-  "check_required",
-  "unverified",
-  "conflict",
-  "excluded",
-] as const;
-const external = (url: string) => ({
-  href: url,
-  target: "_blank",
-  rel: "noopener noreferrer",
-});
-
-/** The only coloured element in the interface: a block that reads from across a room. */
-function Verdict({ status }: { status: string }) {
-  return (
-    <p className={`verdict ${status}`}>
-      <span className="mark" aria-hidden="true" />
-      <strong>{verdictWords[status]}</strong>
-      <span>{reviewLabels[status]}</span>
-    </p>
-  );
-}
+const steps: { label: string; pages: Page[] }[] = [
+  { label: "제품 찾기", pages: ["home", "photo", "browse"] },
+  { label: "제품 확인", pages: ["confirm"] },
+  { label: "부품 선택", pages: ["parts", "help"] },
+  { label: "구매처 확인", pages: ["part"] },
+];
 
 export default function App() {
   const [csrf, setCsrf] = useState(""),
     [available, setAvailable] = useState(false),
     [ready, setReady] = useState(false);
-  const [tab, setTab] = useState<"photo" | "model">("photo"),
-    [photos, setPhotos] = useState<Photo[]>([]),
+  const [page, setPage] = useState<Page>("home"),
+    [activePart, setActivePart] = useState<string | null>(null);
+  const [photos, setPhotos] = useState<Photo[]>([]),
     [query, setQuery] = useState(""),
-    [category, setCategory] = useState<Category>("other");
-  const [group, setGroup] = useState<ProductGroup>("household");
-  const [catalogCounts, setCatalogCounts] = useState({
-    groups: 0,
-    products: 0,
-    parts: 0,
-    brands: 0,
-  });
+    [partQuery, setPartQuery] = useState("");
   const [products, setProducts] = useState<CatalogProduct[]>([]),
     [result, setResult] = useState<RecordResult | null>(null),
     [recent, setRecent] = useState<Recent[]>([]);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [notice, setNotice] = useState(""),
-    [modal, setModal] = useState<
-      "guide" | "privacy" | "history" | "catalog" | null
-    >(null);
-  const [partQuery, setPartQuery] = useState("");
-  const [resultPage, setResultPage] = useState<"main" | "alternatives">("main");
-  const [activePart, setActivePart] = useState<string | null>(null);
-  const [finderOpen, setFinderOpen] = useState(true);
+    [modal, setModal] = useState<"guide" | "privacy" | "history" | null>(null);
+  // A shared or reloaded link opens its record, not a flash of the first page.
+  const [restoring, setRestoring] = useState(() =>
+    Boolean(new URLSearchParams(window.location.search).get("request")),
+  );
   const [connectionAttempt, setConnectionAttempt] = useState(0);
   const [pollError, setPollError] = useState("");
-  const [route, setRoute] = useState("all"),
-    [answers, setAnswers] = useState<Record<string, string>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [feedbackPart, setFeedbackPart] = useState(""),
     [feedbackOutcome, setFeedbackOutcome] = useState("not_tested"),
     [feedbackText, setFeedbackText] = useState("");
-  const input = useRef<HTMLInputElement>(null),
-    labelInput = useRef<HTMLInputElement>(null),
-    cameraInput = useRef<HTMLInputElement>(null),
-    resultsRef = useRef<HTMLElement>(null),
-    photoRef = useRef<Photo[]>([]);
+  const photoRef = useRef<Photo[]>([]);
   const pendingSubmission = useRef<{ fingerprint: string; key: string } | null>(
     null,
   );
@@ -174,11 +63,51 @@ export default function App() {
     () => () => photoRef.current.forEach((p) => URL.revokeObjectURL(p.url)),
     [],
   );
+
+  /** Every page is a history entry, so the browser's back button steps back. */
+  function go(
+    next: Page,
+    options: {
+      part?: string | null;
+      id?: string | null;
+      replace?: boolean;
+    } = {},
+  ) {
+    const part = options.part ?? null;
+    const id = options.id === undefined ? (result?.id ?? null) : options.id;
+    setPage(next);
+    setActivePart(part);
+    setError("");
+    const url =
+      id && !["home", "photo", "browse"].includes(next)
+        ? `?request=${id}`
+        : window.location.pathname;
+    window.history[options.replace ? "replaceState" : "pushState"](
+      { page: next, part },
+      "",
+      url,
+    );
+  }
+  useEffect(() => {
+    const onPop = (e: PopStateEvent) => {
+      const state = e.state as { page?: Page; part?: string | null } | null;
+      setPage(state?.page ?? "home");
+      setActivePart(state?.part ?? null);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    document.getElementById("page-title")?.focus({ preventScroll: true });
+  }, [page, activePart, result?.id, result?.state]);
+
   async function api<T>(
     path: string,
     body?: unknown,
     method = body === undefined ? "GET" : "POST",
     idempotencyKey?: string,
+    revision?: number,
   ): Promise<T> {
     const multipart = body instanceof FormData;
     return fetchJson<T>(`/api${path}`, {
@@ -186,11 +115,13 @@ export default function App() {
       headers: {
         ...(method !== "GET" ? { "x-csrf-token": csrf } : {}),
         ...(idempotencyKey ? { "idempotency-key": idempotencyKey } : {}),
-        ...(method === "POST" &&
-        result &&
-        path.startsWith(`/requests/${result.id}/`)
-          ? { "if-match": String(result.revision) }
-          : {}),
+        ...(method === "POST" && revision !== undefined
+          ? { "if-match": String(revision) }
+          : method === "POST" &&
+              result &&
+              path.startsWith(`/requests/${result.id}/`)
+            ? { "if-match": String(result.revision) }
+            : {}),
         ...(body !== undefined && !multipart
           ? { "Content-Type": "application/json" }
           : {}),
@@ -214,13 +145,11 @@ export default function App() {
         if (ignore) return;
         setCsrf(session.csrf);
         setAvailable(session.photoAnalysisAvailable);
-        const data = await fetchJson<{
-          products: CatalogProduct[];
-          counts: typeof catalogCounts;
-        }>("/api/catalog");
+        const data = await fetchJson<{ products: CatalogProduct[] }>(
+          "/api/catalog",
+        );
         if (!ignore) {
           setProducts(data.products);
-          setCatalogCounts(data.counts);
           setReady(true);
           setError("");
         }
@@ -238,8 +167,11 @@ export default function App() {
     const id = new URLSearchParams(window.location.search).get("request");
     if (id)
       void act(async () =>
-        show(await api<RecordResult>(`/requests/${encodeURIComponent(id)}`)),
-      );
+        show(
+          await api<RecordResult>(`/requests/${encodeURIComponent(id)}`),
+          true,
+        ),
+      ).finally(() => setRestoring(false));
   }, [ready]);
   useEffect(() => {
     setPollError("");
@@ -262,8 +194,8 @@ export default function App() {
           [401, 403, 404, 410].includes(error.status ?? 0);
         setPollError(
           gone
-            ? "이 찾기 기록을 더 이상 열 수 없어요. 다시 찾기를 눌러 주세요."
-            : "연결이 잠시 끊겼어요. 사진을 다시 보내지 않고 결과 확인을 재시도하고 있습니다.",
+            ? "이 찾기 기록을 더 이상 열 수 없어요. 처음부터 다시 찾아 주세요."
+            : "연결이 잠시 끊겼어요. 사진을 다시 보내지 않고 결과 확인을 재시도하고 있어요.",
         );
         return !gone;
       },
@@ -293,23 +225,13 @@ export default function App() {
       setBusy(false);
     }
   }
-  function show(data: RecordResult) {
-    setResultPage("main");
-    setActivePart(null);
-    setFinderOpen(false);
+  function show(data: RecordResult, replace = false) {
     setResult(data);
     setAnswers(data.answers);
-    setCategory(data.category);
-    setGroup(data.paths.product?.group ?? data.group ?? "household");
-    setRoute("all");
-    window.history.replaceState({}, "", `?request=${data.id}`);
-    setTimeout(() => {
-      resultsRef.current?.focus({ preventScroll: true });
-      resultsRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 80);
+    go(data.state === "ready" && data.selectedVariantId ? "parts" : "confirm", {
+      id: data.id,
+      replace,
+    });
     void loadRecent();
   }
   function addPhotos(files: FileList | null, role?: Photo["role"]) {
@@ -330,8 +252,6 @@ export default function App() {
       return;
     }
     setError("");
-    setTab("photo");
-    setFinderOpen(true);
     setPhotos([
       ...photos,
       ...incoming.map((file, i) => ({
@@ -348,105 +268,112 @@ export default function App() {
     if (p) URL.revokeObjectURL(p.url);
     setPhotos(photos.filter((_, i) => i !== index));
   }
-  async function submit() {
-    const inputQuery = [query.trim(), partQuery.trim()]
-      .filter(Boolean)
-      .join(" ");
-    const intendedCategory = searchIntent(
-      partQuery || query,
-      category,
-    ).category;
+  /** `byPhoto` sends the pictures; otherwise the typed words are the search. */
+  async function submit(byPhoto: boolean) {
+    const inputQuery = byPhoto ? partQuery.trim() : query.trim();
+    const category = searchIntent(inputQuery).category;
     await act(async () => {
-      let body: unknown = {
-        query: inputQuery,
-        category: intendedCategory,
-        group,
-      };
-      if (tab === "photo") {
+      let body: unknown = { query: inputQuery, category };
+      if (byPhoto) {
         if (!photos.length)
           throw new Error("제품 사진을 한 장 이상 추가해 주세요.");
         const data = new FormData();
         data.set("query", inputQuery);
-        data.set("category", intendedCategory);
-        data.set("group", group);
+        data.set("category", category);
         data.set("roles", JSON.stringify(photos.map((p) => p.role)));
         photos.forEach((p) => data.append("images", p.file));
         body = data;
       }
       const fingerprint = JSON.stringify({
-        query,
-        category,
-        group,
-        tab,
-        partQuery,
-        photos: photos.map((p) => [p.url, p.role]),
+        inputQuery,
+        byPhoto,
+        photos: byPhoto ? photos.map((p) => [p.url, p.role]) : [],
       });
       if (pendingSubmission.current?.fingerprint !== fingerprint)
         pendingSubmission.current = { fingerprint, key: crypto.randomUUID() };
-      const next = await api<RecordResult>(
+      let next = await api<RecordResult>(
         "/requests",
         body,
         "POST",
         pendingSubmission.current.key,
       );
       pendingSubmission.current = null;
+      // A typed model code that names exactly one product needs no second look.
+      if (!byPhoto && next.candidates.length === 1)
+        next = await api<RecordResult>(
+          `/requests/${next.id}/select`,
+          {
+            variantId: next.candidates[0]!.variantId,
+            category: partCategory(next.candidates[0]!.variantId, category),
+          },
+          "POST",
+          undefined,
+          next.revision,
+        );
       show(next);
     });
   }
-  async function select(
-    variantId: string | null,
-    newCategory = result?.category ?? category,
-  ) {
+  /**
+   * The part the user named stays, even when this product has no data for it:
+   * an honest empty page beats a silent switch. With no part named, a part seen
+   * in the photo comes first, then the product's first part.
+   */
+  function partCategory(
+    variantId: string,
+    wanted: Category,
+    seen: string[] = [],
+  ): Category {
+    if (wanted !== "other") return wanted;
+    const available =
+      products.find((p) => p.variantId === variantId)?.availableCategories ??
+      [];
+    return (
+      available.find((key) => seen.includes(key)) ?? available[0] ?? "other"
+    );
+  }
+  async function select(variantId: string, category?: Category) {
     if (!result) return;
     await act(async () => {
       const next = await api<RecordResult>(`/requests/${result.id}/select`, {
         variantId,
         category:
-          variantId &&
-          variantId !== result.selectedVariantId &&
-          newCategory === "other"
-            ? (products.find((p) => p.variantId === variantId)
-                ?.availableCategories[0] ?? newCategory)
-            : newCategory,
+          category ??
+          partCategory(
+            variantId,
+            result.category,
+            result.analysis && "observation" in result.analysis
+              ? result.analysis.observation.categoryCandidates.map(
+                  (c) => c.categoryKey,
+                )
+              : [],
+          ),
       });
-      setResultPage("main");
-      setActivePart(null);
       setResult(next);
       setAnswers(next.answers);
-      setRoute("all");
-      if (variantId !== result.selectedVariantId) {
-        setTimeout(() => {
-          resultsRef.current?.focus({ preventScroll: true });
-          resultsRef.current?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }, 80);
-      }
+      go("parts", { replace: page === "parts" });
       void loadRecent();
     });
   }
-  /** Opens a catalog product directly, skipping the search step. */
-  async function openProduct(id: string, preferred: Category = category) {
+  /** Opens a catalog product directly, skipping the confirmation step. */
+  async function openProduct(product: CatalogProduct, wanted: Category) {
     await act(async () => {
-      const product = products.find((p) => p.variantId === id)!;
+      const category =
+        wanted !== "other" && product.availableCategories.includes(wanted)
+          ? wanted
+          : (product.availableCategories[0] ?? "other");
       const created = await api<RecordResult>(
         "/requests",
-        {
-          query: product.modelName,
-          category: product.availableCategories.includes(preferred)
-            ? preferred
-            : (product.availableCategories[0] ?? "other"),
-          group: product.group,
-        },
+        { query: product.modelName, category, group: product.group },
         "POST",
         crypto.randomUUID(),
       );
       const selected = await api<RecordResult>(
         `/requests/${created.id}/select`,
-        { variantId: id, category: created.category },
+        { variantId: product.variantId, category },
+        "POST",
+        undefined,
+        created.revision,
       );
-      setModal(null);
       show(selected);
     });
   }
@@ -455,7 +382,7 @@ export default function App() {
       await api(`/requests/${id}`, undefined, "DELETE");
       if (result?.id === id) {
         setResult(null);
-        window.history.replaceState({}, "", "/");
+        go("home", { id: null, replace: true });
       }
       await loadRecent();
       setNotice("찾기 기록을 삭제했습니다.");
@@ -473,127 +400,50 @@ export default function App() {
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  const observation =
-    result?.analysis && "observation" in result.analysis
-      ? result.analysis.observation
-      : null;
-  /** Shown above the product list while choosing, below the fit table afterwards. */
-  const observationPanel = observation && result && (
-    <details className="observation">
-      <summary>
-        사진에서 확인한 내용 <span>관찰 결과 보기</span>
-      </summary>
-      <div className="observation-body">
-        {observation.categoryCandidates.length > 0 && (
-          <div>
-            <h4>부품 종류 후보</h4>
-            {observation.categoryCandidates.map((candidate, i) => (
-              <div key={i}>
-                <button
-                  className="text-button"
-                  disabled={busy}
-                  onClick={() =>
-                    void select(
-                      result.selectedVariantId,
-                      candidate.categoryKey as Category,
-                    )
-                  }
-                >
-                  {categories[candidate.categoryKey as Category]} 선택
-                </button>
-                <p>{candidate.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
-        {observation.extractedTexts.length > 0 && (
-          <div>
-            <h4>라벨의 글자</h4>
-            {observation.extractedTexts.map((t, i) => (
-              <p key={i}>
-                <code>{t.text}</code>{" "}
-                <small>
-                  {t.imageId} ·{" "}
-                  {t.legibility === "uncertain"
-                    ? "글자가 불분명해요"
-                    : "선명하게 읽힘"}
-                </small>
-              </p>
-            ))}
-          </div>
-        )}
-        <div>
-          <h4>보이는 특징</h4>
-          {observation.observedFeatures.length ? (
-            observation.observedFeatures.map((f, i) => (
-              <p key={i}>
-                {featureLabels[f.key]} · {f.value}
-              </p>
-            ))
-          ) : (
-            <p>확인할 수 있는 특징이 충분하지 않아요.</p>
-          )}
-        </div>
-        <div>
-          <h4>사진 확인 안내</h4>
-          {observation.qualityIssues.map((q) => (
-            <span className="tag" key={q}>
-              {qualityLabels[q]}
-            </span>
-          ))}
-          <p className="hint">
-            사진만으로 모델·규격을 확정하지 않아요. 제품 정보와 대조해 주세요.
-          </p>
-        </div>
-      </div>
-    </details>
-  );
+  function startOver() {
+    setQuery("");
+    setPartQuery("");
+    photos.forEach((p) => URL.revokeObjectURL(p.url));
+    setPhotos([]);
+    go("home", { id: null });
+  }
+
   const selectedProduct = result?.selectedVariantId
     ? (result.paths.product ?? null)
     : null;
-  const allCards = result?.paths.cards ?? [];
-  const hasMixedOrigins = new Set(allCards.map((c) => c.part.origin)).size > 1;
-  const shownCards = allCards.filter(
-    (c) =>
-      (!activePart || c.part.partId === activePart) &&
-      (route === "all" || c.part.origin === route),
-  );
-  const actionable = shownCards.filter(
-    (c) => !["excluded", "conflict"].includes(c.status),
-  );
-  const excluded = shownCards.filter((c) =>
-    ["excluded", "conflict"].includes(c.status),
-  );
+  const activeCard =
+    result?.paths.cards.find((c) => c.part.partId === activePart) ?? null;
+  // A page that needs data the session no longer has falls back one step.
+  const view: Page =
+    ["confirm", "parts", "part", "help"].includes(page) && !result
+      ? "home"
+      : ["parts", "part"].includes(page) && !selectedProduct
+        ? "confirm"
+        : page === "part" && !activeCard
+          ? "parts"
+          : page;
+  const stepIndex = steps.findIndex((s) => s.pages.includes(view));
+  const stepTarget: (Page | null)[] = [
+    "home",
+    result ? "confirm" : null,
+    selectedProduct ? "parts" : null,
+    null,
+  ];
   return (
     <>
-      <input
-        ref={labelInput}
-        className="hidden-input"
-        type="file"
-        accept="image/jpeg,image/png,image/webp"
-        aria-label="라벨 사진 선택"
-        onChange={(e) => {
-          addPhotos(e.target.files, "label");
-          e.target.value = "";
-        }}
-      />
-      <input
-        ref={cameraInput}
-        className="hidden-input"
-        type="file"
-        accept="image/jpeg,image/png,image/webp"
-        capture="environment"
-        aria-label="카메라로 제품 촬영"
-        onChange={(e) => {
-          addPhotos(e.target.files);
-          e.target.value = "";
-        }}
-      />
       <a className="skip-link" href="#main-content">
         본문으로 건너뛰기
       </a>
       <header className="header">
-        <a href="/" className="brand" aria-label="딱품 처음으로">
+        <a
+          href="/"
+          className="brand"
+          aria-label="딱품 처음으로"
+          onClick={(e) => {
+            e.preventDefault();
+            startOver();
+          }}
+        >
           <Logo />
         </a>
         <nav aria-label="주 메뉴">
@@ -610,288 +460,36 @@ export default function App() {
         </nav>
       </header>
       <main id="main-content">
-        <div
-          className={`search-workspace${result ? " compact" : ""}`}
-          id="search-workspace"
-          hidden={Boolean(result) && !finderOpen}
-        >
-          <section className="hero" aria-labelledby="intro-title">
-            <h1 id="intro-title">
-              부품은 딱, <br />
-              팀워크는 착!
-            </h1>
-            <p className="hero-description">
-              사진이나 검색어로 필요한 부품을 찾고, 구매처까지 한 번에.
-            </p>
-          </section>
-          <section className="finder" aria-labelledby="finder-title">
-            <h2 id="finder-title" className="visually-hidden">
-              부품 찾기
-            </h2>
-            <div className="tabs" role="group" aria-label="찾는 방법">
-              <button
-                aria-pressed={tab === "photo"}
-                className={tab === "photo" ? "active" : ""}
-                onClick={() => setTab("photo")}
-              >
-                사진으로 찾기
-              </button>
-              <button
-                aria-pressed={tab === "model"}
-                className={tab === "model" ? "active" : ""}
-                onClick={() => setTab("model")}
-              >
-                검색어로 찾기
-              </button>
-            </div>
-            <div className="finder-body">
-              <div className="finder-main">
-                {tab === "photo" ? (
-                  <div
-                    className={`photo-input${photos.length ? " has-photos" : ""}`}
-                  >
-                    <input
-                      ref={input}
-                      className="hidden-input"
-                      type="file"
-                      accept="image/jpeg,image/png,image/webp"
-                      multiple
-                      onChange={(e) => {
-                        addPhotos(e.target.files);
-                        e.target.value = "";
-                      }}
-                      aria-label="제품 사진 선택"
-                    />
-                    {photos.length === 0 ? (
-                      <button
-                        className="drop-zone"
-                        onClick={() => input.current?.click()}
-                        onDragOver={(e) => e.preventDefault()}
-                        onDrop={(e) => {
-                          e.preventDefault();
-                          addPhotos(e.dataTransfer.files);
-                        }}
-                      >
-                        <strong>제품 사진을 올려 주세요</strong>
-                        <span>제품 전체나 모델명 라벨이 보이면 좋아요.</span>
-                        <span className="drop-zone-action">사진 선택</span>
-                        <small>
-                          <span className="pointer-only">
-                            끌어다 놓아도 돼요 ·{" "}
-                          </span>
-                          JPG, PNG, WebP · 최대 4장 · 장당 10MB
-                        </small>
-                      </button>
-                    ) : (
-                      <div className="photo-grid">
-                        {photos.map((photo, i) => (
-                          <div className="photo" key={photo.url}>
-                            <img src={photo.url} alt={`추가한 사진 ${i + 1}`} />
-                            <button
-                              className="remove-photo"
-                              aria-label={`사진 ${i + 1} 삭제`}
-                              onClick={() => removePhoto(i)}
-                            >
-                              <X size={16} />
-                            </button>
-                            <select
-                              aria-label={`사진 ${i + 1} 역할`}
-                              value={photo.role}
-                              onChange={(e) =>
-                                setPhotos(
-                                  photos.map((p, j) =>
-                                    j === i
-                                      ? {
-                                          ...p,
-                                          role: e.target.value as Photo["role"],
-                                        }
-                                      : p,
-                                  ),
-                                )
-                              }
-                            >
-                              {Object.entries(roleLabels).map(
-                                ([key, label]) => (
-                                  <option key={key} value={key}>
-                                    {label}
-                                  </option>
-                                ),
-                              )}
-                            </select>
-                          </div>
-                        ))}
-                        {photos.length < 4 && (
-                          <button
-                            className="add-photo"
-                            onClick={() => input.current?.click()}
-                          >
-                            사진 추가
-                            <small>{photos.length} / 4</small>
-                          </button>
-                        )}
-                      </div>
-                    )}
-                    <div className="photo-actions">
-                      <button
-                        className="outline-button camera-button"
-                        disabled={photos.length >= 4 || busy}
-                        onClick={() => cameraInput.current?.click()}
-                      >
-                        <Camera size={18} />
-                        카메라로 촬영
-                      </button>
-                      {photos.length > 0 && (
-                        <button
-                          className="text-button"
-                          disabled={photos.length >= 4 || busy}
-                          onClick={() => labelInput.current?.click()}
-                        >
-                          모델명 라벨 사진 따로 추가
-                        </button>
-                      )}
-                    </div>
-                    <div
-                      className="photo-checklist"
-                      aria-label="사진 준비 상태"
-                      hidden={photos.length === 0}
-                    >
-                      {Object.entries(roleLabels).map(([role, label]) => (
-                        <span
-                          key={role}
-                          className={
-                            photos.some((p) => p.role === role)
-                              ? "complete"
-                              : ""
-                          }
-                        >
-                          {photos.some((p) => p.role === role) ? "✓" : "○"}{" "}
-                          {label}
-                        </span>
-                      ))}
-                    </div>
-                    <label className="model-input-label">
-                      제품 검색{" "}
-                      <span className="optional-label">선택 사항</span>
-                      <input
-                        value={query}
-                        maxLength={120}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="검색어를 입력해주세요"
-                      />
-                    </label>
-                  </div>
-                ) : (
-                  <div className="model-input-label main-search">
-                    <label htmlFor="model-query">어떤 제품인가요?</label>
-                    <input
-                      id="model-query"
-                      autoFocus
-                      value={query}
-                      maxLength={120}
-                      onChange={(e) => setQuery(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" && !busy && ready && query.trim())
-                          void submit();
-                      }}
-                      placeholder="검색어를 입력해주세요"
-                    />
-                  </div>
-                )}
-                <label className="part-intent-field">
-                  어떤 부품을 찾고 있나요?
-                  <input
-                    value={partQuery}
-                    maxLength={80}
-                    onChange={(e) => {
-                      setPartQuery(e.target.value);
-                      setCategory("other");
-                    }}
-                    placeholder="필요한 부품을 입력해주세요"
-                    onKeyDown={(e) => {
-                      if (
-                        e.key === "Enter" &&
-                        !busy &&
-                        ready &&
-                        (tab === "photo" ? photos.length > 0 : query.trim())
-                      )
-                        void submit();
-                    }}
-                  />
-                  <small>
-                    제품 사진과 함께 찾는 부품을 알려주세요.{" "}
-                    <span className="optional-label">선택 사항</span>
-                  </small>
-                </label>
-                <details className="finder-options">
-                  <summary>
-                    종류를 직접 선택하기{" "}
-                    <span className="optional-label">선택 사항</span>
-                  </summary>
-                  <CategoryPicker
-                    value={category}
-                    onChange={setCategory}
-                    productGroup={group}
-                    onGroupChange={setGroup}
-                    disabled={busy}
-                  />
-                </details>
-                <button
-                  className="primary find-button"
-                  disabled={
-                    busy ||
-                    !ready ||
-                    (tab === "photo"
-                      ? !available || photos.length === 0
-                      : !query.trim())
-                  }
-                  onClick={() => void submit()}
+        {view !== "home" && (
+          <ol className="steps" aria-label="찾기 단계">
+            {steps.map((step, i) => {
+              const target = i < stepIndex ? stepTarget[i] : null;
+              return (
+                <li
+                  key={step.label}
+                  aria-current={i === stepIndex ? "step" : undefined}
+                  className={i < stepIndex ? "done" : undefined}
                 >
-                  {busy && <LoaderCircle className="spin" size={18} />}
-                  {busy ? "찾는 중이에요" : "부품 찾기"}
-                </button>
-                {ready && !available && tab === "photo" && (
-                  <p className="hint">
-                    사진 분석 연결을 준비 중이에요. 모델명으로 먼저 찾아보세요.
-                  </p>
-                )}
-                <p className="data-note">
-                  사진은 분석 후 지우고, 찾기 기록은 최대 24시간만 보관해요.
-                </p>
-              </div>
-              <details className="photo-guide" hidden={tab !== "photo"}>
-                <summary>어떤 사진을 준비하면 좋을까요?</summary>
-                <div className="photo-guide-content">
-                  <dl className="guide-list">
-                    <div>
-                      <dt>제품 전체</dt>
-                      <dd>전체 모양과 브랜드가 보이게</dd>
-                    </div>
-                    <div>
-                      <dt>부품 또는 장착부</dt>
-                      <dd>나사산과 연결 부분을 가까이</dd>
-                    </div>
-                    <div>
-                      <dt>모델명 라벨</dt>
-                      <dd>바닥·옆면의 글자가 선명하게</dd>
-                    </div>
-                  </dl>
-                  <p className="guide-note">
-                    모델명이 없어도 사진 속 특징으로 후보를 찾아드려요.
-                  </p>
-                </div>
-              </details>
-            </div>
-          </section>
-          <div className="catalog-entry">
-            <button
-              className="text-button"
-              disabled={!ready || busy}
-              onClick={() => setModal("catalog")}
-            >
-              등록 제품 둘러보기
-            </button>
-          </div>
-        </div>
+                  {target ? (
+                    <button
+                      onClick={() =>
+                        target === "home" ? startOver() : go(target)
+                      }
+                    >
+                      <span>{i + 1}</span>
+                      {step.label}
+                    </button>
+                  ) : (
+                    <>
+                      <span>{i + 1}</span>
+                      {step.label}
+                    </>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        )}
         {error && !modal && !feedbackPart && (
           <div className="alert error" role="alert">
             <CircleHelp size={19} />
@@ -921,699 +519,160 @@ export default function App() {
             </button>
           </div>
         )}
-        {result && !finderOpen && (
-          <section
-            className={`results${selectedProduct ? " is-selected" : ""}`}
-            ref={resultsRef}
-            aria-labelledby="results-title"
-            tabIndex={-1}
-          >
-            <nav className="journey" aria-label="찾기 단계">
-              <span>1 검색</span>
-              <span aria-current={!selectedProduct ? "step" : undefined}>
-                2 제품 확인
-              </span>
-              <span aria-current={selectedProduct ? "step" : undefined}>
-                3 부품 찾기
-              </span>
-            </nav>
-            <div className="result-head">
-              <div>
-                <p className="result-kicker">
-                  {selectedProduct
-                    ? `확인한 제품 · ${productGroups[selectedProduct.group]}`
-                    : result.query
-                      ? `“${result.query}” 찾기`
-                      : "사진으로 찾기"}
-                </p>
-                <h2
-                  id="results-title"
-                  className={selectedProduct ? "product-name" : undefined}
-                >
-                  {result.state !== "ready"
-                    ? "사진에서 제품 정보를 확인하고 있어요"
-                    : selectedProduct
-                      ? `${selectedProduct.brand} ${selectedProduct.modelName}`
-                      : "내 제품이 맞는지 확인해주세요"}
-                </h2>
-                {selectedProduct && <ProductImage product={selectedProduct} />}
-                {selectedProduct && (
-                  <p className="result-meta">
-                    {[selectedProduct.capacity, selectedProduct.region]
-                      .filter(Boolean)
-                      .join(" · ")}
-                    {" · "}
-                    <a {...external(selectedProduct.source.url)}>
-                      제품·적용 모델 근거 자료
-                      <ArrowUpRight size={13} />
-                    </a>
-                    {selectedProduct.source.accessNote && (
-                      <small>{selectedProduct.source.accessNote}</small>
-                    )}
-                  </p>
-                )}
-                {result.state === "ready" && !selectedProduct && (
-                  <p className="result-meta">
-                    {result.analysis?.status === "needs_information" &&
-                    result.analysis.reason === "conflicting_identity"
-                      ? "모델 글자와 브랜드·용량 정보가 서로 맞지 않아요. 같은 제품의 사진인지 확인하고 바닥 라벨을 다시 올려 주세요. 후보를 선택하기 전에 원문과 대조해 주세요."
-                      : result.candidates.length > 1
-                        ? "규격·세대가 다른 후보가 있어요. 라벨과 구매 내역을 보고 선택해 주세요."
-                        : result.candidates.length === 0
-                          ? result.photoHints?.description ||
-                            "제품을 검색하거나 사진과 비교해 선택해주세요."
-                          : "내 제품이 맞으면 선택해 필요한 부품을 확인하세요."}
-                  </p>
-                )}
-              </div>
-              <div className="result-actions">
-                {selectedProduct && (
-                  <button
-                    className="text-button"
-                    disabled={busy}
-                    onClick={() => void select(null)}
-                  >
-                    다른 제품 선택
-                  </button>
-                )}
-                <button
-                  className="outline-button"
-                  aria-expanded={finderOpen}
-                  aria-controls="search-workspace"
-                  onClick={() => {
-                    setFinderOpen(!finderOpen);
-                    if (!finderOpen)
-                      setTimeout(
-                        () =>
-                          document
-                            .getElementById("search-workspace")
-                            ?.scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                            }),
-                        80,
-                      );
-                  }}
-                >
-                  {finderOpen ? "입력 닫기" : "새로 찾기"}
-                </button>
-              </div>
-            </div>
-            {pollError && (
-              <div className="alert" role="status">
-                {pollError}
-              </div>
-            )}
-            {result.state !== "ready" ? (
-              <div className="status-block" role="status">
-                <LoaderCircle className="spin" size={22} />
-                <div>
-                  <h3>
-                    {result.state === "queued"
-                      ? "사진 분석을 기다리고 있어요"
-                      : "사진에서 보이는 정보를 살펴보고 있어요"}
-                  </h3>
-                  <p>
-                    제품 모양, 라벨의 글자, 부품의 결합 방식을 확인합니다.
-                    분석에는 보통 수십 초가 걸립니다. 이 창을 닫아도 최근
-                    찾기에서 이어갈 수 있어요.
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <>
-                <div hidden={resultPage !== "main"}>
-                  {!selectedProduct && (
-                    <div className="product-picker">
-                      <ProductCatalog
-                        key={result.id}
-                        products={products}
-                        category={result.category}
-                        initialGroup={result.group}
-                        candidateIds={(result.candidates.length
-                          ? result.candidates
-                          : (result.photoHints?.products ?? [])
-                        ).map((p) => p.variantId)}
-                        candidateLabel={
-                          result.candidates.length
-                            ? "모델 글자 일치"
-                            : "사진으로 추정한 후보"
-                        }
-                        initialQuery={
-                          result.candidates.length ||
-                          result.photoHints?.products.length
-                            ? ""
-                            : result.query
-                        }
-                        busy={busy}
-                        onSelect={(id) => void select(id)}
-                      />
-                      <button
-                        className="text-button"
-                        onClick={() => {
-                          setResultPage("alternatives");
-                          resultsRef.current?.scrollIntoView({
-                            behavior: "smooth",
-                          });
-                        }}
-                      >
-                        내 제품이 없어요 · 다른 방법 보기
-                      </button>
-                    </div>
-                  )}
-                  <details className="photo-details">
-                    <summary>사진에서 확인한 정보</summary>
-                    {observation && !result.selectedVariantId && (
-                      <div className="photo-advice">
-                        <strong>
-                          {result.candidates.length
-                            ? "사진 속 글자를 한 번 더 확인해 주세요"
-                            : "제품을 좁히려면 라벨을 확인해 주세요"}
-                        </strong>
-                        <p>
-                          {observation.qualityIssues.includes("glare")
-                            ? "빛이 비치는 방향을 바꾸고 플래시 없이 라벨을 찍어 주세요."
-                            : observation.qualityIssues.includes("blurry")
-                              ? "렌즈를 닦고 글자에 초점을 맞춰 다시 찍어 주세요."
-                              : observation.qualityIssues.includes(
-                                    "label_cropped",
-                                  )
-                                ? "모델 코드가 잘리지 않도록 라벨 전체를 담아 주세요."
-                                : "제품 라벨·각인의 모델명과 규격을 확인해 주세요. 브랜드나 모양만으로 같은 제품이라고 확정하지 않습니다."}
-                        </p>
-                        {observation.extractedTexts.some(
-                          (t) => t.legibility === "uncertain",
-                        ) && (
-                          <p>
-                            불분명한 글자는 추측하지 않았습니다. O/0, I/1, S/5를
-                            라벨과 비교해 주세요.
-                          </p>
-                        )}
-                        <button
-                          className="text-button"
-                          disabled={photos.length >= 4 || busy}
-                          onClick={() => {
-                            labelInput.current?.click();
-                            document
-                              .getElementById("finder-title")
-                              ?.scrollIntoView({ behavior: "smooth" });
-                          }}
-                        >
-                          라벨 사진 추가해서 다시 찾기
-                        </button>
-                        {photos.length >= 4 && (
-                          <small>
-                            사진이 4장입니다. 위에서 한 장을 삭제한 뒤 라벨
-                            사진을 추가해 주세요.
-                          </small>
-                        )}
-                      </div>
-                    )}
-                    {!selectedProduct && observationPanel}
-                    {!selectedProduct &&
-                      result.analysis?.status === "needs_information" &&
-                      ["provider_error", "invalid_model_output"].includes(
-                        result.analysis.reason,
-                      ) && (
-                        <div className="alert warning">
-                          <CircleHelp size={18} />
-                          <span>
-                            사진에서 정보를 읽지 못했어요. 아래에서 모델명을
-                            선택하거나 다시 사진을 올려 주세요.
-                          </span>
-                        </div>
-                      )}
-                  </details>
-                  <div className="result-toolbar" hidden={!selectedProduct}>
-                    <CategoryPicker
-                      value={result.category}
-                      onChange={(key) =>
-                        void select(result.selectedVariantId, key)
-                      }
-                      disabled={busy}
-                      productGroup={result.paths.product?.group ?? result.group}
-                    />
-                  </div>
-                  {result.selectedVariantId && (
-                    <>
-                      {activePart && (
-                        <button
-                          className="text-button"
-                          onClick={() => setActivePart(null)}
-                        >
-                          ← 부품 목록으로
-                        </button>
-                      )}
-                      <div
-                        className="fit-summary"
-                        aria-live="polite"
-                        hidden={allCards.length === 0}
-                      >
-                        <p>
-                          <strong>
-                            {categories[result.category]} {allCards.length}개
-                          </strong>
-                          {reviewOrder.map((status) => {
-                            const count = allCards.filter(
-                              (c) => c.status === status,
-                            ).length;
-                            return count ? (
-                              <span className={`tally ${status}`} key={status}>
-                                <span className="mark" aria-hidden="true" />
-                                {reviewLabels[status]} <b>{count}</b>
-                              </span>
-                            ) : null;
-                          })}
-                        </p>
-                        {hasMixedOrigins && (
-                          <div
-                            className="route-tabs"
-                            role="group"
-                            aria-label="부품 출처 필터"
-                          >
-                            {[
-                              ["all", "전체"],
-                              ["oem", "정품"],
-                              ["aftermarket", "타사 대체품"],
-                            ].map(([key, label]) => (
-                              <button
-                                key={key}
-                                aria-pressed={route === key}
-                                className={route === key ? "active" : ""}
-                                onClick={() => setRoute(key!)}
-                              >
-                                {label}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                      {actionable.length > 0 && (
-                        <div className="ledger">
-                          <div className="ledger-head" aria-hidden="true">
-                            <span>판정</span>
-                            <span>부품</span>
-                            <span>적용 근거</span>
-                            <span>구매 경로</span>
-                          </div>
-                          {actionable.map((card) => (
-                            <article
-                              className="ledger-row"
-                              key={card.part.partId}
-                            >
-                              <Verdict status={card.status} />
-                              <div className="ledger-part">
-                                <h3>{card.part.name}</h3>
-                                <p className="part-meta">
-                                  {originLabels[card.part.origin]} ·{" "}
-                                  {card.part.brand}
-                                </p>
-                                {card.part.specifications.map((s) => (
-                                  <p className="spec" key={s}>
-                                    {s}
-                                  </p>
-                                ))}
-                              </div>
-                              {!activePart && (
-                                <button
-                                  className="primary part-open"
-                                  onClick={() => {
-                                    setActivePart(card.part.partId);
-                                    resultsRef.current?.scrollIntoView({
-                                      behavior: "smooth",
-                                    });
-                                  }}
-                                >
-                                  구매처와 상세 보기 →
-                                </button>
-                              )}
-                              <div
-                                className="ledger-evidence"
-                                hidden={!activePart}
-                              >
-                                <h4 className="cell-label">적용 근거</h4>
-                                {card.evidence.map((e) => (
-                                  <div className="evidence" key={e.evidenceId}>
-                                    <span className="evidence-provider">
-                                      {providerLabels[e.provider]}
-                                    </span>
-                                    <p>{e.summary}</p>
-                                    {e.conditions.length > 0 && (
-                                      <ul>
-                                        {e.conditions.map((c) => (
-                                          <li key={c}>{c}</li>
-                                        ))}
-                                      </ul>
-                                    )}
-                                    <p className="evidence-source">
-                                      <a {...external(e.source.url)}>
-                                        적용 근거 확인
-                                        <ArrowUpRight size={13} />
-                                      </a>
-                                      <small>
-                                        {e.source.checkedAt} 내용 확인
-                                        {card.stale ? " · 재확인 필요" : ""}
-                                      </small>
-                                    </p>
-                                    {e.source.accessNote && (
-                                      <small>{e.source.accessNote}</small>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
-                              <div
-                                className="ledger-offers"
-                                hidden={!activePart}
-                              >
-                                <h4 className="cell-label">구매 경로</h4>
-                                {card.offers.map((o) => (
-                                  <div className="offer" key={o.offerId}>
-                                    <p className="offer-state">
-                                      <strong>
-                                        {o.market === "domestic"
-                                          ? "국내 구매 경로"
-                                          : o.market === "overseas"
-                                            ? "해외 구매 경로"
-                                            : "구매 지역 확인 필요"}
-                                      </strong>
-                                      {stockLabels[o.availability.stock]} ·{" "}
-                                      {o.condition === "used"
-                                        ? "중고"
-                                        : o.condition === "new"
-                                          ? "새상품"
-                                          : "상태 미확인"}
-                                    </p>
-                                    {o.optionLabel && (
-                                      <p className="offer-option">
-                                        구매 옵션: {o.optionLabel}
-                                      </p>
-                                    )}
-                                    {offerLinkNote(o) && (
-                                      <p className="offer-link-note">
-                                        {offerLinkNote(o)}
-                                        <br />
-                                        <small>
-                                          링크 확인:{" "}
-                                          {new Date(
-                                            o.linkCheck!.checkedAt,
-                                          ).toLocaleDateString("ko-KR")}
-                                        </small>
-                                      </p>
-                                    )}
-                                    {offerLinkUsable(o) && (
-                                      <a
-                                        className={`purchase-link${
-                                          card.status === "source_supported" &&
-                                          ![
-                                            "unavailable",
-                                            "out_of_stock",
-                                          ].includes(o.availability.stock)
-                                            ? " strong"
-                                            : ""
-                                        }`}
-                                        {...external(o.source.url)}
-                                      >
-                                        {o.availability.stock === "unavailable"
-                                          ? "판매 종료 안내 보기"
-                                          : o.availability.stock ===
-                                              "out_of_stock"
-                                            ? "품절 상품·재입고 안내 확인"
-                                            : `${o.seller}에서 옵션·구매 확인`}
-                                        <ArrowUpRight size={16} />
-                                      </a>
-                                    )}
-                                    <small>
-                                      {o.region}
-                                      {o.stock !== "unknown" &&
-                                        ` · 주문 상태 확인: ${o.stockCheckedAt ? new Date(o.stockCheckedAt).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }) : o.source.checkedAt}`}
-                                      {o.availability.expired &&
-                                      o.stock !== "unknown"
-                                        ? " · 확인 후 시간이 지나 재확인이 필요해요."
-                                        : ""}
-                                    </small>
-                                    {o.source.accessNote && (
-                                      <small>{o.source.accessNote}</small>
-                                    )}
-                                  </div>
-                                ))}
-                                {card.offers.length === 0 && (
-                                  <p className="offer-empty">
-                                    등록된 구매 경로가 없어요. 아래 검색·문의
-                                    경로를 확인해 주세요.
-                                  </p>
-                                )}
-                                <button
-                                  className="text-button feedback-link"
-                                  onClick={() => {
-                                    setFeedbackPart(card.part.partId);
-                                    setFeedbackText("");
-                                    setFeedbackOutcome("not_tested");
-                                  }}
-                                >
-                                  이 부품의 장착 결과 기록
-                                </button>
-                              </div>
-                            </article>
-                          ))}
-                        </div>
-                      )}
-                      {!actionable.length && (
-                        <div className="empty-result">
-                          <h3>이 조건의 상품은 아직 확인하지 못했어요</h3>
-                          <p>
-                            제조사가 판매하지 않는다는 뜻은 아닙니다. 아래
-                            검색·문의 경로에서 더 찾아볼 수 있어요.
-                          </p>
-                        </div>
-                      )}
-                      {excluded.length > 0 && (
-                        <div className="ledger ledger-excluded">
-                          <h3 className="ledger-subhead">
-                            선택하면 안 되는 부품 {excluded.length}개
-                          </h3>
-                          {excluded.map((c) => (
-                            <div className="ledger-row" key={c.part.partId}>
-                              <Verdict status={c.status} />
-                              <div className="ledger-part">
-                                <h4>{c.part.name}</h4>
-                                <p className="part-meta">
-                                  {originLabels[c.part.origin]} · {c.part.brand}
-                                </p>
-                              </div>
-                              <div className="ledger-evidence">
-                                {c.evidence.map((e) => (
-                                  <p key={e.evidenceId}>
-                                    {e.summary}{" "}
-                                    <a {...external(e.source.url)}>
-                                      근거 확인
-                                      <ArrowUpRight size={12} />
-                                    </a>
-                                  </p>
-                                ))}
-                                {c.part.lifecycle === "discontinued" && (
-                                  <p>
-                                    제조사 공식 판매 종료 ·{" "}
-                                    <a
-                                      {...external(c.part.lifecycleSource!.url)}
-                                    >
-                                      안내 보기
-                                    </a>
-                                  </p>
-                                )}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      <p className="ledger-note">
-                        ‘{reviewLabels.source_supported}’은 출처의 설명이며 실제
-                        장착 검증을 뜻하지 않습니다. 실시간 재고·배송과 옵션은
-                        판매처에서 최종 확인하세요.
-                      </p>
-                      {observationPanel}
-                    </>
-                  )}
-                  {selectedProduct && (
-                    <button
-                      className="outline-button alternative-next"
-                      onClick={() => {
-                        setResultPage("alternatives");
-                        resultsRef.current?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                      }}
-                    >
-                      맞는 부품이 없나요? 다른 방법 찾기 →
-                    </button>
-                  )}
-                </div>
-                <div
-                  className="other-paths"
-                  id="other-paths"
-                  hidden={resultPage !== "alternatives"}
-                >
-                  <button
-                    className="text-button"
-                    onClick={() => setResultPage("main")}
-                  >
-                    ← 검색 결과로 돌아가기
-                  </button>
-                  <div className="section-heading">
-                    <h3>맞는 부품이 없을 때</h3>
-                    <p>
-                      아래 검색 링크는 검증된 상품 페이지가 아닙니다. 적용
-                      모델과 규격을 직접 확인해 주세요.
-                    </p>
-                  </div>
-                  <div className="path-grid">
-                    <article>
-                      <h4>규격으로 범용 부품 찾기</h4>
-                      <p>
-                        모양만으로는 맞는지 알 수 없어요. 아래 정보를 확인해
-                        판매처에 문의하세요.
-                      </p>
-                      <form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          void act(async () => {
-                            const next = await api<RecordResult>(
-                              `/requests/${result.id}/answers`,
-                              answers,
-                            );
-                            setResult(next);
-                            setNotice(
-                              "확인 내용을 저장했습니다. 입력한 규격만으로 호환을 확정하지 않습니다.",
-                            );
-                          });
-                        }}
-                      >
-                        <MeasurementGuide category={result.category} />
-                        {result.paths.checks.map((c) => (
-                          <label className="measurement" key={c.key}>
-                            {c.label}
-                            <input
-                              value={answers[c.key] ?? ""}
-                              onChange={(e) =>
-                                setAnswers({
-                                  ...answers,
-                                  [c.key]: e.target.value,
-                                })
-                              }
-                              maxLength={120}
-                              placeholder="선택 사항"
-                            />
-                            <small>{c.help}</small>
-                          </label>
-                        ))}
-                        <button
-                          className="outline-button"
-                          disabled={busy}
-                          type="submit"
-                        >
-                          확인 내용 저장
-                        </button>
-                      </form>
-                      <a
-                        className="search-link"
-                        {...external(result.paths.searches[1]!.url)}
-                      >
-                        범용 부품 검색
-                        <ArrowUpRight size={14} />
-                        <span>검색 결과</span>
-                      </a>
-                    </article>
-                    <article>
-                      <h4>구매·수리 경로 더 알아보기</h4>
-                      <p>
-                        재고가 없거나 부품이 단종됐어도, 중고 부품이나 제조사
-                        문의가 도움이 될 수 있어요.
-                      </p>
-                      {[
-                        result.paths.searches[0]!,
-                        result.paths.searches[2]!,
-                        result.paths.searches[3]!,
-                      ].map((s) => (
-                        <a
-                          className="search-link"
-                          key={s.label}
-                          {...external(s.url)}
-                        >
-                          {s.label}
-                          <ArrowUpRight size={14} />
-                          <span>검색 결과</span>
-                        </a>
-                      ))}
-                      {result.paths.product && (
-                        <a
-                          className="search-link contact-link"
-                          {...external(result.paths.product.contact.url)}
-                        >
-                          브랜드 자료·문의 안내
-                          <ArrowUpRight size={14} />
-                          <span>브랜드 안내</span>
-                        </a>
-                      )}
-                      <details className="contact-draft">
-                        <summary>문의할 내용 미리 준비하기</summary>
-                        <textarea
-                          aria-label="제조사 문의 초안"
-                          readOnly
-                          value={result.paths.contactDraft}
-                        />
-                        <button
-                          className="text-button"
-                          onClick={() =>
-                            void act(async () => {
-                              await navigator.clipboard.writeText(
-                                result.paths.contactDraft,
-                              );
-                              setNotice(
-                                "문의 내용을 복사했습니다. 제조사 문의 창에 붙여 넣어 주세요.",
-                              );
-                            })
-                          }
-                        >
-                          문의 내용 복사
-                        </button>
-                      </details>
-                      <p className="hint">
-                        검색 결과의 상품·재고·호환성은 검증되지 않았습니다.
-                        판매처가 적은 적용 모델과 규격을 꼭 확인하세요.
-                      </p>
-                    </article>
-                  </div>
-                </div>
-              </>
-            )}
-            <details className="result-tools">
-              <summary>기록 관리</summary>
-              <div className="result-utility">
-                {selectedProduct && (
-                  <button className="text-button" onClick={download}>
-                    <Download size={15} />
-                    결과 저장 (JSON)
-                  </button>
-                )}
-                <button
-                  className="text-button danger"
-                  disabled={busy}
-                  onClick={() => void deleteRecord(result.id)}
-                >
-                  <Trash2 size={15} />이 찾기 기록 삭제
-                </button>
-              </div>
-            </details>
+        {view === "home" && restoring && !error && (
+          <p className="restoring" role="status">
+            찾기 기록을 불러오는 중이에요.
+          </p>
+        )}
+        {view === "home" && !(restoring && !error) && (
+          <HomePage
+            products={products}
+            ready={ready}
+            busy={busy}
+            query={query}
+            onQuery={setQuery}
+            onSubmit={() => void submit(false)}
+            onPick={(p) => void openProduct(p, searchIntent(query).category)}
+            onPhoto={() => go("photo", { id: null })}
+            onBrowse={() => go("browse", { id: null })}
+          />
+        )}
+        {view === "photo" && (
+          <PhotoPage
+            photos={photos}
+            partQuery={partQuery}
+            busy={busy}
+            ready={ready}
+            available={available}
+            onAdd={addPhotos}
+            onRemove={removePhoto}
+            onRole={(index, role) =>
+              setPhotos(
+                photos.map((p, i) => (i === index ? { ...p, role } : p)),
+              )
+            }
+            onPartQuery={setPartQuery}
+            onSubmit={() => void submit(true)}
+            onBack={() => go("home", { id: null })}
+          />
+        )}
+        {view === "browse" && (
+          <section className="page" aria-labelledby="page-title">
+            <button
+              className="back-link"
+              onClick={() => go("home", { id: null })}
+            >
+              ← 처음으로
+            </button>
+            <h1 id="page-title" tabIndex={-1}>
+              등록된 제품
+            </h1>
+            <p className="page-lead">
+              제품을 고르면 맞는 부품과 구매처를 바로 보여 드려요.
+            </p>
+            <ProductCatalog
+              products={products}
+              category="other"
+              busy={busy}
+              onSelect={(id) => {
+                const product = products.find((p) => p.variantId === id);
+                if (product) void openProduct(product, "other");
+              }}
+            />
           </section>
+        )}
+        {view === "confirm" && result && (
+          <ConfirmPage
+            result={result}
+            products={products}
+            busy={busy}
+            pollError={pollError}
+            onSelect={(id) => void select(id)}
+            onHelp={() => go("help")}
+            onRetake={() => go("photo", { id: null })}
+          />
+        )}
+        {view === "parts" && result && selectedProduct && (
+          <PartsPage
+            result={result}
+            product={products.find(
+              (p) => p.variantId === selectedProduct.variantId,
+            )}
+            busy={busy}
+            onCategory={(key) => void select(selectedProduct.variantId, key)}
+            onOpen={(card) => go("part", { part: card.part.partId })}
+            onOtherProduct={() => go("confirm")}
+            onHelp={() => go("help")}
+          />
+        )}
+        {view === "part" && result && selectedProduct && activeCard && (
+          <PartPage
+            card={activeCard}
+            product={selectedProduct}
+            onBack={() => go("parts")}
+            onFeedback={() => {
+              setFeedbackPart(activeCard.part.partId);
+              setFeedbackText("");
+              setFeedbackOutcome("not_tested");
+            }}
+          />
+        )}
+        {view === "help" && result && (
+          <HelpPage
+            result={result}
+            answers={answers}
+            busy={busy}
+            onAnswers={setAnswers}
+            onSave={() =>
+              void act(async () => {
+                setResult(
+                  await api<RecordResult>(
+                    `/requests/${result.id}/answers`,
+                    answers,
+                  ),
+                );
+                setNotice(
+                  "적어 둔 규격을 저장했어요. 검색어와 문의 내용에 반영됩니다.",
+                );
+              })
+            }
+            onCopy={() =>
+              void act(async () => {
+                await navigator.clipboard.writeText(result.paths.contactDraft);
+                setNotice(
+                  "문의 내용을 복사했어요. 제조사 문의 창에 붙여 넣어 주세요.",
+                );
+              })
+            }
+            onBack={() => go(selectedProduct ? "parts" : "confirm")}
+          />
+        )}
+        {result && ["parts", "part", "help"].includes(view) && (
+          <div className="record-tools">
+            {selectedProduct && (
+              <button className="text-button" onClick={download}>
+                <Download size={15} />
+                결과 저장 (JSON)
+              </button>
+            )}
+            <button
+              className="text-button danger"
+              disabled={busy}
+              onClick={() => void deleteRecord(result.id)}
+            >
+              <Trash2 size={15} />이 찾기 기록 삭제
+            </button>
+          </div>
         )}
       </main>
       <footer>
         <p>
           <strong>딱 맞는 부품, 더 오래 쓰는 일상</strong>
-          AI는 사진을 관찰만 합니다. 부품의 적용 여부는 출처가 있는 자료로
-          안내합니다.
+          사진은 제품을 찾는 데만 쓰고, 부품이 맞는지는 출처가 있는 자료로
+          안내해요.
         </p>
         <div className="footer-links">
-          <button onClick={() => setModal("guide")}>안내 기준</button>
+          <button onClick={() => setModal("guide")}>이용 방법</button>
           <button onClick={() => setModal("privacy")}>
             사진·정보 보관 안내
           </button>
@@ -1623,12 +682,10 @@ export default function App() {
         <Modal
           title={
             modal === "guide"
-              ? "이용 방법과 안내 기준"
+              ? "이용 방법"
               : modal === "privacy"
                 ? "사진·정보 보관 안내"
-                : modal === "catalog"
-                  ? "등록 제품 둘러보기"
-                  : "최근 찾기"
+                : "최근 찾기"
           }
           onClose={() => setModal(null)}
           error={error}
@@ -1666,25 +723,13 @@ export default function App() {
                 ))
               ) : (
                 <div className="empty">
-                  <h3>아직 찾은 부품이 없어요</h3>
-                  <p>
-                    사진이나 모델명으로 찾기를 시작하면 이곳에서 이어볼 수
-                    있어요.
-                  </p>
+                  <p>아직 찾은 부품이 없어요.</p>
                 </div>
               )}
               <p className="hint">
-                이 브라우저의 기록만 표시하며 최대 24시간 보관합니다.
+                이 브라우저의 기록만 보여 주며 최대 24시간 보관해요.
               </p>
             </>
-          ) : modal === "catalog" ? (
-            <ProductCatalog
-              products={products}
-              category={category}
-              initialGroup={group}
-              busy={busy}
-              onSelect={(id) => void openProduct(id)}
-            />
           ) : modal === "privacy" ? (
             <div className="prose">
               <p>
@@ -1713,43 +758,36 @@ export default function App() {
           ) : (
             <div className="prose">
               <p>
-                <strong>1. 사진 또는 모델명으로 시작</strong>
+                <strong>1. 제품 찾기</strong>
                 <br />
-                제품 전체·부품·라벨 사진을 추가하세요. 모델명을 알고 있으면 사진
-                없이도 찾을 수 있습니다.
+                제품 이름이나 모델명을 검색하거나, 제품 사진을 올려 주세요.
               </p>
               <p>
-                <strong>2. 내 제품 확인</strong>
+                <strong>2. 제품 확인</strong>
                 <br />
-                제품의 전체 모델명과 장착부를 근거 페이지와 대조하세요. 사진이
-                비슷한 것만으로 같은 제품이라고 확정하지 않습니다.
+                후보 중에서 내 제품을 골라 주세요. 모델명을 읽지 못한 사진은
+                비슷한 제품을 추정해 위에 보여 드려요.
               </p>
               <p>
-                <strong>3. 근거를 보고 구매·문의</strong>
+                <strong>3. 부품 선택</strong>
                 <br />
-                제품 제조사, 대체 부품 제조사, 판매처의 설명을 구분합니다. “적용
-                대상에 명시됨”은 출처의 주장이고 실제 장착·누수 검증을 뜻하지
-                않습니다.
+                제품에 맞는 부품과 사면 안 되는 부품을 구분해 보여 드려요.
               </p>
               <p>
-                현재 {catalogCounts.brands}개 브랜드의 제품{" "}
-                {catalogCounts.products}개와 부품 {catalogCounts.parts}개를
-                제공합니다. 써모스·킨토·조지루시의 국내 뚜껑·패킹·빨대 구매
-                경로와 날진·하이드로플라스크의 해외 부품 자료를 확인할 수
-                있습니다. 손잡이 단품 등 미등록 부품은 검색·문의 경로로
-                이어집니다. 상품 정보는 검수한 카탈로그이며 실시간 웹 전체 검색
-                결과가 아닙니다.
+                <strong>4. 구매처 확인</strong>
+                <br />살 수 있는 곳과, 그 부품이 맞는다고 한 제조사·판매처
+                자료를 함께 확인하세요. ‘적용 대상에 명시됨’은 출처의 설명이며
+                실제 장착 검증을 뜻하지 않아요.
               </p>
               <p>
-                해외 공식 상품 링크의 국내 배송·가격·재고는 판매 페이지에서
-                확인하세요. 구글 검색 링크는 검증된 상품 링크와 구분해
-                표시합니다.
+                상품 정보는 직접 검수한 목록이며 실시간 웹 검색 결과가 아니에요.
+                재고·배송·가격은 판매 페이지에서 확인해 주세요.
               </p>
             </div>
           )}
         </Modal>
       )}
-      {feedbackPart && (
+      {feedbackPart && result && (
         <Modal
           title="장착 결과 기록"
           onClose={() => setFeedbackPart("")}
@@ -1760,13 +798,13 @@ export default function App() {
             onSubmit={(e) => {
               e.preventDefault();
               void act(async () => {
-                await api(`/requests/${result!.id}/feedback`, {
+                await api(`/requests/${result.id}/feedback`, {
                   partId: feedbackPart,
                   outcome: feedbackOutcome,
                   conditions: feedbackText,
                   testedAt: new Date().toISOString().slice(0, 10),
                 });
-                setResult(await api<RecordResult>(`/requests/${result!.id}`));
+                setResult(await api<RecordResult>(`/requests/${result.id}`));
                 setFeedbackPart("");
                 setNotice("장착 결과를 미검증 개인 기록으로 저장했습니다.");
               });
@@ -1794,7 +832,7 @@ export default function App() {
                 maxLength={500}
                 value={feedbackText}
                 onChange={(e) => setFeedbackText(e.target.value)}
-                placeholder="확인한 내용을 입력해주세요 (선택 사항)"
+                placeholder="확인한 내용을 입력해주세요"
               />
             </label>
             <button className="primary" disabled={busy}>

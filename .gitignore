@@ -12,3 +12,7 @@ dist-server/
 
 # Manufacturer photos are local evaluation inputs, not redistributable app assets.
 artifacts/real-photo-evaluation/*.image
+
+# iCloud/Finder sync-conflict copies ("name 2.ext") are never source files.
+* [0-9].*
+* [0-9]

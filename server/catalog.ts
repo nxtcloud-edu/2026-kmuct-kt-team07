@@ -3,6 +3,7 @@ import { catalogSchema, type Catalog } from "../shared/domain.js";
 import type { CatalogProduct } from "../shared/catalog-search.js";
 import { reviewEvidence } from "./resolver.js";
 import { offerAvailability, offerLinkUsable } from "../shared/availability.js";
+import { productKind } from "../shared/product-kind.js";
 
 export function catalogProducts(catalog: Catalog): CatalogProduct[] {
   return catalog.products.map((product) => {
@@ -16,6 +17,7 @@ export function catalogProducts(catalog: Catalog): CatalogProduct[] {
     });
     return {
       ...product,
+      kind: productKind(product).kind,
       availableCategories: [...new Set(applicable.map((p) => p.category))],
       orderableCategories: [
         ...new Set(

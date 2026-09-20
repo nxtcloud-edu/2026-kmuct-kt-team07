@@ -7,35 +7,22 @@ import type {
 } from "../shared/domain.js";
 import { normalizeModel } from "../src/catalog.js";
 import { brandAliases, capacityKey } from "../shared/product-identity.js";
+import { kindsIn, productKind } from "../shared/product-kind.js";
 
-// These are observable product types, never inferred model codes or compatibility claims.
-const families = [
-  ["공기청정기", "공기 청정기", "air purifier", "purifier"],
-  ["청소기", "vacuum"],
-  ["선풍기", "fan"],
-  ["전동칫솔", "전동 칫솔", "toothbrush"],
-  ["면도기", "shaver"],
-  ["물병", "물통", "보틀", "bottle"],
-  ["텀블러", "tumbler"],
-  ["책장", "bookcase", "billy"],
-  ["의자", "chair"],
-  ["서랍", "drawer"],
-  ["라벨프린터", "라벨 프린터", "label printer"],
-  ["샤프", "mechanical pencil"],
-  ["볼펜", "ballpoint"],
-  ["지우개", "eraser"],
-  ["커터", "cutter"],
-  ["재봉틀", "sewing"],
-  ["브레이크", "brake"],
-  ["타이어", "tire", "tyre"],
-  ["대걸레", "밀대", "mop"],
-  ["정수기", "정수 용기", "water filter"],
-  ["면도", "razor"],
-  ["캐리어", "suitcase"],
-  ["샤워", "shower"],
-  ["가위", "scissors"],
-  ["분무기", "sprayer"],
-];
+const empty = {
+  products: [] as Product[],
+  description: "",
+  reasons: {} as Record<string, string[]>,
+  kinds: [] as string[],
+  best: null as string | null,
+};
+
+/**
+ * Estimates for a photo without a readable model code. The observation says what
+ * is visible (product type, brand, part of a code); the catalog is ordered by how
+ * much of that it shares. An estimate is a place to start looking: the user
+ * confirms the product, and compatibility still comes from sourced evidence.
+ */
 export function photoHints(
   observation: Observation | undefined,
   products: Product[],
@@ -45,11 +32,6 @@ export function photoHints(
     catalog?: Catalog;
   } = {},
 ) {
-  const empty = {
-    products: [] as Product[],
-    description: "",
-    reasons: {} as Record<string, string[]>,
-  };
   if (!observation) return empty;
   const clear = observation.extractedTexts.filter(
     (t) => t.legibility === "clear",
@@ -78,14 +60,46 @@ export function photoHints(
   if (capacities.length > 1 || capacities.includes(null)) return empty;
   const brand = brands[0],
     capacity = capacities[0];
-  const visual = observation.observedFeatures
-    .filter((f) => ["product_type", "appearance", "other"].includes(f.key))
-    .map((f) => f.value.toLowerCase())
-    .join(" ");
-  const observedFamilies = families.filter((words) =>
-    words.some((w) => visual.includes(w)),
+  // A logo read with doubt cannot exclude anything, but it can order the list.
+  const softBrands = new Set(
+    observation.extractedTexts
+      .filter((t) => t.role === "brand" && t.legibility === "uncertain")
+      .map(
+        (t) =>
+          Object.entries(brandAliases).find(([name, aliases]) =>
+            [name, ...aliases].some(
+              (a) => normalizeModel(a) === normalizeModel(t.text),
+            ),
+          )?.[0],
+      )
+      .filter((name): name is string => Boolean(name)),
   );
-  if (!brand && !observedFamilies.length) return empty;
+  const softBrand = !brand && softBrands.size === 1 ? [...softBrands][0] : "";
+  const kinds = kindsIn(
+    observation.observedFeatures
+      .filter((f) => ["product_type", "appearance", "other"].includes(f.key))
+      .map((f) => f.value)
+      .join(" "),
+  );
+  // A cropped or partly legible code ("AX34A53") still narrows the list.
+  const fragments = [
+    ...new Set(
+      observation.extractedTexts
+        .filter((t) => t.role === "model")
+        .map((t) => ({ text: t.text, key: normalizeModel(t.text) }))
+        .filter((t) => t.key.length >= 4)
+        .map((t) => JSON.stringify(t)),
+    ),
+  ].map((t) => JSON.parse(t) as { text: string; key: string });
+  if (!brand && !kinds.length && !fragments.length) return empty;
+  const partIds =
+    context.category && context.category !== "other" && context.catalog
+      ? new Set(
+          context.catalog.parts
+            .filter((part) => part.category === context.category)
+            .map((part) => part.partId),
+        )
+      : undefined;
   const ranked = products
     .flatMap((p) => {
       if (brand && p.brand !== brand) return [];
@@ -97,48 +111,90 @@ export function photoHints(
         p.group !== context.group
       )
         return [];
-      const text = [p.modelName, p.description, ...p.aliases]
-        .join(" ")
-        .toLowerCase();
-      const types = observedFamilies.filter((words) =>
-        words.some((w) => text.includes(w)),
-      );
-      if (observedFamilies.length && !types.length) return [];
+      const sameKind = kinds.includes(productKind(p).kind);
+      const names = [p.modelName, ...p.aliases].map(normalizeModel);
+      const read = fragments
+        .map((f) => ({
+          text: f.text,
+          score: names.some((n) => n.startsWith(f.key))
+            ? 8
+            : names.some((n) => n.includes(f.key))
+              ? 5
+              : 0,
+        }))
+        .filter((f) => f.score > 0);
+      // Each visible clue the photo gives must agree with the product.
+      if (kinds.length && !sameKind && !read.length) return [];
+      if (!brand && !sameKind && !read.length) return [];
+      const looksLikeBrand = softBrand === p.brand;
       const reasons = [
+        ...read.map((f) => `라벨의 “${f.text}” 글자`),
         ...(brand ? [`라벨의 ${brand} 표기`] : []),
+        ...(looksLikeBrand ? [`${p.brand}로 보이는 로고`] : []),
         ...(capacity ? [`라벨의 ${capacity} 표기`] : []),
-        ...types.map((words) => `사진 속 ${words[0]} 형태`),
+        ...(sameKind ? [`사진 속 ${productKind(p).kind} 형태`] : []),
       ];
-      let score = (brand ? 6 : 0) + (capacity ? 3 : 0) + types.length * 4;
-      if (context.category && context.category !== "other" && context.catalog) {
-        const partIds = new Set(
-          context.catalog.parts
-            .filter((part) => part.category === context.category)
-            .map((part) => part.partId),
-        );
-        if (
-          context.catalog.evidence.some(
-            (e) =>
-              e.variantId === p.variantId &&
-              partIds.has(e.partId) &&
-              e.claim === "supports",
-          )
+      let score =
+        Math.max(0, ...read.map((f) => f.score)) +
+        (brand ? 6 : 0) +
+        (looksLikeBrand ? 3 : 0) +
+        (capacity ? 3 : 0) +
+        (sameKind ? 4 : 0);
+      if (
+        partIds &&
+        context.catalog!.evidence.some(
+          (e) =>
+            e.variantId === p.variantId &&
+            partIds.has(e.partId) &&
+            e.claim === "supports",
         )
-          score += 2;
-      }
-      return [{ product: p, score, reasons }];
+      )
+        score += 2;
+      return [{ product: p, score, reasons, read: read.length > 0 }];
     })
-    .sort((a, b) => b.score - a.score);
+    // Equal clues: a product with a photo is easier for the user to confirm.
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        Number(Boolean(b.product.image)) - Number(Boolean(a.product.image)),
+    );
   if (!ranked.length) return empty;
-  // Preserve the complete set for explicit label hints; bounded visual discovery otherwise.
-  const suggestions = observedFamilies.length ? ranked.slice(0, 8) : ranked;
+  // A clear brand or part of a code names a finite set worth showing in full. A
+  // product type alone can cover a hundred models: show the best few instead.
+  const narrowed = Boolean(brand) || ranked[0]!.read;
+  const suggestions = narrowed ? ranked : spreadByBrand(ranked).slice(0, 8);
   return {
     products: suggestions.map((x) => x.product),
     reasons: Object.fromEntries(
       suggestions.map((x) => [x.product.variantId, x.reasons]),
     ),
-    description: observedFamilies.length
-      ? "사진에서 보이는 제품 종류와 특징으로 추정한 후보예요. 모델이 확인된 것은 아니므로 사진·제품 정보를 비교해 선택해 주세요."
-      : `사진에서 읽힌 ${brand}${capacity ? ` · ${capacity}` : ""} 기준의 참고 후보입니다. 모델이 확인된 것은 아니므로 제품명과 형태를 직접 대조하세요.`,
+    kinds,
+    // Only a clue no other product shares earns the top spot by name.
+    best:
+      ranked[0]!.score > (ranked[1]?.score ?? -1)
+        ? ranked[0]!.product.variantId
+        : null,
+    description:
+      kinds.length || fragments.length
+        ? "사진에서 보이는 제품 종류와 글자로 추정한 후보예요. 모델이 확인된 것은 아니므로 사진·제품 정보를 비교해 선택해 주세요."
+        : `사진에서 읽힌 ${brand}${capacity ? ` · ${capacity}` : ""} 기준의 참고 후보입니다. 모델이 확인된 것은 아니므로 제품명과 형태를 직접 대조하세요.`,
   };
+}
+
+/** Round-robin across brands so one large family does not fill every slot. */
+function spreadByBrand<T extends { product: Product; score: number }>(
+  ranked: T[],
+): T[] {
+  const byBrand = new Map<string, T[]>();
+  for (const item of ranked)
+    byBrand.set(item.product.brand, [
+      ...(byBrand.get(item.product.brand) ?? []),
+      item,
+    ]);
+  const buckets = [...byBrand.values()];
+  const result: T[] = [];
+  for (let i = 0; buckets.some((b) => i < b.length); i++)
+    for (const bucket of buckets) if (bucket[i]) result.push(bucket[i]!);
+  // Keep the strongest clue first even after spreading.
+  return result.sort((a, b) => b.score - a.score);
 }

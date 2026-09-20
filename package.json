@@ -16,6 +16,7 @@
     "check": "npm run catalog:validate && npm test && npm run build",
     "start:production": "node --env-file-if-exists=.env dist-server/server/main.js",
     "catalog:import": "node --import tsx scripts/catalog.ts import",
+    "catalog:image": "node --import tsx scripts/product-image.ts",
     "release:check": "node --env-file-if-exists=.env --import tsx scripts/release-check.ts",
     "format": "prettier --write client server shared scripts tests src *.json vite.config.ts index.html"
   },

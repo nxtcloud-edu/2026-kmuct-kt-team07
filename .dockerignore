@@ -9,3 +9,6 @@ dist-server
 artifacts
 *.sqlite*
 .DS_Store
+
+# iCloud/Finder sync-conflict copies
+**/* [0-9].*

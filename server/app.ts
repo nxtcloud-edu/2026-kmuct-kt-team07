@@ -147,12 +147,14 @@ export function createApp({
       record.analysis && "candidateVariantIds" in record.analysis
         ? record.analysis.candidateVariantIds
         : [];
+    // "AX34A5310WWD 필터" names the model; the part word is not part of its code.
+    const typedModel = normalizeModel(searchIntent(record.query).productQuery);
     const candidates = catalog.products.filter(
       (p) =>
         suggested.includes(p.variantId) ||
-        (record.query &&
+        (typedModel &&
           [p.modelName, ...p.aliases].some(
-            (a) => normalizeModel(a) === normalizeModel(record.query),
+            (a) => normalizeModel(a) === typedModel,
           )),
     );
     return {

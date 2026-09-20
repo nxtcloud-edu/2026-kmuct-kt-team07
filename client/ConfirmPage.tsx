@@ -1,0 +1,200 @@
+import { CircleHelp, LoaderCircle } from "lucide-react";
+import { categories } from "../shared/domain";
+import { matchesProduct, type CatalogProduct } from "../shared/catalog-search";
+import { searchIntent } from "../shared/search-intent";
+import ProductCatalog from "./ProductCatalog";
+import { featureLabels, qualityLabels, withObjectParticle } from "./labels";
+import type { RecordResult } from "./types";
+
+/** Step 2. The likeliest products first; the user says which one is theirs. */
+export default function ConfirmPage({
+  result,
+  products,
+  busy,
+  pollError,
+  onSelect,
+  onHelp,
+  onRetake,
+}: {
+  result: RecordResult;
+  products: CatalogProduct[];
+  busy: boolean;
+  pollError: string;
+  onSelect: (id: string) => void;
+  onHelp: () => void;
+  onRetake: () => void;
+}) {
+  const observation =
+    result.analysis && "observation" in result.analysis
+      ? result.analysis.observation
+      : null;
+  const byPhoto = result.analysis !== null || result.state !== "ready";
+  const part = result.category === "other" ? "" : categories[result.category];
+  if (result.state !== "ready")
+    return (
+      <section className="page" aria-labelledby="page-title">
+        <h1 id="page-title" tabIndex={-1}>
+          사진을 살펴보고 있어요
+        </h1>
+        <div className="status-block" role="status">
+          <LoaderCircle className="spin" size={24} />
+          <p>
+            {result.state === "queued"
+              ? "분석 순서를 기다리는 중이에요."
+              : "제품 종류와 라벨의 글자를 읽는 중이에요."}{" "}
+            보통 수십 초가 걸려요. 창을 닫아도 ‘최근 찾기’에서 이어 볼 수
+            있어요.
+          </p>
+        </div>
+        {pollError && (
+          <div className="alert" role="status">
+            {pollError}
+          </div>
+        )}
+      </section>
+    );
+  const hints = result.photoHints;
+  const exact = result.candidates.length > 0;
+  const candidateIds = (
+    exact ? result.candidates : (hints?.products ?? [])
+  ).map((p) => p.variantId);
+  const failed =
+    result.analysis?.status === "needs_information" &&
+    ["provider_error", "invalid_model_output"].includes(result.analysis.reason);
+  const conflicting =
+    result.analysis?.status === "needs_information" &&
+    result.analysis.reason === "conflicting_identity";
+  const noMatch =
+    !byPhoto &&
+    !candidateIds.length &&
+    !products.some((p) => matchesProduct(p, result.query));
+  const issues = observation?.qualityIssues ?? [];
+  return (
+    <section className="page" aria-labelledby="page-title">
+      <p className="kicker">
+        {byPhoto ? "사진으로 찾기" : `“${result.query}” 검색`}
+        {part && <span className="intent-chip">찾는 부품 · {part}</span>}
+      </p>
+      <h1 id="page-title" tabIndex={-1}>
+        {part
+          ? `어떤 제품의 ${withObjectParticle(part)} 찾으세요?`
+          : "어떤 제품인가요?"}
+      </h1>
+      {byPhoto && !exact && hints && hints.products.length > 0 && (
+        <div className="estimate">
+          <p>
+            <strong>
+              {hints.kinds.length
+                ? `사진으로 추정한 제품 종류 · ${hints.kinds[0]}`
+                : "사진으로 추정한 후보예요"}
+            </strong>
+            모델명을 읽지 못해 사진 속 모습과 글자로 비슷한 제품을 위에
+            모았어요. 맞는 제품을 골라 주세요.
+          </p>
+        </div>
+      )}
+      {byPhoto && exact && (
+        <p className="page-lead">
+          {conflicting
+            ? "라벨의 모델 글자와 브랜드·용량 정보가 서로 달라요. 같은 제품의 사진인지 확인하고 골라 주세요."
+            : result.candidates.length > 1
+              ? "라벨의 글자와 일치하는 제품이 여러 개예요. 용량·세대를 보고 골라 주세요."
+              : "라벨의 글자와 일치하는 제품을 찾았어요. 맞으면 선택해 주세요."}
+        </p>
+      )}
+      {byPhoto && !candidateIds.length && !failed && (
+        <p className="page-lead">
+          사진만으로는 제품을 좁히지 못했어요. 아래에서 제품 이름으로 찾아
+          주세요.
+        </p>
+      )}
+      {failed && (
+        <div className="alert warning">
+          <CircleHelp size={18} />
+          <span>
+            사진에서 정보를 읽지 못했어요. 아래에서 제품을 검색하거나 사진을
+            다시 올려 주세요.
+          </span>
+        </div>
+      )}
+      {noMatch && (
+        <div className="notice">
+          <p>
+            <strong>“{result.query}”와 일치하는 등록 제품이 없어요.</strong>
+            아래 전체 제품에서 찾거나, 등록되지 않은 제품이라면 다른 방법으로
+            부품을 찾아볼 수 있어요.
+          </p>
+          <button className="outline-button" onClick={onHelp}>
+            다른 방법으로 찾기
+          </button>
+        </div>
+      )}
+      <ProductCatalog
+        key={result.id}
+        products={products}
+        category={result.category}
+        candidateIds={candidateIds}
+        candidateLabel={exact ? "모델명 일치" : "사진으로 추정"}
+        bestId={exact ? null : (hints?.best ?? null)}
+        reasons={exact ? {} : (hints?.reasons ?? {})}
+        // The part already narrows the list; the box holds only the product words.
+        initialQuery={
+          byPhoto || candidateIds.length
+            ? ""
+            : searchIntent(result.query).productQuery
+        }
+        busy={busy}
+        onSelect={onSelect}
+      />
+      <div className="page-footer">
+        <button className="text-button" onClick={onHelp}>
+          내 제품이 목록에 없어요
+        </button>
+        {byPhoto && (
+          <button className="text-button" onClick={onRetake}>
+            사진 다시 올리기
+          </button>
+        )}
+      </div>
+      {observation && (
+        <details className="observation">
+          <summary>사진에서 읽은 내용 보기</summary>
+          <div className="observation-body">
+            {issues.length > 0 && (
+              <p>
+                {issues.map((q) => (
+                  <span className="tag" key={q}>
+                    {qualityLabels[q]}
+                  </span>
+                ))}
+              </p>
+            )}
+            {observation.extractedTexts.map((t, i) => (
+              <p key={`t${i}`}>
+                <code>{t.text}</code>{" "}
+                <small>
+                  {t.legibility === "uncertain"
+                    ? "글자가 불분명해요"
+                    : "선명하게 읽힘"}
+                </small>
+              </p>
+            ))}
+            {observation.observedFeatures.map((f, i) => (
+              <p key={`f${i}`}>
+                {featureLabels[f.key]} · {f.value}
+              </p>
+            ))}
+            {!observation.extractedTexts.length &&
+              !observation.observedFeatures.length && (
+                <p>읽을 수 있는 글자나 특징이 충분하지 않았어요.</p>
+              )}
+            <p className="hint">
+              사진은 제품을 찾는 데만 쓰고, 부품이 맞는지는 제조사·판매처 자료로
+              안내해요.
+            </p>
+          </div>
+        </details>
+      )}
+    </section>
+  );
+}

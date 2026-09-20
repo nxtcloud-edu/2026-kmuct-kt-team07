@@ -48,8 +48,8 @@
 
   <!-- Internet Gateway -->
   <image href="assets/aws-icons/Res_Amazon-VPC_Internet-Gateway_48.svg" x="296" y="385" width="76" height="76" filter="url(#shadow)"/>
-  <text x="334" y="480" text-anchor="middle" class="node-title">Internet Gateway</text>
-  <text x="334" y="505" text-anchor="middle" class="node-sub">igw-0d200831c9807b920</text>
+  <text x="334" y="496" text-anchor="middle" class="node-title">Internet Gateway</text>
+  <text x="334" y="520" text-anchor="middle" class="node-sub">igw-0d200831c9807b920</text>
 
   <!-- Security group -->
   <rect x="544" y="340" width="578" height="268" rx="8" class="dash"/>
@@ -90,8 +90,7 @@
   <path d="M38 495c0-45 22-69 50-69s50 24 50 69v18H38Z" fill="none" stroke="#232f3e" stroke-width="4"/>
   <text x="88" y="550" text-anchor="middle" class="node-title">사용자</text>
   <path d="M138 454H296" class="arrow"/>
-  <text x="216" y="437" text-anchor="middle" class="edge">HTTPS</text>
-  <text x="216" y="475" text-anchor="middle" class="detail">18.208.163.160</text>
+  <text x="216" y="432" text-anchor="middle" class="edge">HTTPS · 18.208.163.160</text>
 
   <!-- Internet to Caddy -->
   <path d="M372 423H448V457H770" class="arrow"/>

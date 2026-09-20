@@ -1,8 +1,11 @@
 import { searchIntent } from "./search-intent.js";
 import type { Category, Product, ProductGroup } from "./domain.js";
 import { brandAliases, capacityKey } from "./product-identity.js";
+import { productKind } from "./product-kind.js";
 
 export type CatalogProduct = Product & {
+  /** Everyday product type for display and discovery, e.g. "공기청정기". */
+  kind: string;
   availableCategories: Category[];
   domesticCategories: Category[];
   orderableCategories: Category[];
@@ -23,6 +26,9 @@ export function matchesProduct(product: Product, query: string): boolean {
     product.capacity ?? "",
     product.generation ?? "",
     ...product.aliases,
+    // "삼성 공기청정기" must find models whose names are only codes.
+    productKind(product).kind,
+    ...productKind(product).words,
   ].map(normalize);
   const normalizedQuery = searchIntent(query).productQuery.normalize("NFKC");
   // A volume is an exact constraint: 50ml must not match 350ml or 500ml.
@@ -97,4 +103,43 @@ export function interleaveProductGroups(
     for (const items of buckets) if (items[index]) result.push(items[index]!);
   }
   return result;
+}
+
+/**
+ * Orders matches for a search box: the typed model code first, then models that
+ * start with it, then products whose photo helps the user recognise them.
+ */
+export function suggestProducts(
+  products: CatalogProduct[],
+  query: string,
+  limit = 6,
+): CatalogProduct[] {
+  const typed = normalize(searchIntent(query).productQuery);
+  if (!typed) return [];
+  const rank = (p: CatalogProduct) => {
+    const names = [p.modelName, ...p.aliases].map(normalize);
+    return names.includes(typed)
+      ? 0
+      : names.some((n) => n.startsWith(typed))
+        ? 1
+        : names.some((n) => n.includes(typed))
+          ? 2
+          : 3;
+  };
+  // A part the catalog lacks for this product must not hide the product itself.
+  const withPart = filterProducts(products, query);
+  return (
+    withPart.length
+      ? withPart
+      : products.filter((p) => matchesProduct(p, query))
+  )
+    .map((p, index) => ({ p, index, rank: rank(p) }))
+    .sort(
+      (a, b) =>
+        a.rank - b.rank ||
+        Number(Boolean(b.p.image)) - Number(Boolean(a.p.image)) ||
+        a.index - b.index,
+    )
+    .slice(0, limit)
+    .map((x) => x.p);
 }
