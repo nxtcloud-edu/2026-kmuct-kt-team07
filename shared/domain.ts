@@ -71,6 +71,19 @@ export const offerSchema = z.strictObject({
   condition: z.enum(["new", "used", "unknown"]),
   stock: z.enum(["in_stock", "out_of_stock", "unavailable", "unknown"]),
   stockCheckedAt: z.iso.datetime().optional(),
+  linkCheck: z
+    .strictObject({
+      status: z.enum([
+        "reachable",
+        "redirected",
+        "broken",
+        "blocked",
+        "network_error",
+      ]),
+      checkedAt: z.iso.datetime(),
+      httpStatus: z.number().int().min(100).max(599).optional(),
+    })
+    .optional(),
   region: text,
   market: z.enum(["domestic", "overseas", "unknown"]).default("unknown"),
   optionLabel: text.optional(),

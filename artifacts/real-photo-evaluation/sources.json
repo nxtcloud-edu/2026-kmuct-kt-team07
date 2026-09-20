@@ -1,0 +1,40 @@
+{
+  "scope": "Public manufacturer product photographs, local evaluation only; not licensed for public redistribution. URLs and filenames are never included in AI input.",
+  "fixtures": [
+    {
+      "id": "brake",
+      "source": "https://bike.shimano.com/en-NZ/products/components/pdp.P-BR-MT200.html",
+      "url": "https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICBrake/cg4SHICBrakeHydraulicDiscBrake/P-BR-MT200_2019NPC0060.jpg/jcr:content/renditions/P-BR-MT200_2019NPC0060_750_750.jpeg"
+    },
+    {
+      "id": "cutter",
+      "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+      "url": "https://olfa.com/cdn/shop/products/9a5d94cf33e44745ba78132eb3321968.800.jpg?v=1627392851"
+    },
+    {
+      "id": "eraser",
+      "source": "https://www.tombow.com/en/products/mono_zero/",
+      "url": "https://www.tombow.com/files/2012/12/mono_zero_main.png"
+    },
+    {
+      "id": "bookcase",
+      "source": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-30522041/",
+      "url": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590291_pe1038930_s5.jpg"
+    },
+    {
+      "id": "remote",
+      "source": "https://www.dyson.co.kr/remote-control-969154-02",
+      "url": "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/support-relations/969154-02.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1270"
+    },
+    {
+      "id": "cutter-package",
+      "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+      "url": "https://olfa.com/cdn/shop/products/d4d0aaeee5424dc7bf671798c1f05315.800.jpg?v=1620908949"
+    },
+    {
+      "id": "cutter-back",
+      "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+      "url": "https://olfa.com/cdn/shop/products/OLFAPL-1Back.jpg?v=1627392860"
+    }
+  ]
+}

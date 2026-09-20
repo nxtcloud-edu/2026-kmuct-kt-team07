@@ -1,0 +1,658 @@
+{
+  "checkedAt": "2026-09-20T04:46:03.944Z",
+  "scope": "Public manufacturer product photographs. Six cases without an exact visible model code and one legible package (or a --only subset). Small functional evaluation; not field accuracy or an improvement percentage.",
+  "reports": [
+    {
+      "id": "brake",
+      "expected": [],
+      "brand": "SHIMANO",
+      "note": "Brand visible; BR-MT200 absent.",
+      "source": {
+        "id": "brake",
+        "source": "https://bike.shimano.com/en-NZ/products/components/pdp.P-BR-MT200.html",
+        "url": "https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICBrake/cg4SHICBrakeHydraulicDiscBrake/P-BR-MT200_2019NPC0060.jpg/jcr:content/renditions/P-BR-MT200_2019NPC0060_750_750.jpeg"
+      },
+      "normalizedSha256": "1c8eb1c361f2ec8c6155732a147f27d6ecbd2934521ad513e155f99b814e56a9",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "other",
+              "description": "호스가 연결된 검은색 자전거 브레이크 캘리퍼 형태의 본체",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "SHIMANO",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "상단에 검은색 호스와 은색 육각 연결부가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "양쪽 끝에 장착용으로 보이는 구멍이 있는 돌출부가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "검은색 본체 안쪽에 금속색 원형 부품이 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "model",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 4300,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2148,
+          "completionTokens": 305
+        }
+      ],
+      "validationIssues": []
+    },
+    {
+      "id": "cutter",
+      "expected": [],
+      "brand": "OLFA",
+      "note": "Brand visible; PL-1 absent.",
+      "source": {
+        "id": "cutter",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/9a5d94cf33e44745ba78132eb3321968.800.jpg?v=1627392851"
+      },
+      "normalizedSha256": "1600df608bb56f733939a29d300c3c485bc8764c7f7f6e93fc0f4aa0b23488b9",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "blade",
+              "description": "노란색 몸체에서 분절된 금속 칼날이 돌출된 형태",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "OLFA",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "JAPAN",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "LOCK",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "분절선이 있는 금속 칼날이 몸체 앞쪽으로 돌출됨",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "검은색 슬라이더와 빨간색 잠금 부품이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "노란색과 검은색의 길쭉한 손잡이 몸체",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 4618,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2197,
+          "completionTokens": 375
+        }
+      ],
+      "validationIssues": []
+    },
+    {
+      "id": "eraser",
+      "expected": [],
+      "brand": "Tombow",
+      "note": "MONO zero visible; EH-KUR and round/rectangular variant not written.",
+      "source": {
+        "id": "eraser",
+        "source": "https://www.tombow.com/en/products/mono_zero/",
+        "url": "https://www.tombow.com/files/2012/12/mono_zero_main.png"
+      },
+      "normalizedSha256": "90e2b6f4bd47b572536d32c0ca1885782c3ead5ba07549195a0659f896bc77a9",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "eraser",
+              "description": "흰색·검은색 막대형 본체와 금속 선단, 상단 클립이 보이는 문구류",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "MONO zero",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "Tombow",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "ELASTOMER ERASER",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "uncertain"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "상단에 흰색 직사각형 클립이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "하단에 짧은 금속 원통형 선단이 돌출됨",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "본체 측면에 파란색 세로 부품이 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 3040,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2148,
+          "completionTokens": 251
+        }
+      ],
+      "validationIssues": []
+    },
+    {
+      "id": "bookcase",
+      "expected": [],
+      "brand": "",
+      "note": "No brand, model or dimensions printed.",
+      "source": {
+        "id": "bookcase",
+        "source": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-30522041/",
+        "url": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590291_pe1038930_s5.jpg"
+      },
+      "normalizedSha256": "58f785d2033994f12f798188eb399d7d977b644d0130cf892699ebd402687688",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "shelf",
+              "description": "흰색의 세로로 긴 개방형 선반 가구로, 여러 장의 수평 선반판이 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "양쪽 측판 안쪽에 여러 줄의 작은 구멍이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "흰색 직사각형 선반판 여러 장과 뒤판이 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 2822,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 3508,
+          "completionTokens": 155
+        }
+      ],
+      "validationIssues": []
+    },
+    {
+      "id": "remote",
+      "expected": [],
+      "brand": "",
+      "note": "No brand or model code visible.",
+      "source": {
+        "id": "remote",
+        "source": "https://www.dyson.co.kr/remote-control-969154-02",
+        "url": "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/support-relations/969154-02.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1270"
+      },
+      "normalizedSha256": "cb0284010643cfaab10870314b37d45b7ad3c945fbd6e5de16836a2c2df94347",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "remote",
+              "description": "흰색의 길쭉한 직사각형 리모컨 형태이며 앞면 상단에 여러 원형·타원형 버튼이 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "AUTO",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "앞면에 전원 기호, AUTO, 달 모양 등 버튼이 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [
+            "subject_too_small"
+          ],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 2191,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2172,
+          "completionTokens": 155
+        }
+      ],
+      "validationIssues": []
+    },
+    {
+      "id": "cutter-package",
+      "expected": [
+        "olfa-pl-1"
+      ],
+      "brand": "OLFA",
+      "note": "OLFA and PL-1 printed on package.",
+      "source": {
+        "id": "cutter-package",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/d4d0aaeee5424dc7bf671798c1f05315.800.jpg?v=1620908949"
+      },
+      "normalizedSha256": "b728e89a4e563f4fb4e5f7a7d1433c7522add9ce24646ca9de9658c9752e0675",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "blade",
+              "description": "노란색·회색 몸체의 스냅오프 칼과 분절형 은색 날이 포장에 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "OLFA",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "PL-1",
+              "imageId": "image-1",
+              "role": "model",
+              "legibility": "clear"
+            },
+            {
+              "text": "5021",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "18mm",
+              "imageId": "image-1",
+              "role": "capacity",
+              "legibility": "clear"
+            },
+            {
+              "text": "3/4\"",
+              "imageId": "image-1",
+              "role": "capacity",
+              "legibility": "clear"
+            },
+            {
+              "text": "HEAVY DUTY SNAP-OFF KNIFE",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "8 BLADES IN",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "3 BLADES INCLUDED",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "GENERAL PURPOSE SILVER BLADE",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "MULTI-BLADE AUTO-LOAD",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "CLASSIC",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "LIMITED LIFETIME WARRANTY",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "회색 금속 레일과 분절형 은색 날이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "검은색 슬라이더와 노란색 손잡이 몸체가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "포장 그림에 날 위치 번호 1~8이 표시됨",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [
+          {
+            "originalText": "PL-1",
+            "normalizedText": "PL1",
+            "imageId": "image-1",
+            "legibility": "clear",
+            "matchedVariantIds": [
+              "olfa-pl-1"
+            ]
+          }
+        ],
+        "candidateVariantIds": [
+          "olfa-pl-1"
+        ],
+        "attempts": 1,
+        "status": "observed"
+      },
+      "calls": [
+        {
+          "elapsedMs": 4481,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1872,
+          "completionTokens": 462
+        }
+      ],
+      "validationIssues": []
+    },
+    {
+      "id": "cutter-back",
+      "expected": [],
+      "brand": "OLFA",
+      "note": "Brand and sticker codes visible, but PL-1 absent.",
+      "source": {
+        "id": "cutter-back",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/OLFAPL-1Back.jpg?v=1627392860"
+      },
+      "normalizedSha256": "acf1ff113288dd75318a573fd1be8b03fcec33ed40ec16722ccb755cb16e2430",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "blade",
+              "description": "노란색 몸체 앞쪽에 회색 금속 칼날이 돌출되어 있음",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "OLFA",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "260500",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "0808-SI",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "MAX 6",
+              "imageId": "image-1",
+              "role": "capacity",
+              "legibility": "clear"
+            },
+            {
+              "text": "LOCK",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "UNLOCK",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "노란색 직선형 몸체와 앞쪽의 돌출된 회색 금속 칼날",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "칼날 고정부에 원형 금속 조임 손잡이가 있음",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "몸체 후단에 빨간색 UNLOCK 버튼이 있음",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "몸체 중앙 라벨에 칼날 취급 그림이 표시됨",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "model",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 7028,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2472,
+          "completionTokens": 609
+        }
+      ],
+      "validationIssues": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-09-20T04:49:56.130Z",
+  "reviews": [
+    {
+      "partId": "samsung-cfx-g100d",
+      "url": "https://www.samsungsvc.co.kr/shop/product/0000011344",
+      "skuAndOptionConfirmed": true,
+      "enabledPurchaseButton": true,
+      "domesticDeliveryTerms": true,
+      "checkoutAttempted": false,
+      "addressSpecificStockConfirmed": false
+    },
+    {
+      "partId": "lg-adq75133532",
+      "url": "https://www.lge.co.kr/care-accessories/aero-tower-furniture/adq75133532",
+      "skuAndOptionConfirmed": true,
+      "enabledPurchaseButton": true,
+      "domesticDeliveryTerms": true,
+      "checkoutAttempted": false,
+      "addressSpecificStockConfirmed": false
+    }
+  ],
+  "stockDisplay": "확인 당시 주문 가능; 24시간 후 미확인으로 만료",
+  "lgNote": "Explicitly a specialized pre-filter, not the main HEPA/filter assembly."
+}

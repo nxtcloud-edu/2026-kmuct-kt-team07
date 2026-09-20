@@ -1,0 +1,195 @@
+{
+  "checkedAt": "2026-09-20",
+  "before": {
+    "products": 301,
+    "parts": 106
+  },
+  "after": {
+    "products": 405,
+    "parts": 111
+  },
+  "review": [
+    {
+      "source": {
+        "url": "https://www.samsungsvc.co.kr/shop/product/0000011344",
+        "title": "삼성전자서비스 CFX-G100D 적용 모델 목록",
+        "checkedAt": "2026-09-20",
+        "scope": "content_reviewed"
+      },
+      "modelCodes": [
+        "AX34A5310WWD",
+        "AX34M3020WWD",
+        "AX34N3020WWD",
+        "AX34N3020WED",
+        "AX34R3020WWD",
+        "AX34T3000WWD",
+        "AX40A5310WMD",
+        "AX40A5311WMD",
+        "AX40M3030WMD",
+        "AX40M3040WMD",
+        "AX40M3050DMD",
+        "AX40M6050WMD",
+        "AX40M6580DMD",
+        "AX40M6581WMD",
+        "AX40N3030WMD",
+        "AX40N3080DMD",
+        "AX40N3081WMD",
+        "AX40R3030WMD",
+        "AX40R3080WMD",
+        "AX40R3081WMD",
+        "AX40T3300WMD",
+        "AX40T3301WMD",
+        "AX40T3320WMD",
+        "AX46N6580DMD",
+        "AX46N6580WMD",
+        "AX46N6080WMD",
+        "AX46R6080WMD",
+        "AX46R6580WMD"
+      ],
+      "excludedCodes": [
+        "CFX-G100D"
+      ],
+      "note": "Filter own code excluded from product count."
+    },
+    {
+      "source": {
+        "url": "https://www.lge.co.kr/care-accessories/aero-tower-furniture/adq75133532",
+        "title": "LG ADQ75133532 사용 가능한 모델 목록",
+        "checkedAt": "2026-09-20",
+        "scope": "content_reviewed"
+      },
+      "modelCodes": [
+        "AS062PRHAR.AKOR",
+        "AS062PRHAT.AKOR",
+        "AS062PRHWR.AKOR",
+        "AS062PRHWT.AKOR",
+        "AS062PRHYR.AKOR",
+        "AS062PRHYT.AKOR",
+        "AS062PWHAR.AKOR",
+        "AS062PWHAT.AKOR",
+        "AS062PWHRR.AKOR",
+        "AS062PWHRT.AKOR",
+        "AS062PWHYR.AKOR",
+        "AS062PWHYT.AKOR",
+        "AS062PYHAR.AKOR",
+        "AS062PYHAT.AKOR",
+        "AS062PYHRR.AKOR",
+        "AS062PYHRT.AKOR",
+        "AS062PYHWR.AKOR",
+        "AS062PYHWT.AKOR",
+        "AS063PWGCR.AKOR",
+        "AS063PWGCT.AKOR",
+        "AS064PBBAR.AKOR",
+        "AS064PCBAR.AKOR",
+        "AS064PWBAR.AKOR",
+        "AS065CWHA.AKOR",
+        "AS065PWHA.AKOR",
+        "AS065SWHA.AKOR",
+        "AS105GWJC.AKOR",
+        "AS155GWDL.AKOR",
+        "FS061PBHA.AKOR",
+        "FS061PBSA.AKOR",
+        "FS061PCHA.AKOR",
+        "FS061PCSA.AKOR",
+        "FS061PGGC.AKOR",
+        "FS061PGHA.AKOR",
+        "FS061PGHA.AKORR",
+        "FS061PGHAC.AKOR",
+        "FS061PGRC.AKOR",
+        "FS061PGSA.AKOR",
+        "FS061PGSA.AKORR",
+        "FS061PRHA.AKOR",
+        "FS061PRSA.AKOR",
+        "FS061PSGC.AKOR",
+        "FS061PSHA.AKOR",
+        "FS061PSHA.AKORR",
+        "FS061PSRC.AKOR",
+        "FS061PSSA.AKOR",
+        "FS061PSSA.AKORR",
+        "FS061PSSABM.AKOR",
+        "FS061PWHA.AKOR",
+        "FS061PWSA.AKOR",
+        "FS062PYGA.AKOR",
+        "FS062PYGA.AKORR",
+        "FS062PYRA.AKOR",
+        "FS062PZGA.AKOR",
+        "FS062PZGA.AKORR",
+        "FS062PZRA.AKOR",
+        "FS063PBDA.AKOR",
+        "FS063PGDA.AKOR",
+        "FS063PGDAM.AKOR",
+        "FS063PGJA.AKOR",
+        "FS063PSCC.AKOR",
+        "FS063PSCCM.AKOR",
+        "FS063PSDA.AKOR",
+        "FS063PSDAM.AKOR",
+        "FS063PSGC.AKOR",
+        "FS063PSHA.AKOR",
+        "FS063PWDA.AKOR",
+        "FS063PWDAM.AKOR",
+        "FS064PGJA.AKOR",
+        "FS064PSJA.AKOR",
+        "FS064PSLC.AKOR",
+        "FS065PSJC.AKOR",
+        "FS065PSKA.AKOR"
+      ],
+      "excludedCodes": [
+        "P2EUQG11",
+        "P2EUQH11",
+        "PFPCBA01"
+      ],
+      "note": "Only AS/FS appliance model codes imported; other accessory codes excluded. Shared base code remains ambiguous."
+    },
+    {
+      "source": {
+        "url": "https://www.ikea.com/kr/ko/p/besta-storage-combination-with-doors-black-brown-bjoerkoeviken-stubbarp-brown-stained-oak-veneer-s89432897/",
+        "title": "IKEA 894.328.97 포함된 제품 구성",
+        "checkedAt": "2026-09-20",
+        "scope": "content_reviewed"
+      },
+      "modelCodes": [
+        "89432897"
+      ],
+      "parts": [
+        "60261259",
+        "90352682"
+      ]
+    },
+    {
+      "source": {
+        "url": "https://www.ikea.com/kr/ko/p/besta-storage-combination-with-doors-white-foervaltare-white-s09598066/",
+        "title": "IKEA 095.980.66 포함된 제품 구성",
+        "checkedAt": "2026-09-20",
+        "scope": "content_reviewed"
+      },
+      "modelCodes": [
+        "09598066"
+      ],
+      "parts": [
+        "60261259",
+        "70352683"
+      ]
+    },
+    {
+      "source": {
+        "url": "https://www.ikea.com/kr/ko/p/besta-wall-mounted-cabinet-combination-white-foervaltare-white-s59597738/",
+        "title": "IKEA 595.977.38 포함된 제품 구성",
+        "checkedAt": "2026-09-20",
+        "scope": "content_reviewed"
+      },
+      "modelCodes": [
+        "59597738"
+      ],
+      "parts": [
+        "60261259",
+        "70352683"
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "url": "https://www.ikea.com/kr/ko/p/hjaelpa-standard-hinge-40387575/",
+      "reason": "Redirects to general catalog; not added as purchase route."
+    }
+  ]
+}

@@ -9,3 +9,6 @@ dist/
 *.sqlite*
 .DS_Store
 dist-server/
+
+# Manufacturer photos are local evaluation inputs, not redistributable app assets.
+artifacts/real-photo-evaluation/*.image

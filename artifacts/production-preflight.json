@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-09-20T04:51:23.738Z",
+  "image": "parts-finder:preflight-20260920",
+  "externalDeployment": false,
+  "checks": {
+    "health": true,
+    "secureHttpOnlySameSiteCookie": true,
+    "csp": true,
+    "hsts": true,
+    "csrf": true,
+    "ownership": true,
+    "sqliteCreateReadUpdate": true,
+    "catalogCount": 405,
+    "productToPurchasePath": true,
+    "privatePaths": [
+      {
+        "path": "/.env",
+        "notExposed": true
+      },
+      {
+        "path": "/.data/parts.sqlite",
+        "notExposed": true
+      },
+      {
+        "path": "/data/catalog.json",
+        "notExposed": true
+      },
+      {
+        "path": "/artifacts/real-photo-evaluation/report.json",
+        "notExposed": true
+      }
+    ],
+    "nonRootRuntime": true,
+    "noEnvFilePackaged": true,
+    "linuxSharpDecode": true,
+    "linuxNormalizedBytes": 274717
+  },
+  "limits": [
+    "Local HTTP transport used only to inspect production headers; public HTTPS/DNS not deployed.",
+    "Live AI tested separately using the configured gateway; no credentials passed to this container."
+  ]
+}

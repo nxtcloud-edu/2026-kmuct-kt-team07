@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-09-20T04:45:05.024Z",
+  "scope": "Public manufacturer product photographs. Six cases without an exact visible model code and one legible package (or a --only subset). Small functional evaluation; not field accuracy or an improvement percentage.",
+  "reports": [
+    {
+      "id": "cutter-package",
+      "expected": [
+        "olfa-pl-1"
+      ],
+      "brand": "OLFA",
+      "note": "OLFA and PL-1 printed on package.",
+      "source": {
+        "id": "cutter-package",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/d4d0aaeee5424dc7bf671798c1f05315.800.jpg?v=1620908949"
+      },
+      "normalizedSha256": "b728e89a4e563f4fb4e5f7a7d1433c7522add9ce24646ca9de9658c9752e0675",
+      "passed": false,
+      "brandRead": false,
+      "result": {
+        "status": "needs_information",
+        "reason": "invalid_model_output",
+        "attempts": 2,
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 6668,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1714,
+          "completionTokens": 628
+        },
+        {
+          "elapsedMs": 6979,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1747,
+          "completionTokens": 684
+        }
+      ],
+      "validationIssues": [
+        [
+          {
+            "code": "too_big",
+            "path": [
+              "extractedTexts"
+            ],
+            "message": "Too big: expected array to have <=12 items"
+          }
+        ],
+        [
+          {
+            "code": "invalid_type",
+            "path": [
+              "categoryCandidates",
+              0,
+              "imageIds"
+            ],
+            "message": "Invalid input: expected array, received undefined"
+          },
+          {
+            "code": "invalid_type",
+            "path": [
+              "categoryCandidates",
+              1,
+              "imageIds"
+            ],
+            "message": "Invalid input: expected array, received undefined"
+          },
+          {
+            "code": "too_big",
+            "path": [
+              "extractedTexts"
+            ],
+            "message": "Too big: expected array to have <=12 items"
+          }
+        ]
+      ]
+    }
+  ]
+}

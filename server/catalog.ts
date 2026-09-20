@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { catalogSchema, type Catalog } from "../shared/domain.js";
 import type { CatalogProduct } from "../shared/catalog-search.js";
 import { reviewEvidence } from "./resolver.js";
-import { offerAvailability } from "../shared/availability.js";
+import { offerAvailability, offerLinkUsable } from "../shared/availability.js";
 
 export function catalogProducts(catalog: Catalog): CatalogProduct[] {
   return catalog.products.map((product) => {
@@ -25,6 +25,7 @@ export function catalogProducts(catalog: Catalog): CatalogProduct[] {
                 (o) =>
                   o.partId === p.partId &&
                   o.market === "domestic" &&
+                  offerLinkUsable(o) &&
                   offerAvailability(o).stock === "in_stock",
               ),
             )
@@ -39,6 +40,7 @@ export function catalogProducts(catalog: Catalog): CatalogProduct[] {
                 (o) =>
                   o.partId === p.partId &&
                   o.market === "domestic" &&
+                  offerLinkUsable(o) &&
                   o.stock !== "unavailable",
               ),
             )

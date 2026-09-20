@@ -131,6 +131,12 @@
   min-width: 0;
 }
 @media (max-width: 600px) {
+  .ledger-head {
+    display: none;
+  }
+  .ledger-row {
+    overflow-wrap: anywhere;
+  }
   .catalog-filters {
     grid-template-columns: 1fr;
   }

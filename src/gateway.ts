@@ -68,7 +68,7 @@ export function buildGatewayInput(
             ? [
                 {
                   type: "text",
-                  text: "이전 응답이 출력 계약을 충족하지 못했습니다. 스키마를 지켜 record_observation 도구를 정확히 한 번 호출하세요.",
+                  text: "이전 응답이 출력 계약을 충족하지 못했습니다. extractedTexts는 브랜드·모델 코드·용량을 우선해 최대 12개, 각 text는 최대 60자로 제한하세요. categoryCandidates 각 항목에는 imageIds 배열이 필수입니다. observedFeatures는 최대 10개입니다. 필수 필드와 enum을 지켜 record_observation 도구를 정확히 한 번 호출하세요.",
                 },
               ]
             : []),

@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-09-20T04:38:38.287Z",
+  "automatedChecks": {
+    "command": "npm run check",
+    "testsPassed": 64,
+    "buildPassed": true,
+    "finalClientBuildPassed": true
+  },
+  "liveAi": {
+    "cases": 3,
+    "passed": 3,
+    "input": "synthetic labels",
+    "realPhotoAccuracyMeasured": false
+  },
+  "browser": {
+    "url": "http://localhost:3001/",
+    "checks": [
+      "TP04 selects Dyson remote 969154-02",
+      "BILLY 305.220.41 selects 36x26cm shelf 50525270, preserves pre-2014 exclusion",
+      "catalog whole-life filtering does not require category other",
+      "category list covers 13 catalog groups"
+    ],
+    "mobileWidthsChecked": [
+      360,
+      390
+    ],
+    "horizontalOverflow": false,
+    "consoleErrorsObserved": 0
+  },
+  "deploymentPerformed": false
+}

@@ -1,5 +1,7 @@
 // Catalog discovery helpers; never manufacture model codes or compatibility.
 export const brandAliases: Record<string, string[]> = {
+  삼성: ["삼성", "삼성전자", "SAMSUNG"],
+  LG: ["LG", "LG전자", "엘지", "엘지전자"],
   부가부: ["부가부", "BUGABOO"],
   싱거: ["싱거", "싱어", "SINGER"],
   데카트론: ["데카트론", "DECATHLON", "FORCLAZ", "포클라즈", "QUECHUA", "퀘차"],

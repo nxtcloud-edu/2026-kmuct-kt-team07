@@ -12,7 +12,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev --ignore-scripts --no-audit --no-fund && mkdir .data && chown node:node .data
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/dist-server ./dist-server
-COPY --from=build /app/data ./data
+COPY --from=build /app/data/catalog.json ./data/catalog.json
 COPY --from=build /app/tests/fixtures ./tests/fixtures
 USER node
 EXPOSE 3001

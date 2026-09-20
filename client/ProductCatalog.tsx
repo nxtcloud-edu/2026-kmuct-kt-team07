@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Package, Search } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 import {
   categories,
   productGroups,
@@ -45,6 +45,7 @@ export default function ProductCatalog({
   const [orderableOnly, setOrderableOnly] = useState(false);
   const [suggestedOnly, setSuggestedOnly] = useState(candidateIds.length > 0);
   const [limit, setLimit] = useState(8);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const scoped = products.filter((p) => !group || p.group === group);
   const brands = [...new Set(scoped.map((p) => p.brand))];
   const capacities = [
@@ -90,8 +91,8 @@ export default function ProductCatalog({
     setSuggestedOnly(false);
     setLimit(8);
   }
-  return (
-    <div className="catalog-browser">
+  const tools = (
+    <>
       <label className="search-field">
         <Search size={18} />
         <input
@@ -207,30 +208,55 @@ export default function ProductCatalog({
           {categoryLabel}부품 자료 있는 제품
         </label>
       </div>
+    </>
+  );
+  return (
+    <div className="catalog-browser">
+      {candidateIds.length > 0 ? (
+        <details
+          className="catalog-tools"
+          open={toolsOpen}
+          onToggle={(e) => {
+            const open = e.currentTarget.open;
+            setToolsOpen(open);
+            // Opening the tools means the candidates were not enough.
+            if (open && !toolsOpen) setSuggestedOnly(false);
+          }}
+        >
+          <summary>후보에 없다면 전체 등록 제품에서 검색</summary>
+          {tools}
+        </details>
+      ) : (
+        tools
+      )}
       <p className="catalog-count" aria-live="polite">
         {matched.length}개 제품 · 모델·규격이 맞는지 확인 후 선택하세요.
       </p>
       <div className="product-options">
         {ordered.slice(0, limit).map((p) => (
-          <div className="product-option" key={p.variantId}>
-            <div className="product-symbol">
-              <Package size={24} />
-            </div>
+          <div
+            className={`product-option${candidateIds.includes(p.variantId) ? " candidate" : ""}`}
+            key={p.variantId}
+          >
             <div>
+              <strong>
+                {p.modelName}
+                <span className="product-spec">
+                  {[
+                    p.capacity ??
+                      (p.group === "drinkware" ? "용량 확인 필요" : null),
+                    p.generation,
+                  ]
+                    .filter(Boolean)
+                    .join(" · ")}
+                </span>
+              </strong>
               <small>
+                {candidateIds.includes(p.variantId) && (
+                  <span className="candidate-label">{candidateLabel}</span>
+                )}
                 {productGroups[p.group]} · {p.brand}
-                {candidateIds.includes(p.variantId)
-                  ? ` · ${candidateLabel}`
-                  : ""}
               </small>
-              <strong>{p.modelName}</strong>
-              <span>
-                {p.capacity ??
-                  (p.group === "drinkware"
-                    ? "용량 확인 필요"
-                    : "모델·규격 확인")}
-                {p.generation ? ` · ${p.generation}` : ""}
-              </span>
               <p className="product-description">{p.description}</p>
               <span className="coverage-label">
                 부품 자료:{" "}
@@ -256,7 +282,11 @@ export default function ProductCatalog({
               </a>
             </div>
             <button
-              className="outline-button"
+              className={
+                candidateIds.includes(p.variantId)
+                  ? "primary"
+                  : "outline-button"
+              }
               disabled={busy}
               onClick={() => onSelect(p.variantId)}
             >

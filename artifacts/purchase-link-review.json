@@ -1,0 +1,660 @@
+{
+  "checkedAt": "2026-09-20T04:47:53.763Z",
+  "scope": "HTTP access only, not stock or compatibility validation. Manual content reviews remain separate.",
+  "results": [
+    {
+      "url": "https://www.hydroflask.com/wide-mouth-flex-cap",
+      "status": "blocked",
+      "checkedAt": "2026-09-20T04:47:43.922Z",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://nalgene.com/product/wide-mouth-cap/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:43.875Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://nalgene.com/product/16oz-wide-mouth-cap/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:43.921Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.humangear.com/shop/p/capcap",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:43.925Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.humangear.com/capcap-legacy",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:44.156Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jnl-%ED%8C%A8%ED%82%B9%EC%84%B8%ED%8A%B8jnl-%EA%B3%B5%EC%9A%A9/472/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:44.279Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jnr-%ED%8C%A8%ED%82%B9%EC%84%B8%ED%8A%B8jnr-%EA%B3%B5%EC%9A%A9/547/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:44.781Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%ACjnl-500ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1077/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:44.300Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jnr-%EC%8B%9C%EC%A6%8C3-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1148/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:44.988Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/fhl-%ED%8C%A8%ED%82%B9fhl-%EA%B3%B5%EC%9A%A9/482/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.058Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/fhl-%EC%8A%A4%ED%8A%B8%EB%A1%9C%EC%84%B8%ED%8A%B8/592/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.189Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/fhl-%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%BA%A1%EC%9C%A0%EB%8B%9B/594/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.385Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-%ED%8C%A8%ED%82%B9-%EC%84%B8%ED%8A%B8/1240/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.426Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-400ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1242/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.450Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-550ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1243/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.595Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-750ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1244/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.754Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-%ED%8C%A8%ED%82%B9/1209/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.771Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-600ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1207/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.788Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-800ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1208/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:45.946Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80380",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.168Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-1l-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1267/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.095Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80397",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.303Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80132",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.142Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80401",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.454Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80281",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.461Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80151",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.481Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80280",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.473Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80431",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.593Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80370",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.597Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80371",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.623Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80368",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.620Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20309",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.701Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80058",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.703Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80061",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.730Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80071",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.749Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80060",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.823Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80059",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.820Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80211",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.839Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80221",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.876Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80180",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.919Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=153",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.968Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=154",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.940Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=149",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.002Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=152",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:46.973Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1317",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.578Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1246",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.594Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1211",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.618Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1217",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.609Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1204",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.926Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1063",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.947Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1042",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.971Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1056",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:47.967Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1041",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.263Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=908",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.308Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=917",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.383Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=879",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.387Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=868",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.618Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=870",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.663Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=801",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.752Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=818",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.735Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=798",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:48.961Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=778",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.015Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=765",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.086Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=763",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.120Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=722",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.311Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=719",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.363Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=668",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.446Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=577",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.495Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=478",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.799Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=476",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.763Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=473",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.818Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=474",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:49.870Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=475",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.143Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=477",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.148Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=481",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.194Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=489",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.228Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=490",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.498Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=491",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.503Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=534",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.542Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=535",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.607Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=564",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.998Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=548",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.962Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=536",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.967Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=579",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:50.981Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.dyson.co.kr/360-glass-hepa-carbon-air-purifier-filter",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.366Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.dyson.co.kr/remote-control-969154-02",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.501Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.dyson.co.kr/971432-01",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.570Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.dyson.co.kr/flexi-crevice-tool",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.606Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.dyson.co.kr/mini-soft-dusting-brush",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.629Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=576",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.345Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://thermosshop.kr/product/detail.html?product_no=565",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.341Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-shelf-white-90525273/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.670Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/billy-shelf-white-50525270/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.724Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.canyon.com/ko-kr/gear/bike-parts/brakes/brake-pads/shimano-b05s-organic-brake-pads-for-deore-and-alivio/10009969.html",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.350Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.coupang.com/vp/products/9500278061",
+      "status": "blocked",
+      "checkedAt": "2026-09-20T04:47:51.873Z",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://hottracks.kyobobook.co.kr/gift/detail/S000052491784",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.729Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://m.gsshop.com/prd/prd.gs?bnclick=main-r70_rbst70_LowestCateBestItems&iid=QQHphmTGxtXkA&mseq=421819-87&prdid=1117667170&rank=87&sectSeq=1661457",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:51.879Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?dispCatNo=1000002000300010003&goodsNo=A000000126899&trackingCd=Search_Result",
+      "status": "blocked",
+      "checkedAt": "2026-09-20T04:47:52.004Z",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://us.gardena.com/collections/quick-connect-system/products/gardena-01124",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:52.212Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.abcbike.co.kr/goods/goods_view.php?goodsNo=2268",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:52.027Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://singer-featherweight.com/products/bobbins-roll-of-10",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:52.520Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.decathlon.co.uk/p/set-of-2-hiking-pole-caps/324372/c184m8580865",
+      "status": "blocked",
+      "checkedAt": "2026-09-20T04:47:52.604Z",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://www.lge.co.kr/care-accessories/aero-tower-furniture/adq75133532",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:53.054Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/besta-soft-closing-push-open-hinge-60261259/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:53.153Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/besta-shelf-white-70352683/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:53.261Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.samsungsvc.co.kr/shop/product/0000011344",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:52.982Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.petsafe.com/p/drinkwell-carbon-replacement-filters-3-pack/PAC00-13067/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:52.259Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ikea.com/kr/ko/p/besta-shelf-black-brown-90352682/",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:53.302Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.bugaboo.com/us-en/parts/bugaboo-cameleon-3-front-wheels-MI000812.html",
+      "status": "reachable",
+      "checkedAt": "2026-09-20T04:47:52.406Z",
+      "httpStatus": 200
+    }
+  ]
+}

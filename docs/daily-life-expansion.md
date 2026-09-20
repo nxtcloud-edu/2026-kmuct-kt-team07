@@ -1,12 +1,12 @@
 # 생활 전반으로 범위 확장
 
-2026-09-20 기준. 실제 카탈로그는 **13개 분야·18개 제품 브랜드·301개 제품/적용 계열·106개 부품·106개 판매 항목·380개 적용/제외 근거**다. 동일 브랜드의 유사 외형을 근거로 부품을 연결하지 않았다. 완제품 모델, 제조사가 명시한 계열, 자전거 캘리퍼 등 관찰 대상인 구성품 모델이 함께 포함된다.
+2026-09-20 기준. 실제 카탈로그는 **13개 분야·20개 제품 브랜드·405개 제품/적용 계열·111개 부품·111개 판매 항목·487개 적용/제외 근거**다. 동일 브랜드의 유사 외형을 근거로 부품을 연결하지 않았다. 완제품 모델, 제조사가 명시한 계열, 자전거 캘리퍼 등 관찰 대상인 구성품 모델이 함께 포함된다.
 
 | 분야 | 등록 제품/계열 | 부품과 주요 근거 |
 |---|---:|---|
 | 자전거·이동용품 | 31 | [SHIMANO B05S-RX](https://bike.shimano.com/en-NZ/products/service-and-upgrade-parts/pdp.P-BP-B05S-RX.html) 적용 캘리퍼. 자전거 전체 이름으로 브레이크를 확정하지 않음 |
-| 전자제품·청소가전 | 26 | Dyson 공기청정기 14개 코드의 [필터](https://www.dyson.co.kr/360-glass-hepa-carbon-air-purifier-filter), TP04/TP07 [리모컨](https://www.dyson.co.kr/remote-control-969154-02), 청소기 12계열의 툴·호스 |
-| 가구·수납 | 4 | IKEA BILLY 폭 40/80, 높이 106/202cm. [36cm 선반](https://www.ikea.com/kr/ko/p/billy-shelf-white-50525270/), [76cm 선반](https://www.ikea.com/kr/ko/p/billy-shelf-white-90525273/), 2014년 이전 제외 조건 |
+| 전자제품·청소가전 | 127 | Dyson 공기청정기 14개 코드의 [필터](https://www.dyson.co.kr/360-glass-hepa-carbon-air-purifier-filter), TP04/TP07 [리모컨](https://www.dyson.co.kr/remote-control-969154-02), 청소기 12계열의 툴·호스 |
+| 가구·수납 | 7 | IKEA BILLY 폭 40/80, 높이 106/202cm. [36cm 선반](https://www.ikea.com/kr/ko/p/billy-shelf-white-50525270/), [76cm 선반](https://www.ikea.com/kr/ko/p/billy-shelf-white-90525273/), 2014년 이전 제외 조건 |
 | 학용품·사무용품 | 4 | UNI JETSTREAM 단색 SXR-7 적용 3계열, [Tombow MONO zero](https://www.tombow.com/en/products/mono_zero/) 원형 EH-KUR의 ER-KUR 리필 |
 | 주방·정수용품 | 8 | BRITA 정수 용기 계열의 [MAXTRA PRO](https://www.brita.kr/filters-cartridges/maxtra-pro-pure-performance-valuepack-3-cartridges). 큐브·라크·수도꼭지형에 일반화하지 않음 |
 | 욕실·개인 위생 | 10 | Philips [HX9026/98](https://www.philips.co.kr/c-p/HX9026_98/standard-sonic-toothbrush-heads) 공식 호환 목록의 전체 HX 모델, 공유 본체 코드 HX684P는 2후보 유지 |
@@ -32,5 +32,7 @@
 - `npm run check`: 관찰·게이트웨이·권한·HTTP·분야별 적용/구매 경로·교차 규격 제외·용량 정확 비교·브랜드 충돌 테스트 및 서버/클라이언트 빌드.
 - 실제 AI API로 합성 라벨 3장(DYSON TP04, SHIMANO BR-MT200, IKEA BILLY)을 검사했다. 모델 1개·1개·4개 후보 처리를 모두 통과했다. [호출 결과](../artifacts/daily-label-evaluation/report.json). 실제 물건 사진 정확도나 정확도 향상률을 측정한 결과는 아니다.
 - 신규 공개 URL 36개를 검사해 OLFA 주소 오류와 Canyon 이동 주소를 정정했다. 403·시간 초과는 접근 제한으로 취급하고 품절·단종을 추정하지 않는다. [HTTP 기록](../artifacts/catalog-daily-links.json).
-- 새 부품의 판매 상태는 모두 `unknown`이다. 외국 공식몰 경로는 해외 및 한국 배송 미확인을 표시한다. 검색 결과·제조사 근거·판매 링크를 분리하며 가격, 재고, 배송, 직접 장착을 보장하지 않는다.
+- 삼성 CFX-G100D·LG ADQ75133532는 공식몰의 활성 구매 버튼과 국내 배송 안내를 확인해 확인 시각을 기록했다. 나머지 신규 부품의 판매 상태는 `unknown`이다. 외국 공식몰 경로는 해외 및 한국 배송 미확인을 표시한다. 검색 결과·제조사 근거·판매 링크를 분리하며 가격, 재고, 배송, 직접 장착을 보장하지 않는다.
 - [검수 목록](../artifacts/catalog-daily-life-review.json)과 `data/history`에 변경 이력을 남겼다. 웹 전체 실시간 검색 API는 연결하지 않았다. 외부 배포는 실행하지 않았다.
+
+2026-09-20 추가 검증: 삼성 AX 28개 모델, LG AS/FS 전체 접미 코드 73개, IKEA BESTÅ 3개 조합과 국내 공식 부품 5개를 추가했다. LG PFPCBA01은 메인 집진 필터가 아닌 별매 특화필터임을 명시했다. 상세 검증 결과는 [배포 전 검증](predeployment-validation.md)에 기록했다.

@@ -589,7 +589,9 @@ test("daily-life request group survives HTTP flow and separates category-specifi
     ).json();
     assert.equal(selected.paths.cards[0].part.partId, "dyson-969154-02");
     const listed = await (
-      await f.request("/catalog?group=furniture&category=shelf&domestic=true")
+      await f.request(
+        "/catalog?group=furniture&category=shelf&domestic=true&q=BILLY",
+      )
     ).json();
     assert.equal(listed.products.length, 4);
     assert.ok(

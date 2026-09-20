@@ -1,0 +1,552 @@
+{
+  "checkedAt": "2026-09-20T04:44:14.798Z",
+  "scope": "Seven public manufacturer product photographs, including six cases without an exact visible model code and one legible package. Small functional evaluation; not field accuracy or an improvement percentage.",
+  "reports": [
+    {
+      "id": "brake",
+      "expected": [],
+      "brand": "SHIMANO",
+      "note": "Brand visible; BR-MT200 absent.",
+      "source": {
+        "id": "brake",
+        "source": "https://bike.shimano.com/en-NZ/products/components/pdp.P-BR-MT200.html",
+        "url": "https://dassets.shimano.com/content/dam/global/cg1SHICCycling/final/products/cg2SHICComponent/cg3SHICBrake/cg4SHICBrakeHydraulicDiscBrake/P-BR-MT200_2019NPC0060.jpg/jcr:content/renditions/P-BR-MT200_2019NPC0060_750_750.jpeg"
+      },
+      "normalizedSha256": "1c8eb1c361f2ec8c6155732a147f27d6ecbd2934521ad513e155f99b814e56a9",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [],
+          "extractedTexts": [
+            {
+              "text": "SHIMANO",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "검은색 본체에 길게 연결된 검은색 호스와 은색 육각 연결부가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "본체 양쪽에 길쭉한 장착 구멍이 있는 돌출부와 여러 개의 볼트가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "본체 상단 안쪽에 갈색 계열의 얇은 판형 부품 일부가 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "category",
+            "model"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 5700,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1990,
+          "completionTokens": 358
+        }
+      ]
+    },
+    {
+      "id": "cutter",
+      "expected": [],
+      "brand": "OLFA",
+      "note": "Brand visible; PL-1 absent.",
+      "source": {
+        "id": "cutter",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/9a5d94cf33e44745ba78132eb3321968.800.jpg?v=1627392851"
+      },
+      "normalizedSha256": "1600df608bb56f733939a29d300c3c485bc8764c7f7f6e93fc0f4aa0b23488b9",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "blade",
+              "description": "노란색·검은색 몸체에 은색 분절형 칼날이 돌출되어 있고, 검은색 슬라이더와 빨간색 잠금 부품이 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "OLFA",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "JAPAN",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "LOCK",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "은색 칼날에 여러 개의 사선형 분절선이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "몸체 중앙에 세로 홈이 있는 검은색 슬라이더가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "몸체 뒤쪽에 빨간색 잠금 부품이 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "model",
+            "capacity"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 5094,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2039,
+          "completionTokens": 397
+        }
+      ]
+    },
+    {
+      "id": "eraser",
+      "expected": [],
+      "brand": "Tombow",
+      "note": "MONO zero visible; EH-KUR and round/rectangular variant not written.",
+      "source": {
+        "id": "eraser",
+        "source": "https://www.tombow.com/en/products/mono_zero/",
+        "url": "https://www.tombow.com/files/2012/12/mono_zero_main.png"
+      },
+      "normalizedSha256": "90e2b6f4bd47b572536d32c0ca1885782c3ead5ba07549195a0659f896bc77a9",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "eraser",
+              "description": "가늘고 긴 펜 형태의 본체와 끝부분의 작은 원통형 지우개처럼 보이는 돌출부가 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "MONO",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "zero",
+              "imageId": "image-1",
+              "role": "model",
+              "legibility": "clear"
+            },
+            {
+              "text": "Tombow",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "uncertain"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "흰색·검은색·파란색의 가늘고 긴 펜형 본체, 상단 클립, 하단의 작은 원통형 돌출부가 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "capacity",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [
+          {
+            "originalText": "zero",
+            "normalizedText": "ZERO",
+            "imageId": "image-1",
+            "legibility": "clear",
+            "matchedVariantIds": []
+          }
+        ],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 6250,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1990,
+          "completionTokens": 481
+        }
+      ]
+    },
+    {
+      "id": "bookcase",
+      "expected": [],
+      "brand": "",
+      "note": "No brand, model or dimensions printed.",
+      "source": {
+        "id": "bookcase",
+        "source": "https://www.ikea.com/kr/ko/p/billy-bookcase-white-30522041/",
+        "url": "https://www.ikea.com/kr/ko/images/products/billy-bookcase-white__1590291_pe1038930_s5.jpg"
+      },
+      "normalizedSha256": "58f785d2033994f12f798188eb399d7d977b644d0130cf892699ebd402687688",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "shelf",
+              "description": "흰색의 키 큰 개방형 선반 가구로, 내부에 여러 장의 수평 선반판이 보입니다.",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "양쪽 측판과 뒤판이 있으며 앞면은 열려 있습니다.",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "왼쪽 안쪽 측판에 세로로 배열된 여러 개의 작은 구멍이 보입니다.",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "내부에 여러 칸을 이루는 수평 선반판이 보입니다.",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 4287,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 3350,
+          "completionTokens": 252
+        }
+      ]
+    },
+    {
+      "id": "remote",
+      "expected": [],
+      "brand": "",
+      "note": "No brand or model code visible.",
+      "source": {
+        "id": "remote",
+        "source": "https://www.dyson.co.kr/remote-control-969154-02",
+        "url": "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/support-relations/969154-02.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1270"
+      },
+      "normalizedSha256": "cb0284010643cfaab10870314b37d45b7ad3c945fbd6e5de16836a2c2df94347",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "remote",
+              "description": "흰색의 길쭉한 직사각형 기기에 여러 개의 원형 및 세로형 조작 버튼이 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "AUTO",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "상단에 원형 전원 기호 버튼이 보이고, 중앙에 세로로 긴 조작부와 여러 원형 아이콘 버튼이 배치되어 있음",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [
+            "subject_too_small"
+          ],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 2742,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2014,
+          "completionTokens": 171
+        }
+      ]
+    },
+    {
+      "id": "cutter-package",
+      "expected": [
+        "olfa-pl-1"
+      ],
+      "brand": "OLFA",
+      "note": "OLFA and PL-1 printed on package.",
+      "source": {
+        "id": "cutter-package",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/d4d0aaeee5424dc7bf671798c1f05315.800.jpg?v=1620908949"
+      },
+      "normalizedSha256": "b728e89a4e563f4fb4e5f7a7d1433c7522add9ce24646ca9de9658c9752e0675",
+      "passed": false,
+      "brandRead": false,
+      "result": {
+        "status": "needs_information",
+        "reason": "invalid_model_output",
+        "attempts": 2,
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 11861,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1714,
+          "completionTokens": 1165
+        },
+        {
+          "elapsedMs": 6756,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 1747,
+          "completionTokens": 650
+        }
+      ]
+    },
+    {
+      "id": "cutter-back",
+      "expected": [],
+      "brand": "OLFA",
+      "note": "Brand and sticker codes visible, but PL-1 absent.",
+      "source": {
+        "id": "cutter-back",
+        "source": "https://olfa.com/products/18mm-pl-1-multi-blade-auto-load-utility-knife",
+        "url": "https://olfa.com/cdn/shop/products/OLFAPL-1Back.jpg?v=1627392860"
+      },
+      "normalizedSha256": "acf1ff113288dd75318a573fd1be8b03fcec33ed40ec16722ccb755cb16e2430",
+      "passed": true,
+      "brandRead": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "blade",
+              "description": "노란색 몸체 전면에서 금속 절단날이 돌출된 공구가 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            },
+            {
+              "categoryKey": "other",
+              "description": "절단날, 잠금 노브, 슬라이더가 결합된 수공구 전체가 보임",
+              "imageIds": [
+                "image-1"
+              ]
+            }
+          ],
+          "extractedTexts": [
+            {
+              "text": "OLFA",
+              "imageId": "image-1",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "260500",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "0808-SI",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "MAX 6",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "LOCK",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "UNLOCK",
+              "imageId": "image-1",
+              "role": "other",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [
+            {
+              "key": "other",
+              "value": "노란색 길쭉한 몸체와 전면으로 돌출된 은색 금속날이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "날 고정부에 원형의 요철 있는 노브가 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "몸체 뒤쪽에 검은색 슬라이더와 빨간색 버튼이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "몸체 중앙 라벨에 날을 넣고 꺼내는 과정을 나타낸 그림이 보임",
+              "imageId": "image-1"
+            },
+            {
+              "key": "other",
+              "value": "돌출된 날 표면에 여러 개의 사선이 보임",
+              "imageId": "image-1"
+            }
+          ],
+          "qualityIssues": [],
+          "unknownFields": [
+            "model",
+            "capacity",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "calls": [
+        {
+          "elapsedMs": 8832,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2314,
+          "completionTokens": 791
+        }
+      ]
+    }
+  ]
+}

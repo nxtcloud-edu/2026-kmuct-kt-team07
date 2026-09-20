@@ -71,6 +71,8 @@ if (command === "import") {
       "www.abcbike.co.kr",
       "us.gardena.com",
       "www.petsafe.com",
+      "www.samsungsvc.co.kr",
+      "www.lge.co.kr",
     ]);
     const sources = [
       ...catalog.products.flatMap((p) => [p.source, p.contact]),

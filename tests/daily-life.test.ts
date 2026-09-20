@@ -14,6 +14,11 @@ import {
 } from "../shared/domain.js";
 import { matchCatalogModels, hasIdentityConflict } from "../src/catalog.js";
 import type { Observation } from "../src/observation.js";
+import {
+  offerLinkUsable,
+  offerLinkNote,
+  offerPriority,
+} from "../shared/availability.js";
 const catalog = loadCatalog();
 const products = catalogProducts(catalog);
 const observe = (
@@ -82,7 +87,11 @@ test("daily-life groups have attributed support and real detail-page offers, sep
         );
         for (const card of cards)
           for (const offer of card.offers) {
-            assert.equal(offer.stock, "unknown");
+            if (
+              ["samsung-cfx-g100d", "lg-adq75133532"].includes(offer.partId)
+            ) {
+              assert.ok(offer.stockCheckedAt && offer.optionLabel);
+            } else assert.equal(offer.stock, "unknown");
             assert.ok(!offer.source.url.includes("google.com/search"));
           }
       }
@@ -225,4 +234,94 @@ test("aftermarket bobbin claim and winder exception remain seller-attributed", (
       .partId,
     "bugaboo-cameleon-3-front",
   );
+});
+
+test("domestic appliance lists preserve full suffixes and never treat the filter code as an appliance", () => {
+  const samsung = matchCatalogModels(
+    observe("AX34A5310WWD", "SAMSUNG"),
+    catalog.products,
+  ).candidates;
+  assert.equal(samsung.length, 1);
+  assert.equal(
+    resolvePaths(catalog, samsung[0]!.variantId, "filter", "").cards[0]!.part
+      .partId,
+    "samsung-cfx-g100d",
+  );
+  assert.equal(
+    matchCatalogModels(observe("CFX-G100D"), catalog.products).candidates
+      .length,
+    0,
+  );
+  assert.equal(
+    matchCatalogModels(observe("AX34A5310"), catalog.products).candidates
+      .length,
+    0,
+  );
+  assert.equal(
+    matchCatalogModels(observe("FS061PGHA"), catalog.products).candidates
+      .length,
+    2,
+  );
+  const lg = matchCatalogModels(
+    observe("FS061PGHA.AKORR", "LG"),
+    catalog.products,
+  ).candidates;
+  assert.equal(lg.length, 1);
+  assert.equal(lg[0]!.variantId, "lg-fs061pgha-akorr");
+  assert.ok(!hasIdentityConflict(observe("FS061PGHA.AKORR", "LG"), lg));
+});
+
+test("BESTA combinations retain their listed shelf color and do not leak to BILLY", () => {
+  assert.deepEqual(
+    resolvePaths(catalog, "ikea-besta-89432897", "shelf", "").cards.map(
+      (c) => c.part.partId,
+    ),
+    ["ikea-shelf-90352682"],
+  );
+  assert.deepEqual(
+    resolvePaths(catalog, "ikea-besta-09598066", "hinge", "").cards.map(
+      (c) => c.part.partId,
+    ),
+    ["ikea-hinge-60261259"],
+  );
+  assert.equal(
+    resolvePaths(catalog, "ikea-billy-30522041", "hinge", "").cards.length,
+    0,
+  );
+});
+
+test("a broken purchase URL never changes compatibility or stock, but cannot advertise an available route", () => {
+  const sample = catalog.offers.find((o) => o.partId === "samsung-cfx-g100d")!;
+  const broken = {
+    ...sample,
+    linkCheck: {
+      status: "broken" as const,
+      checkedAt: new Date().toISOString(),
+      httpStatus: 404,
+    },
+  };
+  assert.equal(offerLinkUsable(broken), false);
+  assert.equal(broken.stock, sample.stock);
+  assert.match(offerLinkNote(broken), /품절이나 단종을 뜻하지/);
+  assert.ok(offerPriority(broken) > offerPriority(sample));
+  const modified = {
+    ...catalog,
+    offers: catalog.offers.map((o) =>
+      o.offerId === sample.offerId ? broken : o,
+    ),
+  };
+  const product = catalogProducts(modified).find(
+    (p) => p.variantId === "samsung-ax34a5310wwd",
+  )!;
+  assert.ok(product.availableCategories.includes("filter"));
+  assert.ok(!product.domesticCategories.includes("filter"));
+  const blocked = {
+    ...sample,
+    linkCheck: {
+      status: "blocked" as const,
+      checkedAt: new Date().toISOString(),
+      httpStatus: 403,
+    },
+  };
+  assert.ok(offerLinkUsable(blocked));
 });
