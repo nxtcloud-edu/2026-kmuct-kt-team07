@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-20T03:18:05.670Z",
+  "image": "parts-finder:local",
+  "mode": "production",
+  "httpHealth": 200,
+  "staticApp": 200,
+  "secureHttpOnlyCookie": true,
+  "sqliteWriteAndRead": true,
+  "modelCandidates": 3,
+  "selectedModel": "nalgene-32",
+  "aiKeyPassed": false,
+  "externalDeployment": false,
+  "linuxImageNormalization": {
+    "format": "jpeg",
+    "width": 1031,
+    "height": 1600,
+    "exifRemoved": true
+  },
+  "nonRootUser": true,
+  "envFileExcluded": true
+}

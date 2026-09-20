@@ -1,0 +1,586 @@
+{
+  "checkedAt": "2026-09-20",
+  "method": "공식 상품정보제공 고시 적용 모델 목록 확인. 모델 숫자에서 용량을 추정하지 않음. 구매/장착/실시간 재고 검증 아님.",
+  "before": {
+    "products": 52,
+    "parts": 46,
+    "offers": 46,
+    "evidence": 101
+  },
+  "after": {
+    "products": 197,
+    "parts": 88,
+    "offers": 88,
+    "evidence": 252
+  },
+  "sources": [
+    {
+      "productNo": 1317,
+      "partId": "thermos-gasket-1317",
+      "name": "올뉴 데일리 원터치 텀블러 (JNL-S) 패킹 세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1317",
+      "models": [
+        "JNL-S250K",
+        "JNL-S350K",
+        "JNL-S500K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1246,
+      "partId": "thermos-gasket-1246",
+      "name": "TKHC 패킹 세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1246",
+      "models": [
+        "TKHC-355",
+        "TKHC-355KC",
+        "TKHC-355KSB"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1217,
+      "partId": "thermos-gasket-1217",
+      "name": "TS 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1217",
+      "models": [
+        "TS-180K",
+        "TS-1801K",
+        "TS-1801KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1211,
+      "partId": "thermos-gasket-1211",
+      "name": "TKOA 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1211",
+      "models": [
+        "TKOA-150",
+        "TKOA-150KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1204,
+      "partId": "thermos-gasket-1204",
+      "name": "TKHB 패킹 세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1204",
+      "models": [
+        "TKHB-480K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1063,
+      "partId": "thermos-gasket-1063",
+      "name": "JON 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1063",
+      "models": [
+        "JON-480KSB",
+        "JON-350KC",
+        "JON-480KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1056,
+      "partId": "thermos-gasket-1056",
+      "name": "FJF 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1056",
+      "models": [
+        "FJF-580K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1042,
+      "partId": "thermos-gasket-1042",
+      "name": "JOR 500ml 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1042",
+      "models": [
+        "JOR-500K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 1041,
+      "partId": "thermos-gasket-1041",
+      "name": "JOR 250/350ml 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=1041",
+      "models": [
+        "JOR-250K",
+        "JOR-350K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 908,
+      "partId": "thermos-gasket-908",
+      "name": "JOK 패킹세트 (JOK 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=908",
+      "models": [
+        "JOK-350K",
+        "JOK-500K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 917,
+      "partId": "thermos-gasket-917",
+      "name": "TTB 패킹세트 (TTB 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=917",
+      "models": [
+        "TTB-1000K",
+        "TTB-1500K",
+        "TTB-2000K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 879,
+      "partId": "thermos-gasket-879",
+      "name": "JOO 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=879",
+      "models": [
+        "JOO-380K",
+        "JOO-500K",
+        "JOO-500KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 868,
+      "partId": "thermos-gasket-868",
+      "name": "FJH 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=868",
+      "models": [
+        "FJH-500K",
+        "FJH-350K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 870,
+      "partId": "thermos-gasket-870",
+      "name": "TKFH 패킹세트(TKFH 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=870",
+      "models": [
+        "TKFH-150",
+        "TKFH-250"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 818,
+      "partId": "thermos-gasket-818",
+      "name": "JOI 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=818",
+      "models": [
+        "JOI-350K",
+        "JOI-351K",
+        "JOI-501K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 801,
+      "partId": "thermos-gasket-801",
+      "name": "JOJ 패킹(JOJ 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=801",
+      "models": [
+        "JOJ-120K",
+        "JOJ-180K",
+        "JOJ-121K",
+        "JOJ-181K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 798,
+      "partId": "thermos-gasket-798",
+      "name": "FJM 패킹(FJM 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=798",
+      "models": [
+        "FJM-450K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 778,
+      "partId": "thermos-gasket-778",
+      "name": "FFV 패킹세트(FFV 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=778",
+      "models": [
+        "FFV-3000K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 765,
+      "partId": "thermos-gasket-765",
+      "name": "TKFF/TKFJ 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=765",
+      "models": [
+        "TKFF-280",
+        "TKFJ-200KC",
+        "TKFJ-280KC",
+        "TKFJ-350KC",
+        "TKFJ-200",
+        "TKFJ-280",
+        "TKFJ-350"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 763,
+      "partId": "thermos-gasket-763",
+      "name": "TKFD/TKFE/TKFG/TKFJ/TKFK 마개패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=763",
+      "models": [
+        "TKFD-200",
+        "TKFE-280",
+        "TKFE-350",
+        "TKFG-280",
+        "TKFG-380",
+        "TKFJ-200KC",
+        "TKFJ-280KC",
+        "TKFJ-350KC",
+        "TKFJ-200",
+        "TKFJ-280",
+        "TKFJ-350",
+        "TKFK-280"
+      ],
+      "specialConditions": {
+        "TKFD-200": "빨대타입 마개만"
+      }
+    },
+    {
+      "productNo": 722,
+      "partId": "thermos-gasket-722",
+      "name": "JOG 500ml 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=722",
+      "models": [
+        "JOG-500K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 719,
+      "partId": "thermos-gasket-719",
+      "name": "JOG 250/350ml 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=719",
+      "models": [
+        "JOG-250K",
+        "JOG-350K",
+        "JOG-250KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 668,
+      "partId": "thermos-gasket-668",
+      "name": "JNT 패킹세트(JNT 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=668",
+      "models": [
+        "JNT-550KC",
+        "JNT-550K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 577,
+      "partId": "thermos-gasket-577",
+      "name": "FFW 패킹세트(FFW 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=577",
+      "models": [
+        "FFW-1003K",
+        "FFW-1003KS"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 476,
+      "partId": "thermos-gasket-476",
+      "name": "JNM 패킹세트(JNM 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=476",
+      "models": [
+        "JNM-360K",
+        "JNM-361K",
+        "JNM-480K",
+        "JNM-481K",
+        "JNM-481KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 478,
+      "partId": "thermos-gasket-478",
+      "name": "JOE 패킹(JOE 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=478",
+      "models": [
+        "JOE-360K",
+        "JOE-480K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 473,
+      "partId": "thermos-gasket-473",
+      "name": "JNI 패킹세트(JNI 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=473",
+      "models": [
+        "JNI-301",
+        "JNI-301K",
+        "JNI-302K",
+        "JNI-304K",
+        "JNI-401",
+        "JNI-401K",
+        "JNI-402K",
+        "JNI-404K",
+        "JNI-403K",
+        "JNI-403KO"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 482,
+      "partId": "thermos-fhl-gasket",
+      "name": "FHL 패킹(FHL 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=482",
+      "models": [
+        "FHL-400K",
+        "FHL-550K",
+        "TCMI-400KSB"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 474,
+      "partId": "thermos-gasket-474",
+      "name": "JNO 250/350ml 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=474",
+      "models": [
+        "JNO-250",
+        "JNO-351K",
+        "JNO-350",
+        "JNO-350K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 475,
+      "partId": "thermos-gasket-475",
+      "name": "JNO 500ml 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=475",
+      "models": [
+        "JNO-500",
+        "JNO-500K",
+        "JNO-501K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 477,
+      "partId": "thermos-gasket-477",
+      "name": "JNS 패킹세트(JNS 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=477",
+      "models": [
+        "JNS-350K",
+        "JNS-450K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 481,
+      "partId": "thermos-gasket-481",
+      "name": "JMZ 패킹세트(JMZ 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=481",
+      "models": [
+        "JMZ-350K",
+        "JMZ-351K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 489,
+      "partId": "thermos-gasket-489",
+      "name": "JDE 420ml 뚜껑 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=489",
+      "models": [
+        "JDE-420K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 490,
+      "partId": "thermos-gasket-490",
+      "name": "JDE 600ml 뚜껑 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=490",
+      "models": [
+        "JDE-600K",
+        "JDE-600KC",
+        "JDE-601KL",
+        "JDE-601K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 491,
+      "partId": "thermos-gasket-491",
+      "name": "THV 패킹세트(THV 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=491",
+      "models": [
+        "THV-1001K",
+        "THV-1501K",
+        "THV-2001K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 534,
+      "partId": "thermos-gasket-534",
+      "name": "TKFB 마개패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=534",
+      "models": [
+        "TKFB-280S",
+        "TKFB-350S"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 535,
+      "partId": "thermos-gasket-535",
+      "name": "TKFC 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=535",
+      "models": [
+        "TKFC-280S"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 547,
+      "partId": "thermos-jnr-gasket",
+      "name": "JNR 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=547",
+      "models": [
+        "JNR-350K",
+        "JNR-351K",
+        "JNR-500K",
+        "JNR-400K",
+        "JNR-251K",
+        "JNR-252K",
+        "JNR-352K",
+        "JNR-502K",
+        "JNR-352KS"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 548,
+      "partId": "thermos-gasket-548",
+      "name": "FFI 패킹",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=548",
+      "models": [
+        "FFI-400FK"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 536,
+      "partId": "thermos-gasket-536",
+      "name": "JNX 패킹세트(JNX 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=536",
+      "models": [
+        "JNX-500K",
+        "JNX-501K",
+        "JNX-502KC"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 579,
+      "partId": "thermos-gasket-579",
+      "name": "FDH 패킹세트(FDH 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=579",
+      "models": [
+        "FDH-1405",
+        "FDH-1705",
+        "FDH-2005"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 564,
+      "partId": "thermos-gasket-564",
+      "name": "FFZ 패킹세트(FFZ 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=564",
+      "models": [
+        "FFZ-500FK",
+        "FFZ-801FK",
+        "FFZ-1000FK"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 565,
+      "partId": "thermos-gasket-565",
+      "name": "FFX 패킹세트(FFX 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=565",
+      "models": [
+        "FFX-500",
+        "FFX-900",
+        "FFX-501K",
+        "FFX-751K",
+        "FFX-901K"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 576,
+      "partId": "thermos-gasket-576",
+      "name": "FFM 패킹세트",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=576",
+      "models": [
+        "FFM-351K",
+        "FFM-501K",
+        "FFM-350",
+        "FFM-500",
+        "FFM-501KH"
+      ],
+      "specialConditions": {}
+    },
+    {
+      "productNo": 472,
+      "partId": "thermos-jnl-gasket",
+      "name": "JNL 패킹세트(JNL 공용)",
+      "url": "https://thermosshop.kr/product/detail.html?product_no=472",
+      "models": [
+        "JNL-354K",
+        "JNL-504K",
+        "JNL-604K",
+        "JNL-754K",
+        "JNL-752K",
+        "JNL-353K",
+        "JNL-403K",
+        "JNL-502K",
+        "JNL-502GK",
+        "JNL-503KF",
+        "JNL-503K",
+        "JNL-603K",
+        "JNL-753K",
+        "JNL-350",
+        "JNL-500",
+        "JNL-352K",
+        "JNL-404KC",
+        "JNL-255K",
+        "JNL-355K",
+        "JNL-505K",
+        "JNL-605K",
+        "JNL-755K",
+        "JNL-504KC"
+      ],
+      "specialConditions": {}
+    }
+  ]
+}

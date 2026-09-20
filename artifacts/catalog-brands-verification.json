@@ -1,0 +1,124 @@
+{
+  "checkedAt": "2026-09-20T03:42:15.477069+00:00",
+  "scope": "Local catalog and browser verification; no physical fit test, no deployment, no paid AI call",
+  "catalogSha256": "161d4cc308741d1c98ed9b884fea872399ddd943970f00cca45333a83dd54e3a",
+  "before": {
+    "products": 20,
+    "parts": 22,
+    "evidence": 44,
+    "brands": 3
+  },
+  "after": {
+    "products": 52,
+    "parts": 46,
+    "offers": 46,
+    "evidence": 101,
+    "brands": 5,
+    "domesticModels": 48
+  },
+  "newBrands": {
+    "킨토": {
+      "models": 17,
+      "parts": 20,
+      "provider": "seller"
+    },
+    "조지루시": {
+      "models": 15,
+      "parts": 4,
+      "provider": "product_manufacturer"
+    }
+  },
+  "checks": {
+    "automatedTests": {
+      "passed": 50,
+      "failed": 0
+    },
+    "build": "passed",
+    "newUrls": 58,
+    "newUrlsReachable": 58,
+    "allUrls": 99,
+    "existing403": "Hydro Flask product, cap and contact pages; access notes retained"
+  },
+  "browser": [
+    {
+      "query": "킨토 워터보틀 950ml",
+      "verified": "950ml cap, reseller attribution, domestic offer and two excluded caps"
+    },
+    {
+      "query": "조지루시 SM-VB72",
+      "verified": "BB780807L, manufacturer attribution, model/color option and domestic offer"
+    },
+    {
+      "query": "킨토 플레이 480ml",
+      "category": "straw",
+      "verified": "480ml-specific 80368, out_of_stock separate from check_required, 300ml straw excluded"
+    }
+  ],
+  "limitations": [
+    "No physical fitting or leak test",
+    "Stock is unknown unless explicitly reviewed as out of stock",
+    "Workout gasket has product-family support; exact 480ml body/S-L configuration needs seller confirmation",
+    "Only water bottles/tumblers; no fabricated generic or used offers",
+    "Docker image must be rebuilt before deployment"
+  ],
+  "newReviewedUrls": [
+    "https://kinto.kr/shop/item.php?it_id=20381",
+    "https://kinto.kr/bbs/write.php?bo_table=contact",
+    "https://kinto.kr/shop/item.php?it_id=20391",
+    "https://kinto.kr/shop/item.php?it_id=20397",
+    "https://kinto.kr/shop/item.php?it_id=20281",
+    "https://kinto.kr/shop/item.php?it_id=20291",
+    "https://kinto.kr/shop/item.php?it_id=20151",
+    "https://kinto.kr/shop/item.php?it_id=20431",
+    "https://kinto.kr/shop/item.php?it_id=20441",
+    "https://kinto.kr/shop/item.php?it_id=20371",
+    "https://kinto.kr/shop/item.php?it_id=20361",
+    "https://kinto.kr/shop/item.php?it_id=20311",
+    "https://kinto.kr/shop/item.php?it_id=20061",
+    "https://kinto.kr/shop/item.php?it_id=20071",
+    "https://kinto.kr/shop/item.php?it_id=20211",
+    "https://kinto.kr/shop/item.php?it_id=20221",
+    "https://kinto.kr/shop/item.php?it_id=20181",
+    "https://kinto.kr/shop/item.php?it_id=20191",
+    "https://zojirushi.co.kr/product/detail.html?product_no=85",
+    "https://zojirushi.co.kr/product/list.html?cate_no=26",
+    "https://zojirushi.co.kr/product/detail.html?product_no=86",
+    "https://zojirushi.co.kr/product/detail.html?product_no=77",
+    "https://zojirushi.co.kr/product/detail.html?product_no=78",
+    "https://zojirushi.co.kr/product/detail.html?product_no=79",
+    "https://zojirushi.co.kr/product/detail.html?product_no=80",
+    "https://zojirushi.co.kr/product/detail.html?product_no=75",
+    "https://zojirushi.co.kr/product/detail.html?product_no=76",
+    "https://zojirushi.co.kr/product/detail.html?product_no=72",
+    "https://zojirushi.co.kr/product/detail.html?product_no=73",
+    "https://zojirushi.co.kr/product/detail.html?product_no=74",
+    "https://zojirushi.co.kr/product/detail.html?product_no=89",
+    "https://zojirushi.co.kr/product/detail.html?product_no=90",
+    "https://zojirushi.co.kr/product/detail.html?product_no=87",
+    "https://zojirushi.co.kr/product/detail.html?product_no=88",
+    "https://kinto.kr/shop/item.php?it_id=80132",
+    "https://kinto.kr/shop/item.php?it_id=80380",
+    "https://kinto.kr/shop/item.php?it_id=80397",
+    "https://kinto.kr/shop/item.php?it_id=80401",
+    "https://kinto.kr/shop/item.php?it_id=80281",
+    "https://kinto.kr/shop/item.php?it_id=80280",
+    "https://kinto.kr/shop/item.php?it_id=80151",
+    "https://kinto.kr/shop/item.php?it_id=80431",
+    "https://kinto.kr/shop/item.php?it_id=80370",
+    "https://kinto.kr/shop/item.php?it_id=80368",
+    "https://kinto.kr/shop/item.php?it_id=80371",
+    "https://kinto.kr/shop/item.php?it_id=20309",
+    "https://kinto.kr/shop/item.php?it_id=80058",
+    "https://kinto.kr/shop/item.php?it_id=80061",
+    "https://kinto.kr/shop/item.php?it_id=80071",
+    "https://kinto.kr/shop/item.php?it_id=80059",
+    "https://kinto.kr/shop/item.php?it_id=80060",
+    "https://kinto.kr/shop/item.php?it_id=80211",
+    "https://kinto.kr/shop/item.php?it_id=80221",
+    "https://kinto.kr/shop/item.php?it_id=80180",
+    "https://zojirushi.co.kr/product/detail.html?product_no=154",
+    "https://zojirushi.co.kr/product/detail.html?product_no=153",
+    "https://zojirushi.co.kr/product/detail.html?product_no=152",
+    "https://zojirushi.co.kr/product/detail.html?product_no=149"
+  ]
+}

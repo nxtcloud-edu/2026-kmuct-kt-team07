@@ -1,0 +1,30 @@
+{
+  "startedAt": "2026-09-20T02:05:27.839Z",
+  "finishedAt": "2026-09-20T02:05:30.328Z",
+  "elapsedMs": 2488,
+  "passed": false,
+  "region": "us-east-1",
+  "modelId": "us.amazon.nova-lite-v1:0",
+  "fixture": {
+    "file": "tests/fixtures/public-water-bottle.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Stainless_steel_water_bottle.jpg",
+    "sha256": "e3b199e15993d898e5da02edccacce6853ecf7dfe83a5745254eb1cf9b0f15e2",
+    "bytes": 328250
+  },
+  "calls": [
+    {
+      "errorName": "AccessDeniedException",
+      "httpStatus": 403,
+      "requestId": "6a1a94a0-f3a4-4f74-aac8-e788aa34e7b7"
+    }
+  ],
+  "result": {
+    "status": "needs_information",
+    "reason": "provider_error",
+    "attempts": 1,
+    "nextAction": {
+      "kind": "model_search",
+      "label": "모델명으로 찾기"
+    }
+  }
+}

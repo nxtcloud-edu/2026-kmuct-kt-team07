@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-09-20T04:07:19.900574+00:00",
+  "scope": "Local application only; no deployment or checkout",
+  "automatedTests": {
+    "passed": 56,
+    "failed": 0
+  },
+  "build": "passed",
+  "liveAi": {
+    "script": "scripts/evaluate-photos.ts --live",
+    "report": "artifacts/photo-evaluation/report.json",
+    "cases": 3,
+    "passed": 3,
+    "synthetic": 2,
+    "publicPhoto": 1,
+    "realWorldAccuracyMeasured": false
+  },
+  "browser": {
+    "publicDemo": "Analysis completed; glare retake advice shown and no product auto-selected",
+    "orderableFilter": "5 products; intersect straw coverage -> KINTO PLAY 300ml only",
+    "offer": "80370 white option, checked timestamp, active purchase link; excluded 480ml straw separate",
+    "mobile390": {
+      "pageWidth": 390,
+      "dialogWidth": 354,
+      "selectFont": "16px",
+      "purchaseLinkHeight": 44
+    },
+    "mobile320": {
+      "pageWidth": 320,
+      "inputFont": "16px",
+      "cameraButtonHeight": 50
+    },
+    "automatedFileChooser": "Blocked by Chrome extension file URL access; did not change permissions",
+    "actualPhoneCamera": "not tested"
+  },
+  "purchaseReview": {
+    "method": "Visible option and quantity 1; enabled cart button. No cart action, checkout or physical stock test.",
+    "expiresAfterHours": 24,
+    "offers": [
+      {
+        "partId": "kinto-80380",
+        "url": "https://kinto.kr/shop/item.php?it_id=80380",
+        "option": "투명_80121 · 워터보틀 300/500ml 전용 · 2개입",
+        "checkedAt": "2026-09-20T04:03:05Z"
+      },
+      {
+        "partId": "kinto-80280",
+        "url": "https://kinto.kr/shop/item.php?it_id=80280",
+        "option": "블랙_80280 · 엑티브 텀블러 600/800ml 전용",
+        "checkedAt": "2026-09-20T04:03:05Z"
+      },
+      {
+        "partId": "kinto-80370",
+        "url": "https://kinto.kr/shop/item.php?it_id=80370",
+        "option": "화이트_80370 · 플레이 300ml 전용 · 2개입",
+        "checkedAt": "2026-09-20T04:03:05Z"
+      }
+    ]
+  },
+  "concurrentDesignWork": {
+    "thread": "전면적인 UI·UX 개선",
+    "note": "Another active task is redesigning App.tsx and base styles. Mobile feature checks above precede its final design. Dedicated styles moved to client/photo-purchase.css; adding photos reopens its collapsible finder."
+  }
+}

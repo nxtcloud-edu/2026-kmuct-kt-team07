@@ -1,0 +1,11 @@
+node_modules
+.env
+.env.*
+!.env.example
+.data
+.git
+dist
+dist-server
+artifacts
+*.sqlite*
+.DS_Store

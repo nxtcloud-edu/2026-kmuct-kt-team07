@@ -1,0 +1,109 @@
+/* Photo and purchase controls shared with the current page design. */
+.photo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+.photo-actions button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+}
+.photo-checklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: 12px;
+}
+.photo-checklist .complete,
+.orderable-label {
+  color: var(--brand);
+  font-weight: 600;
+}
+.photo-tip {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 10px 0;
+}
+.photo-advice {
+  padding: 20px;
+  background: var(--warning-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  line-height: 1.65;
+}
+.photo-advice p {
+  font-size: 14px;
+  margin: 8px 0;
+}
+.photo-advice small {
+  display: block;
+}
+.orderable-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+}
+@media (max-width: 620px) {
+  input:not([type="checkbox"]):not([type="file"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  .chips button,
+  .route-tabs button,
+  .tabs button,
+  .text-button,
+  .outline-button,
+  .purchase-link {
+    min-height: 44px;
+  }
+  .chips button {
+    font-size: 13px;
+  }
+  .remove-photo {
+    width: 44px;
+    height: 44px;
+  }
+  .photo {
+    height: 190px;
+  }
+  .photo img {
+    height: 137px;
+    object-fit: contain;
+    background: var(--subtle);
+  }
+  .photo select {
+    min-height: 50px;
+    padding: 9px 5px;
+  }
+  .purchase-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 1.5;
+  }
+  .catalog-toggles label {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .photo-advice {
+    padding: 16px;
+  }
+  .photo-actions {
+    gap: 8px;
+  }
+  .modal {
+    max-height: calc(100dvh - 24px);
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+}

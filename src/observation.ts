@@ -1,0 +1,98 @@
+import { z } from "zod";
+
+export const observationSchema = z.strictObject({
+  categoryCandidates: z
+    .array(
+      z.strictObject({
+        categoryKey: z.string(),
+        description: z.string().max(120),
+        imageIds: z.array(z.string()),
+      }),
+    )
+    .max(3),
+  extractedTexts: z
+    .array(
+      z.strictObject({
+        text: z.string().max(60),
+        imageId: z.string(),
+        role: z.enum(["brand", "model", "capacity", "other"]),
+        legibility: z.enum(["clear", "uncertain"]),
+      }),
+    )
+    .max(12),
+  observedFeatures: z
+    .array(
+      z.strictObject({
+        key: z.enum([
+          "lid_connection",
+          "lid_type",
+          "gasket_cross_section",
+          "has_straw",
+          "has_handle",
+          "ruler_visible",
+          "other",
+        ]),
+        value: z.string().max(60),
+        imageId: z.string(),
+      }),
+    )
+    .max(10),
+  qualityIssues: z.array(
+    z.enum([
+      "blurry",
+      "glare",
+      "subject_too_small",
+      "label_cropped",
+      "label_missing",
+      "personal_info_visible",
+      "other",
+    ]),
+  ),
+  unknownFields: z.array(
+    z.enum([
+      "category",
+      "brand",
+      "model",
+      "capacity",
+      "generation",
+      "lid_connection",
+    ]),
+  ),
+});
+
+export type Observation = z.infer<typeof observationSchema>;
+
+// A single source of truth keeps the Bedrock contract and Zod validation aligned.
+export const observationJsonSchema = z.toJSONSchema(observationSchema, {
+  target: "draft-07",
+});
+delete observationJsonSchema.$schema;
+
+export function filterObservation(
+  observation: Observation,
+  allowedCategoryKeys: readonly string[],
+  requestImageIds: readonly string[],
+): Observation {
+  const categories = new Set(allowedCategoryKeys);
+  const images = new Set(requestImageIds);
+  const categoryCandidates = observation.categoryCandidates
+    .filter((candidate) => categories.has(candidate.categoryKey))
+    .map((candidate) => ({
+      ...candidate,
+      imageIds: [...new Set(candidate.imageIds.filter((id) => images.has(id)))],
+    }))
+    .filter((candidate) => candidate.imageIds.length > 0);
+  const unknownFields = new Set(observation.unknownFields);
+  if (categoryCandidates.length === 0) unknownFields.add("category");
+  return {
+    categoryCandidates,
+    extractedTexts: observation.extractedTexts.filter((item) =>
+      images.has(item.imageId),
+    ),
+    observedFeatures: observation.observedFeatures.filter((item) =>
+      images.has(item.imageId),
+    ),
+    qualityIssues: [...new Set(observation.qualityIssues)],
+    unknownFields: [...unknownFields],
+  };
+}

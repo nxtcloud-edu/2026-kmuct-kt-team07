@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-09-20T03:32:01.069085+00:00",
+  "counts": {
+    "products": 20,
+    "partsIncludingCapacityOptions": 22,
+    "offers": 22,
+    "evidence": 44,
+    "domesticProducts": 16
+  },
+  "automated": {
+    "testsPassed": 47,
+    "typecheck": "passed",
+    "productionBuild": "passed"
+  },
+  "browser": {
+    "desktop": "passed",
+    "mobileViewport": {
+      "width": 390,
+      "height": 844,
+      "documentScrollWidth": 390,
+      "dialogWidth": 354
+    },
+    "flows": [
+      "catalog browse with brand, capacity and domestic filters",
+      "FHL-550K selection and 550ml straw option",
+      "JNL-505K selection and official gasket purchase path",
+      "empty category filter and reset"
+    ],
+    "consoleErrors": 0
+  },
+  "linkCheck": {
+    "total": 41,
+    "http200": 39,
+    "http403": 2,
+    "allNewThermosLinks": "HTTP 200"
+  },
+  "limitations": [
+    "Stock and final prices are not live",
+    "No physical fit testing",
+    "No new AI API call needed for catalog expansion",
+    "Docker runtime verification artifact predates this catalog expansion; rebuild image before deployment"
+  ]
+}

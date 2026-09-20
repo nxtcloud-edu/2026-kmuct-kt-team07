@@ -1,0 +1,75 @@
+{
+  "startedAt": "2026-09-20T02:29:33.150Z",
+  "finishedAt": "2026-09-20T02:29:40.170Z",
+  "passed": true,
+  "model": "bedrock-gpt-5.6-sol",
+  "fixture": {
+    "file": "tests/fixtures/public-water-bottle.jpg",
+    "sha256": "e3b199e15993d898e5da02edccacce6853ecf7dfe83a5745254eb1cf9b0f15e2",
+    "source": "https://commons.wikimedia.org/wiki/File:Stainless_steel_water_bottle.jpg"
+  },
+  "calls": [
+    {
+      "elapsedMs": 7016,
+      "httpStatus": 200,
+      "toolCallCount": 1,
+      "promptTokens": 2791,
+      "completionTokens": 423
+    }
+  ],
+  "result": {
+    "observation": {
+      "categoryCandidates": [
+        {
+          "categoryKey": "water_bottle_lid",
+          "description": "파란색 병 옆에 회색 뚜껑이 분리되어 놓여 있고, 뚜껑에는 병목 쪽으로 이어지는 고리형 연결부가 보임",
+          "imageIds": [
+            "public-full-1"
+          ]
+        }
+      ],
+      "extractedTexts": [],
+      "observedFeatures": [
+        {
+          "key": "lid_connection",
+          "value": "병목 바깥쪽에 나사산이 보이는 나사식 결합 형태",
+          "imageId": "public-full-1"
+        },
+        {
+          "key": "lid_type",
+          "value": "회색 원형 뚜껑이 병에서 분리되어 있으며 고리형 연결부가 달려 있음",
+          "imageId": "public-full-1"
+        },
+        {
+          "key": "has_handle",
+          "value": "뚜껑에 큰 고리형 부분이 보임",
+          "imageId": "public-full-1"
+        },
+        {
+          "key": "has_straw",
+          "value": "보이는 빨대 없음",
+          "imageId": "public-full-1"
+        }
+      ],
+      "qualityIssues": [
+        "blurry",
+        "glare"
+      ],
+      "unknownFields": [
+        "brand",
+        "model",
+        "capacity",
+        "generation"
+      ]
+    },
+    "modelComparisons": [],
+    "candidateVariantIds": [],
+    "attempts": 1,
+    "status": "needs_information",
+    "reason": "model_not_found",
+    "nextAction": {
+      "kind": "model_search",
+      "label": "모델명으로 찾기"
+    }
+  }
+}

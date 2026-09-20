@@ -1,0 +1,30 @@
+{
+  "startedAt": "2026-09-20T02:07:57.663Z",
+  "finishedAt": "2026-09-20T02:08:00.017Z",
+  "elapsedMs": 2352,
+  "passed": false,
+  "region": "us-east-1",
+  "modelId": "us.anthropic.claude-3-haiku-20240307-v1:0",
+  "fixture": {
+    "file": "tests/fixtures/public-water-bottle.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Stainless_steel_water_bottle.jpg",
+    "sha256": "e3b199e15993d898e5da02edccacce6853ecf7dfe83a5745254eb1cf9b0f15e2",
+    "bytes": 328250
+  },
+  "calls": [
+    {
+      "errorName": "AccessDeniedException",
+      "httpStatus": 403,
+      "requestId": "0d1ebd41-6d45-4b97-b6c8-f062d5e9d4ab"
+    }
+  ],
+  "result": {
+    "status": "needs_information",
+    "reason": "provider_error",
+    "attempts": 1,
+    "nextAction": {
+      "kind": "model_search",
+      "label": "모델명으로 찾기"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "checkedAt": "2026-09-20T04:03:44.270Z",
+  "scope": "2 synthetic labels and 1 public bottle photo; smoke checks, not real-world accuracy or before/after benchmark",
+  "reports": [
+    {
+      "fixture": "synthetic-model-label",
+      "synthetic": true,
+      "passed": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [],
+          "extractedTexts": [
+            {
+              "text": "SYNTHETIC TEST LABEL",
+              "imageId": "label",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "THERMOS",
+              "imageId": "label",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "JNL-505K",
+              "imageId": "label",
+              "role": "model",
+              "legibility": "clear"
+            },
+            {
+              "text": "500 mL",
+              "imageId": "label",
+              "role": "capacity",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [],
+          "qualityIssues": [],
+          "unknownFields": [
+            "category",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [
+          {
+            "originalText": "JNL-505K",
+            "normalizedText": "JNL505K",
+            "imageId": "label",
+            "legibility": "clear",
+            "matchedVariantIds": [
+              "thermos-jnl-505k"
+            ]
+          }
+        ],
+        "candidateVariantIds": [
+          "thermos-jnl-505k"
+        ],
+        "attempts": 1,
+        "status": "observed"
+      },
+      "hintIds": [
+        "thermos-jnl-505k",
+        "thermos-jnr-502k"
+      ],
+      "calls": [
+        {
+          "elapsedMs": 2988,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 5291,
+          "completionTokens": 130
+        }
+      ]
+    },
+    {
+      "fixture": "synthetic-brand-capacity",
+      "synthetic": true,
+      "passed": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [],
+          "extractedTexts": [
+            {
+              "text": "SYNTHETIC TEST LABEL",
+              "imageId": "label",
+              "role": "other",
+              "legibility": "clear"
+            },
+            {
+              "text": "KINTO",
+              "imageId": "label",
+              "role": "brand",
+              "legibility": "clear"
+            },
+            {
+              "text": "500 mL",
+              "imageId": "label",
+              "role": "capacity",
+              "legibility": "clear"
+            }
+          ],
+          "observedFeatures": [],
+          "qualityIssues": [],
+          "unknownFields": [
+            "category",
+            "model",
+            "generation",
+            "lid_connection"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "hintIds": [
+        "kinto-water-bottle-500"
+      ],
+      "calls": [
+        {
+          "elapsedMs": 2504,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 5291,
+          "completionTokens": 110
+        }
+      ]
+    },
+    {
+      "fixture": "public-water-bottle-no-model",
+      "synthetic": false,
+      "passed": true,
+      "result": {
+        "observation": {
+          "categoryCandidates": [
+            {
+              "categoryKey": "lid",
+              "description": "파란 용기 앞에 둥근 회색 뚜껑 형태의 부품이 분리되어 놓여 있음",
+              "imageIds": [
+                "full"
+              ]
+            },
+            {
+              "categoryKey": "handle",
+              "description": "뚜껑 형태 부품에 회색 고리형 손잡이가 연결되어 있음",
+              "imageIds": [
+                "full"
+              ]
+            },
+            {
+              "categoryKey": "gasket",
+              "description": "둥근 뚜껑 형태 부품의 가장자리에 파란색 원형 테두리 부품이 보임",
+              "imageIds": [
+                "full"
+              ]
+            }
+          ],
+          "extractedTexts": [],
+          "observedFeatures": [
+            {
+              "key": "lid_connection",
+              "value": "용기 입구 바깥쪽에 나사산이 보임",
+              "imageId": "full"
+            },
+            {
+              "key": "lid_type",
+              "value": "분리된 둥근 회색 뚜껑 형태이며 중앙에 돌출된 원통형 부분이 있음",
+              "imageId": "full"
+            },
+            {
+              "key": "has_handle",
+              "value": "회색 고리형 손잡이가 보임",
+              "imageId": "full"
+            },
+            {
+              "key": "other",
+              "value": "파란색 원통형 용기의 입구가 열린 상태이고 뚜껑 형태 부품이 앞쪽에 분리되어 있음",
+              "imageId": "full"
+            }
+          ],
+          "qualityIssues": [
+            "blurry",
+            "glare"
+          ],
+          "unknownFields": [
+            "brand",
+            "model",
+            "capacity",
+            "generation"
+          ]
+        },
+        "modelComparisons": [],
+        "candidateVariantIds": [],
+        "attempts": 1,
+        "status": "needs_information",
+        "reason": "model_not_found",
+        "nextAction": {
+          "kind": "model_search",
+          "label": "모델명으로 찾기"
+        }
+      },
+      "hintIds": [],
+      "calls": [
+        {
+          "elapsedMs": 6379,
+          "httpStatus": 200,
+          "toolCallCount": 1,
+          "promptTokens": 2891,
+          "completionTokens": 475
+        }
+      ]
+    }
+  ]
+}

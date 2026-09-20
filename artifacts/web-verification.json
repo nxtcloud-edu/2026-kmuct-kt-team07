@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-09-20T03:17:17.598Z",
+  "flows": [
+    {
+      "flow": "public_demo_button",
+      "state": "ready",
+      "analysisStatus": "needs_information",
+      "reason": "model_not_found",
+      "attempts": 1,
+      "categoryCandidates": [
+        "lid",
+        "handle"
+      ],
+      "photoPayloadRemoved": true
+    },
+    {
+      "flow": "native_file_picker_upload",
+      "state": "ready",
+      "analysisStatus": "needs_information",
+      "reason": "model_not_found",
+      "attempts": 1,
+      "categoryCandidates": [
+        "lid",
+        "handle"
+      ],
+      "photoPayloadRemoved": true
+    }
+  ],
+  "browser": "Chrome",
+  "mobileWidths": [
+    390,
+    360
+  ],
+  "horizontalOverflow": false,
+  "browserConsoleErrors": 0,
+  "automatedTests": 40,
+  "unitAndIntegrationTestsUsePaidAPI": false,
+  "physicalFitTested": false,
+  "fileUploadVerification": "Native macOS file picker succeeded after browser extension upload automation was unavailable; no extension permission was changed."
+}

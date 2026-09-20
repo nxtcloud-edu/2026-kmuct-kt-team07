@@ -1,0 +1,599 @@
+{
+  "scope": "HTTP access only; content and stock not reverified",
+  "results": [
+    {
+      "url": "https://nalgene.com/product/16oz-wide-mouth-bottle/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:51.740Z"
+    },
+    {
+      "url": "https://nalgene.com/contact/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:52.230Z"
+    },
+    {
+      "url": "https://nalgene.com/product/32oz-wide-mouth-bottle/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:52.305Z"
+    },
+    {
+      "url": "https://nalgene.com/product/48oz-wide-mouth-silo-bottle/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:52.668Z"
+    },
+    {
+      "url": "https://www.hydroflask.com/32-oz-wide-mouth",
+      "status": 403,
+      "result": "needs_review",
+      "checkedAt": "2026-09-20T03:38:52.772Z"
+    },
+    {
+      "url": "https://www.hydroflask.com/contact-us",
+      "status": 403,
+      "result": "needs_review",
+      "checkedAt": "2026-09-20T03:38:52.812Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-250ml/1066/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:53.238Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-350ml/1067/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:53.764Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-500ml/1068/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:54.238Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-600ml/1069/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:54.688Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-750ml/1070/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:55.132Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-250ml/1163/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:55.708Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-350ml/1164/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:56.161Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%A7%88%EC%9D%B4-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%B3%B4%ED%8B%80-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%83%80%EC%9E%85-%EC%8B%9C%EC%A6%8C3-500ml/1165/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:56.624Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/fhl-%EC%8A%A4%ED%8A%B8%EB%A1%9C%EC%84%B8%ED%8A%B8/592/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:57.004Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-400ml/1230/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:57.449Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-550ml/1231/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:57.876Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%EB%A3%A8%ED%94%84-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%AC-750ml/1232/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:58.276Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%ED%95%B8%EB%93%A4-%ED%85%80%EB%B8%94%EB%9F%AC-600ml/1192/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:58.638Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%ED%95%B8%EB%93%A4-%ED%85%80%EB%B8%94%EB%9F%AC-800ml/1193/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:59.090Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EC%BA%90%EB%A6%AC-%ED%95%B8%EB%93%A4-%ED%85%80%EB%B8%94%EB%9F%AC-1l/1233/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:59.518Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20381",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:59.633Z"
+    },
+    {
+      "url": "https://kinto.kr/bbs/write.php?bo_table=contact",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:59.722Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20391",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:59.817Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20397",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:38:59.912Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20281",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.000Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20291",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.138Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20151",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.229Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20431",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.327Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20441",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.434Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20371",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.537Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20361",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.633Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20311",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.725Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20061",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.826Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20071",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:00.937Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20211",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:01.031Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20221",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:01.129Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20181",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:01.282Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20191",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:01.404Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=85",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:02.155Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/list.html?cate_no=26",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:02.476Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=86",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:02.811Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=77",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:03.083Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=78",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:03.357Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=79",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:03.631Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=80",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:03.916Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=75",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:04.189Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=76",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:04.455Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=72",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:04.722Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=73",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:05.005Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=74",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:05.270Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=89",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:05.517Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=90",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:05.781Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=87",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:06.034Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=88",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:06.285Z"
+    },
+    {
+      "url": "https://nalgene.com/product/wide-mouth-cap/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:06.603Z"
+    },
+    {
+      "url": "https://nalgene.com/product/16oz-wide-mouth-cap/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:06.900Z"
+    },
+    {
+      "url": "https://www.hydroflask.com/wide-mouth-flex-cap",
+      "status": 403,
+      "result": "needs_review",
+      "checkedAt": "2026-09-20T03:39:06.949Z"
+    },
+    {
+      "url": "https://www.humangear.com/capcap-compatibility",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:07.337Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jnl-%ED%8C%A8%ED%82%B9%EC%84%B8%ED%8A%B8jnl-%EA%B3%B5%EC%9A%A9/472/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:07.781Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/%EB%89%B4-%EB%8D%B0%EC%9D%BC%EB%A6%AC-%EC%9B%90%ED%84%B0%EC%B9%98-%ED%85%80%EB%B8%94%EB%9F%ACjnl-500ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1077/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:08.177Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jnr-%ED%8C%A8%ED%82%B9%EC%84%B8%ED%8A%B8jnr-%EA%B3%B5%EC%9A%A9/547/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:08.572Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jnr-%EC%8B%9C%EC%A6%8C3-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1148/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:09.016Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/fhl-%ED%8C%A8%ED%82%B9fhl-%EA%B3%B5%EC%9A%A9/482/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:09.413Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/fhl-%EC%8A%A4%ED%8A%B8%EB%A1%9C-%EC%BA%A1%EC%9C%A0%EB%8B%9B/594/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:09.786Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-%ED%8C%A8%ED%82%B9-%EC%84%B8%ED%8A%B8/1240/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:10.131Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-400ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1242/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:10.492Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-550ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1243/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:10.839Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jos-750ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1244/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:11.182Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-%ED%8C%A8%ED%82%B9/1209/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:11.525Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-600ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1207/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:11.876Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-800ml-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1208/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:12.222Z"
+    },
+    {
+      "url": "https://thermosshop.kr/product/jow-1l-%EB%A7%88%EA%B0%9C-%EC%9C%A0%EB%8B%9B/1267/",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:12.573Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80132",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:12.672Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80380",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:12.776Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80397",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:12.876Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80401",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:12.959Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80281",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.044Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80280",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.135Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80151",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.226Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80431",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.313Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80370",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.394Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80368",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.477Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80371",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.566Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=20309",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.654Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80058",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.737Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80061",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.817Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80071",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.909Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80059",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:13.990Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80060",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:14.082Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80211",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:14.166Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80221",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:14.246Z"
+    },
+    {
+      "url": "https://kinto.kr/shop/item.php?it_id=80180",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:14.330Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=154",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:14.620Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=153",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:14.885Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=152",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:15.143Z"
+    },
+    {
+      "url": "https://zojirushi.co.kr/product/detail.html?product_no=149",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:15.471Z"
+    },
+    {
+      "url": "https://www.humangear.com/shop/p/capcap",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:16.090Z"
+    },
+    {
+      "url": "https://www.humangear.com/capcap-legacy",
+      "status": 200,
+      "result": "reachable",
+      "checkedAt": "2026-09-20T03:39:16.395Z"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3001
+      APP_ORIGIN: ${APP_ORIGIN:?Set the public HTTPS origin before deploying}
+      DATABASE_PATH: /app/.data/parts.sqlite
+    ports:
+      - "127.0.0.1:3001:3001"
+    volumes:
+      - parts-data:/app/.data
+    restart: unless-stopped
+    stop_grace_period: 150s
+    mem_limit: 768m
+volumes:
+  parts-data:

@@ -1,0 +1,49 @@
+{
+  "name": "parts-finder-observation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.client.json --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "smoke:bedrock": "node --env-file-if-exists=.env --import tsx scripts/smoke-bedrock.ts",
+    "smoke:ai": "node --env-file-if-exists=.env --import tsx scripts/smoke-ai.ts",
+    "dev": "node --env-file-if-exists=.env --import tsx scripts/dev.ts",
+    "build": "npm run typecheck && vite build && tsc -p tsconfig.server.json",
+    "start": "node --env-file-if-exists=.env --import tsx server/main.ts",
+    "catalog:validate": "node --import tsx scripts/catalog.ts validate",
+    "catalog:links": "node --import tsx scripts/catalog.ts links",
+    "check": "npm run catalog:validate && npm test && npm run build",
+    "start:production": "node --env-file-if-exists=.env dist-server/server/main.js",
+    "catalog:import": "node --import tsx scripts/catalog.ts import",
+    "format": "prettier --write client server shared scripts tests src *.json vite.config.ts index.html"
+  },
+  "engines": {
+    "node": ">=22.17.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "3.1136.0",
+    "cookie-parser": "1.4.7",
+    "express": "5.2.1",
+    "helmet": "8.3.0",
+    "lucide-react": "1.47.0",
+    "multer": "2.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sharp": "0.35.4",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "1.4.10",
+    "@types/express": "5.0.6",
+    "@types/multer": "2.2.0",
+    "@types/node": "26.6.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "prettier": "3.9.8",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vite": "8.3.0"
+  }
+}

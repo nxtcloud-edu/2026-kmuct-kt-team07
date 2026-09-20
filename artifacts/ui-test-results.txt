@@ -1,0 +1,352 @@
+
+> parts-finder-observation@0.1.0 test
+> node --import tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: catalog discovery handles Korean/English aliases, spacing, hyphens and fullwidth input
+ok 1 - catalog discovery handles Korean/English aliases, spacing, hyphens and fullwidth input
+  ---
+  duration_ms: 21.991583
+  type: 'test'
+  ...
+# Subtest: every added Korean model has an attributed part and a domestic purchase path
+ok 2 - every added Korean model has an attributed part and a domestic purchase path
+  ---
+  duration_ms: 93.124333
+  type: 'test'
+  ...
+# Subtest: shared gaskets do not imply shared caps across JOW or JOS capacities
+ok 3 - shared gaskets do not imply shared caps across JOW or JOS capacities
+  ---
+  duration_ms: 1.147375
+  type: 'test'
+  ...
+# Subtest: FHL straw options remain capacity-specific and require option confirmation
+ok 4 - FHL straw options remain capacity-specific and require option confirmation
+  ---
+  duration_ms: 0.362333
+  type: 'test'
+  ...
+# Subtest: discovery metadata does not promote exclusions or conflicting evidence
+ok 5 - discovery metadata does not promote exclusions or conflicting evidence
+  ---
+  duration_ms: 53.29375
+  type: 'test'
+  ...
+# Subtest: OCR exact aliases retain multiple capacities; partial discovery never identifies a model
+ok 6 - OCR exact aliases retain multiple capacities; partial discovery never identifies a model
+  ---
+  duration_ms: 2.487667
+  type: 'test'
+  ...
+# Subtest: new Korean and English brand aliases keep similarly named bottle families separate
+ok 7 - new Korean and English brand aliases keep similarly named bottle families separate
+  ---
+  duration_ms: 12.474334
+  type: 'test'
+  ...
+# Subtest: KINTO volume-specific straws and explicit cap exclusions survive stock changes
+ok 8 - KINTO volume-specific straws and explicit cap exclusions survive stock changes
+  ---
+  duration_ms: 0.794833
+  type: 'test'
+  ...
+# Subtest: Korean reseller attribution and Zojirushi model-specific assemblies remain explicit
+ok 9 - Korean reseller attribution and Zojirushi model-specific assemblies remain explicit
+  ---
+  duration_ms: 0.716375
+  type: 'test'
+  ...
+# Subtest: gateway sends image bytes with roles and forces exactly the observation function
+ok 10 - gateway sends image bytes with roles and forces exactly the observation function
+  ---
+  duration_ms: 43.772084
+  type: 'test'
+  ...
+# Subtest: rejects truncated, multiple, wrong, text-only and non-JSON tool output
+ok 11 - rejects truncated, multiple, wrong, text-only and non-JSON tool output
+  ---
+  duration_ms: 1.266333
+  type: 'test'
+  ...
+# Subtest: invalid response retries once without including rejected output
+ok 12 - invalid response retries once without including rejected output
+  ---
+  duration_ms: 2.831042
+  type: 'test'
+  ...
+# Subtest: two invalid HTTP JSON bodies use the model-search fallback
+ok 13 - two invalid HTTP JSON bodies use the model-search fallback
+  ---
+  duration_ms: 2.711084
+  type: 'test'
+  ...
+# Subtest: authentication, rate limits, upstream failure and redirects never auto-retry
+ok 14 - authentication, rate limits, upstream failure and redirects never auto-retry
+  ---
+  duration_ms: 11.319541
+  type: 'test'
+  ...
+# Subtest: timeouts are sanitized and monitoring failures cannot cause retries
+ok 15 - timeouts are sanitized and monitoring failures cannot cause retries
+  ---
+  duration_ms: 1.9535
+  type: 'test'
+  ...
+# Subtest: insecure or credential-bearing URLs are rejected without revealing secrets
+ok 16 - insecure or credential-bearing URLs are rejected without revealing secrets
+  ---
+  duration_ms: 1.366666
+  type: 'test'
+  ...
+# Subtest: bad request data does not call the gateway
+ok 17 - bad request data does not call the gateway
+  ---
+  duration_ms: 1.476167
+  type: 'test'
+  ...
+# Subtest: brand and capacity hints support liter labels without claiming an exact model
+ok 18 - brand and capacity hints support liter labels without claiming an exact model
+  ---
+  duration_ms: 2.624459
+  type: 'test'
+  ...
+# Subtest: conflicting or uncertain readings cannot silently select a photo hint
+ok 19 - conflicting or uncertain readings cannot silently select a photo hint
+  ---
+  duration_ms: 0.240375
+  type: 'test'
+  ...
+# Subtest: model comparison normalizes fullwidth characters while preserving OCR source
+ok 20 - model comparison normalizes fullwidth characters while preserving OCR source
+  ---
+  duration_ms: 1.209959
+  type: 'test'
+  ...
+# Subtest: label preprocessing retains more detail without retaining EXIF or exceeding payload limits
+ok 21 - label preprocessing retains more detail without retaining EXIF or exceeding payload limits
+  ---
+  duration_ms: 351.540375
+  type: 'test'
+  ...
+# Subtest: purchase signals expire separately from compatibility and preserve historical stock
+ok 22 - purchase signals expire separately from compatibility and preserve historical stock
+  ---
+  duration_ms: 0.294209
+  type: 'test'
+  ...
+# Subtest: Converse links image IDs/roles to bytes and forces the tool
+ok 23 - Converse links image IDs/roles to bytes and forces the tool
+  ---
+  duration_ms: 4.8825
+  type: 'test'
+  ...
+# Subtest: strict schema rejects extra fields, invalid enums and oversized arrays/text
+ok 24 - strict schema rejects extra fields, invalid enums and oversized arrays/text
+  ---
+  duration_ms: 3.722166
+  type: 'test'
+  ...
+# Subtest: filters invalid category keys and every foreign image reference without mutating OCR
+ok 25 - filters invalid category keys and every foreign image reference without mutating OCR
+  ---
+  duration_ms: 0.67675
+  type: 'test'
+  ...
+# Subtest: uncertain OCR compares all combinations and preserves source text
+ok 26 - uncertain OCR compares all combinations and preserves source text
+  ---
+  duration_ms: 1.441708
+  type: 'test'
+  ...
+# Subtest: clear OCR normalizes case/spacing/hyphens without ambiguous substitutions
+ok 27 - clear OCR normalizes case/spacing/hyphens without ambiguous substitutions
+  ---
+  duration_ms: 1.572167
+  type: 'test'
+  ...
+# Subtest: uncertain matching does not grow exponentially or truncate valid aliases
+ok 28 - uncertain matching does not grow exponentially or truncate valid aliases
+  ---
+  duration_ms: 0.378
+  type: 'test'
+  ...
+# Subtest: other text and empty normalized labels cannot identify products
+ok 29 - other text and empty normalized labels cannot identify products
+  ---
+  duration_ms: 2.686166
+  type: 'test'
+  ...
+# Subtest: multiple variants require objective choices and never select automatically
+ok 30 - multiple variants require objective choices and never select automatically
+  ---
+  duration_ms: 4.97075
+  type: 'test'
+  ...
+# Subtest: normalization collisions across variants remain ambiguous even for clear text
+ok 31 - normalization collisions across variants remain ambiguous even for clear text
+  ---
+  duration_ms: 16.596166
+  type: 'test'
+  ...
+# Subtest: one catalog variant with several matching aliases stays a candidate only
+ok 32 - one catalog variant with several matching aliases stays a candidate only
+  ---
+  duration_ms: 2.921083
+  type: 'test'
+  ...
+# Subtest: invalid Zod output retries once with a fresh request then succeeds
+ok 33 - invalid Zod output retries once with a fresh request then succeeds
+  ---
+  duration_ms: 6.402084
+  type: 'test'
+  ...
+# Subtest: two invalid outputs return model search fallback
+ok 34 - two invalid outputs return model search fallback
+  ---
+  duration_ms: 0.599834
+  type: 'test'
+  ...
+# Subtest: missing, wrong or multiple tool calls, and truncated output are rejected
+ok 35 - missing, wrong or multiple tool calls, and truncated output are rejected
+  ---
+  duration_ms: 2.183375
+  type: 'test'
+  ...
+# Subtest: foreign image OCR cannot produce a catalog candidate
+ok 36 - foreign image OCR cannot produce a catalog candidate
+  ---
+  duration_ms: 5.803459
+  type: 'test'
+  ...
+# Subtest: provider errors fall back without exposing errors or repeatedly billing
+ok 37 - provider errors fall back without exposing errors or repeatedly billing
+  ---
+  duration_ms: 0.917209
+  type: 'test'
+  ...
+# Subtest: invalid local input never calls Bedrock
+ok 38 - invalid local input never calls Bedrock
+  ---
+  duration_ms: 2.126584
+  type: 'test'
+  ...
+# Subtest: curated catalog has referential integrity and separate stock and compatibility
+ok 39 - curated catalog has referential integrity and separate stock and compatibility
+  ---
+  duration_ms: 24.538
+  type: 'test'
+  ...
+# Subtest: aftermarket evidence retains its author and conditions, legacy is excluded
+ok 40 - aftermarket evidence retains its author and conditions, legacy is excluded
+  ---
+  duration_ms: 0.974916
+  type: 'test'
+  ...
+# Subtest: a conflicting claim cannot be outvoted by positive reports, stock never affects review
+ok 41 - a conflicting claim cannot be outvoted by positive reports, stock never affects review
+  ---
+  duration_ms: 1.033958
+  type: 'test'
+  ...
+# Subtest: stale or link-only source does not imply current confirmed applicability
+ok 42 - stale or link-only source does not imply current confirmed applicability
+  ---
+  duration_ms: 0.157417
+  type: 'test'
+  ...
+# Subtest: unknown model and category retain usable, honestly labelled search paths
+ok 43 - unknown model and category retain usable, honestly labelled search paths
+  ---
+  duration_ms: 0.536709
+  type: 'test'
+  ...
+# Subtest: changing user measurements cannot turn generic or missing evidence into compatibility
+ok 44 - changing user measurements cannot turn generic or missing evidence into compatibility
+  ---
+  duration_ms: 0.445625
+  type: 'test'
+  ...
+# Subtest: catalog rejects dangling references, duplicate IDs and unsupported discontinuation
+ok 45 - catalog rejects dangling references, duplicate IDs and unsupported discontinuation
+  ---
+  duration_ms: 52.120667
+  type: 'test'
+  ...
+# (node:38442) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: server flow: model search → explicit variant → evidence, answers and private feedback
+ok 46 - server flow: model search → explicit variant → evidence, answers and private feedback
+  ---
+  duration_ms: 149.496208
+  type: 'test'
+  ...
+# Subtest: session ownership, CSRF and unknown session cannot expose or mutate records
+ok 47 - session ownership, CSRF and unknown session cannot expose or mutate records
+  ---
+  duration_ms: 36.336458
+  type: 'test'
+  ...
+# Subtest: real multipart decodes, strips metadata and retains image roles; output has no photos
+ok 48 - real multipart decodes, strips metadata and retains image roles; output has no photos
+  ---
+  duration_ms: 28.992
+  type: 'test'
+  ...
+# Subtest: invalid images never invoke AI, large pixel images and wrong format are rejected
+ok 49 - invalid images never invoke AI, large pixel images and wrong format are rejected
+  ---
+  duration_ms: 73.447041
+  type: 'test'
+  ...
+# Subtest: daily AI limit is global across fresh sessions; model search remains available
+ok 50 - daily AI limit is global across fresh sessions; model search remains available
+  ---
+  duration_ms: 21.883125
+  type: 'test'
+  ...
+# Subtest: deleting in-flight work cannot resurrect a private record
+ok 51 - deleting in-flight work cannot resurrect a private record
+  ---
+  duration_ms: 67.24325
+  type: 'test'
+  ...
+# Subtest: durable restart restores queued work but never repeats an interrupted billable call
+ok 52 - durable restart restores queued work but never repeats an interrupted billable call
+  ---
+  duration_ms: 31.002834
+  type: 'test'
+  ...
+# Subtest: idempotent create reuses results, rejects changed input and never resurrects deleted requests
+ok 53 - idempotent create reuses results, rejects changed input and never resurrects deleted requests
+  ---
+  duration_ms: 22.900833
+  type: 'test'
+  ...
+# Subtest: stale browser mutations are rejected and repeated feedback stays one private report
+ok 54 - stale browser mutations are rejected and repeated feedback stays one private report
+  ---
+  duration_ms: 15.839208
+  type: 'test'
+  ...
+# Subtest: expanded catalog API filters domestic parts and routes exact Thermos model to a genuine offer
+ok 55 - expanded catalog API filters domestic parts and routes exact Thermos model to a genuine offer
+  ---
+  duration_ms: 71.110709
+  type: 'test'
+  ...
+# Subtest: photo brand-capacity hints remain separate from identification through the HTTP flow
+ok 56 - photo brand-capacity hints remain separate from identification through the HTTP flow
+  ---
+  duration_ms: 24.118375
+  type: 'test'
+  ...
+1..56
+# tests 56
+# suites 0
+# pass 56
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1615.067416
