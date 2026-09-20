@@ -184,6 +184,74 @@ test("a shop in the results is a place to buy, not a page to read", async () => 
   assert.ok(part.purchases.length >= 7);
 });
 
+test("the part's words scattered through a title are a different product", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(
+          results(
+            // A caliper that ships with pads: every word of the part is here,
+            // but it is not what is being sold.
+            [
+              "https://www.coupang.com/vp/products/1",
+              "디스크캘리퍼 시마노 BR MT200 유압 디스크 브레이크 캘리퍼스 B0S 수지 패드 자전거",
+            ],
+          ),
+        )
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb(
+    "시마노 BR-MT200",
+    "브레이크 패드",
+    async () => "",
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  assert.ok(!part.purchases.some((b) => b.url.includes("/vp/products/1")));
+  assert.ok(
+    part.purchases
+      .find((b) => b.seller === "쿠팡")
+      ?.url.includes("coupang.com/np/search"),
+  );
+});
+
+test("a label that offers alternatives is matched by any one of them", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(
+          results([
+            "https://www.coupang.com/vp/products/1",
+            "물걸레 청소기 전용 청소패드 6개입",
+          ]),
+        )
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  // The taxonomy writes this category as "교체 걸레·청소패드".
+  const part = await lookupPartOnWeb(
+    "물걸레 청소기",
+    "교체 걸레·청소패드",
+    async () => "",
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  assert.ok(part.purchases.some((b) => b.url.includes("/vp/products/1")));
+});
+
+test("a label that only says 부품 judges no listing", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(
+          results([
+            "https://www.coupang.com/vp/products/1",
+            "어떤 제품의 이름 모를 조각",
+          ]),
+        )
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  // app.ts sends this when the category is "other"; it says nothing to match on.
+  const part = await lookupPartOnWeb("제품", "교체 부품", async () => "", {
+    fetchImpl: fake,
+  });
+  assert.ok(part);
+  assert.ok(part.purchases.some((b) => b.url.includes("/vp/products/1")));
+});
+
 test("a listing for a different part gives its slot to the shop's search", async () => {
   const fake = (async (url: string | URL) =>
     String(url).includes("search.naver.com")

@@ -205,22 +205,41 @@ const sellerOf = (url: string) => {
 };
 
 /**
+/** Spacing and punctuation vary listing to listing; the letters do not. */
+const flatten = (text: string) =>
+  text.toLowerCase().replace(/[^0-9a-z가-힣]/gu, "");
+
+/** A label that says nothing about a listing: everything sold here is a 부품. */
+const genericLabel = /^(교체)?부품$/u;
+
+/**
+ * The part label as the phrases a listing could name it by. A label may offer
+ * alternatives — "브러시·청소툴", "면도망·면도날" — and any one of them is the
+ * part.
+ */
+const partPhrases = (partLabel: string) =>
+  partLabel
+    .split(/[·/,]/u)
+    .map(flatten)
+    .filter((phrase) => phrase.length >= 2 && !genericLabel.test(phrase));
+
+/**
  * Whether a marketplace listing is the part we were asked for, judged by its
  * own title. Searching "시마노 BR-MT200 브레이크 패드" returns the brake itself
  * as often as its pads, and offering a caliper under "쿠팡" as the place to buy
  * a pad is worse than offering nothing: the built search link below lands on
- * the right list anyway. Spacing is ignored because listings write 브레이크패드
- * as often as 브레이크 패드.
+ * the right list anyway.
+ *
+ * The part has to be named as a phrase. Its words scattered through a title
+ * are a different thing being sold: "유압 디스크 브레이크 캘리퍼스 B0S 수지
+ * 패드" is a caliper that ships with pads, not the pads. Spacing does not
+ * count, because listings write 브레이크패드 as often as 브레이크 패드.
  */
 const listingIsThePart = (title: string, partLabel: string) => {
-  const tokens = partLabel
-    .toLowerCase()
-    .split(/\s+/u)
-    .map((token) => token.replace(/[^0-9a-z가-힣]/gu, ""))
-    .filter((token) => token.length >= 2);
-  if (!tokens.length) return true;
-  const flat = title.toLowerCase().replace(/\s+/gu, "");
-  return tokens.every((token) => flat.includes(token));
+  const phrases = partPhrases(partLabel);
+  if (!phrases.length) return true;
+  const flat = flatten(title);
+  return phrases.some((phrase) => flat.includes(phrase));
 };
 
 /** Reads one page, capped: a search result may be any size at all. */
