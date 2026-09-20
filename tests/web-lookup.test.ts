@@ -11,12 +11,19 @@ import {
 // address guard only resolves a name when the host is not already an IP.
 const PAGE = "https://93.184.216.34/part";
 const PAGE_2 = "https://93.184.216.35/shop";
-/** A results page as the search engine returns it: plain outbound links. */
-const results = (...urls: string[]) =>
+/**
+ * A results page as the search engine returns it: plain outbound links. A
+ * listing's own title decides whether it is offered as a place to buy, so an
+ * entry may carry one; the rest get a placeholder.
+ */
+const results = (...urls: (string | [string, string])[]) =>
   urls
-    .map(
-      (u, i) => `<a href="${u}" target="_blank"><span>결과 ${i + 1}</span></a>`,
-    )
+    .map((entry, i) => {
+      const [u, title] = Array.isArray(entry)
+        ? entry
+        : [entry, `결과 ${i + 1}`];
+      return `<a href="${u}" target="_blank"><span>${title}</span></a>`;
+    })
     .join("");
 
 const reply = (body: string, type = "text/html") =>
@@ -59,7 +66,9 @@ test("a search that fails yields no results rather than throwing", async () => {
 test("shop links are built, not searched for, so they always exist", () => {
   const links = shopSearchLinks("ACFS-X12M 필터");
   assert.ok(links.length >= 6);
-  assert.ok(links.every((l) => l.url.includes(encodeURIComponent("ACFS-X12M"))));
+  assert.ok(
+    links.every((l) => l.url.includes(encodeURIComponent("ACFS-X12M"))),
+  );
   assert.equal(new Set(links.map((l) => l.seller)).size, links.length);
   assert.ok(links.some((l) => l.seller === "다나와"));
   assert.ok(links.some((l) => l.seller === "쿠팡"));
@@ -138,8 +147,14 @@ test("a shop in the results is a place to buy, not a page to read", async () => 
     if (target.includes("search.naver.com"))
       return reply(
         results(
-          "https://www.coupang.com/vp/products/1",
-          "https://search.danawa.com/dsearch.php?query=x",
+          [
+            "https://www.coupang.com/vp/products/1",
+            "쿠쿠 공기청정기 교체 필터",
+          ],
+          [
+            "https://search.danawa.com/dsearch.php?query=x",
+            "쿠쿠 공기청정기 필터 최저가",
+          ],
           PAGE,
         ),
       );
@@ -167,6 +182,60 @@ test("a shop in the results is a place to buy, not a page to read", async () => 
     part.purchases.length,
   );
   assert.ok(part.purchases.length >= 7);
+});
+
+test("a listing for a different part gives its slot to the shop's search", async () => {
+  const fake = (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(
+          results(
+            // The whole brake, not its pads: searching for a part returns the
+            // product it belongs to just as often.
+            [
+              "https://www.coupang.com/vp/products/1",
+              "시마노 알투스 유압식 디스크 브레이크 BR-MT200",
+            ],
+            // The pads, written without the space listings often drop.
+            [
+              "https://www.11st.co.kr/products/2",
+              "시마노 B01S 레진 브레이크패드",
+            ],
+            // A second listing from a shop already offered.
+            [
+              "https://www.11st.co.kr/products/3",
+              "시마노 B01S 브레이크 패드 2팩",
+            ],
+          ),
+        )
+      : new Response("", { status: 403 })) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb(
+    "시마노 BR-MT200",
+    "브레이크 패드",
+    async () => "",
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  // The caliper is gone, and 쿠팡 is still offered — as a search that lands on
+  // the pads rather than on the wrong product.
+  assert.ok(!part.purchases.some((b) => b.url.includes("/vp/products/1")));
+  const coupang = part.purchases.find((b) => b.seller === "쿠팡");
+  assert.ok(coupang?.url.includes("coupang.com/np/search"));
+  // The pads are kept, spacing and all, and the shop is offered only once.
+  assert.ok(part.purchases.some((b) => b.url.includes("/products/2")));
+  assert.ok(!part.purchases.some((b) => b.url.includes("/products/3")));
+  assert.equal(
+    new Set(part.purchases.map((b) => b.seller)).size,
+    part.purchases.length,
+  );
+});
+
+test("a link's name drops the reader-only suffix the engine adds", async () => {
+  const fake = (async () =>
+    reply(
+      `<a href="https://www.coupang.com/vp/products/9"><span>시마노 브레이크 패드 B01S 새 창 열림</span></a>`,
+    )) as unknown as typeof fetch;
+  const [found] = await searchWeb("시마노 브레이크 패드", 1, fake);
+  assert.equal(found?.title, "시마노 브레이크 패드 B01S");
 });
 
 test("nothing readable still ends with somewhere to buy it", async () => {

@@ -127,7 +127,11 @@ export async function searchWeb(
     }
     if (internal.test(host)) continue;
     if (results.some((r) => r.url === url)) continue;
-    const title = strip(match[2] ?? "").slice(0, 80);
+    // Naver appends "새 창 열림" to every outbound link for screen readers;
+    // it is not part of the listing's name and was being shown as one.
+    const title = strip(match[2] ?? "")
+      .replace(/\s*새\s*창\s*열림\s*$/u, "")
+      .slice(0, 80);
     results.push({ title: title || host, url, snippet: "" });
     if (results.length >= limit) break;
   }
@@ -148,10 +152,10 @@ export function shopSearchLinks(query: string): WebShop[] {
     ["네이버쇼핑", `https://search.shopping.naver.com/search/all?query=${q}`],
     ["다나와", `https://search.danawa.com/dsearch.php?query=${q}`],
     ["쿠팡", `https://www.coupang.com/np/search?q=${q}`],
-    ["11번가", `https://search.11st.co.kr/Search.tmall?kwd=${q}`],
-    ["G마켓", `https://browse.gmarket.co.kr/search?keyword=${q}`],
+    ["11번가", `https://search.11st.co.kr/pc/total-search?kwd=${q}`],
+    ["G마켓", `https://www.gmarket.co.kr/n/search?keyword=${q}`],
     ["옥션", `https://browse.auction.co.kr/search?keyword=${q}`],
-    ["에누리", `https://www.enuri.com/search.jsp?keyword=${q}`],
+    ["에누리", `https://price.enuri.com/search?keyword=${q}`],
   ].map(([seller, url]) => ({
     seller: seller!,
     title: `${query.trim()} 검색 결과`,
@@ -178,6 +182,7 @@ const sellerNames: [RegExp, string][] = [
   [/aliexpress\./iu, "알리익스프레스"],
   [/amazon\./iu, "아마존"],
   [/ebay\./iu, "이베이"],
+  [/shoppinghow\.kakao\./iu, "카카오쇼핑하우"],
 ];
 
 /** True for the marketplaces above: their listings are shops, not sources. */
@@ -197,6 +202,25 @@ const sellerOf = (url: string) => {
     return "";
   }
   return sellerNames.find(([pattern]) => pattern.test(host))?.[1] ?? host;
+};
+
+/**
+ * Whether a marketplace listing is the part we were asked for, judged by its
+ * own title. Searching "시마노 BR-MT200 브레이크 패드" returns the brake itself
+ * as often as its pads, and offering a caliper under "쿠팡" as the place to buy
+ * a pad is worse than offering nothing: the built search link below lands on
+ * the right list anyway. Spacing is ignored because listings write 브레이크패드
+ * as often as 브레이크 패드.
+ */
+const listingIsThePart = (title: string, partLabel: string) => {
+  const tokens = partLabel
+    .toLowerCase()
+    .split(/\s+/u)
+    .map((token) => token.replace(/[^0-9a-z가-힣]/gu, ""))
+    .filter((token) => token.length >= 2);
+  if (!tokens.length) return true;
+  const flat = title.toLowerCase().replace(/\s+/gu, "");
+  return tokens.every((token) => flat.includes(token));
 };
 
 /** Reads one page, capped: a search result may be any size at all. */
@@ -262,14 +286,22 @@ export async function lookupPartOnWeb(
   const readable: WebSource[] = [];
   for (const result of found) {
     const seller = sellerOf(result.url);
-    if (seller && knownSeller(result.url))
-      shops.push({
-        seller,
-        title: result.title.slice(0, 80),
-        url: result.url,
-        snippet: result.snippet ?? "",
-      });
-    else readable.push(result);
+    if (!seller || !knownSeller(result.url)) {
+      readable.push(result);
+      continue;
+    }
+    // A listing for the wrong part is dropped rather than kept: leaving the
+    // seller out here lets its built search link take the slot instead.
+    if (!listingIsThePart(result.title, partLabel)) continue;
+    // One listing per shop. A second from the same shop crowds out another
+    // shop's price, which is the only reason several are offered at all.
+    if (shops.some((shop) => shop.seller === seller)) continue;
+    shops.push({
+      seller,
+      title: result.title.slice(0, 80),
+      url: result.url,
+      snippet: result.snippet ?? "",
+    });
   }
   // Every shop is offered, never one: the next one along may be half the price.
   // The built marketplace links are always there, so a lookup that reads
@@ -365,7 +397,9 @@ export async function lookupPartOnWeb(
     purchases: [
       ...cited,
       ...withShops(
-        partNumber ? `${partNumber} ${partLabel}`.trim() : `${product_} ${partLabel}`.trim(),
+        partNumber
+          ? `${partNumber} ${partLabel}`.trim()
+          : `${product_} ${partLabel}`.trim(),
       ),
     ].slice(0, 14),
   };
