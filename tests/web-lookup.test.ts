@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   searchWeb,
   fetchPageText,
+  shopSearchLinks,
   lookupPartOnWeb,
 } from "../server/web-lookup.js";
 
@@ -10,24 +11,37 @@ import {
 // address guard only resolves a name when the host is not already an IP.
 const PAGE = "https://93.184.216.34/part";
 const PAGE_2 = "https://93.184.216.35/shop";
-const ddg = (...urls: string[]) =>
+/** A results page as the search engine returns it: plain outbound links. */
+const results = (...urls: string[]) =>
   urls
     .map(
-      (u, i) =>
-        `<a class="result__a" href="//duckduckgo.com/l/?uddg=${encodeURIComponent(u)}&amp;rut=x">결과 <b>${i + 1}</b></a>`,
+      (u, i) => `<a href="${u}" target="_blank"><span>결과 ${i + 1}</span></a>`,
     )
     .join("");
 
 const reply = (body: string, type = "text/html") =>
   new Response(body, { status: 200, headers: { "content-type": type } });
+const searchOnly = (html: string, page = `<p>${"내용 ".repeat(200)}</p>`) =>
+  (async (url: string | URL) =>
+    String(url).includes("search.naver.com")
+      ? reply(html)
+      : reply(page)) as unknown as typeof fetch;
 
-test("search results come back with the redirect unwrapped", async () => {
+test("results are the outbound links, and the site's own links are not", async () => {
   const fake = (async (url: string | URL) => {
-    assert.match(String(url), /html\.duckduckgo\.com/u);
-    return reply(ddg(PAGE, PAGE_2, PAGE));
+    assert.match(String(url), /search\.naver\.com/u);
+    return reply(
+      results(
+        PAGE,
+        "https://www.naver.com/help",
+        "https://youtube.com/watch?v=1",
+        PAGE_2,
+        PAGE,
+      ),
+    );
   }) as unknown as typeof fetch;
   const found = await searchWeb("쿠쿠 공기청정기 필터", 5, fake);
-  // The same address twice is one result, and the wrapper is gone.
+  // The engine's own pages, video links and the repeat are all gone.
   assert.deepEqual(
     found.map((f) => f.url),
     [PAGE, PAGE_2],
@@ -40,6 +54,16 @@ test("a search that fails yields no results rather than throwing", async () => {
     throw new Error("network");
   }) as unknown as typeof fetch;
   assert.deepEqual(await searchWeb("x", 3, fake), []);
+});
+
+test("shop links are built, not searched for, so they always exist", () => {
+  const links = shopSearchLinks("ACFS-X12M 필터");
+  assert.ok(links.length >= 6);
+  assert.ok(links.every((l) => l.url.includes(encodeURIComponent("ACFS-X12M"))));
+  assert.equal(new Set(links.map((l) => l.seller)).size, links.length);
+  assert.ok(links.some((l) => l.seller === "다나와"));
+  assert.ok(links.some((l) => l.seller === "쿠팡"));
+  assert.deepEqual(shopSearchLinks("  "), []);
 });
 
 test("pages on private addresses are never fetched", async () => {
@@ -71,12 +95,10 @@ test("page text is stripped of markup and capped", async () => {
 });
 
 test("the part is read out of the fetched pages and keeps its sources", async () => {
-  const fake = (async (url: string | URL) =>
-    String(url).includes("duckduckgo")
-      ? reply(ddg(PAGE, PAGE_2))
-      : reply(
-          `<p>쿠쿠 공기청정기 교체 필터 ACFS-X12M 입니다. ${"설명 ".repeat(100)}</p>`,
-        )) as unknown as typeof fetch;
+  const fake = searchOnly(
+    results(PAGE, PAGE_2),
+    `<p>쿠쿠 공기청정기 교체 필터 ACFS-X12M 입니다. ${"설명 ".repeat(100)}</p>`,
+  );
   let asked = "";
   const part = await lookupPartOnWeb(
     "쿠쿠 공기청정기",
@@ -92,23 +114,65 @@ test("the part is read out of the fetched pages and keeps its sources", async ()
   assert.ok(part);
   assert.equal(part.partNumber, "ACFS-X12M");
   assert.deepEqual(part.compatibleModels, ["AC-12"]);
-  // Only the page the model cited, and only links those pages actually carried.
   assert.deepEqual(
     part.sources.map((s) => s.url),
     [PAGE],
   );
-  assert.deepEqual(
-    part.purchases.map((b) => b.url),
-    [PAGE],
+  // The page the model cited is kept; the address it invented is not.
+  assert.ok(part.purchases.some((b) => b.url === PAGE));
+  assert.ok(!part.purchases.some((b) => b.url.includes("made-up")));
+  // Once the part number is known, the shop links search for that.
+  assert.ok(
+    part.purchases.some(
+      (b) => b.seller === "다나와" && b.url.includes("ACFS-X12M"),
+    ),
   );
   assert.match(asked, /찾는 제품: 쿠쿠 공기청정기/u);
   assert.match(asked, /ACFS-X12M/u);
 });
 
-test("pages that cannot be read still hand over the links they found", async () => {
+test("a shop in the results is a place to buy, not a page to read", async () => {
+  const fetched: string[] = [];
+  const fake = (async (url: string | URL) => {
+    const target = String(url);
+    if (target.includes("search.naver.com"))
+      return reply(
+        results(
+          "https://www.coupang.com/vp/products/1",
+          "https://search.danawa.com/dsearch.php?query=x",
+          PAGE,
+        ),
+      );
+    fetched.push(target);
+    return reply(`<p>교체 필터 ACFS-X12M ${"설명 ".repeat(100)}</p>`);
+  }) as unknown as typeof fetch;
+  const part = await lookupPartOnWeb(
+    "쿠쿠 공기청정기",
+    "필터",
+    async () =>
+      '{"partName":"교체 필터","partNumber":"ACFS-X12M","compatibleModels":[],"note":"","sourceIndexes":[1],"purchases":[]}',
+    { fetchImpl: fake },
+  );
+  assert.ok(part);
+  // Marketplaces block readers, so they are listed and never fetched.
+  assert.deepEqual(fetched, [PAGE]);
+  assert.deepEqual(
+    part.sources.map((s) => s.url),
+    [PAGE],
+  );
+  // The found listings come first, and no seller is offered twice.
+  assert.equal(part.purchases[0]?.url, "https://www.coupang.com/vp/products/1");
+  assert.equal(
+    new Set(part.purchases.map((b) => b.seller)).size,
+    part.purchases.length,
+  );
+  assert.ok(part.purchases.length >= 7);
+});
+
+test("nothing readable still ends with somewhere to buy it", async () => {
   const fake = (async (url: string | URL) =>
-    String(url).includes("duckduckgo")
-      ? reply(ddg(PAGE, PAGE_2))
+    String(url).includes("search.naver.com")
+      ? reply(results(PAGE, PAGE_2))
       : new Response("", { status: 403 })) as unknown as typeof fetch;
   const part = await lookupPartOnWeb(
     "쿠쿠 공기청정기",
@@ -125,18 +189,15 @@ test("pages that cannot be read still hand over the links they found", async () 
     part.sources.map((s) => s.url),
     [PAGE, PAGE_2],
   );
+  assert.ok(part.purchases.some((b) => b.seller === "쿠팡"));
 });
 
 test("an answer that is not JSON degrades to the pages themselves", async () => {
-  const fake = (async (url: string | URL) =>
-    String(url).includes("duckduckgo")
-      ? reply(ddg(PAGE))
-      : reply(`<p>${"내용 ".repeat(200)}</p>`)) as unknown as typeof fetch;
   const part = await lookupPartOnWeb(
     "제품",
     "필터",
     async () => "죄송하지만 찾지 못했습니다",
-    { fetchImpl: fake },
+    { fetchImpl: searchOnly(results(PAGE)) },
   );
   assert.ok(part);
   assert.equal(part.partName, "");
@@ -144,13 +205,13 @@ test("an answer that is not JSON degrades to the pages themselves", async () => 
     part.sources.map((s) => s.url),
     [PAGE],
   );
+  assert.ok(part.purchases.length > 0);
 });
 
 test("nothing found at all is nothing, and an empty product never searches", async () => {
-  const empty = (async () => reply("<html></html>")) as unknown as typeof fetch;
   assert.equal(
     await lookupPartOnWeb("제품", "필터", async () => "{}", {
-      fetchImpl: empty,
+      fetchImpl: searchOnly("<html></html>"),
     }),
     null,
   );
@@ -164,59 +225,4 @@ test("nothing found at all is nothing, and an empty product never searches", asy
     null,
   );
   assert.equal(touched, false);
-});
-
-test("every shop found is offered, so prices can be compared", async () => {
-  const shops = [
-    "https://www.coupang.com/vp/products/1",
-    "https://www.gmarket.co.kr/n/search?keyword=x",
-    "https://search.danawa.com/dsearch.php?query=x",
-    "https://www.auction.co.kr/n/search?keyword=x",
-  ];
-  const fake = (async (url: string | URL) =>
-    String(url).includes("duckduckgo")
-      ? reply(
-          ddg(...shops, PAGE).replace(
-            "결과 5",
-            '결과 5</a><a class="result__snippet">39,000원 무료배송</a><a class="x"',
-          ),
-        )
-      : reply(`<p>교체 필터 ACFS-X12M ${"설명 ".repeat(100)}</p>`)) as unknown as typeof fetch;
-  const part = await lookupPartOnWeb(
-    "쿠쿠 공기청정기",
-    "필터",
-    async () =>
-      '{"partName":"교체 필터","partNumber":"ACFS-X12M","compatibleModels":[],"note":"","sourceIndexes":[1],"purchases":[]}',
-    { fetchImpl: fake },
-  );
-  assert.ok(part);
-  // Four marketplaces, not one, and each is named for the user.
-  assert.equal(part.purchases.length, 4);
-  assert.deepEqual(
-    part.purchases.map((b) => b.seller),
-    ["쿠팡", "G마켓", "다나와", "옥션"],
-  );
-  // Marketplaces block readers, so they are listed and never fetched; the one
-  // readable page is what the part details came from.
-  assert.deepEqual(
-    part.sources.map((s) => s.url),
-    [PAGE],
-  );
-  assert.equal(part.partNumber, "ACFS-X12M");
-});
-
-test("shops are still offered when no page can be read", async () => {
-  const fake = (async (url: string | URL) =>
-    String(url).includes("duckduckgo")
-      ? reply(ddg("https://www.coupang.com/vp/products/1", "https://11st.co.kr/p/2"))
-      : new Response("", { status: 403 })) as unknown as typeof fetch;
-  const part = await lookupPartOnWeb("제품", "필터", async () => "{}", {
-    fetchImpl: fake,
-  });
-  assert.ok(part);
-  assert.equal(part.partName, "");
-  assert.deepEqual(
-    part.purchases.map((b) => b.seller),
-    ["쿠팡", "11번가"],
-  );
 });

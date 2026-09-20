@@ -80,8 +80,8 @@ const strip = (html: string) =>
     .replace(/\s+/gu, " ")
     .trim();
 
-// One lookup asks three times. Fired together they are rate limited and come
-// back empty, so searches queue up and leave a gap between them.
+// Searches queue with a gap between them: a search engine that sees a burst
+// from one address answers with an empty page.
 let searchTurn: Promise<unknown> = Promise.resolve();
 const GAP_MS = 700;
 // Not unref'd: the process must stay awake for a search that is only waiting.
@@ -90,7 +90,14 @@ const wait = (ms: number) =>
     setTimeout(resolve, ms);
   });
 
-/** DuckDuckGo's HTML endpoint needs no key, which is all that is available. */
+// Naver, not DuckDuckGo. DuckDuckGo answers a datacenter address with an empty
+// page — verified from the deployed host — so it never worked in production,
+// and these are Korean household products besides.
+const NAVER = "https://search.naver.com/search.naver?query=";
+const internal =
+  /(^|\.)(naver\.(com|net)|pstatic\.net|navercorp\.com|youtube\.com|youtu\.be|facebook\.com|instagram\.com|twitter\.com)$/iu;
+
+/** Search results, as a list of addresses worth reading. */
 export async function searchWeb(
   query: string,
   limit = 5,
@@ -99,46 +106,61 @@ export async function searchWeb(
   const mine = searchTurn.then(() => wait(GAP_MS));
   searchTurn = mine;
   await mine;
-  const once = async () =>
-    fetchImpl(
-      `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}`,
-      { headers: { "user-agent": UA }, signal: AbortSignal.timeout(12_000) },
-    ).catch(() => null);
-  let response = await once();
-  let html = response?.ok ? await response.text() : "";
-  // An empty page is what being throttled looks like: back off and ask again.
-  if (!html.includes("result__a")) {
-    await wait(1500);
-    response = await once();
-    html = response?.ok ? await response.text() : "";
-  }
-  if (!html) return [];
+  const response = await fetchImpl(NAVER + encodeURIComponent(query), {
+    headers: { "user-agent": UA, "accept-language": "ko-KR,ko;q=0.9" },
+    signal: AbortSignal.timeout(12_000),
+  }).catch(() => null);
+  if (!response?.ok) return [];
+  const html = await response.text();
   const results: WebSource[] = [];
-  // Each result is a link followed, usually, by the snippet that holds a price.
-  const pattern =
-    /class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>([\s\S]{0,1200}?)(?=class="result__a"|$)/giu;
-  for (const match of html.matchAll(pattern)) {
-    const href = decode(match[1]!);
-    // Results are wrapped in a redirect that carries the real address.
-    const target = href.includes("uddg=")
-      ? decodeURIComponent(
-          new URL(`https:${href}`).searchParams.get("uddg") ?? "",
-        )
-      : href;
-    const title = strip(match[2]!);
-    if (!target || !title) continue;
-    if (results.some((r) => r.url === target)) continue;
-    const snippet = strip(
-      /class="result__snippet"[^>]*>([\s\S]*?)<\/a>/iu.exec(match[3] ?? "")?.[1] ??
-        "",
-    ).slice(0, 200);
-    results.push({ title, url: target, snippet });
+  // Naver's class names are hashed and change without notice, so results are
+  // taken as plain outbound links: the address is the part that stays stable.
+  for (const match of html.matchAll(
+    /<a\b[^>]*href="(https?:\/\/[^"]+)"[^>]*>([\s\S]{0,400}?)<\/a>/giu,
+  )) {
+    const url = decode(match[1]!);
+    let host: string;
+    try {
+      host = new URL(url).hostname.replace(/^www\./iu, "");
+    } catch {
+      continue;
+    }
+    if (internal.test(host)) continue;
+    if (results.some((r) => r.url === url)) continue;
+    const title = strip(match[2] ?? "").slice(0, 80);
+    results.push({ title: title || host, url, snippet: "" });
     if (results.length >= limit) break;
   }
   return results;
 }
 
-/** Hosts whose pages block readers but whose listings are what people buy from. */
+/**
+ * Where to buy something, built rather than searched for. Every marketplace has
+ * a search address of a known shape, so these links always exist, cost no
+ * request, and land on a list of offers with prices — which is what comparing
+ * prices needs. The shops themselves refuse readers, so asking them is not an
+ * option anyway.
+ */
+export function shopSearchLinks(query: string): WebShop[] {
+  const q = encodeURIComponent(query.trim());
+  if (!q) return [];
+  return [
+    ["네이버쇼핑", `https://search.shopping.naver.com/search/all?query=${q}`],
+    ["다나와", `https://search.danawa.com/dsearch.php?query=${q}`],
+    ["쿠팡", `https://www.coupang.com/np/search?q=${q}`],
+    ["11번가", `https://search.11st.co.kr/Search.tmall?kwd=${q}`],
+    ["G마켓", `https://browse.gmarket.co.kr/search?keyword=${q}`],
+    ["옥션", `https://browse.auction.co.kr/search?keyword=${q}`],
+    ["에누리", `https://www.enuri.com/search.jsp?keyword=${q}`],
+  ].map(([seller, url]) => ({
+    seller: seller!,
+    title: `${query.trim()} 검색 결과`,
+    url: url!,
+    snippet: "",
+  }));
+}
+
+/** Hosts that sell things: their listings are shops, not pages to read. */
 const sellerNames: [RegExp, string][] = [
   [/coupang\./iu, "쿠팡"],
   [/gmarket\.|g9\./iu, "G마켓"],
@@ -148,18 +170,16 @@ const sellerNames: [RegExp, string][] = [
   [/smartstore\.naver\.|shopping\.naver\./iu, "네이버쇼핑"],
   [/danawa\./iu, "다나와"],
   [/enuri\./iu, "에누리"],
-  [/hmall\.|hyundaihmall\./iu, "현대Hmall"],
-  [/himart\./iu, "하이마트"],
-  [/electromart\.|emart\./iu, "이마트"],
   [/interpark\./iu, "인터파크"],
   [/lotteon\./iu, "롯데온"],
+  [/himart\./iu, "하이마트"],
   [/tmon\./iu, "티몬"],
   [/wemakeprice\./iu, "위메프"],
   [/aliexpress\./iu, "알리익스프레스"],
   [/amazon\./iu, "아마존"],
   [/ebay\./iu, "이베이"],
-  [/iherb\./iu, "아이허브"],
 ];
+
 /** True for the marketplaces above: their listings are shops, not sources. */
 const knownSeller = (url: string) => {
   try {
@@ -178,37 +198,6 @@ const sellerOf = (url: string) => {
   }
   return sellerNames.find(([pattern]) => pattern.test(host))?.[1] ?? host;
 };
-
-/**
- * Everywhere the part is sold. One link is not an answer when the next shop is
- * half the price, so this returns every shopping result the search gives back,
- * with the snippet that usually carries the price. These pages are listed, not
- * fetched: marketplaces block readers, but their listings are the whole point.
- */
-export async function findShops(
-  product: string,
-  part: string,
-  limit = 10,
-  fetchImpl: typeof fetch = fetch,
-): Promise<WebShop[]> {
-  const queries = [`${product} ${part} 구매`, `${product} ${part} 최저가`];
-  const shops: WebShop[] = [];
-  for (const query of queries) {
-    for (const found of await searchWeb(query, limit, fetchImpl)) {
-      if (shops.some((shop) => shop.url === found.url)) continue;
-      const seller = sellerOf(found.url);
-      if (!seller) continue;
-      shops.push({
-        seller,
-        title: found.title.slice(0, 80),
-        url: found.url,
-        snippet: found.snippet ?? "",
-      });
-      if (shops.length >= limit) return shops;
-    }
-  }
-  return shops;
-}
 
 /** Reads one page, capped: a search result may be any size at all. */
 export async function fetchPageText(
@@ -283,7 +272,15 @@ export async function lookupPartOnWeb(
     else readable.push(result);
   }
   // Every shop is offered, never one: the next one along may be half the price.
-  const purchases = shops.slice(0, 12);
+  // The built marketplace links are always there, so a lookup that reads
+  // nothing still ends with somewhere to buy the thing.
+  const withShops = (query: string) => {
+    const built = shopSearchLinks(query).filter(
+      (link) => !shops.some((shop) => shop.seller === link.seller),
+    );
+    return [...shops, ...built].slice(0, 14);
+  };
+  const purchases = withShops(`${product_} ${partLabel}`.trim());
   const linksOnly: WebPart = {
     partName: "",
     partNumber: "",
@@ -334,6 +331,7 @@ export async function lookupPartOnWeb(
         .filter((n) => Number.isInteger(n) && n >= 1 && n <= usable.length)
     : [];
   const urls = new Set(usable.map((p) => p.source.url));
+  const partNumber = String(parsed.partNumber ?? "").slice(0, 60);
   // A page that sells the part directly belongs with the shops, not the sources.
   const cited = (Array.isArray(parsed.purchases) ? parsed.purchases : [])
     .map((x) => x as { seller?: unknown; url?: unknown })
@@ -351,7 +349,7 @@ export async function lookupPartOnWeb(
     }));
   return {
     partName,
-    partNumber: String(parsed.partNumber ?? "").slice(0, 60),
+    partNumber,
     compatibleModels: (Array.isArray(parsed.compatibleModels)
       ? parsed.compatibleModels
       : []
@@ -363,6 +361,12 @@ export async function lookupPartOnWeb(
       ? indexes.map((i) => usable[i - 1]!.source)
       : sourcesRead
     ).slice(0, 4),
-    purchases: [...cited, ...purchases].slice(0, 12),
+    // A part number searches the shops far better than a product name does.
+    purchases: [
+      ...cited,
+      ...withShops(
+        partNumber ? `${partNumber} ${partLabel}`.trim() : `${product_} ${partLabel}`.trim(),
+      ),
+    ].slice(0, 14),
   };
 }
