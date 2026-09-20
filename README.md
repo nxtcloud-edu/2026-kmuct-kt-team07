@@ -1,21 +1,128 @@
-# 딱맞는부품
+<div align="center">
 
-2026년 국민대학교 캠퍼스타운 키로톤 07팀 뽀쏭뽀쏭 프로젝트입니다.
+# 🔎 딱맞는부품
 
-사진으로 내 물건에 필요한 부품을 찾고, 정품부터 대체품까지 구할 수 있는 경로와 확인 근거를 안내하는 한국어 웹 앱입니다. 자전거·가전·가구·학용품·주방·위생·공구·원예·반려동물·육아·재봉·운동용품·물병으로 범위를 확장했습니다.
+### 사진 한 장에서 시작하는, 근거 중심 부품 탐색
 
-React + Vite 화면, Express 서버, SQLite 작업 큐·개인 기록, 제공받은 AI API 연결까지 구현했습니다. 외부 배포는 하지 않았습니다.
+고장 난 물건을 버리기 전에 필요한 부품을 찾고,<br />
+**정품·대체품·구매 경로·호환 근거**를 한곳에서 확인하는 한국어 웹 앱입니다.
 
-## 바로 실행
+<br />
 
-Node 22.17.1 이상을 사용합니다. 로컬 `.env`의 기존 값을 유지합니다.
+[![React](https://img.shields.io/badge/React-19.3-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-7.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![Express](https://img.shields.io/badge/Express-5.2-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.17%2B-5FA04E?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Tests](https://img.shields.io/badge/tests-72%20passed-22C55E)](#-검증)
 
-```sh
-npm ci
-npm run check
-npm start
-# 브라우저: http://localhost:3001
+<br />
+
+**2026 국민대학교 캠퍼스타운 키로톤 · 07팀 뽀쏭뽀쏭**
+
+</div>
+
+---
+
+## ✨ 서비스 소개
+
+제품명이나 부품명을 몰라도 괜찮습니다. 전체 모습, 고장 난 부위, 라벨 사진을 올리면 AI가 보이는 정보만 구조화해 읽고 등록 카탈로그와 비교합니다. 사용자는 후보와 공식 정보를 직접 대조한 뒤 모델을 선택하고, 그 모델에 맞는 부품과 구매 경로를 확인할 수 있습니다.
+
+> **핵심 원칙:** AI가 보지 못한 사실을 추측하지 않고, 재고와 호환성을 분리하며, 근거가 부족하면 모른다고 안내합니다.
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>홈 · 사진 및 모델 검색</b></td>
+    <td width="50%" align="center"><b>결과 · 근거와 해결 경로</b></td>
+  </tr>
+  <tr>
+    <td><img src="artifacts/ui-redesign/home-1440.png" alt="딱맞는부품 홈 화면" /></td>
+    <td><img src="artifacts/ui-redesign/result-1440.png" alt="딱맞는부품 결과 화면" /></td>
+  </tr>
+</table>
+
+## 🚀 주요 기능
+
+| 기능 | 설명 |
+|---|---|
+| 📷 **사진으로 찾기** | 전체·부품·라벨 사진을 최대 4장까지 분석하고 EXIF 제거, 회전, 축소를 서버에서 처리합니다. |
+| 🔤 **모델명으로 찾기** | 한글·영문 별칭, 공백, 하이픈, 전각 문자를 정규화해 등록 제품을 탐색합니다. |
+| 🧭 **등록 제품 둘러보기** | 물건 종류·브랜드·용량·부품·국내 구매 경로 기준으로 카탈로그를 필터링합니다. |
+| 🧾 **근거 중심 판정** | 적용, 제외, 상충, 미확인을 구분하고 출처·확인 날짜·조건을 함께 표시합니다. |
+| 🛒 **다양한 해결 경로** | 정품, 판매처 주장 대체품, 범용 규격, 중고 검색, 제조사 문의를 명확히 구분합니다. |
+| 💾 **개인 기록** | 최근 찾기, 확인 항목 저장, 문의 초안 복사, JSON 내보내기, 개인 장착 기록을 지원합니다. |
+| 📱 **반응형 UI** | 데스크톱부터 360px 모바일까지 사진 촬영과 결과 확인 흐름을 최적화했습니다. |
+
+## 🧩 지원 분야와 카탈로그
+
+현재 [`data/catalog.json`](data/catalog.json)에 **제품 405개, 부품 111개, 판매 항목 111개, 적용·제외 근거 487개**를 수록했습니다.
+
+| 분야 | 대표 제품 및 부품 |
+|---|---|
+| 🚲 자전거 | SHIMANO 캘리퍼 31종 · B05S-RX 패드 |
+| 🏠 가전 | Dyson 공기청정기·청소기 · 필터, 리모컨, 브러시, 호스 |
+| 🪑 가구 | IKEA BILLY 4규격 · 폭별 선반, 예비 부품 신청 |
+| ✏️ 학용품 | UNI·Tombow · 단색 리필, 교체 지우개 |
+| 🍳 주방·위생 | BRITA·Philips · 필터, 칫솔모 |
+| 🛠️ 공구·원예 | OLFA·GARDENA · 교체 날, 패킹 |
+| 🐾 반려동물 | PetSafe Drinkwell · 전용 카본 필터 |
+| 👶 육아·재봉·운동 | Bugaboo·SINGER·Forclaz · 바퀴, 보빈, 보호캡 |
+| 🥤 물병·텀블러 | 197개 모델 · 뚜껑, 패킹, 빨대 |
+
+등록되지 않은 물건은 **기타 부품** 흐름에서 필요한 부품, 장착부, 사용 조건을 기록한 뒤 검색 또는 제조사 문의로 이어갈 수 있습니다.
+
+## 🔄 이용 흐름
+
+```mermaid
+flowchart LR
+    A[사진 1~4장<br/>또는 모델명] --> B[이미지 정규화<br/>OCR·특징 관찰]
+    B --> C[카탈로그 후보 비교]
+    C --> D{사용자 확인}
+    D -->|모델 선택| E[호환 근거 판정]
+    D -->|정보 부족| F[재촬영·모델 검색]
+    E --> G[정품·대체품<br/>검색·문의 경로]
 ```
+
+1. 사진 또는 모델명으로 탐색을 시작합니다.
+2. AI는 관찰 전용 도구만 호출하며 자유 텍스트 응답은 사용하지 않습니다.
+3. OCR 원문을 보존하고 `O/0`, `I/1`, `S/5` 같은 불확실 문자를 후보별로 비교합니다.
+4. 사용자가 공식 제품 정보와 대조해 모델·규격을 직접 선택합니다.
+5. 호환 근거와 구매 가능 상태를 별도로 보여줍니다.
+
+## 🏗️ 시스템 구성
+
+```mermaid
+flowchart TB
+    UI[React + Vite 클라이언트] --> API[Express API]
+    API --> IMG[이미지 검사·정규화]
+    API --> JOB[SQLite 작업 큐·세션]
+    API --> AI[OpenAI 호환 AI Gateway]
+    AI --> OBS[Zod 관찰 계약 검증]
+    OBS --> MATCH[OCR·카탈로그 비교]
+    MATCH --> RESOLVE[적용·제외·상충 판정]
+    CATALOG[(검증된 JSON 카탈로그)] --> MATCH
+    CATALOG --> RESOLVE
+    RESOLVE --> UI
+```
+
+## ⚡ 빠른 시작
+
+### 1. 요구사항
+
+- Node.js **22.17.1 이상**
+- npm
+- OpenAI 호환 Chat Completions API
+
+### 2. 설치 및 환경 설정
+
+```bash
+git clone https://github.com/nxtcloud-edu/2026-kmuct-kt-team07.git
+cd 2026-kmuct-kt-team07
+npm ci
+cp .env.example .env
+```
+
+`.env`에 발급받은 값을 입력합니다.
 
 ```dotenv
 AI_API_BASE_URL=https://your-gateway.example/v1
@@ -23,84 +130,95 @@ AI_API_KEY=your-issued-key
 AI_MODEL=your-provided-model
 ```
 
-키는 서버에서만 읽습니다. `.env`와 `.data`는 Git·Docker 컨텍스트에서 제외됩니다. 앱은 제공 API의 OpenAI 호환 Chat Completions를 사용하고 AWS Bedrock을 직접 호출하지 않습니다.
+> API 키는 서버에서만 읽습니다. `.env`, `.data`, 빌드 결과와 의존성 폴더는 Git 및 Docker 컨텍스트에서 제외됩니다.
 
-- 화면 개발: `npm run dev` → `http://localhost:5173`
-- 배포용 빌드: `npm run build`
-- 컴파일된 서버 로컬 실행: `npm run start:production`
-- 운영 환경 설정·Docker·HTTPS: [배포 안내](docs/deployment.md)
-- Google에서 준비한 제품 사진으로 시연: [시연 가이드](docs/demo.md)
-- 구현 범위와 원래 제안의 차이: [구현 결정](docs/implementation-decisions.md)
-- 요구사항 및 범위: [제품 범위](docs/product-scope.md)
+### 3. 실행
 
-## 구현된 흐름
+```bash
+# 서버와 웹 앱 실행
+npm start
 
-1. 사진 1~4장(전체·부품·라벨) 또는 모델명으로 시작합니다. 서버에서 사진을 디코딩하고 EXIF 제거·회전·축소를 수행합니다.
-2. AI는 관찰 전용 도구 하나만 호출합니다. 자유 텍스트는 버리고 Zod 검증 실패 시 한 번 재시도합니다.
-3. OCR 원문은 보존하고 비교용으로만 대소문자·공백·하이픈을 정규화합니다. 불확실한 O/0, I/1, S/5는 모든 동등 조합과 카탈로그 별칭을 비교합니다.
-4. 모델·규격 후보를 사용자가 공식 제품 정보와 대조해 선택합니다. 하나의 후보라도 자동 호환 확정하지 않습니다.
-5. 정품·타사 대체품, 범용 규격 확인, 중고 검색, 제조사 문의 경로를 표시합니다. 근거 주체·확인 날짜·조건·적용 제외·상충을 구분하고 재고와 호환 판단을 분리합니다.
-6. 최근 찾기, 문의 초안 복사, 확인 항목 저장, JSON 내보내기, 미검증 개인 장착 기록을 지원합니다. 기록은 이 브라우저 세션에만 연결되며 최대 24시간 보관합니다.
-
-## 실제 카탈로그
-
-`data/catalog.json`에 **제품 405개, 부품 111개, 판매 항목 111개, 적용·제외 근거 487개**를 수록했습니다. 20개 제품 브랜드, 13개 분야입니다. 전체 모델뿐 아니라 제조사 적용 목록의 계열과 자전거 캘리퍼 모델도 포함하며 전 세계 제품 수를 뜻하지 않습니다.
-
-- 자전거: SHIMANO 캘리퍼 31종 → B05S-RX 패드.
-- 가전: Dyson 공기청정기 14종과 청소기 12계열 → 필터·리모컨·브러시·호스.
-- 가구: IKEA BILLY 4규격 → 폭별 선반, 예비 부품 신청.
-- 학용품: UNI 3계열·Tombow 1모델 → 단색 리필·원형 교체 지우개.
-- 주방·위생: BRITA 정수 용기 8계열, Philips 칫솔 10모델 → 필터·칫솔모.
-- 공구·원예: OLFA 커터 5모델, GARDENA 연결구 3종 → 교체 날·패킹.
-- 반려동물: PetSafe Drinkwell 7계열 → 전용 카본 필터.
-- 육아·재봉·운동: Bugaboo 유모차 2계열, SINGER 재봉틀 3모델, Forclaz MT500 등산 스틱 → 바퀴·대체 보빈·보호캡.
-- 기존 물병·텀블러 197모델의 뚜껑·패킹·빨대 경로도 유지합니다.
-
-사진 없이 **등록 제품 둘러보기**에서 물건 종류·브랜드·용량·필요한 부품의 국내 구매 경로로 필터링합니다. 첫 목록은 여러 분야를 섞어 보여줍니다. 모델 번호로 용량을 추정하지 않으며 50ml 검색이 350ml에 걸리지 않도록 용량을 정확히 비교합니다. OCR 후보의 브랜드·용량이 충돌하면 재확인을 요구합니다.
-
-자료가 없는 물건은 **기타 부품**에서 필요한 부품 이름·장착부·사용 조건을 적고 검색·문의로 이어갈 수 있습니다. 실제 상품과 검색 결과 링크를 구분합니다. 웹 전체 실시간 검색이나 모든 분야의 모든 부품 등록을 뜻하지 않습니다.
-
-국내 판매처와 해외·배송 미확인 경로를 구분합니다. 신규 경로의 실시간 재고는 `unknown`이며 제조사 적용 목록만으로 주문 가능을 표시하지 않습니다. 판매처의 대체품 적용 주장도 제조사 인증으로 바꾸지 않습니다. [분야별 근거와 검증 범위](docs/daily-life-expansion.md), [신규 링크 검사](artifacts/catalog-daily-links.json), [검수 기록](artifacts/catalog-daily-life-review.json).
-
-```sh
-npm run catalog:validate
-npm run catalog:links
-npm run catalog:import -- /absolute/path/catalog.json
+# 브라우저
+open http://localhost:3001
 ```
 
-가져오기는 스키마·중복 ID·참조 무결성을 검사한 뒤 카탈로그를 교체합니다. 적용하려면 서버를 재시작합니다. 링크 검사는 등록한 허용 도메인만 요청하며 HTTP 성공을 호환 확인이나 재고 확인으로 승격하지 않습니다. 의미 검수는 [카탈로그 관리 안내](docs/catalog.md)를 따릅니다.
+개발 모드는 다음과 같이 실행합니다.
 
-## 검증
+```bash
+npm run dev
+# http://localhost:5173
+```
 
-- `npm test`: 관찰 계약·게이트웨이·근거 판정·HTTP 서버·카탈로그 검색 테스트 72개 통과. 자동 테스트에서 유료 AI를 호출하지 않습니다.
-- `npm run build`: 서버/클라이언트 타입 검사 및 배포용 빌드 통과.
-- 실제 제공 API: 공개 물병 사진 분석 성공. 웹 화면의 대기 → 관찰 결과 → 제품 확인 흐름도 실제 연결로 확인했습니다.
-- Chrome 데스크톱과 360px/390px 모바일에서 제품 선택·근거 표시·규격 저장을 확인했습니다.
-- 런타임 의존성 `npm audit --omit=dev`: 알려진 취약점 0개(2026-09-20 검사).
-- Docker 이미지 빌드·운영 모드 로컬 기동·SQLite·Secure 쿠키·Linux 이미지 처리까지 통과했습니다. [컨테이너 검증](artifacts/container-verification.json)
+## 🧪 검증
 
-실제 공급자 연결을 별도로 재검사할 때만 `npm run smoke:ai`를 실행하세요. 사용량이 발생합니다. [최초 실제 호출 기록](artifacts/ai-smoke-2026-09-20T02-29-33-150Z.json)은 HTTP 200, 약 7초, 입력 2,791/출력 423토큰, 도구 1회와 재시도 없음을 기록했습니다. 이는 연결 확인이며 인식 정확도를 입증하는 평가셋이 아닙니다.
+```bash
+# 카탈로그 무결성 + 전체 테스트 + 타입 검사 + 프로덕션 빌드
+npm run check
+```
 
-실물 장착·누수·내열·내구성 검증은 수행하지 않았습니다. 장착 기록은 미검증 개인 기록으로 저장하고 공개 호환 근거에 자동 반영하지 않습니다.
+- ✅ 자동 테스트 **72개 통과**
+- ✅ 서버·클라이언트 타입 검사 통과
+- ✅ Vite 프로덕션 빌드 통과
+- ✅ Docker 이미지, 운영 모드, SQLite, Secure 쿠키, Linux 이미지 처리 검증
+- ✅ Chrome 데스크톱 및 360px·390px 모바일 흐름 확인
+- ✅ 런타임 의존성 취약점 0개 확인 *(2026-09-20)*
 
-## 구조
+자동 테스트는 유료 AI를 호출하지 않습니다. 실제 공급자 연결 검사는 사용량이 발생하므로 필요할 때만 `npm run smoke:ai`를 실행하세요.
 
-| 경로 | 역할 |
+## 📁 프로젝트 구조
+
+```text
+.
+├── client/              # React UI와 반응형 스타일
+├── server/              # HTTP API, 이미지 처리, 작업 큐, 판정 로직
+├── shared/              # 도메인 계약, 검색, 제품 식별 규칙
+├── src/                 # AI 게이트웨이, 관찰 검증, OCR 비교
+├── data/catalog.json    # 출처를 확인한 제품·부품 카탈로그
+├── tests/               # 단위·통합·보안·검색 테스트
+├── docs/                # 제품 범위, 운영, 검증 문서
+└── artifacts/           # 링크 검사, 화면·컨테이너 검증 결과
+```
+
+## 🛡️ 신뢰성과 안전 원칙
+
+- 하나의 후보만 남아도 자동으로 호환을 확정하지 않습니다.
+- 제조사 근거와 판매처의 적용 주장을 같은 수준으로 취급하지 않습니다.
+- 재고 상태가 호환성 판단을 바꾸지 않도록 분리합니다.
+- 링크가 열리는 것만으로 호환이나 재고가 확인됐다고 판단하지 않습니다.
+- 실물 장착·누수·내열·내구성은 별도의 실제 검증이 필요합니다.
+- 개인 장착 기록은 공개 호환 근거에 자동 반영하지 않습니다.
+
+## 📚 문서
+
+| 문서 | 내용 |
 |---|---|
-| `client/` | 사진·모델명 찾기, 제품 확인, 근거·해결 경로, 최근 기록 UI |
-| `server/app.ts` | HTTP API, 소유권·CSRF·한도, 작업 실행 |
-| `server/store.ts` | SQLite 큐·세션·보관 기간·개인 기록 |
-| `server/images.ts` | 이미지 실제 형식·픽셀 검사 및 정규화 |
-| `server/resolver.ts` | 적용/제외/상충/미확인 판정과 검색·문의 경로 |
-| `shared/domain.ts` | 제품·부품·판매·근거 계약과 부품별 확인 항목 |
-| `src/gateway.ts` | 제공 AI API의 이미지 입력·도구 호출 어댑터 |
-| `src/analysis.ts`, `observation.ts`, `catalog.ts`, `prompt.ts` | 관찰 검증·OCR 비교·관찰 전용 프롬프트 |
-| `data/catalog.json` | 출처를 확인한 초기 카탈로그 |
-| `tests/` | 관찰·서버·근거 판정 테스트와 공개 예제 사진 |
+| [제품 범위](docs/product-scope.md) | 요구사항과 지원 범위 |
+| [구현 결정](docs/implementation-decisions.md) | 제안과 실제 구현의 차이 |
+| [분야 확장](docs/daily-life-expansion.md) | 분야별 근거와 검증 범위 |
+| [카탈로그 관리](docs/catalog.md) | 데이터 추가·검수 원칙 |
+| [시연 가이드](docs/demo.md) | 공개 예제 사진을 이용한 시연 |
+| [배포 안내](docs/deployment.md) | Docker, HTTPS, 운영 환경 설정 |
+| [UI 개선](docs/ui-redesign.md) | 반응형 화면 설계와 검증 |
 
-[사진 출처·라이선스](tests/fixtures/ATTRIBUTION.md). 사용하지 않는 기존 Bedrock 어댑터는 `src/bedrock.ts`와 [이전 연결 기록](docs/bedrock-legacy.md)에 보존했습니다.
+## 🧰 주요 명령어
 
+| 명령어 | 설명 |
+|---|---|
+| `npm run dev` | 개발 서버 실행 |
+| `npm start` | 로컬 앱 실행 |
+| `npm run check` | 카탈로그·테스트·빌드 전체 검증 |
+| `npm test` | 자동 테스트 실행 |
+| `npm run build` | 타입 검사 및 프로덕션 빌드 |
+| `npm run catalog:validate` | 카탈로그 스키마·참조 무결성 검사 |
+| `npm run catalog:links` | 허용 도메인의 등록 링크 검사 |
+| `npm run start:production` | 컴파일된 서버 실행 |
 
-## 사진·구매·모바일 개선
+---
 
-라벨 해상도 보존, 브랜드·용량 참고 후보, 재촬영 안내, 모바일 촬영/라벨 추가 버튼, 최근 국내 주문 가능 필터를 적용했습니다. 주문 상태는 24시간 후 재확인으로 전환합니다. 실제 API의 합성 라벨 2장·공개 사진 1장 검증은 통과했지만 실사용 정확도 수치로 일반화하지 않습니다. [변경과 검증 범위](docs/photo-purchase-mobile.md)
+<div align="center">
+
+**버리기 전에, 딱 맞는 부품부터.** ♻️
+
+사진 출처와 라이선스는 [`tests/fixtures/ATTRIBUTION.md`](tests/fixtures/ATTRIBUTION.md)에서 확인할 수 있습니다.
+
+</div>
